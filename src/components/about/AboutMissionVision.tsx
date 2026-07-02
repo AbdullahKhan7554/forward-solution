@@ -44,7 +44,7 @@ function FloatingImage({
           alt=""
           fill
           loading="lazy"
-          sizes="(max-width: 1280px) 210px, 240px"
+          sizes="(max-width: 767px) 100vw, (max-width: 1280px) 210px, 240px"
           className="object-cover"
         />
       </div>
@@ -127,7 +127,7 @@ export function AboutMissionVision() {
             <FloatingImage
               src={IMG_MISSION}
               speed={14}
-              className="absolute -right-8 -top-16 z-raised hidden h-[300px] w-[200px] md:block xl:h-[345px] xl:w-[230px]"
+              className="relative z-raised mb-8 h-[220px] w-full md:absolute md:-right-8 md:-top-16 md:mb-0 md:h-[300px] md:w-[200px] xl:h-[345px] xl:w-[230px]"
             />
             <GlassCard className="h-full p-8 md:p-12">
               <div className="mb-6 flex items-center gap-3">
@@ -158,7 +158,7 @@ export function AboutMissionVision() {
             <FloatingImage
               src={IMG_VISION}
               speed={10}
-              className="absolute -bottom-12 -left-8 z-raised hidden h-[260px] w-[210px] md:block xl:h-[300px] xl:w-[240px]"
+              className="relative z-raised mb-8 h-[220px] w-full md:absolute md:-bottom-12 md:-left-8 md:mb-0 md:h-[260px] md:w-[210px] xl:h-[300px] xl:w-[240px]"
             />
             <GlassCard className="h-full p-8 md:p-12">
               <div className="mb-6 flex items-center gap-3">

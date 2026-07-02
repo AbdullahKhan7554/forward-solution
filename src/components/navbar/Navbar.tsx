@@ -9,14 +9,14 @@ import { cn } from "@/lib/utils";
 import { Wordmark } from "./Wordmark";
 import { GlobalSearch } from "@/components/search/GlobalSearch";
 
-type ProductItem = {
+type DropdownItem = {
   title: string;
   desc: string;
   href: string;
   Icon: ComponentType;
 };
 
-const PRODUCT_ITEMS: ProductItem[] = [
+const PRODUCT_ITEMS: DropdownItem[] = [
   {
     title: "Product Overview",
     desc: "Explore the full range of animal health solutions",
@@ -43,14 +43,52 @@ const PRODUCT_ITEMS: ProductItem[] = [
   },
 ];
 
-type NavLink = { label: string; href: string; dropdown?: ProductItem[] };
+const RESOURCE_ITEMS: DropdownItem[] = [
+  {
+    title: "FAQ",
+    desc: "Answers to the questions we hear most",
+    href: "/faq",
+    Icon: HelpIcon,
+  },
+  {
+    title: "Privacy Policy",
+    desc: "How we handle and protect your data",
+    href: "/privacy-policy",
+    Icon: ShieldIcon,
+  },
+  {
+    title: "Terms & Conditions",
+    desc: "The terms governing use of our site",
+    href: "/terms-of-use",
+    Icon: DocIcon,
+  },
+];
+
+type NavLink = {
+  label: string;
+  href: string;
+  dropdown?: DropdownItem[];
+  /** Route prefixes that mark this link (and its dropdown) as active. */
+  activePrefixes?: string[];
+};
 
 const LINKS: NavLink[] = [
   { label: "Home", href: "/" },
   { label: "About", href: "/about" },
-  { label: "Products", href: "/products", dropdown: PRODUCT_ITEMS },
   { label: "Services", href: "/services" },
+  {
+    label: "Products",
+    href: "/products",
+    dropdown: PRODUCT_ITEMS,
+    activePrefixes: ["/products", "/ruminants", "/companion-animals"],
+  },
   { label: "Blogs", href: "/blog" },
+  {
+    label: "Resources",
+    href: "/faq",
+    dropdown: RESOURCE_ITEMS,
+    activePrefixes: ["/faq", "/privacy-policy", "/terms-of-use"],
+  },
 ];
 
 /* ── thin-line category icons (Lucide-style, self-contained) ─────────────── */
@@ -102,6 +140,32 @@ function DogIcon() {
     </IconBase>
   );
 }
+function HelpIcon() {
+  return (
+    <IconBase>
+      <circle cx="12" cy="12" r="9" />
+      <path d="M9.3 9.3a2.7 2.7 0 0 1 5.2 1c0 1.8-2.7 2.7-2.7 2.7" />
+      <path d="M12 17h.01" />
+    </IconBase>
+  );
+}
+function ShieldIcon() {
+  return (
+    <IconBase>
+      <path d="M12 3 5 6v5.5c0 4.3 2.9 7.4 7 8.5 4.1-1.1 7-4.2 7-8.5V6z" />
+      <path d="m9.2 12 2 2 3.6-3.8" />
+    </IconBase>
+  );
+}
+function DocIcon() {
+  return (
+    <IconBase>
+      <path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z" />
+      <path d="M14 3v5h5" />
+      <path d="M9 13h6M9 17h4" />
+    </IconBase>
+  );
+}
 function Chevron() {
   return (
     <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
@@ -144,17 +208,24 @@ function RollLink({ label, href, active }: { label: string; href: string; active
 }
 
 /**
- * ProductsDropdown — desktop hover/focus disclosure with the shared glass card.
- * Opens on hover or keyboard; graceful close on mouse-leave/Escape; arrow-key
- * navigation, focus trap and ARIA menu roles. GSAP handles the fade+rise and the
- * 50ms item stagger. Reduced motion collapses to an instant show/hide.
+ * NavDropdown — desktop hover/focus disclosure with the shared glass card.
+ * Opens on hover or keyboard; graceful close on mouse-leave/Escape/outside-click;
+ * arrow-key navigation, focus trap and ARIA menu roles. GSAP handles the fade+rise
+ * and the 50ms item stagger. Reduced motion collapses to an instant show/hide.
+ * Reused for both Products and Resources so there is one dropdown implementation.
  */
-function ProductsDropdown({
+function NavDropdown({
+  label,
+  items,
   reducedRef,
   active,
+  pathname,
 }: {
+  label: string;
+  items: DropdownItem[];
   reducedRef: React.MutableRefObject<boolean>;
   active?: boolean;
+  pathname: string;
 }) {
   const rootRef = useRef<HTMLDivElement>(null);
   const triggerRef = useRef<HTMLButtonElement>(null);
@@ -190,6 +261,23 @@ function ProductsDropdown({
     if (open) tl.play();
     else tl.reverse();
   }, [open, reducedRef]);
+
+  // Close when a pointer press or focus lands outside the dropdown.
+  useEffect(() => {
+    if (!open) return;
+    const onPointerDown = (e: PointerEvent) => {
+      if (!rootRef.current?.contains(e.target as Node)) setOpen(false);
+    };
+    const onFocusIn = (e: FocusEvent) => {
+      if (!rootRef.current?.contains(e.target as Node)) setOpen(false);
+    };
+    document.addEventListener("pointerdown", onPointerDown);
+    document.addEventListener("focusin", onFocusIn);
+    return () => {
+      document.removeEventListener("pointerdown", onPointerDown);
+      document.removeEventListener("focusin", onFocusIn);
+    };
+  }, [open]);
 
   const focusItem = (i: number) => {
     const items = itemRefs.current.filter(Boolean) as HTMLAnchorElement[];
@@ -251,7 +339,7 @@ function ProductsDropdown({
               : "text-neutral-700 hover:text-accent-600 group-data-[scrolled=true]/nav:text-neutral-200"
           )}
         >
-          Products
+          {label}
           <span className={cn("transition-transform duration-300 ease-brand-out", open && "rotate-180")}>
             <Chevron />
           </span>
@@ -270,7 +358,7 @@ function ProductsDropdown({
       <div
         ref={menuRef}
         role="menu"
-        aria-label="Products"
+        aria-label={label}
         onKeyDown={onMenuKeyDown}
         className={cn(
           "invisible absolute left-0 top-full z-modal w-[300px] pt-3 opacity-0",
@@ -278,34 +366,132 @@ function ProductsDropdown({
         )}
       >
         <div className="flex flex-col gap-3 rounded-2xl border border-white/70 bg-white/75 p-6 shadow-medium backdrop-blur-xl backdrop-saturate-150">
-          {PRODUCT_ITEMS.map((item, i) => (
-            <a
-              key={item.href}
-              data-menu-item
-              ref={(el) => {
-                itemRefs.current[i] = el;
-              }}
-              role="menuitem"
-              tabIndex={-1}
-              href={item.href}
-              onClick={() => setOpen(false)}
-              className="group/item relative flex items-start gap-3 rounded-xl px-3 py-2.5 outline-none transition-[transform,background-color,color] duration-150 ease-brand-out hover:translate-x-1 hover:bg-primary-50 focus-visible:translate-x-1 focus-visible:bg-primary-50 focus-visible:ring-2 focus-visible:ring-accent-500"
-            >
-              {/* left indicator line */}
-              <span className="absolute left-0 top-1/2 h-0 w-[2px] -translate-y-1/2 rounded-full bg-primary-600 transition-all duration-150 ease-brand-out group-hover/item:h-[62%] group-focus-visible/item:h-[62%]" />
-              <span className="mt-0.5 inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border border-primary-600/12 bg-primary-50/70 text-primary-700 transition-colors duration-150 ease-brand-out group-hover/item:border-accent-300/50 group-hover/item:text-accent-600">
-                <item.Icon />
-              </span>
-              <span className="min-w-0">
-                <span className="block font-sans text-body font-medium text-neutral-900 transition-colors duration-150 ease-brand-out group-hover/item:text-primary-700">
-                  {item.title}
+          {items.map((item, i) => {
+            const itemActive = pathname === item.href;
+            return (
+              <a
+                key={item.href}
+                data-menu-item
+                ref={(el) => {
+                  itemRefs.current[i] = el;
+                }}
+                role="menuitem"
+                tabIndex={-1}
+                href={item.href}
+                aria-current={itemActive ? "page" : undefined}
+                onClick={() => setOpen(false)}
+                className={cn(
+                  "group/item relative flex items-start gap-3 rounded-xl px-3 py-2.5 outline-none transition-[transform,background-color,color] duration-150 ease-brand-out hover:translate-x-1 hover:bg-primary-50 focus-visible:translate-x-1 focus-visible:bg-primary-50 focus-visible:ring-2 focus-visible:ring-accent-500",
+                  itemActive && "bg-primary-50"
+                )}
+              >
+                {/* left indicator line */}
+                <span
+                  className={cn(
+                    "absolute left-0 top-1/2 w-[2px] -translate-y-1/2 rounded-full bg-primary-600 transition-all duration-150 ease-brand-out group-hover/item:h-[62%] group-focus-visible/item:h-[62%]",
+                    itemActive ? "h-[62%]" : "h-0"
+                  )}
+                />
+                <span className="mt-0.5 inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border border-primary-600/12 bg-primary-50/70 text-primary-700 transition-colors duration-150 ease-brand-out group-hover/item:border-accent-300/50 group-hover/item:text-accent-600">
+                  <item.Icon />
                 </span>
-                <span className="mt-0.5 block font-sans text-caption leading-snug text-neutral-500">
-                  {item.desc}
+                <span className="min-w-0">
+                  <span
+                    className={cn(
+                      "block font-sans text-body font-medium transition-colors duration-150 ease-brand-out group-hover/item:text-primary-700",
+                      itemActive ? "text-primary-700" : "text-neutral-900"
+                    )}
+                  >
+                    {item.title}
+                  </span>
+                  <span className="mt-0.5 block font-sans text-caption leading-snug text-neutral-500">
+                    {item.desc}
+                  </span>
                 </span>
-              </span>
-            </a>
-          ))}
+              </a>
+            );
+          })}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+/**
+ * MobileAccordion — an expandable disclosure inside the hamburger menu, reused
+ * for Products and Resources. GSAP animates height:auto + opacity so there is no
+ * layout jump; reduced motion snaps open/closed. Touch targets are >= 48px and
+ * the active page is highlighted.
+ */
+function MobileAccordion({
+  link,
+  open,
+  onToggle,
+  onNavigate,
+  reducedRef,
+  pathname,
+}: {
+  link: NavLink;
+  open: boolean;
+  onToggle: () => void;
+  onNavigate: () => void;
+  reducedRef: React.MutableRefObject<boolean>;
+  pathname: string;
+}) {
+  const panelRef = useRef<HTMLDivElement>(null);
+  const panelId = `mobile-accordion-${link.label.toLowerCase()}`;
+
+  useIsomorphicLayoutEffect(() => {
+    const panel = panelRef.current;
+    if (!panel) return;
+    if (reducedRef.current) {
+      gsap.set(panel, { height: open ? "auto" : 0, autoAlpha: open ? 1 : 0 });
+      return;
+    }
+    gsap.to(panel, {
+      height: open ? "auto" : 0,
+      autoAlpha: open ? 1 : 0,
+      duration: 0.4,
+      ease: "power3.inOut",
+    });
+  }, [open, reducedRef]);
+
+  return (
+    <div>
+      <button
+        type="button"
+        aria-expanded={open}
+        aria-controls={panelId}
+        onClick={onToggle}
+        className="flex min-h-[48px] w-full items-center justify-between font-display text-h2 font-light text-neutral-50 transition-colors duration-200 ease-brand-out hover:text-accent-300 focus-visible:text-accent-300 focus-visible:outline-none"
+      >
+        {link.label}
+        <span className={cn("transition-transform duration-300 ease-brand-out", open && "rotate-180")}>
+          <Chevron />
+        </span>
+      </button>
+      <div id={panelId} ref={panelRef} className="h-0 overflow-hidden opacity-0">
+        <div className="flex flex-col gap-1 py-2 pl-4">
+          {link.dropdown!.map((item) => {
+            const itemActive = pathname === item.href;
+            return (
+              <a
+                key={item.href}
+                href={item.href}
+                onClick={onNavigate}
+                aria-current={itemActive ? "page" : undefined}
+                className={cn(
+                  "flex min-h-[48px] items-center gap-3 font-sans text-body-lg transition-colors duration-200 ease-brand-out hover:text-accent-300 focus-visible:text-accent-300 focus-visible:outline-none",
+                  itemActive ? "text-accent-300" : "text-neutral-300"
+                )}
+              >
+                <span className={cn(itemActive ? "text-accent-300" : "text-neutral-400")}>
+                  <item.Icon />
+                </span>
+                {item.title}
+              </a>
+            );
+          })}
         </div>
       </div>
     </div>
@@ -320,17 +506,17 @@ export function Navbar() {
   const pathname = usePathname() || "/";
   const isActive = (href: string) =>
     href === "/" ? pathname === "/" : pathname.startsWith(href);
-  const productsActive =
-    pathname.startsWith("/products") ||
-    pathname.startsWith("/ruminants") ||
-    pathname.startsWith("/companion-animals");
+  // A dropdown (Products / Resources) is active when the route matches any of
+  // its declared prefixes.
+  const isDropdownActive = (link: NavLink) =>
+    (link.activePrefixes ?? []).some((p) => pathname.startsWith(p));
   const ref = useRef<HTMLElement>(null);
   const reducedRef = useRef(false);
   const revealedRef = useRef(false);
-  const mobilePanelRef = useRef<HTMLDivElement>(null);
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
-  const [mobileProductsOpen, setMobileProductsOpen] = useState(false);
+  // Which mobile accordion is expanded (by label); null = all collapsed.
+  const [openAccordion, setOpenAccordion] = useState<string | null>(null);
 
   useIsomorphicLayoutEffect(() => {
     reducedRef.current =
@@ -360,25 +546,9 @@ export function Navbar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // Mobile Products accordion — height auto + opacity, no layout shift.
-  useIsomorphicLayoutEffect(() => {
-    const panel = mobilePanelRef.current;
-    if (!panel) return;
-    if (reducedRef.current) {
-      gsap.set(panel, { height: mobileProductsOpen ? "auto" : 0, autoAlpha: mobileProductsOpen ? 1 : 0 });
-      return;
-    }
-    gsap.to(panel, {
-      height: mobileProductsOpen ? "auto" : 0,
-      autoAlpha: mobileProductsOpen ? 1 : 0,
-      duration: 0.4,
-      ease: "power3.inOut",
-    });
-  }, [mobileProductsOpen]);
-
   const closeMobile = () => {
     setMenuOpen(false);
-    setMobileProductsOpen(false);
+    setOpenAccordion(null);
   };
 
   return (
@@ -403,7 +573,14 @@ export function Navbar() {
           <nav className="hidden items-center gap-10 lg:flex" aria-label="Primary">
             {LINKS.map((link) =>
               link.dropdown ? (
-                <ProductsDropdown key={link.label} reducedRef={reducedRef} active={productsActive} />
+                <NavDropdown
+                  key={link.label}
+                  label={link.label}
+                  items={link.dropdown}
+                  reducedRef={reducedRef}
+                  active={isDropdownActive(link)}
+                  pathname={pathname}
+                />
               ) : (
                 <span key={link.label} className="block overflow-hidden py-1">
                   <RollLink label={link.label} href={link.href} active={isActive(link.href)} />
@@ -478,42 +655,27 @@ export function Navbar() {
         <nav className="flex flex-1 flex-col justify-center gap-2 px-6" aria-label="Mobile">
           {LINKS.map((link) =>
             link.dropdown ? (
-              <div key={link.label}>
-                <button
-                  type="button"
-                  aria-expanded={mobileProductsOpen}
-                  onClick={() => setMobileProductsOpen((o) => !o)}
-                  className="flex w-full items-center justify-between font-display text-h2 font-light text-neutral-50 transition-colors duration-200 ease-brand-out hover:text-accent-300"
-                >
-                  {link.label}
-                  <span className={cn("transition-transform duration-300 ease-brand-out", mobileProductsOpen && "rotate-180")}>
-                    <Chevron />
-                  </span>
-                </button>
-                <div ref={mobilePanelRef} className="h-0 overflow-hidden opacity-0">
-                  <div className="flex flex-col gap-3 py-4 pl-4">
-                    {link.dropdown.map((item) => (
-                      <a
-                        key={item.href}
-                        href={item.href}
-                        onClick={closeMobile}
-                        className="flex items-center gap-3 font-sans text-body-lg text-neutral-300 transition-colors duration-200 ease-brand-out hover:text-accent-300"
-                      >
-                        <span className="text-neutral-400">
-                          <item.Icon />
-                        </span>
-                        {item.title}
-                      </a>
-                    ))}
-                  </div>
-                </div>
-              </div>
+              <MobileAccordion
+                key={link.label}
+                link={link}
+                open={openAccordion === link.label}
+                onToggle={() =>
+                  setOpenAccordion((cur) => (cur === link.label ? null : link.label))
+                }
+                onNavigate={closeMobile}
+                reducedRef={reducedRef}
+                pathname={pathname}
+              />
             ) : (
               <a
                 key={link.label}
                 href={link.href}
                 onClick={closeMobile}
-                className="font-display text-h2 font-light text-neutral-50 transition-colors duration-200 ease-brand-out hover:text-accent-300"
+                aria-current={isActive(link.href) ? "page" : undefined}
+                className={cn(
+                  "flex min-h-[48px] items-center font-display text-h2 font-light transition-colors duration-200 ease-brand-out hover:text-accent-300 focus-visible:text-accent-300 focus-visible:outline-none",
+                  isActive(link.href) ? "text-accent-300" : "text-neutral-50"
+                )}
               >
                 {link.label}
               </a>

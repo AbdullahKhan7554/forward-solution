@@ -66,23 +66,6 @@ export function SceneInnovation() {
               data-parallax-content
               className="relative z-raised mx-auto w-full max-w-container px-6 py-[14vh] will-change-transform md:px-12 md:py-0 xl:px-20"
             >
-              {/* floating editorial image — fills the right, sits behind the statement */}
-              <div
-                aria-hidden="true"
-                className="pointer-events-none absolute right-8 top-1/2 z-base hidden -translate-y-1/2 lg:block xl:right-20"
-              >
-                <div className="relative aspect-[2/3] w-[26vw] max-w-[380px] overflow-hidden rounded-[28px] border border-secondary-500/20 bg-white shadow-floating">
-                  <Image
-                    src="/mission.png"
-                    alt="Agriprom Pakistan mission and vision"
-                    fill
-                    loading="lazy"
-                    sizes="380px"
-                    className="object-contain"
-                  />
-                </div>
-              </div>
-
               {/* slate + eyebrow */}
               <div data-innov-eyebrow className="mb-10 flex items-center gap-4">
                 <span className="font-sans text-caption tracking-[0.2em] text-neutral-400">
@@ -152,6 +135,25 @@ export function SceneInnovation() {
                   the economy and productivity of livestock farmers, both at the farm and
                   corporate levels.
                 </p>
+              </div>
+
+              {/* floating editorial image — stacks in-flow on mobile/tablet, floats
+                  to the right on desktop. Absolute on lg keeps the desktop layout
+                  identical; block+in-flow below lg guarantees it stays visible. */}
+              <div
+                aria-hidden="true"
+                className="pointer-events-none relative z-base mx-auto mt-14 w-[62%] max-w-[260px] lg:absolute lg:right-8 lg:top-1/2 lg:mt-0 lg:w-[26vw] lg:max-w-[380px] lg:-translate-y-1/2 xl:right-20"
+              >
+                <div className="relative aspect-[2/3] w-full overflow-hidden rounded-[28px] border border-secondary-500/20 bg-white shadow-floating">
+                  <Image
+                    src="/mission.png"
+                    alt="Agriprom Pakistan mission and vision"
+                    fill
+                    loading="lazy"
+                    sizes="(min-width: 1024px) 380px, 260px"
+                    className="object-contain"
+                  />
+                </div>
               </div>
             </div>
 
