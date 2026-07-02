@@ -1,0 +1,63 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: light;
+  }
+
+  html {
+    /* Lenis owns smooth scrolling; disable native smooth to avoid conflict. */
+    scroll-behavior: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    @apply bg-base font-sans text-body text-neutral-800 antialiased;
+    /* prevent horizontal scroll at every breakpoint (Design System §16) */
+    overflow-x: hidden;
+  }
+
+  /* Lenis recommended base styles */
+  html.lenis,
+  html.lenis body {
+    height: auto;
+  }
+  .lenis.lenis-smooth {
+    scroll-behavior: auto !important;
+  }
+  .lenis.lenis-smooth [data-lenis-prevent] {
+    overscroll-behavior: contain;
+  }
+  .lenis.lenis-stopped {
+    overflow: hidden;
+  }
+
+  /* Refined, on-brand text selection */
+  ::selection {
+    background: #cbdfea;
+    color: #072a3c;
+  }
+
+  /* Accessible focus ring - never removed (Design System §15) */
+  :focus-visible {
+    outline: 2px solid #1e9e76;
+    outline-offset: 2px;
+    border-radius: 2px;
+  }
+
+  /* Honour reduced motion globally as a safety net */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.001ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
