@@ -18,7 +18,7 @@ import { GlassCard } from "@/components/scenes/SceneInnovation/GlassCard";
  * Reuses GlassCard, RevealText (one per heading), the GSAP clock and every token.
  */
 
-const IMG_MISSION = "/mission.png";
+const IMG_MISSION = "/mission.jpg";
 const IMG_VISION = "/images/heroabout/h4.png";
 
 /** Floating luxury editorial image — sized wrapper (zero CLS) + parallax + glass. */

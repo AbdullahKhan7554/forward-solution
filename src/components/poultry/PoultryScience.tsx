@@ -105,7 +105,7 @@ export function PoultryScience() {
             direction="up"
             className="aspect-[4/5] w-full rounded-lg shadow-medium ring-1 ring-white/60 md:aspect-[5/6]"
           >
-            <LabPlate src="/feed.png" alt="Scientific poultry nutrition research — Agriprom Pakistan" />
+            <LabPlate src="/feed.jpg" alt="Scientific poultry nutrition research — Agriprom Pakistan" />
           </MaskedReveal>
         </div>
 

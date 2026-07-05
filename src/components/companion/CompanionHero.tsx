@@ -96,7 +96,7 @@ export function CompanionHero() {
           <div className="relative">
             <MaskedReveal direction="up" trigger="mount" className="aspect-[4/5] w-full overflow-hidden rounded-xl shadow-floating ring-1 ring-white/60">
               <div data-ch-img className="h-full w-full will-change-transform">
-                <LabPlate src="/animal%20comapnion.png" alt="A healthy dog and cat — Agriprom Pakistan companion animal health" />
+                <LabPlate src="/animal%20comapnion.jpg" alt="A healthy dog and cat — Agriprom Pakistan companion animal health" />
               </div>
             </MaskedReveal>
             {/* glass overlay chip */}

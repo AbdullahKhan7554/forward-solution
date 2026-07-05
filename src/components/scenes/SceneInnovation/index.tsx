@@ -146,7 +146,7 @@ export function SceneInnovation() {
               >
                 <div className="relative aspect-[2/3] w-full overflow-hidden rounded-[28px] border border-secondary-500/20 bg-white shadow-floating">
                   <Image
-                    src="/mission.png"
+                    src="/mission.jpg"
                     alt="Agriprom Pakistan mission and vision"
                     fill
                     loading="lazy"

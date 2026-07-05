@@ -13,13 +13,13 @@ export type Partner = {
  * brand PNGs in /public/partners (spaces URL-encoded).
  */
 export const partners: Partner[] = [
-  { name: "Evonik", logo: "/partners/Evonik.png", description: "Animal Nutrition & Amino Acids", weight: "feature" },
-  { name: "CJ Bio", logo: "/partners/CJ%20Bio.png", description: "Bioscience & Amino Acids", weight: "standard" },
-  { name: "Perstorp", logo: "/partners/Perstorp.png", description: "Feed Additives & Organic Acids", weight: "offset" },
-  { name: "Vegamax", logo: "/partners/Vegamax.png", description: "Feed Additives", weight: "standard" },
-  { name: "Wellbe", logo: "/partners/Well%20Be.png", description: "Animal Health Solutions", weight: "feature" },
-  { name: "Better Pharma", logo: "/partners/Better%20Pharma.png", description: "Veterinary Pharmaceuticals", weight: "offset" },
-  { name: "Dechra", logo: "/partners/Dechra.png", description: "Veterinary Pharmaceuticals", weight: "standard" },
-  { name: "Elanco", logo: "/partners/Elanco.png", description: "Global Animal Health", weight: "feature" },
-  { name: "Solinko", logo: "/partners/solinkon.png", description: "Animal Nutrition", weight: "standard" },
+  { name: "Evonik", logo: "/partners/Evonik.jpg", description: "Animal Nutrition & Amino Acids", weight: "feature" },
+  { name: "CJ Bio", logo: "/partners/CJ%20Bio.jpg", description: "Bioscience & Amino Acids", weight: "standard" },
+  { name: "Perstorp", logo: "/partners/Perstorp.jpg", description: "Feed Additives & Organic Acids", weight: "offset" },
+  { name: "Vegamax", logo: "/partners/Vegamax.jpg", description: "Feed Additives", weight: "standard" },
+  { name: "Wellbe", logo: "/partners/Well%20Be.jpg", description: "Animal Health Solutions", weight: "feature" },
+  { name: "Better Pharma", logo: "/partners/Better%20Pharma.jpg", description: "Veterinary Pharmaceuticals", weight: "offset" },
+  { name: "Dechra", logo: "/partners/Dechra.jpg", description: "Veterinary Pharmaceuticals", weight: "standard" },
+  { name: "Elanco", logo: "/partners/Elanco.jpg", description: "Global Animal Health", weight: "feature" },
+  { name: "Solinko", logo: "/partners/solinkon.jpg", description: "Animal Nutrition", weight: "standard" },
 ];

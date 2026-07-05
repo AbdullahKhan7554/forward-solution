@@ -39,37 +39,37 @@ const MILESTONES: Milestone[] = [
     name: "Foundation",
     description:
       "Agriprom is founded on a single conviction — that Pakistan's livestock deserves globally-qualified animal health science, delivered with integrity.",
-    imageSrc: "/foundation.png",
+    imageSrc: "/foundation.jpg",
   },
   {
     name: "Growth",
     description:
       "A widening portfolio across poultry, ruminant and companion animals earns the trust of veterinarians and producers nationwide.",
-    imageSrc: "/growth.png",
+    imageSrc: "/growth.jpg",
   },
   {
     name: "International Partnerships",
     description:
       "Alliances with world-class manufacturers bring globally-qualified vaccines, additives and nutrition to Pakistani farms.",
-    imageSrc: "/international%20relation.png",
+    imageSrc: "/international%20relation.jpg",
   },
   {
     name: "Expansion",
     description:
       "A nationwide distribution network carries reliable supply and technical support to every province, farm and clinic.",
-    imageSrc: "/exapnsion.png",
+    imageSrc: "/exapnsion.jpg",
   },
   {
     name: "Innovation",
     description:
       "Research-driven formulations and biosecurity raise the standard for feed conversion, gut health and lasting productivity.",
-    imageSrc: "/innovation.png",
+    imageSrc: "/innovation.jpg",
   },
   {
     name: "Today",
     description:
       "A trusted partner connecting global scientific innovation with Pakistan's livestock industry — and only accelerating.",
-    imageSrc: "/today.png",
+    imageSrc: "/today.jpg",
   },
 ];
 

@@ -18,7 +18,7 @@ import { GlassCard } from "@/components/scenes/SceneInnovation/GlassCard";
  * token — nothing new invented. transform/opacity only.
  */
 
-const IMG_LAB = "/images/heroabout/h1.png"; // large — the environment
+const IMG_LAB = "/images/heroabout/h1.jpg"; // large — the environment
 const IMG_TEAM = "/images/heroabout/ChatGPT Image Jul 2, 2026, 06_50_41 PM.png"; // overlapping — the people
 const IMG_SCIENCE = "/images/heroabout/h6.png"; // floating — the science
 

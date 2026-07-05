@@ -69,7 +69,7 @@ export function RuminantHero() {
       {/* full-bleed cinematic image */}
       <MaskedReveal direction="up" trigger="mount" className="absolute inset-0">
         <div data-rh-parallax className="h-full w-full will-change-transform">
-          <LabPlate src="/reuminant.png" alt="Dairy and beef cattle — Agriprom Pakistan ruminant nutrition" />
+          <LabPlate src="/reuminant.jpg" alt="Dairy and beef cattle — Agriprom Pakistan ruminant nutrition" />
         </div>
       </MaskedReveal>
 

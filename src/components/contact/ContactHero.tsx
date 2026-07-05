@@ -134,7 +134,7 @@ export function ContactHero() {
         <div className="sticky top-0 h-[100svh] min-h-[620px] w-full overflow-hidden bg-base">
           {/* Bright scientific architecture — the graded premium laboratory. */}
           <div ref={bgRef} className="absolute inset-0 will-change-transform">
-            <LabPlate src="/images/heroabout/h1.png" alt="" />
+            <LabPlate src="/images/heroabout/h1.jpg" alt="" />
           </div>
 
           {/* Very soft particles drifting through the daylight. */}

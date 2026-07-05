@@ -152,7 +152,7 @@ export function PoultryHero() {
             className="aspect-[4/5] w-full rounded-lg shadow-medium ring-1 ring-white/60 md:aspect-[4/5]"
           >
             <div data-ph-parallax className="h-[112%] w-full will-change-transform">
-              <LabPlate src="/poultry.png" alt="Poultry farm — Agriprom Pakistan nutritional technologies" />
+              <LabPlate src="/poultry.jpg" alt="Poultry farm — Agriprom Pakistan nutritional technologies" />
             </div>
           </MaskedReveal>
         </div>

@@ -20,7 +20,7 @@ const ParticleField = dynamic(
 // Cinematic crossfade set — light-toned scenes so the luminous film (and the dark
 // navbar/headline) stays consistent. Local assets only, no placeholders.
 const SLIDES = [
-  "/images/heroabout/h1.png", // the laboratory
+  "/images/heroabout/h1.jpg", // the laboratory
   "/images/heroabout/ChatGPT Image Jul 2, 2026, 06_50_41 PM.png", // the team
   "/images/heroabout/h4.png", // the science (cells)
 ];

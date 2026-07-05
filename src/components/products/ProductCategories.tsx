@@ -114,20 +114,20 @@ const POULTRY: Category = {
   description:
     "Nutrition, gut health and performance solutions for every stage of poultry production.",
   href: "/products/poultry",
-  imageSrc: "/poultry.png",
+  imageSrc: "/poultry.jpg",
 };
 const OTHERS: Category[] = [
   {
     name: "Ruminants",
     description: "Health, growth and productivity support for dairy and beef cattle.",
     href: "/ruminants/",
-    imageSrc: "/reuminant.png",
+    imageSrc: "/reuminant.jpg",
   },
   {
     name: "Companion Animals",
     description: "Everyday health and nutrition for dogs, cats and companion species.",
     href: "/companion-animals",
-    imageSrc: "/animal%20comapnion.png",
+    imageSrc: "/animal%20comapnion.jpg",
   },
 ];
 export function ProductCategories() {

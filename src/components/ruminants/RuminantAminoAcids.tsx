@@ -118,7 +118,7 @@ export function RuminantAminoAcids() {
           <div className="relative md:col-span-6">
             <MaskedReveal direction="up" className="relative aspect-[4/5] w-full overflow-hidden rounded-lg shadow-medium ring-1 ring-white/60 md:aspect-[5/6]">
               <div data-aa-img className="h-full w-full will-change-transform">
-                <LabPlate src="/feed.png" alt="Rumen-protected amino acids — Agriprom Pakistan" />
+                <LabPlate src="/feed.jpg" alt="Rumen-protected amino acids — Agriprom Pakistan" />
               </div>
               <span
                 data-aa-sheen

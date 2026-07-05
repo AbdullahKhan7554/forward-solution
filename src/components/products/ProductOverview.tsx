@@ -134,7 +134,7 @@ export function ProductOverview() {
               className="aspect-[4/5] w-full rounded-lg border border-white/60 shadow-medium md:aspect-[5/6]"
             >
               <div className="relative h-full w-full overflow-hidden">
-                <LabPlate src="/nutrition.png" alt="Agriprom Pakistan complete animal-health portfolio" />
+                <LabPlate src="/nutrition.jpg" alt="Agriprom Pakistan complete animal-health portfolio" />
                 <div
                   aria-hidden="true"
                   className="pointer-events-none absolute inset-0"

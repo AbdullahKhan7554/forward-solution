@@ -26,32 +26,32 @@ const FEATURES: Feature[] = [
   {
     title: "Global Brands",
     body: "We represent globally recognised animal health and nutrition brands, bringing world-class quality within reach of every Pakistani farm.",
-    imageSrc: "/global.png",
+    imageSrc: "/global.jpg",
   },
   {
     title: "Scientific Expertise",
     body: "Research-driven formulations and qualified technical knowledge stand behind every product and recommendation we make.",
-    imageSrc: "/scienific%20expertise.png",
+    imageSrc: "/scienific%20expertise.jpg",
   },
   {
     title: "Reliable Supply",
     body: "A dependable global-to-local supply chain keeps products available and moving when farms and clinics need them most.",
-    imageSrc: "/relaible%20supply.png",
+    imageSrc: "/relaible%20supply.jpg",
   },
   {
     title: "Technical Support",
     body: "Hands-on guidance from a team that stays close to veterinarians and producers, on the ground and on call.",
-    imageSrc: "/technical%20suport.png",
+    imageSrc: "/technical%20suport.jpg",
   },
   {
     title: "Long-term Partnership",
     body: "Relationships built to last — we grow alongside our customers, season after season, farm after farm.",
-    imageSrc: "/long%20paternship.png",
+    imageSrc: "/long%20paternship.jpg",
   },
   {
     title: "Quality Assurance",
     body: "Rigorous, globally-qualified standards verified at every stage — from source and storage to the last mile.",
-    imageSrc: "/quality%20assurance.png",
+    imageSrc: "/quality%20assurance.jpg",
   },
 ];
 

@@ -272,7 +272,7 @@ export const articles: Article[] = [
     excerpt:
       "The vaccines every companion animal needs — and why timing decides protection.",
     href: "/blog/core-vaccination-dogs-cats",
-    image: "/6.png",
+    image: "/6.jpg",
     intro:
       "Vaccination remains the most effective, most economical protection a pet owner can give a dog or cat. Understanding which vaccines are essential — and when they should be given — is the difference between reliable immunity and a dangerous gap.",
     sections: [

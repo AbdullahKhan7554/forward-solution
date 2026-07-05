@@ -108,7 +108,7 @@ export function SceneEcosystem() {
                 variant="feature"
                 name="Poultry"
                 description="Committed to enhancing poultry nutrition and performance."
-                imageSrc="/poultry.png"
+                imageSrc="/poultry.jpg"
                 href="/products/poultry"
               />
             </li>
@@ -121,7 +121,7 @@ export function SceneEcosystem() {
                 variant="medium"
                 name="Ruminants"
                 description="Supporting better health, growth, and performance."
-                imageSrc="/reuminant.png"
+                imageSrc="/reuminant.jpg"
                 href="/ruminants/"
               />
             </li>
@@ -134,7 +134,7 @@ export function SceneEcosystem() {
                 variant="medium"
                 name="Companion Animals"
                 description="Helping companion animals live longer, healthier, more active lives."
-                imageSrc="/animal%20comapnion.png"
+                imageSrc="/animal%20comapnion.jpg"
                 href="/companion-animals"
               />
             </li>
