@@ -229,7 +229,7 @@ export function ContactHero() {
                     href="#reach"
                     className="group inline-flex items-center justify-center gap-3 rounded-sm bg-primary-600 px-8 py-4 font-sans text-body font-medium text-pure shadow-soft transition-[transform,box-shadow,background-color] duration-200 ease-brand-out hover:-translate-y-0.5 hover:bg-primary-700 hover:shadow-medium"
                   >
-                    Talk To Our Experts
+                    Contact To Our Experts
                     <span
                       aria-hidden="true"
                       className="inline-block transition-transform duration-300 ease-brand-out group-hover:translate-x-1"
