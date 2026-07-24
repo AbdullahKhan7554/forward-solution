@@ -16,7 +16,7 @@ import { RevealText } from "@/components/primitives/RevealText";
 const FAQS = [
   {
     q: "How can I become a distributor?",
-    a: "We partner with distributors across Pakistan. Share your details through the form above or call us directly, and our commercial team will guide you through the process and product portfolio.",
+    a: "We partner with distributors across Pakistan. Get in touch using the details above or call us directly, and our commercial team will guide you through the process and product portfolio.",
   },
   {
     q: "How quickly do you respond?",
@@ -154,7 +154,7 @@ export function ContactFAQ() {
       <div className="relative mx-auto w-full max-w-4xl px-6 py-[16vh] md:px-8">
         <header className="mb-[9vh] text-center">
           <div data-faq-fade className="mb-8 flex items-center justify-center gap-4">
-            <span className="font-sans text-caption tracking-[0.2em] text-neutral-400">(06)</span>
+            <span className="font-sans text-caption tracking-[0.2em] text-neutral-400">(03)</span>
             <span className="h-px w-10 bg-neutral-300" />
             <span className="font-serif text-small italic text-neutral-400">Answered</span>
           </div>

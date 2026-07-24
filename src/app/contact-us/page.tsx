@@ -4,12 +4,8 @@ import { Preloader } from "@/components/scenes/SceneThreshold/Preloader";
 import { Navbar } from "@/components/navbar/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { ContactHero } from "@/components/contact/ContactHero";
-import { ContactInfo } from "@/components/contact/ContactInfo";
-import { ContactForm } from "@/components/contact/ContactForm";
-import { VisitOffice } from "@/components/contact/VisitOffice";
-import { ContactMap } from "@/components/contact/ContactMap";
+import { ContactLocation } from "@/components/contact/ContactLocation";
 import { ContactFAQ } from "@/components/contact/ContactFAQ";
-import { FinalCTA } from "@/components/contact/FinalCTA";
 
 export const metadata: Metadata = {
   title: "Contact — Agriprom Pakistan | Talk To Our Animal Health Experts",
@@ -24,8 +20,8 @@ export const metadata: Metadata = {
  * re-captioned, the floating Navbar and the shared Footer. Each scene owns the
  * homepage's breathing rhythm; backgrounds alternate base → pure as one film.
  *
- *   01 — Hero   02 — Contact Information   03 — Inquiry Form   04 — Visit Our Office
- *   05 — Google Map   06 — FAQ   07 — Final CTA   ·   Premium Footer (reused)
+ *   01 — Hero   02 — Reach Us & Find Us (details + map)   03 — FAQ
+ *   ·   Premium Footer (reused)
  */
 export default function ContactPage() {
   return (
@@ -34,12 +30,8 @@ export default function ContactPage() {
       <Navbar />
       <main>
         <ContactHero />
-        <ContactInfo />
-        <ContactForm />
-        <VisitOffice />
-        <ContactMap />
+        <ContactLocation />
         <ContactFAQ />
-        <FinalCTA />
       </main>
       <Footer />
     </IntroProvider>

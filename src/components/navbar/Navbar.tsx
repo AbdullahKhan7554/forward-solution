@@ -187,7 +187,7 @@ function RollLink({ label, href, active }: { label: string; href: string; active
     >
       <span className="relative block h-[1.35em] overflow-hidden">
         <span className="block transition-transform duration-[560ms] ease-brand-luxury group-hover:-translate-y-1/2">
-          <span className="flex h-[1.35em] items-center font-sans text-small font-medium text-neutral-700 transition-colors duration-[360ms] ease-brand-out group-data-[scrolled=true]/nav:text-neutral-200">
+          <span className="flex h-[1.35em] items-center font-sans text-small font-medium text-neutral-900 transition-colors duration-[360ms] ease-brand-out group-data-[scrolled=true]/nav:text-neutral-200">
             {label}
           </span>
           <span className="flex h-[1.35em] items-center font-sans text-small font-medium text-accent-600 group-data-[scrolled=true]/nav:text-accent-300">
@@ -336,7 +336,7 @@ function NavDropdown({
             "group flex items-center gap-1.5 font-sans text-small font-medium transition-colors duration-[360ms] ease-brand-out",
             open
               ? "text-accent-600 group-data-[scrolled=true]/nav:text-accent-300"
-              : "text-neutral-700 hover:text-accent-600 group-data-[scrolled=true]/nav:text-neutral-200"
+              : "text-neutral-900 hover:text-accent-600 group-data-[scrolled=true]/nav:text-neutral-200"
           )}
         >
           {label}
@@ -597,14 +597,14 @@ export function Navbar() {
               <a
                 data-nav-inner
                 href="/contact-us/"
-                className="group block will-change-transform rounded-sm border border-neutral-300 px-6 py-2.5 transition-colors duration-[360ms] ease-brand-out hover:border-accent-500/60 group-data-[scrolled=true]/nav:border-white/25 group-data-[scrolled=true]/nav:hover:border-accent-300/60"
+                className="group block will-change-transform rounded-sm border border-transparent bg-neutral-900 px-8 py-3.5 shadow-soft transition-colors duration-[360ms] ease-brand-out hover:bg-neutral-800 group-data-[scrolled=true]/nav:border-white/25 group-data-[scrolled=true]/nav:bg-transparent group-data-[scrolled=true]/nav:shadow-none group-data-[scrolled=true]/nav:hover:border-accent-300/60"
               >
                 <span className="block h-[1.2em] overflow-hidden">
                   <span className="block transition-transform duration-[560ms] ease-brand-luxury group-hover:-translate-y-1/2">
-                    <span className="flex h-[1.2em] items-center font-sans text-small font-medium text-neutral-900 group-data-[scrolled=true]/nav:text-neutral-50">
+                    <span className="flex h-[1.2em] items-center font-sans text-small font-medium text-neutral-50">
                       Contact
                     </span>
-                    <span className="flex h-[1.2em] items-center font-sans text-small font-medium text-accent-600 group-data-[scrolled=true]/nav:text-accent-300">
+                    <span className="flex h-[1.2em] items-center font-sans text-small font-medium text-accent-300">
                       Contact
                     </span>
                   </span>

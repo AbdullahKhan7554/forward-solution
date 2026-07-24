@@ -226,7 +226,7 @@ export function ContactHero() {
                 <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:items-center">
                   <a
                     data-hero-cta
-                    href="#contact-form"
+                    href="#reach"
                     className="group inline-flex items-center justify-center gap-3 rounded-sm bg-primary-600 px-8 py-4 font-sans text-body font-medium text-pure shadow-soft transition-[transform,box-shadow,background-color] duration-200 ease-brand-out hover:-translate-y-0.5 hover:bg-primary-700 hover:shadow-medium"
                   >
                     Talk To Our Experts
@@ -236,13 +236,6 @@ export function ContactHero() {
                     >
                       &rarr;
                     </span>
-                  </a>
-                  <a
-                    data-hero-cta
-                    href="#visit"
-                    className="inline-flex items-center justify-center rounded-sm border border-neutral-300 bg-white/50 px-8 py-4 font-sans text-body font-medium text-neutral-800 backdrop-blur-md transition-[transform,box-shadow,background-color,border-color] duration-200 ease-brand-out hover:-translate-y-0.5 hover:border-primary-400 hover:bg-white/80 hover:shadow-soft"
-                  >
-                    View Location
                   </a>
                 </div>
               </div>
