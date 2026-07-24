@@ -121,7 +121,7 @@ export function Preloader({
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
         ref={logoRef}
-        src="/logo.jpg"
+        src="/logo.png"
         alt="Agriprom Pakistan"
         className="relative z-raised h-20 w-auto object-contain md:h-28"
       />

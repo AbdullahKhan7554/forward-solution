@@ -1,7 +1,7 @@
 import { cn } from "@/lib/utils";
 
 /**
- * Wordmark - the Agriprom Pakistan brand logo (public/logo.jpg). Rendered as a
+ * Wordmark - the Agriprom Pakistan brand logo (public/logo.png). Rendered as a
  * plain <img> so its natural aspect ratio is preserved without knowing the
  * intrinsic dimensions. `className` still flows through for layout tweaks.
  */
@@ -9,7 +9,7 @@ export function Wordmark({ className }: { className?: string }) {
   return (
     <span className={cn("flex items-center", className)}>
       {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img src="/logo.jpg" alt="Agriprom Pakistan" className="h-11 w-auto object-contain md:h-12" />
+      <img src="/logo.png" alt="Agriprom Pakistan" className="h-11 w-auto object-contain md:h-12" />
     </span>
   );
 }
