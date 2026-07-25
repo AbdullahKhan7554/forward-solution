@@ -164,7 +164,7 @@ export function Footer() {
         aria-hidden="true"
         className="pointer-events-none absolute inset-x-0 bottom-0 flex select-none flex-col items-center pb-[3vh]"
       >
-        <span className="block whitespace-nowrap font-display text-[17vw] font-semibold leading-[0.82] tracking-[-0.03em] text-white/[0.05] md:text-[16vw] xl:text-[15vw]">
+        <span className="block whitespace-nowrap font-display text-[13vw] font-semibold leading-[0.82] tracking-[-0.03em] text-white/[0.05] md:text-[12vw] xl:text-[11vw]">
           AGRIPROM PAKISTAN
         </span>
         <span
