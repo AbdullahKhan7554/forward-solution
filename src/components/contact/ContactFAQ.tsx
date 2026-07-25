@@ -154,9 +154,9 @@ export function ContactFAQ() {
       <div className="relative mx-auto w-full max-w-4xl px-6 py-[16vh] md:px-8">
         <header className="mb-[9vh] text-center">
           <div data-faq-fade className="mb-8 flex items-center justify-center gap-4">
-            <span className="font-sans text-caption tracking-[0.2em] text-neutral-400">(03)</span>
+            <span className="font-sans text-caption tracking-[0.2em] text-neutral-400"></span>
             <span className="h-px w-10 bg-neutral-300" />
-            <span className="font-serif text-small italic text-neutral-400">Answered</span>
+            <span className="font-serif text-small italic text-neutral-400"></span>
           </div>
           <h2
             id="faq-heading"

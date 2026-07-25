@@ -169,7 +169,7 @@ export function ContactHero() {
               <div data-hero-fade className="flex items-center gap-4">
                 <span className="h-px w-10 bg-accent-500" />
                 <span className="font-sans text-caption uppercase tracking-[0.3em] text-neutral-500">
-                  Contact
+                 
                 </span>
               </div>
 
@@ -179,11 +179,11 @@ export function ContactHero() {
                     data-hero-fade
                     className="font-sans text-caption tracking-[0.2em] text-neutral-400"
                   >
-                    (01)
+                    
                   </span>
                   <span data-hero-line className="h-px flex-1 bg-neutral-300" />
                   <span data-hero-fade className="font-serif text-small italic text-neutral-400">
-                    The Open Door
+                    
                   </span>
                 </div>
 

@@ -165,7 +165,7 @@ export function Footer() {
         className="pointer-events-none absolute inset-x-0 bottom-0 flex select-none flex-col items-center pb-[3vh]"
       >
         <span className="block whitespace-nowrap font-display text-[17vw] font-semibold leading-[0.82] tracking-[-0.03em] text-white/[0.05] md:text-[16vw] xl:text-[15vw]">
-          AGRIPROM
+          AGRIPROM PAKISTAN
         </span>
         <span
           className="mt-2 block whitespace-nowrap ps-[0.6em] text-center font-sans text-[1.7vw] uppercase text-white md:text-[1.05vw] xl:text-[0.85vw]"
