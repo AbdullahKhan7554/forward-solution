@@ -6,6 +6,7 @@ import { gsap, ScrollTrigger } from "@/lib/gsap";
 import { RevealText } from "@/components/primitives/RevealText";
 import { MaskedReveal } from "@/components/primitives/MaskedReveal";
 import { LabPlate } from "@/components/scenes/SceneUnfolding/LabPlate";
+import { cn } from "@/lib/utils";
 
 /**
  * POULTRY · SECTION 03 — PRODUCT CATEGORIES.
@@ -28,6 +29,11 @@ const PRODUCTS: Product[] = [
   { name: "Bile Acids", blurb: "Enhance lipid absorption and liver function.", href: "/products/poultry/bile-acids", image: "/images/products/poultry/Bilepro.jpg" },
   { name: "Organic Minerals", blurb: "Highly bioavailable trace minerals for vitality.", href: "/products/poultry/organic-minerals", image: "/images/products/poultry/Minlex-Poultry.jpg" },
   { name: "Alternative Protein", blurb: "Sustainable protein without compromising growth.", href: "/products/poultry/alternative-protein", image: "/images/products/poultry/MSG-Single-Cell-Protein.jpg" },
+  { name: "Probiotics", blurb: "Gut health that fuels performance.", href: "/products/poultry/probiotics" },
+  { name: "Fly Control", blurb: "Break the fly cycle at the source.", href: "/products/poultry/fly-control" },
+  { name: "Feed Pigment", blurb: "Consistent color without compromise", href: "/products/poultry/feed-pigment" },
+  { name: "Feed Hygienizer", blurb: "Fresher feed, fewer toxin risks", href: "/products/poultry/feed-hygienizer" },
+  { name: "Phytogenic Anticoccidials", blurb: "Plant-powered protection against coccidiosis.", href: "/products/poultry/phytogenic-anticoccidials" },
 ];
 
 function ArrowGlyph() {
@@ -48,7 +54,7 @@ function ArrowGlyph() {
   );
 }
 
-function ProductCard({ product }: { product: Product }) {
+function ProductCard({ product, className }: { product: Product; className?: string }) {
   const cardRef = useRef<HTMLAnchorElement>(null);
   const btnRef = useRef<HTMLSpanElement>(null);
 
@@ -84,7 +90,7 @@ function ProductCard({ product }: { product: Product }) {
   }, []);
 
   return (
-    <li data-pp-card>
+    <li data-pp-card className={className}>
       <a
         ref={cardRef}
         href={product.href}
@@ -208,10 +214,22 @@ export function PoultryProducts() {
           </h2>
         </header>
 
-        <ul className="mt-[12vh] grid grid-cols-1 gap-x-8 gap-y-14 sm:grid-cols-2 lg:grid-cols-4">
-          {PRODUCTS.map((product) => (
-            <ProductCard key={product.name} product={product} />
-          ))}
+        <ul className="mt-[12vh] grid grid-cols-1 gap-x-8 gap-y-14 sm:grid-cols-4 lg:grid-cols-8">
+          {PRODUCTS.map((product, i) => {
+            const isLast = i === PRODUCTS.length - 1;
+            return (
+              <ProductCard
+                key={product.name}
+                product={product}
+                // 2 tracks per card; a lone last card is centred so rows stay balanced
+                className={cn(
+                  "sm:col-span-2",
+                  isLast && PRODUCTS.length % 2 === 1 && "sm:col-start-2",
+                  isLast && PRODUCTS.length % 4 === 1 && "lg:col-start-4"
+                )}
+              />
+            );
+          })}
         </ul>
       </div>
     </section>

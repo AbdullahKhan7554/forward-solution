@@ -402,6 +402,9 @@ function HowItWorks({ data }: { data: ProductDetailData }) {
     };
   }, []);
 
+  // section hides when a product has no flow steps
+  if (data.flow.length === 0) return null;
+
   return (
     <section ref={rootRef} aria-labelledby="pd-how-heading" className="relative overflow-hidden bg-pure">
       <div className="relative mx-auto w-full max-w-container px-6 py-[18vh] md:px-12 xl:px-20">

@@ -13,6 +13,7 @@ export const metadata: Metadata = {
 
 const ITEMS: ShowcaseItem[] = [
   { slug: "prophorce-sr130", href: "/products/poultry/organic-acids-scfa/prophorce-sr130" },
+  { slug: "anta-mix-me", href: "/products/poultry/anta-mix-me" },
 ];
 
 export default function PoultryOrganicAcidsPage() {

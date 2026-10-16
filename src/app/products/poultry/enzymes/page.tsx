@@ -8,7 +8,7 @@ import { CategoryShowcase, type ShowcaseItem } from "@/components/product-detail
 export const metadata: Metadata = {
   title: "Poultry Enzymes — Agriprom Pakistan | Feed Enzyme Technologies",
   description:
-    "Explore Agriprom Pakistan's poultry enzyme portfolio — Compound Enzyme (NSP), CorGest M (Mannanase), CJ Bio Xylanase and PhytinGest (Phytase) — for better digestibility, feed efficiency and performance.",
+    "Explore Agriprom Pakistan's poultry enzyme portfolio — KEMZYME® Poultry, MANNAGEST™ (Mannanase), XYGEST™ HTX and PHYTINGEST™ 10 G & 20 G (Phytase) — for better digestibility, feed efficiency and performance.",
 };
 
 const ITEMS: ShowcaseItem[] = [

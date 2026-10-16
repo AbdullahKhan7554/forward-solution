@@ -18,12 +18,6 @@ type DropdownItem = {
 
 const PRODUCT_ITEMS: DropdownItem[] = [
   {
-    title: "Product Overview",
-    desc: "Explore the full range of animal health solutions",
-    href: "/products",
-    Icon: GridIcon,
-  },
-  {
     title: "Poultry",
     desc: "Advanced poultry nutrition & health solutions",
     href: "/products/poultry",
@@ -91,16 +85,6 @@ function IconBase({ children }: { children: React.ReactNode }) {
     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
       {children}
     </svg>
-  );
-}
-function GridIcon() {
-  return (
-    <IconBase>
-      <rect x="3" y="3" width="7" height="7" rx="1.5" />
-      <rect x="14" y="3" width="7" height="7" rx="1.5" />
-      <rect x="3" y="14" width="7" height="7" rx="1.5" />
-      <rect x="14" y="14" width="7" height="7" rx="1.5" />
-    </IconBase>
   );
 }
 function BirdIcon() {
@@ -466,18 +450,44 @@ function MobileAccordion({
 
   return (
     <div>
-      <button
-        type="button"
-        aria-expanded={open}
-        aria-controls={panelId}
-        onClick={onToggle}
-        className="flex min-h-[48px] w-full items-center justify-between font-display text-h2 font-light text-neutral-50 transition-colors duration-200 ease-brand-out hover:text-accent-300 focus-visible:text-accent-300 focus-visible:outline-none"
-      >
-        {link.label}
-        <span className={cn("transition-transform duration-300 ease-brand-out", open && "rotate-180")}>
-          <Chevron />
-        </span>
-      </button>
+      {link.label === "Products" ? (
+        // Label navigates to the overview page; the arrow toggles the list.
+        <div className="flex min-h-[48px] w-full items-center justify-between font-display text-h2 font-light text-neutral-50">
+          <a
+            href={link.href}
+            onClick={onNavigate}
+            aria-current={pathname === link.href ? "page" : undefined}
+            className="transition-colors duration-200 ease-brand-out hover:text-accent-300 focus-visible:text-accent-300 focus-visible:outline-none"
+          >
+            {link.label}
+          </a>
+          <button
+            type="button"
+            aria-expanded={open}
+            aria-controls={panelId}
+            aria-label={`${open ? "Hide" : "Show"} ${link.label} list`}
+            onClick={onToggle}
+            className="flex min-h-[48px] min-w-[48px] items-center justify-end transition-colors duration-200 ease-brand-out hover:text-accent-300 focus-visible:text-accent-300 focus-visible:outline-none"
+          >
+            <span className={cn("transition-transform duration-300 ease-brand-out", open && "rotate-180")}>
+              <Chevron />
+            </span>
+          </button>
+        </div>
+      ) : (
+        <button
+          type="button"
+          aria-expanded={open}
+          aria-controls={panelId}
+          onClick={onToggle}
+          className="flex min-h-[48px] w-full items-center justify-between font-display text-h2 font-light text-neutral-50 transition-colors duration-200 ease-brand-out hover:text-accent-300 focus-visible:text-accent-300 focus-visible:outline-none"
+        >
+          {link.label}
+          <span className={cn("transition-transform duration-300 ease-brand-out", open && "rotate-180")}>
+            <Chevron />
+          </span>
+        </button>
+      )}
       <div id={panelId} ref={panelRef} className="h-0 overflow-hidden opacity-0">
         <div className="flex flex-col gap-1 py-2 pl-4">
           {link.dropdown!.map((item) => {

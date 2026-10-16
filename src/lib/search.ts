@@ -64,19 +64,31 @@ const CATEGORIES: SearchItem[] = [
   { id: "cat-toxin-binders", title: "Toxin Binders", group: "Categories", href: "/products/poultry/toxin-binders", description: "Broad-spectrum mycotoxin binders." },
   { id: "cat-organic-minerals", title: "Organic Minerals", group: "Categories", href: "/products/poultry/organic-minerals", description: "Chelated trace minerals with high bioavailability." },
   { id: "cat-alt-protein", title: "Alternative Protein", group: "Categories", href: "/products/poultry/alternative-protein", description: "Sustainable protein sources for feed." },
+  { id: "cat-probiotics", title: "Probiotics", group: "Categories", href: "/products/poultry/probiotics", description: "Gut health that fuels performance." },
+  { id: "cat-fly-control", title: "Fly Control", group: "Categories", href: "/products/poultry/fly-control", description: "Break the fly cycle at the source." },
+  { id: "cat-feed-pigment", title: "Feed Pigment", group: "Categories", href: "/products/poultry/feed-pigment", description: "Consistent color without compromise" },
+  { id: "cat-feed-hygienizer", title: "Feed Hygienizer", group: "Categories", href: "/products/poultry/feed-hygienizer", description: "Fresher feed, fewer toxin risks" },
+  { id: "cat-phytogenic-anticoccidials", title: "Phytogenic Anticoccidials", group: "Categories", href: "/products/poultry/phytogenic-anticoccidials", description: "Plant-powered protection against coccidiosis." },
 ];
 
 const PRODUCTS: SearchItem[] = [
   { id: "prod-prophorce", title: "ProPhorce SR 130", group: "Products", category: "Organic Acids (SCFA)", href: "/products/poultry/organic-acids-scfa/prophorce-sr130", description: "Esterified tributyrin for gut health and performance.", keywords: "butyric tributyrin" },
-  { id: "prod-compound-enzyme", title: "Compound Enzyme (NSP)", group: "Products", category: "Enzymes", href: "/products/poultry/compound-enzyme-nsp", description: "Multi-enzyme complex that unlocks trapped nutrients." },
-  { id: "prod-xylanase", title: "Xylanase", group: "Products", category: "Enzymes", href: "/products/poultry/xylanase", description: "Targets arabinoxylans to raise feed efficiency." },
-  { id: "prod-phytingest", title: "PhytinGest (Phytase)", group: "Products", category: "Enzymes", href: "/products/poultry/phytingest", description: "Releases bound phosphorus from plant phytate." },
-  { id: "prod-corgest", title: "CorGest M (Mannanase)", group: "Products", category: "Enzymes", href: "/products/poultry/corgest-m-mannanase", description: "Mannanase for gut integrity and immunity." },
+  { id: "prod-anta-mix-me", title: "Anta®Mix ME", group: "Products", category: "Organic Acids", href: "/products/poultry/anta-mix-me", description: "Acid complex with microencapsulated acids and essential oils, for poultry gut health and performance." },
+  { id: "prod-compound-enzyme", title: "KEMZYME® Poultry", group: "Products", category: "Enzymes", href: "/products/poultry/compound-enzyme-nsp", description: "Multi-enzyme complex that unlocks trapped nutrients." },
+  { id: "prod-xylanase", title: "XYGEST™ HTX", group: "Products", category: "Enzymes", href: "/products/poultry/xylanase", description: "Targets arabinoxylans to raise feed efficiency." },
+  { id: "prod-phytingest", title: "PHYTINGEST™ 10 G & 20 G (Phytase)", group: "Products", category: "Enzymes", href: "/products/poultry/phytingest", description: "Releases bound phosphorus from plant phytate." },
+  { id: "prod-corgest", title: "MANNAGEST™ (Mannanase)", group: "Products", category: "Enzymes", href: "/products/poultry/corgest-m-mannanase", description: "Mannanase for gut integrity and immunity." },
   { id: "prod-elencofix", title: "Elenco Fix Super", group: "Products", category: "Toxin Binders", href: "/products/poultry/elencofix-super", description: "Broad-spectrum mycotoxin binder." },
   { id: "prod-probond", title: "Probond", group: "Products", category: "Toxin Binders", href: "/products/poultry/probond", description: "Advanced toxin adsorption technology." },
+  { id: "prod-prosid-tb-207", title: "ProSid TB 207", group: "Products", category: "Toxin Binders", href: "/products/poultry/prosid-tb-207", description: "Multi-functional mycotoxin binder with phytogenics and calcium propionate." },
   { id: "prod-compound-antioxidant", title: "Compound Antioxidant", group: "Products", category: "Antioxidants", href: "/products/poultry/antioxidants/compound-antioxidant", description: "Protects feed and fats from oxidation." },
   { id: "prod-lysolip", title: "LysoLip", group: "Products", category: "Emulsifiers", href: "/products/poultry/emulsifier/lysolip", description: "Lyso-phospholipid emulsifier for energy uptake." },
   { id: "prod-minlex", title: "Minlex Poultry", group: "Products", category: "Organic Minerals", href: "/products/poultry/organic-minerals/minlex-poultry", description: "Chelated organic trace minerals for poultry." },
+  { id: "prod-alterion-ne", title: "Alterion NE", group: "Products", category: "Probiotics", href: "/products/poultry/probiotics/alterion-ne", description: "Bacillus subtilis probiotic for gut health and poultry performance." },
+  { id: "prod-antifly", title: "Antifly", group: "Products", category: "Fly Control", href: "/products/poultry/fly-control/antifly", description: "Poultry feed premix for fly control through larvae growth regulation." },
+  { id: "prod-canthaxanthin-lutein", title: "Canthaxanthin & Lutein Feed Pigment", group: "Products", category: "Feed Pigment", href: "/products/poultry/feed-pigment/canthaxanthin-lutein", description: "Red and yellow carotenoid pigments for egg yolk and broiler skin colour." },
+  { id: "prod-moldcid", title: "MoldCid", group: "Products", category: "Feed Hygienizer", href: "/products/poultry/feed-hygienizer/moldcid", description: "Propionic acid–based feed preservative against mold and spoilage." },
+  { id: "prod-coxield", title: "Coxield", group: "Products", category: "Phytogenic Anticoccidials", href: "/products/poultry/phytogenic-anticoccidials/coxield", description: "Phytogenic anticoccidial with three modes of action." },
 ];
 
 const BLOGS: SearchItem[] = articles.map((a) => ({

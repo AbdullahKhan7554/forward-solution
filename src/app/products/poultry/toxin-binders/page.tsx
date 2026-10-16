@@ -14,6 +14,7 @@ export const metadata: Metadata = {
 const ITEMS: ShowcaseItem[] = [
   { slug: "elencofix-super", href: "/products/poultry/elencofix-super" },
   { slug: "probond", href: "/products/poultry/probond" },
+  { slug: "prosid-tb-207", href: "/products/poultry/prosid-tb-207" },
 ];
 
 export default function PoultryToxinBindersPage() {

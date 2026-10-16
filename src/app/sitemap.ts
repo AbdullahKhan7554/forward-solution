@@ -25,6 +25,11 @@ const STATIC_ROUTES = [
   "/products/poultry/toxin-binders",
   "/products/poultry/organic-minerals",
   "/products/poultry/alternative-protein",
+  "/products/poultry/probiotics",
+  "/products/poultry/fly-control",
+  "/products/poultry/feed-pigment",
+  "/products/poultry/feed-hygienizer",
+  "/products/poultry/phytogenic-anticoccidials",
   // product detail pages
   "/products/poultry/compound-enzyme-nsp",
   "/products/poultry/corgest-m",
@@ -37,6 +42,13 @@ const STATIC_ROUTES = [
   "/products/poultry/emulsifier/lysolip",
   "/products/poultry/organic-minerals/minlex-poultry",
   "/products/poultry/organic-acids-scfa/prophorce-sr130",
+  "/products/poultry/anta-mix-me",
+  "/products/poultry/prosid-tb-207",
+  "/products/poultry/probiotics/alterion-ne",
+  "/products/poultry/fly-control/antifly",
+  "/products/poultry/feed-pigment/canthaxanthin-lutein",
+  "/products/poultry/feed-hygienizer/moldcid",
+  "/products/poultry/phytogenic-anticoccidials/coxield",
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {

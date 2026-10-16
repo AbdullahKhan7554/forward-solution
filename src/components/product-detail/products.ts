@@ -49,11 +49,11 @@ export const PRODUCTS: Record<string, ProductDetailData> = {
     slug: "compound-enzyme-nsp",
     assets: { hero: "/images/products/poultry/Compound-Enzyme-NSP.jpg", overview: "/images/products/poultry/Compound-Enzyme-NSP.jpg" },
     eyebrow: "Poultry · Enzymes",
-    name: "Compound Enzyme (NSP)",
+    name: "KEMZYME® Poultry",
     intro:
       "A multi-enzyme complex that targets the non-starch polysaccharides in plant feed, unlocking trapped nutrients, lowering digesta viscosity and improving performance across the flock.",
     overviewLead:
-      "Plant-based feeds carry non-starch polysaccharides (NSPs) that birds cannot digest on their own — trapping energy and raising gut viscosity. Compound Enzyme (NSP) is a balanced blend of carbohydrases that break these NSPs down, releasing more nutrients from the same feed.",
+      "Plant-based feeds carry non-starch polysaccharides (NSPs) that birds cannot digest on their own — trapping energy and raising gut viscosity. KEMZYME® Poultry is a balanced blend of carbohydrases that break these NSPs down, releasing more nutrients from the same feed.",
     overviewPoints: [
       "Degrades the NSP matrix in cereals and by-products.",
       "Lowers intestinal digesta viscosity for cleaner litter.",
@@ -81,20 +81,20 @@ export const PRODUCTS: Record<string, ProductDetailData> = {
         values: ["Lower viscosity", "Improved digestion", "Higher feed efficiency"],
       },
     ],
-    metaTitle: "Compound Enzyme (NSP) — Agriprom Pakistan | Poultry Enzymes",
+    metaTitle: "KEMZYME® Poultry — Agriprom Pakistan | Poultry Enzymes",
     metaDescription:
-      "Compound Enzyme (NSP) is a multi-enzyme complex that degrades non-starch polysaccharides, lowers digesta viscosity and improves feed efficiency and poultry performance.",
+      "KEMZYME® Poultry is a multi-enzyme complex that degrades non-starch polysaccharides, lowers digesta viscosity and improves feed efficiency and poultry performance.",
   },
 
   "corgest-m-mannanase": {
     slug: "corgest-m-mannanase",
     assets: { hero: "/images/products/poultry/CorGest-M-Mannanase.jpg", overview: "/images/products/poultry/CorGest-M-Mannanase.jpg" },
     eyebrow: "Poultry · Enzymes",
-    name: "CorGest M (Mannanase)",
+    name: "MANNAGEST™ (Mannanase)",
     intro:
-      "CorGest M contains Mannanase, an enzyme that hydrolyzes β-1,4-mannan into manno-oligosaccharides and mannose, improving nutrient utilization, feed efficiency, and poultry performance.",
+      "MANNAGEST™ contains Mannanase, an enzyme that hydrolyzes β-1,4-mannan into manno-oligosaccharides and mannose, improving nutrient utilization, feed efficiency, and poultry performance.",
     overviewLead:
-      "Mannan is a component of plant cell walls that limits nutrient release and burdens digestion. CorGest M supplies Mannanase to break β-D-1,4 mannan, freeing more nutrients from corn and soy diets and supporting better growth performance.",
+      "Mannan is a component of plant cell walls that limits nutrient release and burdens digestion. MANNAGEST™ supplies Mannanase to break β-D-1,4 mannan, freeing more nutrients from corn and soy diets and supporting better growth performance.",
     overviewPoints: [
       "Mannan is a component of plant cell walls.",
       "Mannanase breaks β-D-1,4 mannan.",
@@ -113,7 +113,7 @@ export const PRODUCTS: Record<string, ProductDetailData> = {
     flow: [
       "Plant Cell Wall",
       "Mannan",
-      "CorGest M (Mannanase)",
+      "MANNAGEST™ (Mannanase)",
       "Breaks Mannan",
       "More Nutrients Released",
       "Better Growth Performance",
@@ -129,20 +129,20 @@ export const PRODUCTS: Record<string, ProductDetailData> = {
         values: ["Improved Nutrient Release", "Better Feed Efficiency", "Enhanced Growth"],
       },
     ],
-    metaTitle: "CorGest M (Mannanase) — Agriprom Pakistan | Poultry Enzymes",
+    metaTitle: "MANNAGEST™ (Mannanase) — Agriprom Pakistan | Poultry Enzymes",
     metaDescription:
-      "CorGest M contains Mannanase, hydrolyzing β-1,4-mannan into manno-oligosaccharides and mannose to improve nutrient utilization, feed efficiency and poultry performance.",
+      "MANNAGEST™ contains Mannanase, hydrolyzing β-1,4-mannan into manno-oligosaccharides and mannose to improve nutrient utilization, feed efficiency and poultry performance.",
   },
 
   "corgest-m": {
     slug: "corgest-m",
     assets: { hero: "/images/products/poultry/CorGest-M-Mannanase.jpg", overview: "/images/products/poultry/CorGest-M-Mannanase.jpg" },
     eyebrow: "Poultry · Enzymes",
-    name: "CorGest M (Mannanase)",
+    name: "MANNAGEST™ (Mannanase)",
     intro:
-      "CorGest M is a premium Mannanase enzyme designed to improve nutrient digestibility by hydrolyzing β-mannan, enhancing feed efficiency and overall poultry performance.",
+      "MANNAGEST™ is a premium Mannanase enzyme designed to improve nutrient digestibility by hydrolyzing β-mannan, enhancing feed efficiency and overall poultry performance.",
     overviewLead:
-      "β-Mannan is a viscous carbohydrate locked inside the cell walls of plant-based feed ingredients like soybean meal. Birds cannot digest it, so it traps nutrients and burdens the gut. CorGest M supplies Mannanase to hydrolyze β-mannan, releasing those nutrients and improving utilization and feed conversion.",
+      "β-Mannan is a viscous carbohydrate locked inside the cell walls of plant-based feed ingredients like soybean meal. Birds cannot digest it, so it traps nutrients and burdens the gut. MANNAGEST™ supplies Mannanase to hydrolyze β-mannan, releasing those nutrients and improving utilization and feed conversion.",
     overviewPoints: [
       "β-Mannan is a component of plant cell walls.",
       "Mannanase hydrolyzes the β-1,4-mannan backbone.",
@@ -161,7 +161,7 @@ export const PRODUCTS: Record<string, ProductDetailData> = {
     flow: [
       "Plant Feed",
       "β-Mannan",
-      "CorGest M (Mannanase)",
+      "MANNAGEST™ (Mannanase)",
       "Hydrolysis",
       "Mannan Oligosaccharides",
       "Improved Nutrient Absorption",
@@ -181,20 +181,20 @@ export const PRODUCTS: Record<string, ProductDetailData> = {
     ],
     media: "placeholder",
     gallery: ["Product Image", "Packaging", "Laboratory", "Application"],
-    metaTitle: "CorGest M (Mannanase) — Agriprom Pakistan | Poultry Enzyme",
+    metaTitle: "MANNAGEST™ (Mannanase) — Agriprom Pakistan | Poultry Enzyme",
     metaDescription:
-      "CorGest M is a premium Mannanase enzyme that hydrolyzes β-mannan to improve nutrient digestibility, feed conversion and overall poultry performance.",
+      "MANNAGEST™ is a premium Mannanase enzyme that hydrolyzes β-mannan to improve nutrient digestibility, feed conversion and overall poultry performance.",
   },
 
   xylanase: {
     slug: "xylanase",
     assets: { hero: "/images/products/poultry/Xylanase.jpeg", overview: "/images/products/poultry/Xylanase.jpeg" },
     eyebrow: "Poultry · Enzymes",
-    name: "Xylanase",
+    name: "XYGEST™ HTX",
     intro:
-      "CJ Bio Xylanase improves feed efficiency by hydrolyzing xylan, reducing digesta viscosity, increasing nutrient availability and supporting gut health through AXOS production.",
+      "XYGEST™ HTX improves feed efficiency by hydrolyzing xylan, reducing digesta viscosity, increasing nutrient availability and supporting gut health through AXOS production.",
     overviewLead:
-      "Xylan is a viscous anti-nutritional fibre in grains that hinders digestion. CJ Bio Xylanase hydrolyzes xylan to reduce viscosity and generate arabinoxylan-oligosaccharides (AXOS) — prebiotics that nourish a healthy gut and lift poultry performance.",
+      "Xylan is a viscous anti-nutritional fibre in grains that hinders digestion. XYGEST™ HTX hydrolyzes xylan to reduce viscosity and generate arabinoxylan-oligosaccharides (AXOS) — prebiotics that nourish a healthy gut and lift poultry performance.",
     overviewPoints: [
       "Hydrolyzes xylan in feed grains.",
       "Reduces anti-nutritional factors.",
@@ -223,7 +223,7 @@ export const PRODUCTS: Record<string, ProductDetailData> = {
     applications: ["Broilers", "Layers", "Breeders", "Feed Manufacturers"],
     specs: [
       { label: "Active Ingredient", values: ["Xylanase"] },
-      { label: "Technology", values: ["CJ Bio Enzyme Technology"] },
+      { label: "Technology", values: ["Enzyme Technology"] },
       { label: "Target Feed", values: ["Corn, Wheat & Grain Diets"] },
       { label: "Application", values: ["Poultry Nutrition"] },
       {
@@ -231,22 +231,22 @@ export const PRODUCTS: Record<string, ProductDetailData> = {
         values: ["Reduced Viscosity", "Improved Digestion", "Gut Health", "Higher Feed Efficiency"],
       },
     ],
-    metaTitle: "Xylanase — Agriprom Pakistan | CJ Bio Poultry Enzyme Technology",
+    metaTitle: "XYGEST™ HTX — Agriprom Pakistan | CJ Bio Poultry Enzyme Technology",
     metaDescription:
-      "CJ Bio Xylanase hydrolyzes xylan to reduce digesta viscosity, produce AXOS prebiotics, improve nutrient availability and support gut health and poultry performance.",
+      "XYGEST™ HTX hydrolyzes xylan to reduce digesta viscosity, produce AXOS prebiotics, improve nutrient availability and support gut health and poultry performance.",
   },
 
   phytingest: {
     slug: "phytingest",
     assets: { hero: "/images/products/poultry/Phytase-768x949.jpg", overview: "/images/products/poultry/Phytase-768x949.jpg" },
     eyebrow: "Poultry · Enzymes",
-    name: "PhytinGest (Phytase)",
+    name: "PHYTINGEST™ 10 G & 20 G (Phytase)",
     intro:
-      "Next-Generation Phytase (10,000 FTU) engineered to maximize phosphorus availability, improve nutrient utilization, and enhance poultry performance.",
+      "Next-Generation Phytase (10,000 and 20,000 FTU) engineered to maximize phosphorus availability, improve nutrient utilization, and enhance poultry performance.",
     overviewLead:
-      "Most phosphorus in plant-based feed is locked inside phytate, an anti-nutrient birds cannot digest. PhytinGest is a next-generation phytase, produced by advanced microbial fermentation and engineered for superior thermostability and gut activity, that hydrolyzes phytate to release phosphorus and the nutrients bound to it.",
+      "Most phosphorus in plant-based feed is locked inside phytate, an anti-nutrient birds cannot digest. PHYTINGEST™ 10 G & 20 G is a next-generation phytase, produced by advanced microbial fermentation and engineered for superior thermostability and gut activity, that hydrolyzes phytate to release phosphorus and the nutrients bound to it.",
     overviewPoints: [
-      "Next-generation phytase engineered for high activity (10,000 FTU).",
+      "Next-generation phytase engineered for high activity (10,000 and 20,000 FTU).",
       "Produced by advanced microbial fermentation technology.",
       "Superior thermostability survives pelleting and storage.",
       "Hydrolyzes phytate to release bound phosphorus.",
@@ -263,7 +263,7 @@ export const PRODUCTS: Record<string, ProductDetailData> = {
     ],
     flow: [
       "Phytate",
-      "PhytinGest",
+      "PHYTINGEST™ 10 G & 20 G",
       "Phosphorus Release",
       "Mineral Absorption",
       "Improved Digestion",
@@ -271,7 +271,7 @@ export const PRODUCTS: Record<string, ProductDetailData> = {
     ],
     applications: ["Broilers", "Layers", "Breeders", "Feed Mills"],
     specs: [
-      { label: "Enzyme Activity", values: ["10,000 FTU/g"] },
+      { label: "Enzyme Activity", values: ["(10,000 and 20,000 FTU)"] },
       { label: "Technology", values: ["Next-Generation Phytase"] },
       { label: "Fermentation Process", values: ["Advanced microbial fermentation"] },
       {
@@ -283,9 +283,9 @@ export const PRODUCTS: Record<string, ProductDetailData> = {
     ],
     media: "placeholder",
     gallery: ["Product", "Packaging", "Laboratory", "Application"],
-    metaTitle: "PhytinGest (Phytase) — Agriprom Pakistan | Next-Generation Poultry Phytase",
+    metaTitle: "PHYTINGEST™ 10 G & 20 G (Phytase) — Agriprom Pakistan | Next-Generation Poultry Phytase",
     metaDescription:
-      "PhytinGest is a next-generation 10,000 FTU phytase that maximizes phosphorus availability, improves nutrient utilization and enhances poultry performance.",
+      "PHYTINGEST™ 10 G & 20 G is a next-generation phytase (10,000 and 20,000 FTU) that maximizes phosphorus availability, improves nutrient utilization and enhances poultry performance.",
   },
 
   "prophorce-sr130": {
@@ -349,18 +349,18 @@ export const PRODUCTS: Record<string, ProductDetailData> = {
     overviewImageLabel: "Product Overview",
     related: [
       {
-        name: "Compound Enzyme (NSP)",
+        name: "KEMZYME® Poultry",
         blurb: "A multi-enzyme NSP complex that unlocks trapped nutrients and lowers gut viscosity.",
         href: "/products/poultry/compound-enzyme-nsp",
       },
       {
-        name: "PhytinGest (Phytase)",
-        blurb: "Next-generation 10,000 FTU phytase that maximizes phosphorus availability.",
+        name: "PHYTINGEST™ 10 G & 20 G (Phytase)",
+        blurb: "Next-generation phytase (10,000 and 20,000 FTU) that maximizes phosphorus availability.",
         href: "/products/poultry/phytingest",
       },
       {
-        name: "Xylanase",
-        blurb: "CJ Bio Xylanase reduces digesta viscosity and produces AXOS prebiotics for gut health.",
+        name: "XYGEST™ HTX",
+        blurb: "XYGEST™ HTX reduces digesta viscosity and produces AXOS prebiotics for gut health.",
         href: "/products/poultry/xylanase",
       },
     ],
@@ -372,6 +372,68 @@ export const PRODUCTS: Record<string, ProductDetailData> = {
     metaTitle: "ProPhorce SR 130 (Esterified Butyric Acid) — Agriprom Pakistan | Poultry SCFA",
     metaDescription:
       "ProPhorce SR 130 is an advanced esterified butyric acid (tri & diglycerides) feed premix that enhances gut integrity, nutrient utilization, immunity and poultry performance.",
+  },
+
+  "anta-mix-me": {
+    slug: "anta-mix-me",
+    eyebrow: "Poultry · Organic Acids",
+    name: "Anta®Mix ME",
+    subtitle:
+      "Acid complex with microencapsulated acids and essential oils, for poultry gut health and performance",
+    intro:
+      "Anta®Mix ME combines formic, lactic and phosphoric acid salts with microencapsulated acids and essential oils. It acts in the feed, the crop and stomach, and the hindgut. It also supplies highly available calcium and phosphorus.",
+    overviewLead:
+      "Anta®Mix ME combines formic, lactic and phosphoric acid salts with microencapsulated acids and essential oils. It acts in the feed, the crop and stomach, and the hindgut. It also supplies highly available calcium and phosphorus.",
+    overviewPoints: [
+      "Protected actives pass the stomach and release gradually along the gut.",
+      "Provides highly available calcium and phosphorus.",
+      "Free-flowing, silo-compatible, non-corrosive and does not react with other feed components.",
+      "Heat stable",
+    ],
+    benefits: [
+      "Improves Feed Intake and Palatability",
+      "Improves Digestion and Nutrient Absorption",
+      "Reduces Pathogen Pressure",
+      "Improves Shell Quality (Better Calcium Utilisation)",
+      "Reduces Mortality",
+      "Better Feed Conversion Ratio (FCR) and Weight Gain",
+    ],
+    flow: [],
+    applications: ["Broilers", "Layers", "Commercial Poultry Farms", "Feed Manufacturers"],
+    specs: [
+      { label: "Product", values: ["Anta®Mix ME"] },
+      { label: "Category", values: ["Organic acids"] },
+      { label: "Active ingredients", values: ["Formic, lactic and phosphoric acid, microencapsulated essential oils"] },
+      { label: "Application", values: ["Poultry feed (broilers, layers)"] },
+      { label: "Technology", values: ["Fat-encapsulated actives, released gradually by lipase in the intestine"] },
+      {
+        label: "Primary benefits",
+        values: ["Gut health", "nutrient digestibility", "antibacterial action", "feed efficiency"],
+      },
+    ],
+    media: "placeholder",
+    gallery: ["Hero Product", "Packaging", "Application"],
+    overviewImageLabel: "Product Overview",
+    related: [
+      {
+        name: "ProPhorce SR 130",
+        blurb: "Esterified butyric acid premix for gut integrity, immunity and feed efficiency.",
+        href: "/products/poultry/organic-acids-scfa/prophorce-sr130",
+      },
+      {
+        name: "KEMZYME® Poultry",
+        blurb: "A multi-enzyme NSP complex that unlocks trapped nutrients and lowers gut viscosity.",
+        href: "/products/poultry/compound-enzyme-nsp",
+      },
+      {
+        name: "XYGEST™ HTX",
+        blurb: "XYGEST™ HTX reduces digesta viscosity and produces AXOS prebiotics for gut health.",
+        href: "/products/poultry/xylanase",
+      },
+    ],
+    metaTitle: "Anta®Mix ME — Agriprom Pakistan | Poultry Organic Acids",
+    metaDescription:
+      "Acid complex with microencapsulated acids and essential oils, for poultry gut health and performance.",
   },
 
   "elencofix-super": {
@@ -440,7 +502,7 @@ export const PRODUCTS: Record<string, ProductDetailData> = {
         href: "/products/poultry/organic-acids-scfa/prophorce-sr130",
       },
       {
-        name: "Compound Enzyme (NSP)",
+        name: "KEMZYME® Poultry",
         blurb: "A multi-enzyme NSP complex that unlocks trapped nutrients and lowers gut viscosity.",
         href: "/products/poultry/compound-enzyme-nsp",
       },
@@ -514,8 +576,8 @@ export const PRODUCTS: Record<string, ProductDetailData> = {
         href: "/products/poultry/organic-acids-scfa/prophorce-sr130",
       },
       {
-        name: "PhytinGest (Phytase)",
-        blurb: "Next-generation 10,000 FTU phytase that maximizes phosphorus availability.",
+        name: "PHYTINGEST™ 10 G & 20 G (Phytase)",
+        blurb: "Next-generation phytase (10,000 and 20,000 FTU) that maximizes phosphorus availability.",
         href: "/products/poultry/phytingest",
       },
     ],
@@ -527,6 +589,71 @@ export const PRODUCTS: Record<string, ProductDetailData> = {
     metaTitle: "Probond — Agriprom Pakistan | Clay-Based Poultry Toxin Binder",
     metaDescription:
       "Probond is a premium clay-based toxin binder made with high-purity Bentonite Montmorillonite, delivering high cation exchange capacity for effective mycotoxin adsorption.",
+  },
+
+  "prosid-tb-207": {
+    slug: "prosid-tb-207",
+    eyebrow: "Poultry · Toxin Binders",
+    name: "ProSid TB 207",
+    subtitle: "Multi-functional mycotoxin binder with phytogenics and calcium propionate",
+    intro:
+      "ProSid TB 207 is a toxin binder that adsorbs polar and non-polar mycotoxins. It also acts as a prebiotic, supports gut health and reduces oxidative stress and immunosuppression. It contains phytogenic compounds (carob, milk thistle, rosemary and licorice root) and calcium propionate.",
+    overviewLead:
+      "ProSid TB 207 is a toxin binder that adsorbs polar and non-polar mycotoxins. It also acts as a prebiotic, supports gut health and reduces oxidative stress and immunosuppression. It contains phytogenic compounds (carob, milk thistle, rosemary and licorice root) and calcium propionate.",
+    overviewPoints: [
+      "Adsorbs polar and non-polar mycotoxins.",
+      "Prebiotic action supports a healthy gut microbiota.",
+      "Phytogenics add antioxidant, immune and liver support.",
+      "Calcium propionate protects against yeast and mold.",
+      "Cost-effective",
+    ],
+    benefits: [
+      "Binds Aflatoxin B1, Zearalenone and T-2 Toxin",
+      "Supports Gut Health and Gut Microbiota",
+      "Protects Liver Function",
+      "Reduces Oxidative Stress and Immunosuppression",
+      "Supports Nutrient Digestibility Under Mycotoxin Challenge",
+      "Supports Weight Gain and Feed Conversion Ratio (FCR)",
+    ],
+    flow: [],
+    applications: ["Broilers", "Layers", "Breeders", "Commercial Poultry Farms", "Feed Manufacturers"],
+    specs: [
+      { label: "Product", values: ["ProSid TB 207"] },
+      { label: "Category", values: ["Toxin binder"] },
+      {
+        label: "Active ingredients",
+        values: ["Toxin binder, phytogenics (carob, milk thistle, rosemary, licorice root), calcium propionate"],
+      },
+      { label: "Application", values: ["Poultry feed"] },
+      { label: "Technology", values: ["Multi-functional adsorption and protection"] },
+      {
+        label: "Primary benefits",
+        values: ["Mycotoxin binding", "gut health", "liver protection", "antioxidant support", "feed efficiency"],
+      },
+    ],
+    media: "placeholder",
+    gallery: ["Product Image", "Packaging Image", "Application Image"],
+    overviewImageLabel: "Product Overview",
+    related: [
+      {
+        name: "Elenco Fix Super",
+        blurb: "Algae-based broad-spectrum toxin binder with liver protection and herbal support.",
+        href: "/products/poultry/elencofix-super",
+      },
+      {
+        name: "Probond",
+        blurb: "Clay-based toxin binder with high cation exchange capacity for effective adsorption.",
+        href: "/products/poultry/probond",
+      },
+      {
+        name: "ProPhorce SR 130",
+        blurb: "Esterified butyric acid premix for gut integrity, immunity and feed efficiency.",
+        href: "/products/poultry/organic-acids-scfa/prophorce-sr130",
+      },
+    ],
+    metaTitle: "ProSid TB 207 — Agriprom Pakistan | Poultry Toxin Binder",
+    metaDescription:
+      "Multi-functional mycotoxin binder with phytogenics and calcium propionate.",
   },
 
   "compound-antioxidant": {
@@ -584,7 +711,7 @@ export const PRODUCTS: Record<string, ProductDetailData> = {
     },
     related: [
       {
-        name: "Compound Enzyme (NSP)",
+        name: "KEMZYME® Poultry",
         blurb: "A multi-enzyme NSP complex that unlocks trapped nutrients and lowers gut viscosity.",
         href: "/products/poultry/compound-enzyme-nsp",
       },
@@ -672,7 +799,7 @@ export const PRODUCTS: Record<string, ProductDetailData> = {
     overviewImageLabel: "Product Overview",
     related: [
       {
-        name: "Compound Enzyme (NSP)",
+        name: "KEMZYME® Poultry",
         blurb: "A multi-enzyme NSP complex that unlocks trapped nutrients and lowers gut viscosity.",
         href: "/products/poultry/compound-enzyme-nsp",
       },
@@ -682,8 +809,8 @@ export const PRODUCTS: Record<string, ProductDetailData> = {
         href: "/products/poultry/organic-acids-scfa/prophorce-sr130",
       },
       {
-        name: "PhytinGest (Phytase)",
-        blurb: "Next-generation 10,000 FTU phytase that maximizes phosphorus availability.",
+        name: "PHYTINGEST™ 10 G & 20 G (Phytase)",
+        blurb: "Next-generation phytase (10,000 and 20,000 FTU) that maximizes phosphorus availability.",
         href: "/products/poultry/phytingest",
       },
     ],
@@ -760,23 +887,23 @@ export const PRODUCTS: Record<string, ProductDetailData> = {
     downloads: ["Product Brochure", "Technical Data Sheet", "MSDS", "PDF Specification"],
     related: [
       {
-        name: "Compound Enzyme (NSP)",
+        name: "KEMZYME® Poultry",
         blurb: "A multi-enzyme NSP complex that unlocks trapped nutrients and lowers gut viscosity.",
         href: "/products/poultry/compound-enzyme-nsp",
       },
       {
-        name: "CorGest M (Mannanase)",
+        name: "MANNAGEST™ (Mannanase)",
         blurb: "Mannanase that hydrolyzes β-mannan to improve digestibility and feed conversion.",
         href: "/products/poultry/corgest-m",
       },
       {
-        name: "Xylanase",
-        blurb: "CJ Bio Xylanase reduces digesta viscosity and produces AXOS prebiotics for gut health.",
+        name: "XYGEST™ HTX",
+        blurb: "XYGEST™ HTX reduces digesta viscosity and produces AXOS prebiotics for gut health.",
         href: "/products/poultry/xylanase",
       },
       {
-        name: "PhytinGest (Phytase)",
-        blurb: "Next-generation 10,000 FTU phytase that maximizes phosphorus availability.",
+        name: "PHYTINGEST™ 10 G & 20 G (Phytase)",
+        blurb: "Next-generation phytase (10,000 and 20,000 FTU) that maximizes phosphorus availability.",
         href: "/products/poultry/phytingest",
       },
     ],
@@ -789,5 +916,217 @@ export const PRODUCTS: Record<string, ProductDetailData> = {
     metaTitle: "Minlex Poultry — Agriprom Pakistan | Chelated Organic Trace Minerals",
     metaDescription:
       "Minlex Poultry is a biochelated organic trace-mineral premix (amino-acid chelated) that improves poultry immunity, growth, skeletal development and feed efficiency.",
+  },
+
+  "alterion-ne": {
+    slug: "alterion-ne",
+    eyebrow: "Poultry · Probiotics",
+    name: "Alterion NE",
+    subtitle:
+      "Bacillus subtilis probiotic for gut health and poultry performance",
+    intro:
+      "Alterion NE is a direct-fed microbial based on Bacillus subtilis. It strengthens gut health in three layers: the microbiota, the gut epithelium (barrier) and the immune response. This makes the gut less favourable to opportunistic pathogens such as C. perfringens.",
+    overviewLead:
+      "Alterion NE is a direct-fed microbial based on Bacillus subtilis. It strengthens gut health in three layers: the microbiota, the gut epithelium (barrier) and the immune response. This makes the gut less favourable to opportunistic pathogens such as C. perfringens.",
+    overviewPoints: [
+      "Proven germination in the gut",
+      "Heat stable",
+      "Free-flowing powder with good compressibility.",
+      "Compatible with ionophore coccidiostats and antibiotic growth promoters.",
+      "Can be combined with feed enzymes for complementary effects.",
+    ],
+    benefits: [
+      "Improves Gut Health and Resilience",
+      "Supports Intestinal Villus Development",
+      "Strengthens the Gut Epithelial Barrier",
+      "Supports a Balanced Immune Response",
+      "Reduces Pathogen Pressure (incl. C. perfringens)",
+      "Supports Weight Gain and Feed Conversion Ratio (FCR)",
+    ],
+    flow: [],
+    applications: ["Broilers", "Layers", "Breeders", "Commercial Poultry Farms", "Feed Manufacturers"],
+    specs: [
+      { label: "Product", values: ["Alterion NE"] },
+      { label: "Category", values: ["Probiotic"] },
+      { label: "Active ingredient", values: ["Bacillus subtilis (1 × 10¹⁰ CFU/g)"] },
+      { label: "Application", values: ["Poultry feed"] },
+      { label: "Technology", values: ["Heat-stable spores, germinating in the gut"] },
+      { label: "Primary benefits", values: ["Gut health", "intestinal integrity", "pathogen resilience", "performance"] },
+    ],
+    media: "placeholder",
+    gallery: ["Product Image", "Packaging Image", "Application Image"],
+    overviewImageLabel: "Product Overview",
+    metaTitle: "Alterion NE — Agriprom Pakistan | Poultry Probiotics",
+    metaDescription:
+      "Bacillus subtilis probiotic for gut health and poultry performance.",
+  },
+
+  "antifly": {
+    slug: "antifly",
+    eyebrow: "Poultry · Fly Control",
+    name: "Antifly",
+    subtitle:
+      "Poultry feed premix for fly control through larvae growth regulation",
+    intro:
+      "Antifly is a feed additive containing cyromazine, an insect growth regulator. About 99.9% of the dose passes through the bird and is excreted in the manure. There it stops fly larvae from developing into adult flies, which breaks the breeding cycle and reduces fly numbers in the poultry house.",
+    overviewLead:
+      "Antifly is a feed additive containing cyromazine, an insect growth regulator. About 99.9% of the dose passes through the bird and is excreted in the manure. There it stops fly larvae from developing into adult flies, which breaks the breeding cycle and reduces fly numbers in the poultry house.",
+    overviewPoints: [
+      "Cyromazine inhibits chitin synthesis in the fly exoskeleton and disrupts the hormones that regulate its growth.",
+      "Stops eggs, larvae and pupae from developing into adult flies.",
+      "The product is safe for poultry.",
+      "Start early, before fly season (around March), and continue until the end of summer (around September).",
+      "Add to feed only, and mix well.",
+    ],
+    benefits: [
+      "Controls Fly Breeding in Manure",
+      "Reduces Fly-Borne Disease Risk (Viral and Bacterial)",
+      "Reduces Ammonia and Odour in Poultry Houses",
+      "Reduces Stress Caused by Flies",
+      "Improves Egg and Manure Quality",
+      "Easy to Use and Cost Effective",
+    ],
+    flow: [],
+    applications: ["Commercial Poultry Farms", "Feed Manufacturers"],
+    specs: [
+      { label: "Product", values: ["Antifly"] },
+      { label: "Category", values: ["Insect growth regulator (larvicide) premix"] },
+      { label: "Active ingredient", values: ["Cyromazine (triazine class)"] },
+      { label: "Application", values: ["Poultry feed"] },
+      { label: "Technology", values: ["Cellulose-coated, passes through the bird and acts in the manure"] },
+      { label: "Primary benefits", values: ["Fly control", "disease prevention", "ammonia and odour reduction"] },
+    ],
+    media: "placeholder",
+    gallery: ["Product Image", "Packaging Image", "Application Image"],
+    overviewImageLabel: "Product Overview",
+    metaTitle: "Antifly — Agriprom Pakistan | Poultry Fly Control",
+    metaDescription:
+      "Poultry feed premix for fly control through larvae growth regulation.",
+  },
+
+  "canthaxanthin-lutein": {
+    slug: "canthaxanthin-lutein",
+    eyebrow: "Poultry · Feed Pigment",
+    name: "Canthaxanthin & Lutein Feed Pigment",
+    subtitle:
+      "Red and yellow carotenoid pigments for egg yolk and broiler skin colour",
+    intro:
+      "Corn-based diets don't carry enough carotenoids for the colour consumers want. Supplementing with natural red and yellow pigments builds a deeper orange yolk and richer skin and shank colour.",
+    overviewLead:
+      "Corn-based diets don't carry enough carotenoids for the colour consumers want. Supplementing with natural red and yellow pigments builds a deeper orange yolk and richer skin and shank colour.",
+    overviewPoints: [
+      "Well absorbed by the bird.",
+      "Free-flowing powder and granule forms that mix evenly into feed.",
+      "Dosage adjusts to the corn level in the diet.",
+      "Premix before the mixer, since the amounts are very small.",
+    ],
+    benefits: [
+      "Deeper, More Uniform Egg Yolk Colour",
+      "Richer Broiler Skin and Shank Colour",
+      "Natural Yellow Base from Marigold Extract",
+      "Red Pigment for High Colour Scores",
+      "Supports Consumer Appeal and Perceived Quality",
+      "Cost-Effective Colour Programme",
+    ],
+    flow: [],
+    applications: ["Layers", "Broilers", "Commercial Poultry Farms", "Feed Manufacturers"],
+    specs: [
+      { label: "Product", values: ["Canthaxanthin & Lutein (Red and Yellow)"] },
+      { label: "Category", values: ["Feed pigments"] },
+      { label: "Active ingredients", values: ["Red: canthaxanthin 10%", "Yellow: lutein 2%"] },
+      { label: "Application", values: ["Poultry feed (layers, broilers)"] },
+      { label: "Technology", values: ["Free-flowing powder (yellow) and granule (red), premixed before the mixer"] },
+      { label: "Primary benefits", values: ["Yolk colour", "skin and shank colour", "consistent product appearance"] },
+    ],
+    media: "placeholder",
+    gallery: ["Product Image", "Packaging Image", "Application Image"],
+    overviewImageLabel: "Product Overview",
+    metaTitle: "Canthaxanthin & Lutein Feed Pigment — Agriprom Pakistan | Poultry Feed Pigment",
+    metaDescription:
+      "Red and yellow carotenoid pigments for egg yolk and broiler skin colour.",
+  },
+
+  "moldcid": {
+    slug: "moldcid",
+    eyebrow: "Poultry · Feed Hygienizer",
+    name: "MoldCid",
+    subtitle:
+      "Propionic acid–based feed preservative against mold and spoilage",
+    intro:
+      "MoldCid is a blend of propionic acid with its ammonium and calcium salts on a mineral carrier. The mix of free acids and salts gives a long-lasting effect. It controls mold growth, protects feed and grain from spoilage and keeps nutrient and dry matter losses low.",
+    overviewLead:
+      "MoldCid is a blend of propionic acid with its ammonium and calcium salts on a mineral carrier. The mix of free acids and salts gives a long-lasting effect. It controls mold growth, protects feed and grain from spoilage and keeps nutrient and dry matter losses low.",
+    overviewPoints: [
+      "Long-lasting effect from the free acid and salt combination.",
+      "Free-flowing",
+      "Non-corrosive and easy to handle, with a particle size that suits easy dosing.",
+    ],
+    benefits: [
+      "Controls Mold Growth in Feed and Grain",
+      "Protects Against Nutrient and Dry Matter Losses",
+      "Improves Feed Hygiene",
+      "Helps Prevent Mycotoxins and Biogenic Amines",
+      "Supports Healthy Feed, Lower Mortality and Better Feed Efficiency",
+      "Reduces Feed Costs from Spoilage",
+    ],
+    flow: [],
+    applications: ["Feed Manufacturers", "Commercial Poultry Farms", "Grain Storage"],
+    specs: [
+      { label: "Product", values: ["MoldCid"] },
+      { label: "Category", values: ["Feed Hygienizer"] },
+      { label: "Active ingredients", values: ["Propionic acid, ammonium propionate, calcium propionate"] },
+      { label: "Application", values: ["Compound feed and grain"] },
+      { label: "Technology", values: ["Free acids plus salts on a mineral carrier, with steady release into the feed"] },
+      { label: "Primary benefits", values: ["Antifungal protection", "feed hygiene", "reduced nutrient and dry matter losses"] },
+    ],
+    media: "placeholder",
+    gallery: ["Product Image", "Packaging Image", "Application Image"],
+    overviewImageLabel: "Product Overview",
+    metaTitle: "MoldCid — Agriprom Pakistan | Poultry Feed Hygienizer",
+    metaDescription:
+      "Propionic acid–based feed preservative against mold and spoilage.",
+  },
+
+  "coxield": {
+    slug: "coxield",
+    eyebrow: "Poultry · Phytogenic Anticoccidials",
+    name: "Coxield",
+    subtitle:
+      "Phytogenic anticoccidial with three modes of action",
+    intro:
+      "Coxield is a natural alternative to anticoccidial drugs, made from a blend of two phytogenics. It acts on the early phase of the Eimeria life cycle in three ways. It kills sporozoites directly, blocks their invasion of gut cells and slows merozoite multiplication inside the cells. This supports broiler growth and reduces oocyst discharge and lesion score.",
+    overviewLead:
+      "Coxield is a natural alternative to anticoccidial drugs, made from a blend of two phytogenics. It acts on the early phase of the Eimeria life cycle in three ways. It kills sporozoites directly, blocks their invasion of gut cells and slows merozoite multiplication inside the cells. This supports broiler growth and reduces oocyst discharge and lesion score.",
+    overviewPoints: [
+      "Kills sporozoites, inhibits cell invasion and suppresses merozoite proliferation.",
+      "No withdrawal period and no residue issues.",
+      "Less resistance risk than anticoccidial drugs.",
+      "Faster protection than vaccines.",
+      "Selected through screening of natural ingredients.",
+    ],
+    benefits: [
+      "Kills Sporozoites Directly",
+      "Inhibits Cell Invasion",
+      "Suppresses Merozoite Proliferation",
+      "Reduces Oocyst Discharge and Lesion Score",
+      "Supports Broiler Growth Performance and FCR",
+      "Natural Alternative to Chemical Anticoccidial Drugs",
+    ],
+    flow: [],
+    applications: ["Broilers", "Layers", "Breeders", "Commercial Poultry Farms", "Feed Manufacturers"],
+    specs: [
+      { label: "Product", values: ["Coxield"] },
+      { label: "Category", values: ["Phytogenic anticoccidial"] },
+      { label: "Active ingredients", values: ["Blend of two phytogenics"] },
+      { label: "Application", values: ["Poultry feed"] },
+      { label: "Technology", values: ["Triple mode of action against Eimeria"] },
+      { label: "Primary benefits", values: ["Coccidiosis control", "gut protection", "growth performance"] },
+    ],
+    media: "placeholder",
+    gallery: ["Product Image", "Packaging Image", "Application Image"],
+    overviewImageLabel: "Product Overview",
+    metaTitle: "Coxield — Agriprom Pakistan | Poultry Phytogenic Anticoccidials",
+    metaDescription:
+      "Phytogenic anticoccidial with three modes of action.",
   },
 };
