@@ -1,7 +1,6 @@
 "use client";
 
 import { useRef } from "react";
-import { usePrefersReducedMotion } from "@/hooks/usePrefersReducedMotion";
 import { ChapterLayer } from "./ChapterLayer";
 import { useJourneyChoreography } from "./useJourneyChoreography";
 
@@ -51,7 +50,6 @@ const CHAPTERS: {
 
 export function SceneJourney() {
   const rootRef = useRef<HTMLElement>(null);
-  const reduced = usePrefersReducedMotion();
   useJourneyChoreography(rootRef);
 
   return (
@@ -68,7 +66,7 @@ export function SceneJourney() {
           description={chapter.description}
           imageSrc={chapter.imageSrc}
           side={chapter.side}
-          sticky={!reduced}
+          sticky={false}
         />
       ))}
 

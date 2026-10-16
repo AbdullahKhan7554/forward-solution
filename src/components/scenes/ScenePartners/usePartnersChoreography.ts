@@ -30,7 +30,7 @@ export function usePartnersChoreography(rootRef: RefObject<HTMLElement>) {
 
       const header = gsap.timeline({
         defaults: { ease: "power3.out" },
-        scrollTrigger: { trigger: root, start: "top 72%", once: true },
+        scrollTrigger: { trigger: root, start: "top 72%", toggleActions: "play none none none" },
       });
       header
         .to("[data-partners-line]", { scaleX: 1, duration: 1.2, ease: "power3.inOut" }, 0)
@@ -59,7 +59,7 @@ export function usePartnersChoreography(rootRef: RefObject<HTMLElement>) {
         duration: 2.2,
         ease: "power2.inOut",
         stagger: 0.3,
-        scrollTrigger: { trigger: root, start: "top 75%", once: true },
+        scrollTrigger: { trigger: root, start: "top 75%", toggleActions: "play none none none" },
       });
       gsap.to("[data-map-node] circle", {
         opacity: 0.5,
@@ -68,18 +68,6 @@ export function usePartnersChoreography(rootRef: RefObject<HTMLElement>) {
         repeat: -1,
         yoyo: true,
         stagger: { each: 0.4, from: "random" },
-      });
-
-      // subtle push-in + map parallax
-      gsap.to("[data-partners-field]", {
-        scale: 1.02,
-        ease: "none",
-        scrollTrigger: { trigger: root, start: "top bottom", end: "bottom top", scrub: true },
-      });
-      gsap.to("[data-worldmap]", {
-        yPercent: -6,
-        ease: "none",
-        scrollTrigger: { trigger: root, start: "top bottom", end: "bottom top", scrub: true },
       });
     }, root);
 

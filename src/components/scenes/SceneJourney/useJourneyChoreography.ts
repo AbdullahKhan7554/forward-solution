@@ -42,25 +42,6 @@ export function useJourneyChoreography(rootRef: RefObject<HTMLElement>) {
             overwrite: true,
           }),
       });
-
-      // slow push-in per chapter (dolly while held)
-      gsap.utils.toArray<HTMLElement>("[data-journey-push]").forEach((el) => {
-        const chapter = el.closest("[data-journey-chapter]") as HTMLElement | null;
-        gsap.fromTo(
-          el,
-          { scale: 1 },
-          {
-            scale: 1.05,
-            ease: "none",
-            scrollTrigger: {
-              trigger: chapter ?? el,
-              start: "top top",
-              end: "bottom top",
-              scrub: true,
-            },
-          }
-        );
-      });
     }, root);
 
     return () => {

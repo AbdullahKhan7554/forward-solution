@@ -67,19 +67,10 @@ export function SceneUnfolding() {
 
       const tl = gsap.timeline({
         defaults: { ease: "power4.out", duration: 0.8 },
-        scrollTrigger: { trigger: root, start: "top 70%", once: true },
+        scrollTrigger: { trigger: root, start: "top 70%", toggleActions: "play none none none" },
       });
       tl.to("[data-about-text]", { autoAlpha: 1, y: 0, stagger: 0.15 }, 0.1);
       tl.to("[data-about-img]", { autoAlpha: 1, y: 0, scale: 1, stagger: 0.15 }, 0.35);
-
-      root.querySelectorAll<HTMLElement>("[data-parallax]").forEach((el) => {
-        const sp = Number(el.dataset.speed || 30);
-        gsap.to(el, {
-          y: -sp,
-          ease: "none",
-          scrollTrigger: { trigger: root, start: "top bottom", end: "bottom top", scrub: true },
-        });
-      });
     }, root);
 
     return () => {

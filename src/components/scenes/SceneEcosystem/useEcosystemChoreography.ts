@@ -42,36 +42,9 @@ export function useEcosystemChoreography(rootRef: RefObject<HTMLElement>) {
             overwrite: true,
           }),
       });
-
-      // --- per-block parallax (subtle camera push / depth) ----------------
-      gsap.utils.toArray<HTMLElement>("[data-eco-parallax]").forEach((el) => {
-        const speed = parseFloat(el.dataset.speed || "0.06");
-        gsap.to(el, {
-          yPercent: -speed * 100,
-          ease: "none",
-          scrollTrigger: {
-            trigger: el,
-            start: "top bottom",
-            end: "bottom top",
-            scrub: true,
-          },
-        });
-      });
     }, root);
 
-    // --- mouse-driven depth on the floating highlight --------------------
-    const floatXTo = gsap.quickTo("[data-depth-float]", "x", { duration: 0.9, ease: "power3" });
-    const floatYTo = gsap.quickTo("[data-depth-float]", "y", { duration: 0.9, ease: "power3" });
-    const onMove = (e: MouseEvent) => {
-      const nx = (e.clientX / window.innerWidth - 0.5) * 2;
-      const ny = (e.clientY / window.innerHeight - 0.5) * 2;
-      floatXTo(nx * 14);
-      floatYTo(ny * 14);
-    };
-    window.addEventListener("mousemove", onMove);
-
     return () => {
-      window.removeEventListener("mousemove", onMove);
       ctx.revert();
       ScrollTrigger.refresh();
     };

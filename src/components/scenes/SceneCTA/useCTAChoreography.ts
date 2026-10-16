@@ -27,7 +27,7 @@ export function useCTAChoreography(rootRef: RefObject<HTMLElement>) {
       gsap
         .timeline({
           defaults: { ease: "power3.out" },
-          scrollTrigger: { trigger: root, start: "top 78%", once: true },
+          scrollTrigger: { trigger: root, start: "top 78%", toggleActions: "play none none none" },
         })
         .to("[data-cta-scale]", { scale: 1, duration: 1.8, ease: "power2.out" }, 0)
         .to(

@@ -2,9 +2,7 @@
 
 import { useRef } from "react";
 import dynamic from "next/dynamic";
-import { useIsomorphicLayoutEffect } from "@/hooks/useIsomorphicLayoutEffect";
 import { useIntro } from "@/components/providers/IntroProvider";
-import { gsap, ScrollTrigger } from "@/lib/gsap";
 import { HeroContent } from "./HeroContent";
 import { ScrollCue } from "./ScrollCue";
 
@@ -30,52 +28,14 @@ export function SceneThreshold() {
   const cueRef = useRef<HTMLDivElement>(null);
   const scrollProgress = useRef(0);
 
-  useIsomorphicLayoutEffect(() => {
-    const reduced =
-      typeof window !== "undefined" &&
-      window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    if (reduced || !outerRef.current) return;
-
-    const ctx = gsap.context(() => {
-      // Feed scroll progress to the WebGL (no React re-render per frame).
-      ScrollTrigger.create({
-        trigger: outerRef.current,
-        start: "top top",
-        end: "bottom bottom",
-        onUpdate: (self) => {
-          scrollProgress.current = self.progress;
-        },
-      });
-
-      // DOM parallax + exit, scrubbed to the same scroll.
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: outerRef.current,
-          start: "top top",
-          end: "bottom bottom",
-          scrub: 1,
-        },
-      });
-      tl.to(atmosphereRef.current, { yPercent: 6, ease: "none" }, 0);
-      tl.to(
-        contentRef.current,
-        { yPercent: -20, autoAlpha: 0, ease: "power1.in" },
-        0
-      );
-      tl.to(cueRef.current, { autoAlpha: 0, ease: "power1.in", duration: 0.25 }, 0);
-    }, outerRef);
-
-    return () => ctx.revert();
-  }, []);
-
   return (
     <section
       aria-label="Empowering Animal Health And Productivity Through Innovative Feed Additives"
       className="relative"
     >
       {/* Scroll runway for the sticky stage (all within Scene 01). */}
-      <div ref={outerRef} className="relative h-[170svh]">
-        <div className="sticky top-0 h-[100svh] min-h-[620px] w-full overflow-hidden bg-base">
+      <div ref={outerRef} className="relative">
+        <div className="relative h-[100svh] min-h-[620px] w-full overflow-hidden bg-base">
           {/* Layered WebGL world */}
           <div ref={atmosphereRef} className="absolute inset-0 will-change-transform">
             <HeroAtmosphere
