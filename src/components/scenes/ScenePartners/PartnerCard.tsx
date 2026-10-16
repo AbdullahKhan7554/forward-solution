@@ -32,7 +32,7 @@ export function PartnerCard({
         role="group"
         aria-label={`${partner.name} — ${partner.description}`}
         className={cn(
-          "group relative flex flex-col justify-between rounded-lg border border-white/70 bg-white/55 shadow-soft outline-none backdrop-blur-xl backdrop-saturate-150 transition-[transform,box-shadow,background-color] duration-150 ease-brand-out will-change-transform",
+          "group relative flex flex-col justify-between rounded-lg border border-white/70 bg-white/55 shadow-soft outline-none transition-[transform,box-shadow,background-color] duration-150 ease-brand-out will-change-transform",
           "hover:-translate-y-1 hover:bg-white/75 hover:shadow-floating hover:ring-1 hover:ring-primary-600/25",
           "focus-visible:-translate-y-1 focus-visible:ring-2 focus-visible:ring-accent-500",
           isFeature ? "min-h-[300px] p-10" : "min-h-[220px] p-8"

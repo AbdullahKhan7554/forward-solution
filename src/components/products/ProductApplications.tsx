@@ -142,7 +142,7 @@ export function ProductApplications() {
         duration: 0.9,
         ease: "power3.out",
         stagger: 0.14,
-        scrollTrigger: { trigger: root, start: "top 70%", once: true },
+        scrollTrigger: { trigger: root, start: "top 70%", toggleActions: "play none none none" },
       });
 
       gsap.set("[data-app-card]", { autoAlpha: 0, y: 30 });

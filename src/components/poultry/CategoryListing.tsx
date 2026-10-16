@@ -71,7 +71,7 @@ function Card({ item }: { item: ListingItem }) {
         ref={cardRef}
         href={item.href}
         aria-label={`${item.name} — view product`}
-        className="group block h-full rounded-lg p-3 transition-[transform,background-color,box-shadow] duration-200 ease-brand-out will-change-transform hover:-translate-y-1.5 hover:bg-white/55 hover:shadow-floating hover:backdrop-blur-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-500"
+        className="group block h-full rounded-lg p-3 transition-[transform,background-color,box-shadow] duration-200 ease-brand-out will-change-transform hover:-translate-y-1.5 hover:bg-white/55 hover:shadow-floating focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-500"
       >
         <MaskedReveal className="aspect-[3/4] w-full overflow-hidden rounded-md ring-1 ring-white/50">
           <div className="h-full w-full transition-transform duration-300 ease-brand-out group-hover:scale-[1.05]">
@@ -132,7 +132,7 @@ export function CategoryListing({
         duration: 0.9,
         ease: "power3.out",
         stagger: 0.14,
-        scrollTrigger: { trigger: root, start: "top 75%", once: true },
+        scrollTrigger: { trigger: root, start: "top 75%", toggleActions: "play none none none" },
       });
       gsap.set("[data-cl-card]", { autoAlpha: 0, y: 30 });
       ScrollTrigger.batch("[data-cl-card]", {
@@ -186,7 +186,7 @@ export function CategoryListing({
             ))}
           </ul>
         ) : (
-          <div data-cl-fade className="mt-[10vh] rounded-lg border border-white/70 bg-white/55 p-12 text-center shadow-glass backdrop-blur-xl backdrop-saturate-150 md:p-16">
+          <div data-cl-fade className="mt-[10vh] rounded-lg border border-white/70 bg-white/55 p-12 text-center shadow-glass md:p-16">
             <p className="font-serif text-body-lg italic text-neutral-500">Products coming soon.</p>
             <p className="mx-auto mt-4 max-w-[46ch] font-sans text-body text-neutral-600">
               We&rsquo;re expanding this range. Talk to our technical team about solutions for your

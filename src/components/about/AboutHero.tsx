@@ -5,7 +5,7 @@ import Image from "next/image";
 import { useIsomorphicLayoutEffect } from "@/hooks/useIsomorphicLayoutEffect";
 import { usePrefersReducedMotion } from "@/hooks/usePrefersReducedMotion";
 import { useIntro } from "@/components/providers/IntroProvider";
-import { gsap, ScrollTrigger } from "@/lib/gsap";
+import { gsap } from "@/lib/gsap";
 import { RevealText } from "@/components/primitives/RevealText";
 import { ScrollCue } from "@/components/scenes/SceneThreshold/ScrollCue";
 import { cn } from "@/lib/utils";
@@ -44,7 +44,6 @@ export function AboutHero() {
   const sweepRef = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
   const cueRef = useRef<HTMLDivElement>(null);
-  const scrollProgress = useRef(0);
   const reducedRef = useRef(false);
   const playedRef = useRef(false);
   const revealing = phase === "revealing";
@@ -93,39 +92,6 @@ export function AboutHero() {
         { xPercent: 220, duration: 19, ease: "sine.inOut", repeat: -1 }
       );
     }, slidesRef);
-
-    return () => ctx.revert();
-  }, []);
-
-  // ── Scroll: scale the hero down, parallax the background, fade text ──
-  useIsomorphicLayoutEffect(() => {
-    if (reducedRef.current || !outerRef.current) return;
-
-    const ctx = gsap.context(() => {
-      ScrollTrigger.create({
-        trigger: outerRef.current,
-        start: "top top",
-        end: "bottom bottom",
-        onUpdate: (self) => {
-          scrollProgress.current = self.progress;
-        },
-      });
-
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: outerRef.current,
-          start: "top top",
-          end: "bottom bottom",
-          scrub: 1,
-        },
-      });
-      // the whole hero eases down as the next section rises to meet it
-      tl.to(stageRef.current, { scale: 0.94, ease: "power1.inOut" }, 0);
-      // background keeps moving, slower (depth separation)
-      tl.to(slidesRef.current, { yPercent: 7, ease: "none" }, 0);
-      tl.to(contentRef.current, { yPercent: -16, autoAlpha: 0, ease: "power1.in" }, 0);
-      tl.to(cueRef.current, { autoAlpha: 0, ease: "power1.in", duration: 0.25 }, 0);
-    }, outerRef);
 
     return () => ctx.revert();
   }, []);
@@ -180,11 +146,10 @@ export function AboutHero() {
       aria-label="About Agriprom Pakistan — advancing animal health through science, innovation and partnership"
       className="relative"
     >
-      {/* Scroll runway for the sticky stage. */}
-      <div ref={outerRef} className="relative h-[170svh]">
+      <div ref={outerRef} className="relative">
         <div
           ref={stageRef}
-          className="sticky top-0 h-[100svh] min-h-[620px] w-full overflow-hidden bg-base will-change-transform"
+          className="relative h-[100svh] min-h-[620px] w-full overflow-hidden bg-base will-change-transform"
         >
           {/* ── CROSSFADE CINEMA ── */}
           <div ref={slidesRef} className="absolute inset-0 will-change-transform">

@@ -29,7 +29,7 @@ export function RuminantIntro() {
         duration: 0.9,
         ease: "power3.out",
         stagger: 0.14,
-        scrollTrigger: { trigger: root, start: "top 68%", once: true },
+        scrollTrigger: { trigger: root, start: "top 68%", toggleActions: "play none none none" },
       });
     }, root);
     return () => ctx.revert();

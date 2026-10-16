@@ -109,7 +109,7 @@ export function AboutGlobalPresence() {
       gsap
         .timeline({
           defaults: { ease: "power3.out" },
-          scrollTrigger: { trigger: root, start: "top 72%", once: true },
+          scrollTrigger: { trigger: root, start: "top 72%", toggleActions: "play none none none" },
         })
         .to("[data-glob-line]", { scaleX: 1, duration: 1.2, ease: "power3.inOut" }, 0)
         .to("[data-glob-fade]", { autoAlpha: 1, y: 0, duration: 0.9, stagger: 0.14 }, 0.3);
@@ -130,14 +130,14 @@ export function AboutGlobalPresence() {
           }),
       });
 
-      // world map — reuse the draw-then-breathe animation + parallax
+      // world map — reuse the draw-then-breathe animation
       gsap.set("[data-map-path]", { strokeDashoffset: 1 });
       gsap.to("[data-map-path]", {
         strokeDashoffset: 0,
         duration: 2.2,
         ease: "power2.inOut",
         stagger: 0.3,
-        scrollTrigger: { trigger: root, start: "top 75%", once: true },
+        scrollTrigger: { trigger: root, start: "top 75%", toggleActions: "play none none none" },
       });
       gsap.to("[data-map-node] circle", {
         opacity: 0.5,
@@ -146,11 +146,6 @@ export function AboutGlobalPresence() {
         repeat: -1,
         yoyo: true,
         stagger: { each: 0.4, from: "random" },
-      });
-      gsap.to("[data-worldmap]", {
-        yPercent: -6,
-        ease: "none",
-        scrollTrigger: { trigger: root, start: "top bottom", end: "bottom top", scrub: true },
       });
 
       // floating indicators — soft pulse
@@ -171,7 +166,7 @@ export function AboutGlobalPresence() {
           v: target,
           duration: 1.8,
           ease: "power2.out",
-          scrollTrigger: { trigger: el, start: "top 90%", once: true },
+          scrollTrigger: { trigger: el, start: "top 90%", toggleActions: "play none none none" },
           onUpdate: () => {
             el.textContent = Math.round(proxy.v).toString();
           },

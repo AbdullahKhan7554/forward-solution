@@ -161,7 +161,7 @@ export function ArticleView({
           {article.takeaways.length > 0 && (
             <aside
               data-article-fade
-              className="mt-16 rounded-xl border border-white/70 bg-white/60 p-8 shadow-glass backdrop-blur-xl backdrop-saturate-150 md:p-10"
+              className="mt-16 rounded-xl border border-white/70 bg-white/60 p-8 shadow-glass md:p-10"
             >
               <h2 className="mb-6 font-sans text-caption uppercase tracking-[0.28em] text-primary-700">
                 Key Takeaways

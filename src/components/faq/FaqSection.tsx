@@ -54,7 +54,7 @@ function AccordionItem({
     <div
       data-faq-card
       className={cn(
-        "overflow-hidden rounded-2xl border bg-white/70 shadow-soft backdrop-blur-xl backdrop-saturate-150 transition-[box-shadow,border-color] duration-200 ease-brand-out",
+        "overflow-hidden rounded-2xl border bg-white/70 shadow-soft transition-[box-shadow,border-color] duration-200 ease-brand-out",
         open ? "border-accent-300/40 shadow-medium" : "border-secondary-500/15 hover:shadow-medium"
       )}
     >
@@ -117,7 +117,7 @@ export function FaqSection({
       gsap.set("[data-faq-head]", { autoAlpha: 0, y: 18 });
       gsap.to("[data-faq-head]", {
         autoAlpha: 1, y: 0, duration: 0.9, ease: "power3.out", stagger: 0.1,
-        scrollTrigger: { trigger: root, start: "top 78%", once: true },
+        scrollTrigger: { trigger: root, start: "top 78%", toggleActions: "play none none none" },
       });
       gsap.set("[data-faq-card]", { autoAlpha: 0, y: 22 });
       ScrollTrigger.batch("[data-faq-card]", {

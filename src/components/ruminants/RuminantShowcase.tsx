@@ -60,10 +60,6 @@ export function RuminantShowcase({ product, index }: { product: RuminantProduct;
         start: "top 88%",
         onEnter: (batch) => gsap.to(batch, { autoAlpha: 1, y: 0, scale: 1, duration: 1.0, ease: "power3.out", stagger: 0.1, overwrite: true }),
       });
-      const img = root.querySelector<HTMLElement>("[data-rs-img]");
-      if (img) {
-        gsap.fromTo(img, { scale: 1 }, { scale: 1.07, ease: "none", scrollTrigger: { trigger: root, start: "top bottom", end: "bottom top", scrub: true } });
-      }
     }, root);
 
     return () => { ctx.revert(); ScrollTrigger.refresh(); };
@@ -126,7 +122,7 @@ export function RuminantShowcase({ product, index }: { product: RuminantProduct;
         <span className="mb-4 block font-sans text-caption uppercase tracking-[0.24em] text-neutral-500">Recommended Applications</span>
         <ul className="flex flex-wrap gap-3">
           {product.applications.map((a) => (
-            <li key={a} className="rounded-full border border-neutral-200 bg-white/70 px-5 py-2.5 font-sans text-body text-neutral-700 shadow-soft backdrop-blur-sm transition-[transform,box-shadow,border-color] duration-200 ease-brand-out hover:-translate-y-0.5 hover:border-primary-300 hover:shadow-medium">
+            <li key={a} className="rounded-full border border-neutral-200 bg-white/70 px-5 py-2.5 font-sans text-body text-neutral-700 shadow-soft transition-[transform,box-shadow,border-color] duration-200 ease-brand-out hover:-translate-y-0.5 hover:border-primary-300 hover:shadow-medium">
               {a}
             </li>
           ))}

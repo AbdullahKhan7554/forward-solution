@@ -3,7 +3,7 @@
 import { useRef } from "react";
 import { useIsomorphicLayoutEffect } from "@/hooks/useIsomorphicLayoutEffect";
 import { useIntro } from "@/components/providers/IntroProvider";
-import { gsap, ScrollTrigger } from "@/lib/gsap";
+import { gsap } from "@/lib/gsap";
 import { RevealText } from "@/components/primitives/RevealText";
 import { MaskedReveal } from "@/components/primitives/MaskedReveal";
 import { LabPlate } from "@/components/scenes/SceneUnfolding/LabPlate";
@@ -31,20 +31,6 @@ export function RuminantHero() {
     if (reducedRef.current || !rootRef.current) return;
     const root = rootRef.current;
     gsap.set(root.querySelectorAll("[data-rh-fade]"), { autoAlpha: 0, y: 18 });
-    const ctx = gsap.context(() => {
-      gsap.to("[data-rh-parallax]", {
-        scale: 1.08,
-        ease: "none",
-        scrollTrigger: { trigger: root, start: "top top", end: "bottom top", scrub: true },
-      });
-      gsap.to("[data-rh-content]", {
-        yPercent: -12,
-        autoAlpha: 0.2,
-        ease: "none",
-        scrollTrigger: { trigger: root, start: "top top", end: "bottom top", scrub: true },
-      });
-    }, root);
-    return () => ctx.revert();
   }, []);
 
   useIsomorphicLayoutEffect(() => {
@@ -68,7 +54,7 @@ export function RuminantHero() {
     <section ref={rootRef} aria-labelledby="ruminant-hero-heading" className="relative h-[100svh] min-h-[620px] overflow-hidden bg-dark">
       {/* full-bleed cinematic image */}
       <MaskedReveal direction="up" trigger="mount" className="absolute inset-0">
-        <div data-rh-parallax className="h-full w-full will-change-transform">
+        <div className="h-full w-full will-change-transform">
           <LabPlate src="/reuminant.jpg" alt="Dairy and beef cattle — Agriprom Pakistan ruminant nutrition" />
         </div>
       </MaskedReveal>
@@ -90,7 +76,7 @@ export function RuminantHero() {
       >
         {/* glass breadcrumb */}
         <nav data-rh-fade aria-label="Breadcrumb" className="w-fit">
-          <ol className="flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-5 py-2.5 font-sans text-caption uppercase tracking-[0.24em] text-white/80 backdrop-blur-xl">
+          <ol className="flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-5 py-2.5 font-sans text-caption uppercase tracking-[0.24em] text-white/80">
             <li><a href="/" className="transition-colors hover:text-white">Home</a></li>
             <li aria-hidden="true" className="text-white/40">/</li>
             <li><a href="/products" className="transition-colors hover:text-white">Products</a></li>

@@ -3,7 +3,7 @@
 import { useRef } from "react";
 import { useIsomorphicLayoutEffect } from "@/hooks/useIsomorphicLayoutEffect";
 import { useIntro } from "@/components/providers/IntroProvider";
-import { gsap, ScrollTrigger } from "@/lib/gsap";
+import { gsap } from "@/lib/gsap";
 import { RevealText } from "@/components/primitives/RevealText";
 import { MaskedReveal } from "@/components/primitives/MaskedReveal";
 import { LabPlate } from "@/components/scenes/SceneUnfolding/LabPlate";
@@ -36,15 +36,6 @@ export function PoultryHero() {
     gsap.set(root.querySelectorAll("[data-ph-fade]"), { autoAlpha: 0, y: 18 });
     gsap.set(root.querySelectorAll("[data-ph-line]"), { scaleX: 0, transformOrigin: "0% 50%" });
 
-    // subtle parallax on the hero image
-    const ctx = gsap.context(() => {
-      gsap.to("[data-ph-parallax]", {
-        yPercent: -8,
-        ease: "none",
-        scrollTrigger: { trigger: root, start: "top top", end: "bottom top", scrub: true },
-      });
-    }, root);
-    return () => ctx.revert();
   }, []);
 
   useIsomorphicLayoutEffect(() => {
@@ -151,7 +142,7 @@ export function PoultryHero() {
             trigger="mount"
             className="aspect-[4/5] w-full rounded-lg shadow-medium ring-1 ring-white/60 md:aspect-[4/5]"
           >
-            <div data-ph-parallax className="h-[112%] w-full will-change-transform">
+            <div className="h-[112%] w-full will-change-transform">
               <LabPlate src="/poultry.jpg" alt="Poultry farm — Agriprom Pakistan nutritional technologies" />
             </div>
           </MaskedReveal>

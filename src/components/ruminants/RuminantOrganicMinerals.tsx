@@ -96,10 +96,6 @@ export function RuminantOrganicMinerals() {
         start: "top 88%",
         onEnter: (batch) => gsap.to(batch, { autoAlpha: 1, y: 0, scale: 1, duration: 1.0, ease: "power3.out", overwrite: true }),
       });
-      // soft image parallax (float up) + slow dolly
-      gsap.to("[data-mx-float]", { yPercent: -10, ease: "none", scrollTrigger: { trigger: root, start: "top bottom", end: "bottom top", scrub: true } });
-      const img = root.querySelector<HTMLElement>("[data-mx-img]");
-      if (img) gsap.fromTo(img, { scale: 1.03 }, { scale: 1.1, ease: "none", scrollTrigger: { trigger: root, start: "top bottom", end: "bottom top", scrub: true } });
     }, root);
 
     return () => { ctx.revert(); ScrollTrigger.refresh(); };
@@ -203,7 +199,7 @@ export function RuminantOrganicMinerals() {
           </div>
           <ul className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5">
             {PRODUCT.applications.map((a) => (
-              <li key={a} data-mx-card className={cn("group flex flex-col items-center gap-4 rounded-lg border border-neutral-200/80 bg-white/60 p-7 text-center shadow-soft backdrop-blur-sm transition-[transform,box-shadow,border-color] duration-200 ease-brand-out hover:-translate-y-1 hover:border-primary-300 hover:shadow-medium")}>
+              <li key={a} data-mx-card className={cn("group flex flex-col items-center gap-4 rounded-lg border border-neutral-200/80 bg-white/60 p-7 text-center shadow-soft transition-[transform,box-shadow,border-color] duration-200 ease-brand-out hover:-translate-y-1 hover:border-primary-300 hover:shadow-medium")}>
                 <span className="inline-flex h-12 w-12 items-center justify-center rounded-full border border-white/70 bg-white/70 text-primary-700 shadow-soft transition-colors duration-200 ease-brand-out group-hover:text-accent-600">
                   {appIcon(a)}
                 </span>

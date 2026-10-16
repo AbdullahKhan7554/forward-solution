@@ -42,22 +42,20 @@ const PILLARS: Pillar[] = [
   },
 ];
 
-/** One collage image — parallax wrapper › reveal target › hover surface. */
+/** One collage image — reveal target › hover surface. */
 function CollageImage({
   src,
-  speed,
   className,
   sizes,
   priority,
 }: {
   src: string;
-  speed: number;
   className: string;
   sizes: string;
   priority?: boolean;
 }) {
   return (
-    <div data-parallax data-speed={speed} className={className}>
+    <div className={className}>
       <div data-about-img className="h-full w-full">
         <div className="group h-full w-full overflow-hidden rounded-xl shadow-soft transition-[transform,box-shadow] duration-[250ms] ease-brand-out will-change-transform hover:-translate-y-2 hover:scale-[1.02] hover:shadow-medium">
           <div className="relative h-full w-full">
@@ -91,20 +89,10 @@ export function AboutWhoWeAre() {
       // reveal: text (heading → paragraph → button) then images, staggered
       const tl = gsap.timeline({
         defaults: { ease: "power4.out", duration: 0.8 },
-        scrollTrigger: { trigger: root, start: "top 70%", once: true },
+        scrollTrigger: { trigger: root, start: "top 70%", toggleActions: "play none none none" },
       });
       tl.to("[data-about-text]", { autoAlpha: 1, y: 0, stagger: 0.15 }, 0.1);
       tl.to("[data-about-img]", { autoAlpha: 1, y: 0, scale: 1, stagger: 0.15 }, 0.35);
-
-      // after reveal, images drift independently on scroll (very subtle)
-      root.querySelectorAll<HTMLElement>("[data-parallax]").forEach((el) => {
-        const sp = Number(el.dataset.speed || 30);
-        gsap.to(el, {
-          y: -sp,
-          ease: "none",
-          scrollTrigger: { trigger: root, start: "top bottom", end: "bottom top", scrub: true },
-        });
-      });
 
       // pillars settle in as they enter
       ScrollTrigger.batch("[data-who-card]", {
@@ -116,7 +104,7 @@ export function AboutWhoWeAre() {
         scaleX: 1,
         duration: 1.1,
         ease: "power3.inOut",
-        scrollTrigger: { trigger: "[data-who-line]", start: "top 90%", once: true },
+        scrollTrigger: { trigger: "[data-who-line]", start: "top 90%", toggleActions: "play none none none" },
       });
     }, root);
 
@@ -215,22 +203,18 @@ export function AboutWhoWeAre() {
             {/* large — the environment */}
             <CollageImage
               src={IMG_LAB}
-              speed={35}
-              priority
               sizes="(max-width: 768px) 100vw, 40vw"
               className="relative aspect-[4/3] w-full md:absolute md:right-0 md:top-[4%] md:z-10 md:aspect-[4/3] md:w-[76%]"
             />
             {/* overlapping — the people */}
             <CollageImage
               src={IMG_TEAM}
-              speed={60}
               sizes="(max-width: 768px) 100vw, 28vw"
               className="relative aspect-[4/5] w-full md:absolute md:bottom-0 md:left-0 md:z-20 md:aspect-[4/5] md:w-[52%]"
             />
             {/* floating — the science */}
             <CollageImage
               src={IMG_SCIENCE}
-              speed={20}
               sizes="(max-width: 768px) 100vw, 18vw"
               className="relative aspect-square w-2/3 md:absolute md:left-[8%] md:top-0 md:z-30 md:aspect-square md:w-[30%]"
             />

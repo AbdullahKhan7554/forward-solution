@@ -73,16 +73,6 @@ export function RuminantAminoAcids() {
         onEnter: (batch) => gsap.to(batch, { autoAlpha: 1, y: 0, duration: 0.9, ease: "power3.out", stagger: 0.12, overwrite: true }),
       });
 
-      gsap.fromTo(
-        "[data-aa-img]",
-        { scale: 1.02 },
-        { scale: 1.09, ease: "none", scrollTrigger: { trigger: root, start: "top bottom", end: "bottom top", scrub: true } }
-      );
-      gsap.to("[data-aa-float]", {
-        yPercent: -14,
-        ease: "none",
-        scrollTrigger: { trigger: root, start: "top bottom", end: "bottom top", scrub: true },
-      });
       gsap.set("[data-aa-sheen]", { xPercent: -140, autoAlpha: 0 });
       gsap.to("[data-aa-sheen]", {
         keyframes: [
@@ -90,7 +80,7 @@ export function RuminantAminoAcids() {
           { xPercent: 140, duration: 1.3, ease: "power2.inOut" },
           { autoAlpha: 0, duration: 0.35 },
         ],
-        scrollTrigger: { trigger: root, start: "top 60%", once: true },
+        scrollTrigger: { trigger: root, start: "top 60%", toggleActions: "play none none none" },
       });
     }, root);
 
@@ -129,7 +119,7 @@ export function RuminantAminoAcids() {
             </MaskedReveal>
 
             <div data-aa-float className="relative z-raised mt-6 will-change-transform md:absolute md:-left-10 md:bottom-8 md:mt-0 md:w-[320px] xl:-left-16">
-              <div data-aa-fade className="rounded-lg border border-white/70 bg-white/60 p-7 shadow-glass backdrop-blur-xl backdrop-saturate-150">
+              <div data-aa-fade className="rounded-lg border border-white/70 bg-white/60 p-7 shadow-glass">
                 <span className="mb-4 block h-px w-8 bg-accent-500" />
                 <p className="font-display text-h4 font-medium leading-[1.2] text-neutral-900">Delivered intact to the small intestine.</p>
                 <p className="mt-3 font-sans text-body text-neutral-600">Shielded from rumen microbes, released exactly where amino acids are absorbed.</p>

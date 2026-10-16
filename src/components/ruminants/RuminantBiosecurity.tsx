@@ -106,14 +106,7 @@ export function RuminantBiosecurity() {
       gsap.set("[data-bio-fade]", { autoAlpha: 0, y: 20 });
       gsap.to("[data-bio-fade]", {
         autoAlpha: 1, y: 0, duration: 0.9, ease: "power3.out", stagger: 0.14,
-        scrollTrigger: { trigger: root, start: "top 72%", once: true },
-      });
-
-      // process spine draws as you descend
-      gsap.set("[data-bio-fill]", { scaleY: 0, transformOrigin: "50% 0%" });
-      gsap.to("[data-bio-fill]", {
-        scaleY: 1, ease: "none",
-        scrollTrigger: { trigger: list, start: "top 78%", end: "bottom 82%", scrub: true },
+        scrollTrigger: { trigger: root, start: "top 72%", toggleActions: "play none none none" },
       });
 
       gsap.set("[data-bio-step]", { autoAlpha: 0, y: 24, scale: 0.98 });
@@ -162,7 +155,7 @@ export function RuminantBiosecurity() {
           {PROCESS.map((step, i) => (
             <div key={step.n} className="relative flex w-full flex-col items-center">
               <div data-bio-step className="relative z-raised w-full max-w-md">
-                <div className="rounded-lg border border-white/70 bg-white/60 p-7 text-center shadow-glass backdrop-blur-xl backdrop-saturate-150 md:p-8">
+                <div className="rounded-lg border border-white/70 bg-white/60 p-7 text-center shadow-glass md:p-8">
                   <span className="font-sans text-caption tracking-[0.22em] text-accent-600">STEP {step.n}</span>
                   <h3 className="mt-2 font-display text-h3 font-medium text-neutral-900">{step.title}</h3>
                   <p className="mt-2 font-sans text-body text-neutral-600">{step.body}</p>

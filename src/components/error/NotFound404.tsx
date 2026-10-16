@@ -170,7 +170,7 @@ export function NotFound404() {
           <a
             data-404-cta
             href="/contact-us/"
-            className="inline-flex w-full items-center justify-center rounded-sm border border-neutral-300 bg-white/50 px-8 py-4 font-sans text-body font-medium text-neutral-800 backdrop-blur-md outline-none transition-[transform,box-shadow,background-color,border-color] duration-200 ease-brand-out hover:-translate-y-0.5 hover:border-primary-400 hover:bg-white/80 hover:shadow-soft focus-visible:ring-2 focus-visible:ring-accent-500 sm:w-auto"
+            className="inline-flex w-full items-center justify-center rounded-sm border border-neutral-300 bg-white/50 px-8 py-4 font-sans text-body font-medium text-neutral-800 outline-none transition-[transform,box-shadow,background-color,border-color] duration-200 ease-brand-out hover:-translate-y-0.5 hover:border-primary-400 hover:bg-white/80 hover:shadow-soft focus-visible:ring-2 focus-visible:ring-accent-500 sm:w-auto"
           >
             Contact Us
           </a>

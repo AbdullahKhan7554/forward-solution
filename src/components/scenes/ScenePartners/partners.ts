@@ -18,7 +18,7 @@ export const partners: Partner[] = [
   { name: "Perstorp", logo: "/partners/perstorp.png", description: "Feed Additives & Organic Acids", weight: "offset" },
   { name: "Bornsun", logo: "/partners/bornsun.jpg.jpeg", description: "Feed Enzymes", weight: "standard" },
   { name: "Wellbe", logo: "/partners/Well%20Be.jpg", description: "Animal Health Solutions", weight: "feature" },
-  { name: "Dr. Eckel", logo: "/partners/Gemini_Generated_Image_oof2v0oof2v0oof2.jpg.jpeg", description: "Plant-Based Feed Additives", weight: "offset" },
+  { name: "Dr. Eckel", logo: "/partners/Gemini_Generated_Image_oof2v0oof2v0oof2.webp", description: "Plant-Based Feed Additives", weight: "offset" },
   { name: "Morningbio", logo: "/partners/morningbio.jpeg", description: "Feed Additives", weight: "standard" },
   { name: "Wellgreen", logo: "/partners/Gemini_Generated_Image_u7945ou7945ou794.jpg.jpeg", description: "Feed Additives", weight: "feature" },
   { name: "Solinkon", logo: "/partners/Picture4.png", description: "Animal Nutrition", weight: "standard" },

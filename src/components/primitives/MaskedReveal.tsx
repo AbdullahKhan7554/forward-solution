@@ -54,7 +54,7 @@ export function MaskedReveal({
         delay,
         scrollTrigger:
           trigger === "scroll"
-            ? { trigger: ref.current, start: "top 80%", once: true }
+            ? { trigger: ref.current, start: "top 80%", toggleActions: "play none none none" }
             : undefined,
       });
 

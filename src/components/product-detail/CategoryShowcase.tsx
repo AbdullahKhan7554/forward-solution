@@ -44,7 +44,7 @@ export function CategoryShowcase({
         duration: 0.9,
         ease: "power3.out",
         stagger: 0.14,
-        scrollTrigger: { trigger: root, start: "top 78%", once: true },
+        scrollTrigger: { trigger: root, start: "top 78%", toggleActions: "play none none none" },
       });
     }, root);
     return () => ctx.revert();
@@ -76,7 +76,7 @@ export function CategoryShowcase({
 
         {products.length === 0 && (
           <div className="relative mx-auto w-full max-w-container px-6 pb-[16vh] md:px-12 xl:px-20">
-            <div data-cs-fade className="rounded-lg border border-white/70 bg-white/55 p-12 text-center shadow-glass backdrop-blur-xl backdrop-saturate-150 md:p-16">
+            <div data-cs-fade className="rounded-lg border border-white/70 bg-white/55 p-12 text-center shadow-glass md:p-16">
               <p className="font-serif text-body-lg italic text-neutral-500">Products coming soon.</p>
               <p className="mx-auto mt-4 max-w-[46ch] font-sans text-body text-neutral-600">
                 We&rsquo;re expanding this range. Talk to our technical team about solutions for your

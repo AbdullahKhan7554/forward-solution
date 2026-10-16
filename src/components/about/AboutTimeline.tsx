@@ -173,19 +173,6 @@ export function AboutTimeline() {
     if (reduced) return;
 
     const ctx = gsap.context(() => {
-      // The spine draws itself as you descend — scrubbed to the list's scroll.
-      gsap.set("[data-tl-fill]", { scaleY: 0, transformOrigin: "50% 0%" });
-      gsap.to("[data-tl-fill]", {
-        scaleY: 1,
-        ease: "none",
-        scrollTrigger: {
-          trigger: list,
-          start: "top 72%",
-          end: "bottom 78%",
-          scrub: true,
-        },
-      });
-
       // Cards + plates reveal in sequence as each row enters.
       gsap.set("[data-tl-card]", { autoAlpha: 0, y: 28 });
       ScrollTrigger.batch("[data-tl-card]", {

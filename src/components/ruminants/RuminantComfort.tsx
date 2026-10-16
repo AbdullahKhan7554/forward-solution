@@ -147,7 +147,7 @@ export function RuminantComfort() {
       gsap.set("[data-cf-fade]", { autoAlpha: 0, y: 20 });
       gsap.to("[data-cf-fade]", {
         autoAlpha: 1, y: 0, duration: 0.9, ease: "power3.out", stagger: 0.14,
-        scrollTrigger: { trigger: root, start: "top 72%", once: true },
+        scrollTrigger: { trigger: root, start: "top 72%", toggleActions: "play none none none" },
       });
     }, root);
     return () => ctx.revert();

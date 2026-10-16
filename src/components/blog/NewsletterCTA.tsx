@@ -111,7 +111,7 @@ export function NewsletterCTA() {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="Your email address"
-                className="w-full flex-1 rounded-sm border border-white/70 bg-white/60 px-6 py-4 font-sans text-body text-neutral-800 shadow-glass outline-none backdrop-blur-xl backdrop-saturate-150 transition-[border-color,box-shadow] duration-200 ease-brand-out placeholder:text-neutral-400 focus:border-accent-300 focus:shadow-soft focus-visible:ring-2 focus-visible:ring-accent-500"
+                className="w-full flex-1 rounded-sm border border-white/70 bg-white/60 px-6 py-4 font-sans text-body text-neutral-800 shadow-glass outline-none transition-[border-color,box-shadow] duration-200 ease-brand-out placeholder:text-neutral-400 focus:border-accent-300 focus:shadow-soft focus-visible:ring-2 focus-visible:ring-accent-500"
               />
               <button
                 type="submit"

@@ -44,7 +44,7 @@ export function PoultryWhy() {
         duration: 0.9,
         ease: "power3.out",
         stagger: 0.14,
-        scrollTrigger: { trigger: root, start: "top 68%", once: true },
+        scrollTrigger: { trigger: root, start: "top 68%", toggleActions: "play none none none" },
       });
 
       gsap.set("[data-pw-stat]", { autoAlpha: 0, y: 24 });
@@ -68,7 +68,7 @@ export function PoultryWhy() {
           v: target,
           duration: 1.8,
           ease: "power2.out",
-          scrollTrigger: { trigger: el, start: "top 92%", once: true },
+          scrollTrigger: { trigger: el, start: "top 92%", toggleActions: "play none none none" },
           onUpdate: () => {
             el.textContent = Math.round(proxy.v).toString();
           },

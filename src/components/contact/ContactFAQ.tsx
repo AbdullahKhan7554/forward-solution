@@ -128,7 +128,7 @@ export function ContactFAQ() {
         duration: 0.9,
         ease: "power3.out",
         stagger: 0.1,
-        scrollTrigger: { trigger: root, start: "top 78%", once: true },
+        scrollTrigger: { trigger: root, start: "top 78%", toggleActions: "play none none none" },
       });
 
       gsap.set("[data-faq-row]", { autoAlpha: 0, y: 22 });

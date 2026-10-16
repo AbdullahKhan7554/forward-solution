@@ -111,19 +111,6 @@ export function RuminantCategories() {
         start: "top 86%",
         onEnter: (batch) => gsap.to(batch, { autoAlpha: 1, y: 0, duration: 0.9, ease: "power3.out", stagger: 0.12, overwrite: true }),
       });
-
-      // scrubbed dolly parallax on each image
-      gsap.utils.toArray<HTMLElement>("[data-ruc-img]").forEach((el) => {
-        gsap.fromTo(
-          el,
-          { scale: 1 },
-          {
-            scale: 1.07,
-            ease: "none",
-            scrollTrigger: { trigger: el.closest("[data-ruc-section]"), start: "top bottom", end: "bottom top", scrub: true },
-          }
-        );
-      });
     }, root);
 
     return () => { ctx.revert(); ScrollTrigger.refresh(); };

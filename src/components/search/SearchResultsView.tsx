@@ -202,7 +202,7 @@ export function SearchResultsView() {
 
         {/* SEARCH INPUT */}
         <div className="mt-12 max-w-2xl">
-          <div className="flex items-center gap-4 rounded-2xl border border-white/70 bg-white/60 px-6 py-5 shadow-glass backdrop-blur-xl backdrop-saturate-150">
+          <div className="flex items-center gap-4 rounded-2xl border border-white/70 bg-white/60 px-6 py-5 shadow-glass">
             <span aria-hidden="true" className="text-neutral-400">
               <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
                 <circle cx="11" cy="11" r="7" />
@@ -248,7 +248,7 @@ export function SearchResultsView() {
                 value={sort}
                 onChange={(e) => setSort(e.target.value as Sort)}
                 aria-label="Sort results"
-                className="rounded-full border border-neutral-200 bg-white/70 py-2 pl-4 pr-9 font-sans text-small font-medium text-neutral-700 shadow-glass outline-none backdrop-blur-xl transition-colors duration-200 ease-brand-out focus-visible:ring-2 focus-visible:ring-accent-500"
+                className="rounded-full border border-neutral-200 bg-white/70 py-2 pl-4 pr-9 font-sans text-small font-medium text-neutral-700 shadow-glass outline-none transition-colors duration-200 ease-brand-out focus-visible:ring-2 focus-visible:ring-accent-500"
                 style={{
                   appearance: "none",
                   backgroundImage:
@@ -345,7 +345,7 @@ function PageButton({
         "inline-flex h-11 min-w-[44px] items-center justify-center rounded-full px-3 font-sans text-small font-medium outline-none transition-all duration-300 ease-brand-out focus-visible:ring-2 focus-visible:ring-accent-500 disabled:cursor-not-allowed disabled:opacity-35",
         active
           ? "bg-primary-600 text-pure shadow-soft"
-          : "border border-white/60 bg-white/55 text-neutral-600 shadow-glass backdrop-blur-xl hover:-translate-y-px hover:border-accent-300/60 hover:text-primary-700"
+          : "border border-white/60 bg-white/55 text-neutral-600 shadow-glass hover:-translate-y-px hover:border-accent-300/60 hover:text-primary-700"
       )}
     >
       {children}

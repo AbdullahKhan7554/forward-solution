@@ -72,7 +72,7 @@ export function FaqCTA() {
               href={WHATSAPP_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="group inline-flex w-full items-center justify-center gap-2.5 rounded-sm border border-neutral-300 bg-white/70 px-8 py-4 font-sans text-body font-medium text-neutral-800 backdrop-blur-md outline-none transition-[transform,box-shadow,background-color,border-color] duration-200 ease-brand-out hover:-translate-y-0.5 hover:border-accent-500/50 hover:bg-white hover:shadow-soft focus-visible:ring-2 focus-visible:ring-accent-500 sm:w-auto"
+              className="group inline-flex w-full items-center justify-center gap-2.5 rounded-sm border border-neutral-300 bg-white/70 px-8 py-4 font-sans text-body font-medium text-neutral-800 outline-none transition-[transform,box-shadow,background-color,border-color] duration-200 ease-brand-out hover:-translate-y-0.5 hover:border-accent-500/50 hover:bg-white hover:shadow-soft focus-visible:ring-2 focus-visible:ring-accent-500 sm:w-auto"
             >
               <span aria-hidden="true" className="text-[#25D366]">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">

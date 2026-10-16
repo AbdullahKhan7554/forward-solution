@@ -3,7 +3,7 @@
 import { useRef } from "react";
 import { useIsomorphicLayoutEffect } from "@/hooks/useIsomorphicLayoutEffect";
 import { useIntro } from "@/components/providers/IntroProvider";
-import { gsap, ScrollTrigger } from "@/lib/gsap";
+import { gsap } from "@/lib/gsap";
 import { RevealText } from "@/components/primitives/RevealText";
 import { LabPlate } from "@/components/scenes/SceneUnfolding/LabPlate";
 import { ScrollCue } from "@/components/scenes/SceneThreshold/ScrollCue";
@@ -24,43 +24,15 @@ export function ContactHero() {
   const bgRef = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
   const cueRef = useRef<HTMLDivElement>(null);
-  const scrollProgress = useRef(0);
   const reducedRef = useRef(false);
   const playedRef = useRef(false);
   const revealing = phase === "revealing";
 
-  // Slow camera push + parallax exit — one scroll, every layer in concert.
+  // Reduced-motion flag for the reveal cascade.
   useIsomorphicLayoutEffect(() => {
     reducedRef.current =
       typeof window !== "undefined" &&
       window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    if (reducedRef.current || !outerRef.current) return;
-
-    const ctx = gsap.context(() => {
-      ScrollTrigger.create({
-        trigger: outerRef.current,
-        start: "top top",
-        end: "bottom bottom",
-        onUpdate: (self) => {
-          scrollProgress.current = self.progress;
-        },
-      });
-
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: outerRef.current,
-          start: "top top",
-          end: "bottom bottom",
-          scrub: 1,
-        },
-      });
-      // slow cinematic camera push on the architecture
-      tl.to(bgRef.current, { yPercent: 8, scale: 1.08, ease: "none" }, 0);
-      tl.to(contentRef.current, { yPercent: -20, autoAlpha: 0, ease: "power1.in" }, 0);
-      tl.to(cueRef.current, { autoAlpha: 0, ease: "power1.in", duration: 0.25 }, 0);
-    }, outerRef);
-
-    return () => ctx.revert();
   }, []);
 
   // Prime the reveal states before first paint.
@@ -123,8 +95,8 @@ export function ContactHero() {
       aria-label="Contact Agriprom Pakistan — talk to our animal health experts"
       className="relative"
     >
-      <div ref={outerRef} className="relative h-[170svh]">
-        <div className="sticky top-0 h-[100svh] min-h-[620px] w-full overflow-hidden bg-base">
+      <div ref={outerRef} className="relative">
+        <div className="relative h-[100svh] min-h-[620px] w-full overflow-hidden bg-base">
           {/* Bright scientific architecture — the graded premium laboratory. */}
           <div ref={bgRef} className="absolute inset-0 will-change-transform">
             <LabPlate src="/images/heroabout/h1.jpg" alt="" />

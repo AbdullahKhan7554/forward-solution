@@ -39,7 +39,7 @@ function BenefitPanel({ benefit }: { benefit: Benefit }) {
   return (
     <div
       data-benefit-card
-      className="group rounded-2xl border border-white/70 bg-white/60 p-7 shadow-glass backdrop-blur-xl backdrop-saturate-150 transition-[transform,box-shadow,border-color] duration-300 ease-brand-out will-change-transform hover:-translate-y-1.5 hover:border-accent-300/40 hover:shadow-floating"
+      className="group rounded-2xl border border-white/70 bg-white/60 p-7 shadow-glass transition-[transform,box-shadow,border-color] duration-300 ease-brand-out will-change-transform hover:-translate-y-1.5 hover:border-accent-300/40 hover:shadow-floating"
     >
       <span className="inline-flex h-12 w-12 items-center justify-center rounded-full border border-primary-600/15 bg-primary-50/60 text-primary-700 transition-colors duration-300 ease-brand-out group-hover:border-accent-300/50 group-hover:text-accent-600">
         {benefit.icon}
@@ -73,7 +73,7 @@ export function ServicesBenefits() {
         duration: 0.9,
         ease: "power3.out",
         stagger: 0.1,
-        scrollTrigger: { trigger: root, start: "top 76%", once: true },
+        scrollTrigger: { trigger: root, start: "top 76%", toggleActions: "play none none none" },
       });
 
       gsap.set("[data-benefit-card]", { autoAlpha: 0, y: 28 });

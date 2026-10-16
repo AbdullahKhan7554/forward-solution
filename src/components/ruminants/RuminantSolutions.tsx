@@ -45,7 +45,7 @@ export function RuminantSolutions() {
       gsap.set("[data-rs-head]", { autoAlpha: 0, y: 20 });
       gsap.to("[data-rs-head]", {
         autoAlpha: 1, y: 0, duration: 0.9, ease: "power3.out", stagger: 0.14,
-        scrollTrigger: { trigger: root, start: "top 72%", once: true },
+        scrollTrigger: { trigger: root, start: "top 72%", toggleActions: "play none none none" },
       });
       gsap.set("[data-rs-card]", { autoAlpha: 0, y: 28 });
       ScrollTrigger.batch("[data-rs-card]", {

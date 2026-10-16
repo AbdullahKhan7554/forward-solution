@@ -68,7 +68,7 @@ function CategoryCard({
 
         {/* glass overlay — rises in on hover with the Explore action */}
         <div className="pointer-events-none absolute inset-x-0 bottom-0 translate-y-3 p-3 opacity-0 transition-[transform,opacity] duration-300 ease-brand-out group-hover:translate-y-0 group-hover:opacity-100">
-          <div className="flex items-center justify-between rounded-md border border-white/70 bg-white/55 px-5 py-3 shadow-glass backdrop-blur-xl backdrop-saturate-150">
+          <div className="flex items-center justify-between rounded-md border border-white/70 bg-white/55 px-5 py-3 shadow-glass">
             <span className="font-sans text-caption uppercase tracking-[0.24em] text-primary-700">
               Explore
             </span>
@@ -144,7 +144,7 @@ export function ProductCategories() {
         duration: 0.9,
         ease: "power3.out",
         stagger: 0.14,
-        scrollTrigger: { trigger: root, start: "top 70%", once: true },
+        scrollTrigger: { trigger: root, start: "top 70%", toggleActions: "play none none none" },
       });
 
       gsap.set("[data-cat-fade]", { autoAlpha: 0, y: 18 });

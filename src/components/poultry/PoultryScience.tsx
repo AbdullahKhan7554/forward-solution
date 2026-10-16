@@ -58,7 +58,7 @@ export function PoultryScience() {
         duration: 0.9,
         ease: "power3.out",
         stagger: 0.12,
-        scrollTrigger: { trigger: root, start: "top 68%", once: true },
+        scrollTrigger: { trigger: root, start: "top 68%", toggleActions: "play none none none" },
       });
 
       gsap.set("[data-ps-row]", { autoAlpha: 0, y: 22 });

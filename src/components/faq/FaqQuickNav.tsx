@@ -42,7 +42,7 @@ export function FaqQuickNav() {
       gsap.set("[data-qn-fade]", { autoAlpha: 0, y: 18 });
       gsap.to("[data-qn-fade]", {
         autoAlpha: 1, y: 0, duration: 0.9, ease: "power3.out", stagger: 0.1,
-        scrollTrigger: { trigger: root, start: "top 80%", once: true },
+        scrollTrigger: { trigger: root, start: "top 80%", toggleActions: "play none none none" },
       });
       gsap.set("[data-qn-card]", { autoAlpha: 0, y: 24 });
       ScrollTrigger.batch("[data-qn-card]", {
@@ -90,7 +90,7 @@ export function FaqQuickNav() {
               data-qn-card
               href={card.href}
               onClick={onNav(card.href)}
-              className="group relative flex flex-col items-start gap-4 overflow-hidden rounded-2xl border border-secondary-500/15 bg-white/70 p-5 shadow-glass outline-none backdrop-blur-xl backdrop-saturate-150 transition-[transform,box-shadow,border-color] duration-200 ease-brand-out hover:-translate-y-1.5 hover:border-accent-300/40 hover:shadow-floating focus-visible:ring-2 focus-visible:ring-accent-500"
+              className="group relative flex flex-col items-start gap-4 overflow-hidden rounded-2xl border border-secondary-500/15 bg-white/70 p-5 shadow-glass outline-none transition-[transform,box-shadow,border-color] duration-200 ease-brand-out hover:-translate-y-1.5 hover:border-accent-300/40 hover:shadow-floating focus-visible:ring-2 focus-visible:ring-accent-500"
             >
               {/* soft glow on hover */}
               <span

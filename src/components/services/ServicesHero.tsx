@@ -3,7 +3,7 @@
 import { useRef } from "react";
 import { useIsomorphicLayoutEffect } from "@/hooks/useIsomorphicLayoutEffect";
 import { useIntro } from "@/components/providers/IntroProvider";
-import { gsap, ScrollTrigger } from "@/lib/gsap";
+import { gsap } from "@/lib/gsap";
 import { RevealText } from "@/components/primitives/RevealText";
 import { LabPlate } from "@/components/scenes/SceneUnfolding/LabPlate";
 import { ScrollCue } from "@/components/scenes/SceneThreshold/ScrollCue";
@@ -24,7 +24,6 @@ export function ServicesHero() {
   const bgRef = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
   const cueRef = useRef<HTMLDivElement>(null);
-  const scrollProgress = useRef(0);
   const reducedRef = useRef(false);
   const playedRef = useRef(false);
   const revealing = phase === "revealing";
@@ -33,32 +32,6 @@ export function ServicesHero() {
     reducedRef.current =
       typeof window !== "undefined" &&
       window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    if (reducedRef.current || !outerRef.current) return;
-
-    const ctx = gsap.context(() => {
-      ScrollTrigger.create({
-        trigger: outerRef.current,
-        start: "top top",
-        end: "bottom bottom",
-        onUpdate: (self) => {
-          scrollProgress.current = self.progress;
-        },
-      });
-
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: outerRef.current,
-          start: "top top",
-          end: "bottom bottom",
-          scrub: 1,
-        },
-      });
-      tl.to(bgRef.current, { yPercent: 8, scale: 1.08, ease: "none" }, 0);
-      tl.to(contentRef.current, { yPercent: -20, autoAlpha: 0, ease: "power1.in" }, 0);
-      tl.to(cueRef.current, { autoAlpha: 0, ease: "power1.in", duration: 0.25 }, 0);
-    }, outerRef);
-
-    return () => ctx.revert();
   }, []);
 
   useIsomorphicLayoutEffect(() => {
@@ -109,8 +82,8 @@ export function ServicesHero() {
       aria-label="Agriprom Pakistan services — expertise and scientific solutions"
       className="relative"
     >
-      <div ref={outerRef} className="relative h-[170svh]">
-        <div className="sticky top-0 h-[100svh] min-h-[620px] w-full overflow-hidden bg-base">
+      <div ref={outerRef} className="relative">
+        <div className="relative h-[100svh] min-h-[620px] w-full overflow-hidden bg-base">
           {/* bright scientific daylight — graded LabPlate */}
           <div ref={bgRef} className="absolute inset-0 will-change-transform">
             <LabPlate src="/images/herohome/5.png" alt="" />
@@ -220,7 +193,7 @@ export function ServicesHero() {
                   <a
                     data-hero-cta
                     href="/products"
-                    className="inline-flex items-center justify-center rounded-sm border border-neutral-300 bg-white/50 px-8 py-4 font-sans text-body font-medium text-neutral-800 backdrop-blur-md transition-[transform,box-shadow,background-color,border-color] duration-200 ease-brand-out hover:-translate-y-0.5 hover:border-primary-400 hover:bg-white/80 hover:shadow-soft"
+                    className="inline-flex items-center justify-center rounded-sm border border-neutral-300 bg-white/50 px-8 py-4 font-sans text-body font-medium text-neutral-800 transition-[transform,box-shadow,background-color,border-color] duration-200 ease-brand-out hover:-translate-y-0.5 hover:border-primary-400 hover:bg-white/80 hover:shadow-soft"
                   >
                     Explore Products
                   </a>

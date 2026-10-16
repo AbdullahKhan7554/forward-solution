@@ -164,7 +164,7 @@ export function AboutValues() {
         y: 0,
         duration: 0.8,
         ease: "power3.out",
-        scrollTrigger: { trigger: root, start: "top 70%", once: true },
+        scrollTrigger: { trigger: root, start: "top 70%", toggleActions: "play none none none" },
       });
 
       gsap.set("[data-value-card]", { autoAlpha: 0, y: 30 });

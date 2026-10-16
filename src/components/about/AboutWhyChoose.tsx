@@ -137,7 +137,7 @@ export function AboutWhyChoose() {
       gsap
         .timeline({
           defaults: { ease: "power3.out" },
-          scrollTrigger: { trigger: root, start: "top 70%", once: true },
+          scrollTrigger: { trigger: root, start: "top 70%", toggleActions: "play none none none" },
         })
         .to("[data-why-line]", { scaleX: 1, duration: 1.1, ease: "power3.inOut" }, 0.1)
         .to("[data-why-fade]", { autoAlpha: 1, y: 0, duration: 0.9, stagger: 0.14 }, 0.3);

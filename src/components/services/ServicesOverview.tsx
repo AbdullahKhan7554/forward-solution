@@ -61,7 +61,7 @@ function ServiceCard({ service }: { service: Service }) {
   return (
     <div
       data-service-card
-      className="group relative flex h-full flex-col rounded-2xl border border-white/70 bg-white/60 p-8 shadow-glass backdrop-blur-xl backdrop-saturate-150 transition-[transform,box-shadow,border-color] duration-300 ease-brand-out will-change-transform hover:-translate-y-1.5 hover:border-accent-300/40 hover:shadow-floating md:p-10"
+      className="group relative flex h-full flex-col rounded-2xl border border-white/70 bg-white/60 p-8 shadow-glass transition-[transform,box-shadow,border-color] duration-300 ease-brand-out will-change-transform hover:-translate-y-1.5 hover:border-accent-300/40 hover:shadow-floating md:p-10"
     >
       {/* soft glow on hover */}
       <div

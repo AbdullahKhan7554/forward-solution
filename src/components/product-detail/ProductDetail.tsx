@@ -65,7 +65,7 @@ function useReveal(ref: RefObject<HTMLElement>) {
       gsap
         .timeline({
           defaults: { ease: "power3.out" },
-          scrollTrigger: { trigger: root, start: "top 70%", once: true },
+          scrollTrigger: { trigger: root, start: "top 70%", toggleActions: "play none none none" },
         })
         .to("[data-line]", { scaleX: 1, duration: 1.1, ease: "power3.inOut" }, 0.1)
         .to("[data-fade]", { autoAlpha: 1, y: 0, duration: 0.9, stagger: 0.12 }, 0.25);
@@ -107,14 +107,6 @@ function Hero({ data }: { data: ProductDetailData }) {
     if (reducedRef.current || !rootRef.current) return;
     const root = rootRef.current;
     gsap.set(root.querySelectorAll("[data-ph-fade]"), { autoAlpha: 0, y: 18 });
-    const ctx = gsap.context(() => {
-      gsap.to("[data-ph-parallax]", {
-        yPercent: -8,
-        ease: "none",
-        scrollTrigger: { trigger: root, start: "top top", end: "bottom top", scrub: true },
-      });
-    }, root);
-    return () => ctx.revert();
   }, []);
 
   useIsomorphicLayoutEffect(() => {
@@ -204,7 +196,7 @@ function Hero({ data }: { data: ProductDetailData }) {
             trigger="mount"
             className="aspect-[4/5] w-full rounded-lg shadow-medium ring-1 ring-white/60"
           >
-            <div data-ph-parallax className="h-[112%] w-full will-change-transform">
+            <div className="h-[112%] w-full will-change-transform">
               <SlotImage
                 media={data.media}
                 label="Hero Product Image"
@@ -362,15 +354,7 @@ function HowItWorks({ data }: { data: ProductDetailData }) {
         duration: 0.9,
         ease: "power3.out",
         stagger: 0.12,
-        scrollTrigger: { trigger: root, start: "top 72%", once: true },
-      });
-
-      // the flow line draws as you descend
-      gsap.set("[data-flow-fill]", { scaleY: 0, transformOrigin: "50% 0%" });
-      gsap.to("[data-flow-fill]", {
-        scaleY: 1,
-        ease: "none",
-        scrollTrigger: { trigger: list, start: "top 78%", end: "bottom 82%", scrub: true },
+        scrollTrigger: { trigger: root, start: "top 72%", toggleActions: "play none none none" },
       });
 
       // each step settles + its arrow follows
@@ -434,7 +418,7 @@ function HowItWorks({ data }: { data: ProductDetailData }) {
           {data.flow.map((step, i) => (
             <div key={step} className="relative flex w-full flex-col items-center">
               <div data-flow-step className="relative z-raised w-full max-w-sm">
-                <div className="flex items-center gap-4 rounded-lg border border-white/70 bg-white/60 px-6 py-4 shadow-glass backdrop-blur-xl backdrop-saturate-150">
+                <div className="flex items-center gap-4 rounded-lg border border-white/70 bg-white/60 px-6 py-4 shadow-glass">
                   <span className="font-sans text-caption tracking-[0.2em] text-accent-600">
                     {String(i + 1).padStart(2, "0")}
                   </span>
@@ -496,7 +480,7 @@ function TechnicalHighlights({ data }: { data: ProductDetailData }) {
           </h2>
 
           <div data-fade className="md:col-span-8">
-            <dl className="overflow-hidden rounded-lg border border-white/70 bg-white/55 shadow-glass backdrop-blur-xl backdrop-saturate-150">
+            <dl className="overflow-hidden rounded-lg border border-white/70 bg-white/55 shadow-glass">
               {data.specs.map((row, i) => (
                 <div
                   key={row.label}
@@ -637,7 +621,7 @@ function RelatedProducts({ data }: { data: ProductDetailData }) {
               <a
                 href={r.href}
                 aria-label={`${r.name} — view product`}
-                className="group block h-full rounded-lg p-3 transition-[transform,background-color,box-shadow] duration-200 ease-brand-out will-change-transform hover:-translate-y-1.5 hover:bg-white/55 hover:shadow-floating hover:backdrop-blur-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-500"
+                className="group block h-full rounded-lg p-3 transition-[transform,background-color,box-shadow] duration-200 ease-brand-out will-change-transform hover:-translate-y-1.5 hover:bg-white/55 hover:shadow-floating focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-500"
               >
                 <MaskedReveal className="aspect-[4/3] w-full overflow-hidden rounded-md ring-1 ring-white/50">
                   <div className="h-full w-full transition-transform duration-300 ease-brand-out group-hover:scale-[1.05]">

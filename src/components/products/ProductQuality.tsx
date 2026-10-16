@@ -128,15 +128,7 @@ export function ProductQuality() {
         duration: 0.9,
         ease: "power3.out",
         stagger: 0.14,
-        scrollTrigger: { trigger: root, start: "top 70%", once: true },
-      });
-
-      // the spine draws itself as you descend
-      gsap.set("[data-tq-fill]", { scaleY: 0, transformOrigin: "50% 0%" });
-      gsap.to("[data-tq-fill]", {
-        scaleY: 1,
-        ease: "none",
-        scrollTrigger: { trigger: list, start: "top 72%", end: "bottom 78%", scrub: true },
+        scrollTrigger: { trigger: root, start: "top 70%", toggleActions: "play none none none" },
       });
 
       // milestone cards reveal in sequence

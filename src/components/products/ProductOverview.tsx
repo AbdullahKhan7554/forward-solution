@@ -50,7 +50,7 @@ export function ProductOverview() {
       gsap
         .timeline({
           defaults: { ease: "power3.out" },
-          scrollTrigger: { trigger: root, start: "top 66%", once: true },
+          scrollTrigger: { trigger: root, start: "top 66%", toggleActions: "play none none none" },
         })
         .to("[data-po-fade]", { autoAlpha: 1, y: 0, duration: 0.9, stagger: 0.14 }, 0.2)
         .to("[data-po-line]", { scaleX: 1, duration: 1.1, ease: "power3.inOut" }, 0.5);
@@ -77,7 +77,7 @@ export function ProductOverview() {
           v: target,
           duration: 1.8,
           ease: "power2.out",
-          scrollTrigger: { trigger: el, start: "top 92%", once: true },
+          scrollTrigger: { trigger: el, start: "top 92%", toggleActions: "play none none none" },
           onUpdate: () => {
             el.textContent = Math.round(proxy.v).toString();
           },

@@ -41,7 +41,7 @@ export function ProductBrands() {
         duration: 0.9,
         ease: "power3.out",
         stagger: 0.14,
-        scrollTrigger: { trigger: root, start: "top 72%", once: true },
+        scrollTrigger: { trigger: root, start: "top 72%", toggleActions: "play none none none" },
       });
 
       // brand panels — curated sequential reveal (reuses PartnerCard's data-partner)
@@ -60,14 +60,14 @@ export function ProductBrands() {
           }),
       });
 
-      // world map — reuse the draw-then-breathe animation + parallax
+      // world map — reuse the draw-then-breathe animation
       gsap.set("[data-map-path]", { strokeDashoffset: 1 });
       gsap.to("[data-map-path]", {
         strokeDashoffset: 0,
         duration: 2.2,
         ease: "power2.inOut",
         stagger: 0.3,
-        scrollTrigger: { trigger: root, start: "top 75%", once: true },
+        scrollTrigger: { trigger: root, start: "top 75%", toggleActions: "play none none none" },
       });
       gsap.to("[data-map-node] circle", {
         opacity: 0.5,
@@ -76,11 +76,6 @@ export function ProductBrands() {
         repeat: -1,
         yoyo: true,
         stagger: { each: 0.4, from: "random" },
-      });
-      gsap.to("[data-worldmap]", {
-        yPercent: -6,
-        ease: "none",
-        scrollTrigger: { trigger: root, start: "top bottom", end: "bottom top", scrub: true },
       });
     }, root);
 

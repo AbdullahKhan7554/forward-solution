@@ -21,7 +21,7 @@ export function GlassCard({
   return (
     <div
       className={cn(
-        "group rounded-lg border border-secondary-500/20 bg-white/55 p-6 shadow-medium backdrop-blur-xl backdrop-saturate-150 transition-[transform,background-color,box-shadow] duration-150 ease-brand-out will-change-transform hover:-translate-y-1 hover:bg-white/72 hover:shadow-floating md:p-7",
+        "group rounded-lg border border-secondary-500/20 bg-white/55 p-6 shadow-medium transition-[transform,background-color,box-shadow] duration-150 ease-brand-out will-change-transform hover:-translate-y-1 hover:bg-white/72 hover:shadow-floating md:p-7",
         className
       )}
       {...rest}

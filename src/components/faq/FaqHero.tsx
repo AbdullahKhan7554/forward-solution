@@ -3,7 +3,7 @@
 import { useRef } from "react";
 import { useIsomorphicLayoutEffect } from "@/hooks/useIsomorphicLayoutEffect";
 import { useIntro } from "@/components/providers/IntroProvider";
-import { gsap, ScrollTrigger } from "@/lib/gsap";
+import { gsap } from "@/lib/gsap";
 import { RevealText } from "@/components/primitives/RevealText";
 import { ScrollCue } from "@/components/scenes/SceneThreshold/ScrollCue";
 
@@ -21,7 +21,6 @@ export function FaqHero() {
   const contentRef = useRef<HTMLDivElement>(null);
   const geoRef = useRef<HTMLDivElement>(null);
   const cueRef = useRef<HTMLDivElement>(null);
-  const scrollProgress = useRef(0);
   const reducedRef = useRef(false);
   const playedRef = useRef(false);
   const revealing = phase === "revealing";
@@ -33,22 +32,6 @@ export function FaqHero() {
     if (reducedRef.current || !outerRef.current) return;
 
     const ctx = gsap.context(() => {
-      ScrollTrigger.create({
-        trigger: outerRef.current,
-        start: "top top",
-        end: "bottom bottom",
-        onUpdate: (self) => {
-          scrollProgress.current = self.progress;
-        },
-      });
-
-      const tl = gsap.timeline({
-        scrollTrigger: { trigger: outerRef.current, start: "top top", end: "bottom bottom", scrub: 1 },
-      });
-      tl.to(geoRef.current, { yPercent: 10, ease: "none" }, 0);
-      tl.to(contentRef.current, { yPercent: -20, autoAlpha: 0, ease: "power1.in" }, 0);
-      tl.to(cueRef.current, { autoAlpha: 0, ease: "power1.in", duration: 0.25 }, 0);
-
       // elegant floating geometry — barely-there drift, never a loop you notice
       gsap.utils.toArray<HTMLElement>("[data-geo]").forEach((el, i) => {
         gsap.to(el, {
@@ -98,8 +81,8 @@ export function FaqHero() {
 
   return (
     <section aria-label="Frequently asked questions" className="relative">
-      <div ref={outerRef} className="relative h-[150svh]">
-        <div className="sticky top-0 flex h-[100svh] min-h-[620px] w-full items-center overflow-hidden bg-base">
+      <div ref={outerRef} className="relative">
+        <div className="relative flex h-[100svh] min-h-[620px] w-full items-center overflow-hidden bg-base">
           {/* soft scientific gradients */}
           <div
             aria-hidden="true"
@@ -185,7 +168,7 @@ export function FaqHero() {
               <a
                 data-hero-cta
                 href="/products"
-                className="inline-flex w-full items-center justify-center rounded-sm border border-neutral-300 bg-white/60 px-8 py-4 font-sans text-body font-medium text-neutral-800 backdrop-blur-md transition-[transform,box-shadow,background-color,border-color] duration-200 ease-brand-out hover:-translate-y-0.5 hover:border-primary-400 hover:bg-white hover:shadow-soft sm:w-auto"
+                className="inline-flex w-full items-center justify-center rounded-sm border border-neutral-300 bg-white/60 px-8 py-4 font-sans text-body font-medium text-neutral-800 transition-[transform,box-shadow,background-color,border-color] duration-200 ease-brand-out hover:-translate-y-0.5 hover:border-primary-400 hover:bg-white hover:shadow-soft sm:w-auto"
               >
                 Explore Products
               </a>

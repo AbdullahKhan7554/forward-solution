@@ -41,7 +41,7 @@ export function ServicesProcess() {
         duration: 0.9,
         ease: "power3.out",
         stagger: 0.1,
-        scrollTrigger: { trigger: root, start: "top 78%", once: true },
+        scrollTrigger: { trigger: root, start: "top 78%", toggleActions: "play none none none" },
       });
 
       // connection line draws in
@@ -53,7 +53,7 @@ export function ServicesProcess() {
           scaleY: 1,
           duration: 1.4,
           ease: "power3.inOut",
-          scrollTrigger: { trigger: "[data-process-track]", start: "top 80%", once: true },
+          scrollTrigger: { trigger: "[data-process-track]", start: "top 80%", toggleActions: "play none none none" },
         }
       );
 
@@ -137,7 +137,7 @@ export function ServicesProcess() {
                 </span>
 
                 {/* glass process card */}
-                <div className="flex-1 rounded-2xl border border-white/70 bg-white/60 p-6 shadow-glass backdrop-blur-xl backdrop-saturate-150 lg:mt-7">
+                <div className="flex-1 rounded-2xl border border-white/70 bg-white/60 p-6 shadow-glass lg:mt-7">
                   <h3 className="font-display text-h4 font-light tracking-[-0.01em] text-neutral-900">
                     {step.title}
                   </h3>

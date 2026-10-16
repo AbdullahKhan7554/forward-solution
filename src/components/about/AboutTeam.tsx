@@ -119,7 +119,7 @@ export function AboutTeam() {
         duration: 0.9,
         ease: "power3.out",
         stagger: 0.1,
-        scrollTrigger: { trigger: root, start: "top 76%", once: true },
+        scrollTrigger: { trigger: root, start: "top 76%", toggleActions: "play none none none" },
       });
 
       gsap.set("[data-team-card]", { autoAlpha: 0, y: 28 });

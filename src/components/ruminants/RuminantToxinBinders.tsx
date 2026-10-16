@@ -80,7 +80,7 @@ export function RuminantToxinBinders() {
         duration: 0.9,
         ease: "power3.out",
         stagger: 0.14,
-        scrollTrigger: { trigger: root, start: "top 72%", once: true },
+        scrollTrigger: { trigger: root, start: "top 72%", toggleActions: "play none none none" },
       });
     }, root);
     return () => ctx.revert();

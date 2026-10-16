@@ -33,17 +33,10 @@ export function AboutLeadership() {
       gsap
         .timeline({
           defaults: { ease: "power3.out" },
-          scrollTrigger: { trigger: root, start: "top 66%", once: true },
+          scrollTrigger: { trigger: root, start: "top 66%", toggleActions: "play none none none" },
         })
         .to("[data-lead-fade]", { autoAlpha: 1, y: 0, duration: 0.9, stagger: 0.16 }, 0.2)
         .to("[data-lead-line]", { scaleX: 1, duration: 1.1, ease: "power3.inOut" }, 0.5);
-
-      // very subtle parallax on the decorative quote glyph
-      gsap.to("[data-lead-parallax]", {
-        yPercent: -14,
-        ease: "none",
-        scrollTrigger: { trigger: root, start: "top bottom", end: "bottom top", scrub: true },
-      });
     }, root);
 
     return () => ctx.revert();
@@ -65,9 +58,8 @@ export function AboutLeadership() {
         }}
       />
 
-      {/* oversized decorative quotation glyph — drifts with parallax */}
+      {/* oversized decorative quotation glyph */}
       <span
-        data-lead-parallax
         aria-hidden="true"
         className="pointer-events-none absolute -top-[6vh] left-1/2 -translate-x-1/2 select-none font-serif italic leading-none text-primary-100/70"
         style={{ fontSize: "38vw" }}

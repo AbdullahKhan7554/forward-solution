@@ -65,7 +65,7 @@ export function AboutMissionVision() {
       gsap
         .timeline({
           defaults: { ease: "power3.out" },
-          scrollTrigger: { trigger: root, start: "top 68%", once: true },
+          scrollTrigger: { trigger: root, start: "top 68%", toggleActions: "play none none none" },
         })
         .to("[data-mv-card='mission']", { autoAlpha: 1, x: 0, y: 0, duration: 0.7 }, 0.15)
         .to("[data-mv-card='vision']", { autoAlpha: 1, x: 0, y: 0, duration: 0.7 }, 0.3);

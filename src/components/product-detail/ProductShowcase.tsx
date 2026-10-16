@@ -165,9 +165,6 @@ export function ProductShowcase({ data, href, index }: { data: ProductDetailData
         start: "top 88%",
         onEnter: (batch) => gsap.to(batch, { autoAlpha: 1, y: 0, scale: 1, duration: 1.0, ease: "power3.out", overwrite: true }),
       });
-      gsap.utils.toArray<HTMLElement>("[data-sw-img]").forEach((el) => {
-        gsap.fromTo(el, { scale: 1 }, { scale: 1.07, ease: "none", scrollTrigger: { trigger: root, start: "top bottom", end: "bottom top", scrub: true } });
-      });
     }, root);
 
     return () => { ctx.revert(); ScrollTrigger.refresh(); };
@@ -190,7 +187,7 @@ export function ProductShowcase({ data, href, index }: { data: ProductDetailData
           <div aria-hidden="true" className="absolute inset-0" style={{ background: "linear-gradient(115deg, rgba(11,17,22,0.55) 0%, rgba(11,17,22,0.15) 45%, rgba(11,17,22,0.05) 100%)" }} />
         </div>
         <div className="relative mx-auto flex min-h-[92svh] w-full max-w-container items-center px-6 py-[14vh] md:px-12 xl:px-20">
-          <div data-sw-panel className="w-full max-w-[560px] rounded-lg border border-white/70 bg-white/70 p-8 shadow-glass backdrop-blur-2xl backdrop-saturate-150 md:p-12">
+          <div data-sw-panel className="w-full max-w-[560px] rounded-lg border border-white/70 bg-white/70 p-8 shadow-glass md:p-12">
             <Heading data={data} num={num} />
             <div className="mt-8 space-y-8">
               <Block label="Technical Specifications"><SpecPanelInline data={data} /></Block>
@@ -237,7 +234,7 @@ export function ProductShowcase({ data, href, index }: { data: ProductDetailData
           <div className="relative md:grid md:grid-cols-12 md:items-center">
             <div className="md:col-span-7"><Media data={data} className="aspect-[4/3] w-full md:aspect-[16/11]" /></div>
             <div data-sw-panel className="relative z-raised mt-[-8vh] md:col-span-6 md:col-start-6 md:mt-0">
-              <div className="rounded-lg border border-white/70 bg-white/70 p-8 shadow-glass backdrop-blur-2xl backdrop-saturate-150 md:p-12">
+              <div className="rounded-lg border border-white/70 bg-white/70 p-8 shadow-glass md:p-12">
                 <Heading data={data} num={num} />
                 <div className="mt-8 grid grid-cols-1 gap-8 sm:grid-cols-2">
                   <Block label="Key Benefits"><Ticks items={data.benefits.slice(0, 5)} /></Block>

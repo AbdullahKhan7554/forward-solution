@@ -98,15 +98,14 @@ function SolutionCard({ solution, index }: { solution: Solution; index: number }
   return (
     <article
       data-feat-card
-      className="group relative overflow-hidden rounded-lg border border-white/70 bg-white/55 shadow-glass backdrop-blur-xl backdrop-saturate-150 transition-[transform,box-shadow] duration-200 ease-brand-out will-change-transform hover:-translate-y-1 hover:shadow-floating"
+      className="group relative overflow-hidden rounded-lg border border-white/70 bg-white/55 shadow-glass transition-[transform,box-shadow] duration-200 ease-brand-out will-change-transform hover:-translate-y-1 hover:shadow-floating"
     >
       <div className="grid grid-cols-1 md:grid-cols-2">
         {/* image */}
         <div className={cn("relative", imageLeft ? "md:order-1" : "md:order-2")}>
           <MaskedReveal className="aspect-[4/3] w-full md:h-full md:aspect-auto">
-            {/* GSAP owns the scrub dolly here; CSS hover-zoom lives on the nested
-                element so the two transforms never fight (codebase rule). */}
-            <div data-feat-img data-speed={solution.speed} className="h-full w-full will-change-transform">
+            {/* CSS hover-zoom lives on the nested element (codebase rule). */}
+            <div data-feat-img className="h-full w-full will-change-transform">
               <div className="h-full w-full transition-transform duration-300 ease-brand-out group-hover:scale-[1.05]">
                 <LabPlate src={solution.imageSrc} alt={solution.title} />
               </div>
@@ -195,7 +194,7 @@ export function FeaturedSolutions() {
         duration: 0.9,
         ease: "power3.out",
         stagger: 0.14,
-        scrollTrigger: { trigger: root, start: "top 70%", once: true },
+        scrollTrigger: { trigger: root, start: "top 70%", toggleActions: "play none none none" },
       });
 
       // cards + inner copy reveal in sequence
@@ -224,25 +223,6 @@ export function FeaturedSolutions() {
             stagger: 0.1,
             overwrite: true,
           }),
-      });
-
-      // whisper of parallax — a scrubbed dolly (scale) that never reveals edges
-      gsap.utils.toArray<HTMLElement>("[data-feat-img]").forEach((el) => {
-        const speed = Number(el.dataset.speed ?? 0.08);
-        gsap.fromTo(
-          el,
-          { scale: 1 },
-          {
-            scale: 1 + speed,
-            ease: "none",
-            scrollTrigger: {
-              trigger: el.closest("[data-feat-card]"),
-              start: "top bottom",
-              end: "bottom top",
-              scrub: true,
-            },
-          }
-        );
       });
     }, root);
 
