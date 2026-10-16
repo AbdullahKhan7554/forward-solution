@@ -10,41 +10,34 @@ import { GlassCard } from "@/components/scenes/SceneInnovation/GlassCard";
 /**
  * ABOUT · SCENE 04 — MISSION & VISION.
  *
- * Two large premium glass panels on a soft scientific gradient, each paired with
- * a floating editorial image that partially overlaps the card. Mission anchors
- * the left; Vision drops and offsets to the right for editorial asymmetry. The
- * cards arrive from opposite directions (a quick, responsive entrance) and then
- * stay static; only the images parallax — drifting a touch slower than the page.
+ * Two large premium glass panels on a soft scientific gradient, each with an
+ * editorial image above it, inside its own column. Mission anchors the left;
+ * Vision drops and offsets to the right for editorial asymmetry. The cards
+ * arrive from opposite directions (a quick, responsive entrance) and then stay
+ * static.
  * Reuses GlassCard, RevealText (one per heading), the GSAP clock and every token.
  */
 
 const IMG_MISSION = "/mission.jpg";
 const IMG_VISION = "/images/heroabout/h4.png";
 
-/** Floating luxury editorial image — sized wrapper (zero CLS) + parallax + glass. */
+/** Editorial image — aspect-ratio wrapper (zero CLS) + glass. */
 function FloatingImage({
   src,
   className,
-  speed,
 }: {
   src: string;
   className: string;
-  speed: number;
 }) {
   return (
-    <div
-      data-mv-parallax
-      data-speed={speed}
-      aria-hidden="true"
-      className={className}
-    >
+    <div aria-hidden="true" className={className}>
       <div className="relative h-full w-full overflow-hidden rounded-[32px] border border-secondary-500/20 shadow-floating">
         <Image
           src={src}
           alt=""
           fill
           loading="lazy"
-          sizes="(max-width: 767px) 100vw, (max-width: 1280px) 210px, 240px"
+          sizes="(max-width: 767px) 100vw, 45vw"
           className="object-cover"
         />
       </div>
@@ -76,16 +69,6 @@ export function AboutMissionVision() {
         })
         .to("[data-mv-card='mission']", { autoAlpha: 1, x: 0, y: 0, duration: 0.7 }, 0.15)
         .to("[data-mv-card='vision']", { autoAlpha: 1, x: 0, y: 0, duration: 0.7 }, 0.3);
-
-      // Subtle parallax — images only, drifting slower than the page.
-      root.querySelectorAll<HTMLElement>("[data-mv-parallax]").forEach((el) => {
-        const sp = Number(el.dataset.speed || 12);
-        gsap.to(el, {
-          yPercent: -sp,
-          ease: "none",
-          scrollTrigger: { trigger: root, start: "top bottom", end: "bottom top", scrub: true },
-        });
-      });
     }, root);
 
     return () => ctx.revert();
@@ -118,8 +101,7 @@ export function AboutMissionVision() {
           <div data-mv-card="mission" className="relative md:col-span-6">
             <FloatingImage
               src={IMG_MISSION}
-              speed={14}
-              className="relative z-raised mb-8 h-[220px] w-full md:absolute md:-right-8 md:-top-16 md:mb-0 md:h-[300px] md:w-[200px] xl:h-[345px] xl:w-[230px]"
+              className="relative mb-8 aspect-[16/10] w-full"
             />
             <GlassCard className="h-full p-8 md:p-12">
               <div className="mb-6 flex items-center gap-3">
@@ -149,8 +131,7 @@ export function AboutMissionVision() {
           <div data-mv-card="vision" className="relative md:col-span-5 md:col-start-8 md:mt-[12vh]">
             <FloatingImage
               src={IMG_VISION}
-              speed={10}
-              className="relative z-raised mb-8 h-[220px] w-full md:absolute md:-bottom-12 md:-left-8 md:mb-0 md:h-[260px] md:w-[210px] xl:h-[300px] xl:w-[240px]"
+              className="relative mb-8 aspect-[16/10] w-full"
             />
             <GlassCard className="h-full p-8 md:p-12">
               <div className="mb-6 flex items-center gap-3">
