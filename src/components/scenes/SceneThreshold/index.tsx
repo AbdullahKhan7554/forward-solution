@@ -1,16 +1,8 @@
 "use client";
 
 import { useRef } from "react";
-import dynamic from "next/dynamic";
-import { useIntro } from "@/components/providers/IntroProvider";
 import { HeroContent } from "./HeroContent";
 import { ScrollCue } from "./ScrollCue";
-
-// WebGL cannot server-render; load the atmosphere client-only.
-const HeroAtmosphere = dynamic(
-  () => import("@/components/canvas/HeroAtmosphere").then((m) => m.HeroAtmosphere),
-  { ssr: false, loading: () => null }
-);
 
 /**
  * SCENE 01 - THE THRESHOLD
@@ -21,12 +13,10 @@ const HeroAtmosphere = dynamic(
  * scroll, every layer moving in concert - the world recedes as we move forward.
  */
 export function SceneThreshold() {
-  const { phase } = useIntro();
   const outerRef = useRef<HTMLDivElement>(null);
   const atmosphereRef = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
   const cueRef = useRef<HTMLDivElement>(null);
-  const scrollProgress = useRef(0);
 
   return (
     <section
@@ -36,11 +26,14 @@ export function SceneThreshold() {
       {/* Scroll runway for the sticky stage (all within Scene 01). */}
       <div ref={outerRef} className="relative">
         <div className="relative h-[100svh] min-h-[620px] w-full overflow-hidden bg-base">
-          {/* Layered WebGL world */}
+          {/* static atmosphere gradient */}
           <div ref={atmosphereRef} className="absolute inset-0 will-change-transform">
-            <HeroAtmosphere
-              active={phase === "revealing"}
-              scrollProgressRef={scrollProgress}
+            <div
+              className="absolute inset-0"
+              style={{
+                background:
+                  "radial-gradient(120% 90% at 50% 62%, #FFFFFF 0%, #FAFBFC 45%, #EEF3F6 100%)",
+              }}
             />
           </div>
 

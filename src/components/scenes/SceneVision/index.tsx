@@ -1,15 +1,8 @@
 "use client";
 
 import { useRef } from "react";
-import dynamic from "next/dynamic";
 import { RevealText } from "@/components/primitives/RevealText";
 import { useVisionChoreography } from "./useVisionChoreography";
-
-// Luminous particle atmosphere, tuned for a dark field. Client-only, code-split.
-const ParticleField = dynamic(
-  () => import("@/components/scenes/SceneInnovation/ParticleField"),
-  { ssr: false }
-);
 
 /**
  * SCENE 04 - THE VISION (new scene; Mission scene left intact).
@@ -44,7 +37,13 @@ export function SceneVision() {
 
             {/* luminous particle atmosphere */}
             <div data-depth-2 className="absolute inset-0">
-              <ParticleField scrollProgressRef={scrollProgress} color={[0.6, 0.82, 0.78]} />
+              <div
+                className="absolute inset-0"
+                style={{
+                  background:
+                    "radial-gradient(70% 60% at 50% 45%, rgba(153,209,199,0.22) 0%, rgba(153,209,199,0) 72%)",
+                }}
+              />
             </div>
 
             {/* faint technical grid (light-on-dark) */}

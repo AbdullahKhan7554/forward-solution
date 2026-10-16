@@ -1,19 +1,12 @@
 "use client";
 
 import { useRef } from "react";
-import dynamic from "next/dynamic";
 import { useIsomorphicLayoutEffect } from "@/hooks/useIsomorphicLayoutEffect";
 import { useIntro } from "@/components/providers/IntroProvider";
 import { gsap, ScrollTrigger } from "@/lib/gsap";
 import { RevealText } from "@/components/primitives/RevealText";
 import { LabPlate } from "@/components/scenes/SceneUnfolding/LabPlate";
 import { ScrollCue } from "@/components/scenes/SceneThreshold/ScrollCue";
-
-// Very soft particles — the shared ultra-light field, client-only.
-const ParticleField = dynamic(
-  () => import("@/components/scenes/SceneInnovation/ParticleField"),
-  { ssr: false }
-);
 
 /**
  * SERVICES · SCENE 01 — THE EXPERTISE (HERO).
@@ -125,7 +118,13 @@ export function ServicesHero() {
 
           {/* very soft particles */}
           <div aria-hidden="true" className="pointer-events-none absolute inset-0 opacity-40">
-            <ParticleField scrollProgressRef={scrollProgress} color={[0.35, 0.55, 0.62]} />
+            <div
+              className="absolute inset-0"
+              style={{
+                background:
+                  "radial-gradient(70% 60% at 50% 45%, rgba(89,140,158,0.22) 0%, rgba(89,140,158,0) 72%)",
+              }}
+            />
           </div>
 
           {/* subtle scientific gradients */}

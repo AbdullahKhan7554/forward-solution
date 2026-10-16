@@ -1,7 +1,6 @@
 "use client";
 
 import { useRef } from "react";
-import dynamic from "next/dynamic";
 import Image from "next/image";
 import { useIsomorphicLayoutEffect } from "@/hooks/useIsomorphicLayoutEffect";
 import { usePrefersReducedMotion } from "@/hooks/usePrefersReducedMotion";
@@ -10,12 +9,6 @@ import { gsap, ScrollTrigger } from "@/lib/gsap";
 import { RevealText } from "@/components/primitives/RevealText";
 import { ScrollCue } from "@/components/scenes/SceneThreshold/ScrollCue";
 import { cn } from "@/lib/utils";
-
-// Very tiny floating dust — the shared ultra-light particle field, client-only.
-const ParticleField = dynamic(
-  () => import("@/components/scenes/SceneInnovation/ParticleField"),
-  { ssr: false }
-);
 
 // Cinematic crossfade set — light-toned scenes so the luminous film (and the dark
 // navbar/headline) stays consistent. Local assets only, no placeholders.
@@ -268,7 +261,13 @@ export function AboutHero() {
           {/* ── DUST PARTICLES (reused field) ── */}
           {!reducedMotion && (
             <div aria-hidden="true" className="pointer-events-none absolute inset-0 opacity-[0.28]">
-              <ParticleField scrollProgressRef={scrollProgress} color={[0.4, 0.55, 0.62]} />
+              <div
+                className="absolute inset-0"
+                style={{
+                  background:
+                    "radial-gradient(70% 60% at 50% 45%, rgba(102,140,158,0.22) 0%, rgba(102,140,158,0) 72%)",
+                }}
+              />
             </div>
           )}
 

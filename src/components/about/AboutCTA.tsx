@@ -1,15 +1,8 @@
 "use client";
 
 import { useRef } from "react";
-import dynamic from "next/dynamic";
 import { RevealText } from "@/components/primitives/RevealText";
 import { useCTAChoreography } from "@/components/scenes/SceneCTA/useCTAChoreography";
-
-// Same ultra-light particle atmosphere the homepage CTA uses.
-const ParticleField = dynamic(
-  () => import("@/components/scenes/SceneInnovation/ParticleField"),
-  { ssr: false }
-);
 
 /**
  * ABOUT · SCENE 09 — THE INVITATION (CTA).
@@ -20,7 +13,6 @@ const ParticleField = dynamic(
  */
 export function AboutCTA() {
   const rootRef = useRef<HTMLElement>(null);
-  const scrollProgress = useRef(0);
   useCTAChoreography(rootRef);
 
   return (
@@ -39,7 +31,13 @@ export function AboutCTA() {
         }}
       />
       <div aria-hidden="true" className="pointer-events-none absolute inset-0 opacity-50">
-        <ParticleField scrollProgressRef={scrollProgress} color={[0.35, 0.55, 0.62]} />
+        <div
+          className="absolute inset-0"
+          style={{
+            background:
+              "radial-gradient(70% 60% at 50% 45%, rgba(89,140,158,0.22) 0%, rgba(89,140,158,0) 72%)",
+          }}
+        />
       </div>
 
       <div className="relative mx-auto flex min-h-[86svh] w-full max-w-container flex-col items-center justify-center px-6 py-[16vh] text-center md:px-12">

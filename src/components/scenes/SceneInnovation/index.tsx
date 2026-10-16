@@ -1,13 +1,9 @@
 "use client";
 
 import { useRef } from "react";
-import dynamic from "next/dynamic";
 import Image from "next/image";
 import { RevealText } from "@/components/primitives/RevealText";
 import { useInnovationChoreography } from "./useInnovationChoreography";
-
-// WebGL particle atmosphere: client-only + code-split.
-const ParticleField = dynamic(() => import("./ParticleField"), { ssr: false });
 
 /**
  * SCENE 03 - THE MISSION (existing "Our Mission" section, content preserved).
@@ -46,7 +42,13 @@ export function SceneInnovation() {
 
             {/* microscopic particle atmosphere */}
             <div data-depth-2 className="absolute inset-0">
-              <ParticleField scrollProgressRef={scrollProgress} />
+              <div
+                className="absolute inset-0"
+                style={{
+                  background:
+                    "radial-gradient(70% 60% at 50% 45%, rgba(46,102,128,0.22) 0%, rgba(46,102,128,0) 72%)",
+                }}
+              />
             </div>
 
             {/* faint technical grid */}

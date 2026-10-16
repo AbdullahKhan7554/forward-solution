@@ -1,16 +1,9 @@
 "use client";
 
 import { useRef } from "react";
-import dynamic from "next/dynamic";
 import { useIsomorphicLayoutEffect } from "@/hooks/useIsomorphicLayoutEffect";
 import { gsap } from "@/lib/gsap";
 import { RevealText } from "@/components/primitives/RevealText";
-
-// Very subtle floating particles — the shared ultra-light field, client-only.
-const ParticleField = dynamic(
-  () => import("@/components/scenes/SceneInnovation/ParticleField"),
-  { ssr: false }
-);
 
 /** Thin scientific network — nodes joined by hairlines, almost invisible. */
 const NODES: { x: number; y: number }[] = [
@@ -56,7 +49,6 @@ function NetworkGrid() {
  */
 export function NotFound404() {
   const rootRef = useRef<HTMLElement>(null);
-  const scrollProgress = useRef(0);
   const reducedRef = useRef(false);
 
   useIsomorphicLayoutEffect(() => {
@@ -112,7 +104,13 @@ export function NotFound404() {
       <NetworkGrid />
       {/* very subtle floating particles */}
       <div aria-hidden="true" className="pointer-events-none absolute inset-0 opacity-30">
-        <ParticleField scrollProgressRef={scrollProgress} color={[0.35, 0.55, 0.62]} />
+        <div
+          className="absolute inset-0"
+          style={{
+            background:
+              "radial-gradient(70% 60% at 50% 45%, rgba(89,140,158,0.22) 0%, rgba(89,140,158,0) 72%)",
+          }}
+        />
       </div>
       {/* soft luminous centre */}
       <div

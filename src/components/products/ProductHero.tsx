@@ -1,18 +1,11 @@
 "use client";
 
 import { useRef } from "react";
-import dynamic from "next/dynamic";
 import { useIsomorphicLayoutEffect } from "@/hooks/useIsomorphicLayoutEffect";
 import { useIntro } from "@/components/providers/IntroProvider";
 import { gsap, ScrollTrigger } from "@/lib/gsap";
 import { RevealText } from "@/components/primitives/RevealText";
 import { ScrollCue } from "@/components/scenes/SceneThreshold/ScrollCue";
-
-// WebGL cannot server-render; load the shared atmosphere client-only.
-const HeroAtmosphere = dynamic(
-  () => import("@/components/canvas/HeroAtmosphere").then((m) => m.HeroAtmosphere),
-  { ssr: false, loading: () => null }
-);
 
 /**
  * PRODUCTS · SCENE 01 — THE PORTFOLIO (Hero).
@@ -117,9 +110,15 @@ export function ProductHero() {
     >
       <div ref={outerRef} className="relative h-[170svh]">
         <div className="sticky top-0 h-[100svh] min-h-[620px] w-full overflow-hidden bg-base">
-          {/* Layered WebGL world — soft-daylight animated gradient + motes */}
+          {/* static atmosphere gradient */}
           <div ref={atmosphereRef} className="absolute inset-0 will-change-transform">
-            <HeroAtmosphere active={revealing} scrollProgressRef={scrollProgress} />
+            <div
+              className="absolute inset-0"
+              style={{
+                background:
+                  "radial-gradient(120% 90% at 50% 62%, #FFFFFF 0%, #FAFBFC 45%, #EEF3F6 100%)",
+              }}
+            />
           </div>
 
           {/* Asymmetric vignette — seats the mass lower-left, opens the light upper-right */}
