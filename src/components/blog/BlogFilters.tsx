@@ -46,7 +46,7 @@ export function BlogFilters({
               "shrink-0 whitespace-nowrap rounded-full border px-5 py-2.5 font-sans text-small font-medium outline-none transition-all duration-300 ease-brand-out focus-visible:ring-2 focus-visible:ring-accent-500",
               isActive
                 ? "border-primary-600 bg-primary-600 text-pure shadow-soft"
-                : "border-white/60 bg-white/55 text-neutral-600 shadow-glass hover:-translate-y-px hover:border-accent-300/60 hover:text-primary-700 hover:shadow-[0_6px_24px_-6px_rgba(0,138,75,0.35)]"
+                : "border-white/60 bg-white/85 text-neutral-600 shadow-glass hover:-translate-y-px hover:border-accent-300/60 hover:text-primary-700 hover:shadow-[0_6px_24px_-6px_rgba(0,138,75,0.35)]"
             )}
           >
             {filter}

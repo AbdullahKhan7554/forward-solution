@@ -155,7 +155,7 @@ export function RuminantBiosecurity() {
           {PROCESS.map((step, i) => (
             <div key={step.n} className="relative flex w-full flex-col items-center">
               <div data-bio-step className="relative z-raised w-full max-w-md">
-                <div className="rounded-lg border border-white/70 bg-white/60 p-7 text-center shadow-glass md:p-8">
+                <div className="rounded-lg border border-white/70 bg-white/85 p-7 text-center shadow-glass md:p-8">
                   <span className="font-sans text-caption tracking-[0.22em] text-accent-600">STEP {step.n}</span>
                   <h3 className="mt-2 font-display text-h3 font-medium text-neutral-900">{step.title}</h3>
                   <p className="mt-2 font-sans text-body text-neutral-600">{step.body}</p>

@@ -221,7 +221,7 @@ export function ContactLocation() {
         <div className="mt-[10vh] grid grid-cols-1 items-start gap-x-12 gap-y-10 lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1.15fr)]">
           {/* details rail */}
           <div>
-            <div className="rounded-3xl border border-white/70 bg-white/55 p-6 shadow-glass md:p-8">
+            <div className="rounded-3xl border border-white/70 bg-white/85 p-6 shadow-glass md:p-8">
               <h3 data-loc-fade className="px-3 font-display text-h4 font-light tracking-[-0.01em] text-neutral-900">
                 Agriprom Pakistan
               </h3>

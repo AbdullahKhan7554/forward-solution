@@ -37,7 +37,7 @@ export function BlogCard({
           </MaskedReveal>
 
           {/* glass metadata tag */}
-          <span className="absolute left-4 top-4 rounded-full border border-white/70 bg-white/60 px-3.5 py-1.5 font-sans text-caption uppercase tracking-[0.18em] text-primary-700 shadow-soft">
+          <span className="absolute left-4 top-4 rounded-full border border-white/70 bg-white/85 px-3.5 py-1.5 font-sans text-caption uppercase tracking-[0.18em] text-primary-700 shadow-soft">
             {post.category}
           </span>
         </div>

@@ -187,7 +187,7 @@ export function ArticlesGrid() {
             <button
               type="button"
               onClick={() => setVisible((v) => v + PAGE_SIZE)}
-              className="group inline-flex items-center gap-3 rounded-sm border border-primary-600/30 bg-white/60 px-8 py-4 font-sans text-body font-medium text-primary-700 shadow-soft outline-none transition-colors duration-200 ease-brand-out hover:border-primary-600/60 hover:bg-white focus-visible:ring-2 focus-visible:ring-accent-500"
+              className="group inline-flex items-center gap-3 rounded-sm border border-primary-600/30 bg-white/85 px-8 py-4 font-sans text-body font-medium text-primary-700 shadow-soft outline-none transition-colors duration-200 ease-brand-out hover:border-primary-600/60 hover:bg-white focus-visible:ring-2 focus-visible:ring-accent-500"
             >
               Load More Articles
               <span

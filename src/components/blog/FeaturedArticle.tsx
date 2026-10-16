@@ -106,7 +106,7 @@ export function FeaturedArticle({
               </MaskedReveal>
 
               {/* glass metadata pill */}
-              <span className="absolute left-5 top-5 rounded-full border border-white/70 bg-white/60 px-4 py-2 font-sans text-caption uppercase tracking-[0.18em] text-primary-700 shadow-soft">
+              <span className="absolute left-5 top-5 rounded-full border border-white/70 bg-white/85 px-4 py-2 font-sans text-caption uppercase tracking-[0.18em] text-primary-700 shadow-soft">
                 {article.category}
               </span>
             </div>

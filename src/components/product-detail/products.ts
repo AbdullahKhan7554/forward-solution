@@ -231,7 +231,7 @@ export const PRODUCTS: Record<string, ProductDetailData> = {
         values: ["Reduced Viscosity", "Improved Digestion", "Gut Health", "Higher Feed Efficiency"],
       },
     ],
-    metaTitle: "XYGEST™ HTX — Agriprom Pakistan | CJ Bio Poultry Enzyme Technology",
+    metaTitle: "XYGEST™ HTX — Agriprom Pakistan | Poultry Enzyme Technology",
     metaDescription:
       "XYGEST™ HTX hydrolyzes xylan to reduce digesta viscosity, produce AXOS prebiotics, improve nutrient availability and support gut health and poultry performance.",
   },

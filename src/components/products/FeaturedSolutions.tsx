@@ -98,7 +98,7 @@ function SolutionCard({ solution, index }: { solution: Solution; index: number }
   return (
     <article
       data-feat-card
-      className="group relative overflow-hidden rounded-lg border border-white/70 bg-white/55 shadow-glass transition-[transform,box-shadow] duration-200 ease-brand-out will-change-transform hover:-translate-y-1 hover:shadow-floating"
+      className="group relative overflow-hidden rounded-lg border border-white/70 bg-white/85 shadow-glass transition-[transform,box-shadow] duration-200 ease-brand-out will-change-transform hover:-translate-y-1 hover:shadow-floating"
     >
       <div className="grid grid-cols-1 md:grid-cols-2">
         {/* image */}

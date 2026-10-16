@@ -162,7 +162,7 @@ export function LegalPage({
           <aside className="hidden lg:col-span-4 lg:block xl:col-span-3">
             <nav
               aria-label="On this page"
-              className="sticky top-[16vh] rounded-2xl border border-white/70 bg-white/60 p-6 shadow-glass"
+              className="sticky top-[16vh] rounded-2xl border border-white/70 bg-white/85 p-6 shadow-glass"
             >
               <span className="mb-4 block font-sans text-caption uppercase tracking-[0.24em] text-neutral-400">
                 On This Page

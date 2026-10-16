@@ -317,7 +317,7 @@ function Benefits({ data }: { data: ProductDetailData }) {
                     style={{ background: "radial-gradient(closest-side, rgba(0,138,75,0.35), rgba(0,138,75,0))" }}
                   />
                   <div className="relative flex items-start gap-4">
-                    <span className="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-white/70 bg-white/60 text-primary-700 shadow-soft transition-colors duration-300 ease-brand-out group-hover:text-accent-600">
+                    <span className="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-white/70 bg-white/85 text-primary-700 shadow-soft transition-colors duration-300 ease-brand-out group-hover:text-accent-600">
                       <IconCmp />
                     </span>
                     <h3 className="mt-2 font-display text-h4 font-medium leading-[1.15] text-neutral-900">{b}</h3>
@@ -418,7 +418,7 @@ function HowItWorks({ data }: { data: ProductDetailData }) {
           {data.flow.map((step, i) => (
             <div key={step} className="relative flex w-full flex-col items-center">
               <div data-flow-step className="relative z-raised w-full max-w-sm">
-                <div className="flex items-center gap-4 rounded-lg border border-white/70 bg-white/60 px-6 py-4 shadow-glass">
+                <div className="flex items-center gap-4 rounded-lg border border-white/70 bg-white/85 px-6 py-4 shadow-glass">
                   <span className="font-sans text-caption tracking-[0.2em] text-accent-600">
                     {String(i + 1).padStart(2, "0")}
                   </span>
@@ -454,7 +454,7 @@ function Applications({ data }: { data: ProductDetailData }) {
           {data.applications.map((a) => (
             <li key={a} data-rise>
               <GlassCard className="flex h-full flex-col items-center justify-center gap-5 py-10 text-center">
-                <span className="inline-flex h-14 w-14 items-center justify-center rounded-full border border-white/70 bg-white/60 text-primary-700 shadow-soft">
+                <span className="inline-flex h-14 w-14 items-center justify-center rounded-full border border-white/70 bg-white/85 text-primary-700 shadow-soft">
                   {applicationIcon(a)}
                 </span>
                 <h3 className="font-display text-h4 font-medium text-neutral-900">{a}</h3>
@@ -480,7 +480,7 @@ function TechnicalHighlights({ data }: { data: ProductDetailData }) {
           </h2>
 
           <div data-fade className="md:col-span-8">
-            <dl className="overflow-hidden rounded-lg border border-white/70 bg-white/55 shadow-glass">
+            <dl className="overflow-hidden rounded-lg border border-white/70 bg-white/85 shadow-glass">
               {data.specs.map((row, i) => (
                 <div
                   key={row.label}
@@ -579,7 +579,7 @@ function Downloads({ data }: { data: ProductDetailData }) {
               >
                 <GlassCard className="flex h-full items-center justify-between gap-6">
                   <span className="flex items-center gap-4">
-                    <span className="inline-flex h-12 w-12 items-center justify-center rounded-full border border-white/70 bg-white/60 text-primary-700 shadow-soft transition-colors duration-200 ease-brand-out group-hover:text-accent-600">
+                    <span className="inline-flex h-12 w-12 items-center justify-center rounded-full border border-white/70 bg-white/85 text-primary-700 shadow-soft transition-colors duration-200 ease-brand-out group-hover:text-accent-600">
                       <DocIcon />
                     </span>
                     <span>
@@ -621,7 +621,7 @@ function RelatedProducts({ data }: { data: ProductDetailData }) {
               <a
                 href={r.href}
                 aria-label={`${r.name} — view product`}
-                className="group block h-full rounded-lg p-3 transition-[transform,background-color,box-shadow] duration-200 ease-brand-out will-change-transform hover:-translate-y-1.5 hover:bg-white/55 hover:shadow-floating focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-500"
+                className="group block h-full rounded-lg p-3 transition-[transform,background-color,box-shadow] duration-200 ease-brand-out will-change-transform hover:-translate-y-1.5 hover:bg-white/85 hover:shadow-floating focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-500"
               >
                 <MaskedReveal className="aspect-[4/3] w-full overflow-hidden rounded-md ring-1 ring-white/50">
                   <div className="h-full w-full transition-transform duration-300 ease-brand-out group-hover:scale-[1.05]">

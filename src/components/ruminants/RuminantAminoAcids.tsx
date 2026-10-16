@@ -119,7 +119,7 @@ export function RuminantAminoAcids() {
             </MaskedReveal>
 
             <div data-aa-float className="relative z-raised mt-6 will-change-transform md:absolute md:-left-10 md:bottom-8 md:mt-0 md:w-[320px] xl:-left-16">
-              <div data-aa-fade className="rounded-lg border border-white/70 bg-white/60 p-7 shadow-glass">
+              <div data-aa-fade className="rounded-lg border border-white/70 bg-white/85 p-7 shadow-glass">
                 <span className="mb-4 block h-px w-8 bg-accent-500" />
                 <p className="font-display text-h4 font-medium leading-[1.2] text-neutral-900">Delivered intact to the small intestine.</p>
                 <p className="mt-3 font-sans text-body text-neutral-600">Shielded from rumen microbes, released exactly where amino acids are absorbed.</p>

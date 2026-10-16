@@ -95,7 +95,7 @@ function ProductCard({ product, className }: { product: Product; className?: str
         ref={cardRef}
         href={product.href}
         aria-label={`${product.name} — explore`}
-        className="group block h-full rounded-lg p-3 transition-[transform,background-color,box-shadow] duration-200 ease-brand-out will-change-transform hover:-translate-y-1.5 hover:bg-white/55 hover:shadow-floating focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-500"
+        className="group block h-full rounded-lg p-3 transition-[transform,background-color,box-shadow] duration-200 ease-brand-out will-change-transform hover:-translate-y-1.5 hover:bg-white/85 hover:shadow-floating focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-500"
       >
         <MaskedReveal className="aspect-[3/4] w-full overflow-hidden rounded-md ring-1 ring-white/50">
           <div className="h-full w-full transition-transform duration-300 ease-brand-out group-hover:scale-[1.05]">

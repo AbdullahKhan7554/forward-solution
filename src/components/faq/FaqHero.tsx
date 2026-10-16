@@ -168,7 +168,7 @@ export function FaqHero() {
               <a
                 data-hero-cta
                 href="/products"
-                className="inline-flex w-full items-center justify-center rounded-sm border border-neutral-300 bg-white/60 px-8 py-4 font-sans text-body font-medium text-neutral-800 transition-[transform,box-shadow,background-color,border-color] duration-200 ease-brand-out hover:-translate-y-0.5 hover:border-primary-400 hover:bg-white hover:shadow-soft sm:w-auto"
+                className="inline-flex w-full items-center justify-center rounded-sm border border-neutral-300 bg-white/85 px-8 py-4 font-sans text-body font-medium text-neutral-800 transition-[transform,box-shadow,background-color,border-color] duration-200 ease-brand-out hover:-translate-y-0.5 hover:border-primary-400 hover:bg-white hover:shadow-soft sm:w-auto"
               >
                 Explore Products
               </a>
