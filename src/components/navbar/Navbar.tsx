@@ -204,15 +204,18 @@ function NavDropdown({
   reducedRef,
   active,
   pathname,
+  href,
 }: {
   label: string;
   items: DropdownItem[];
   reducedRef: React.MutableRefObject<boolean>;
   active?: boolean;
   pathname: string;
+  /** When set, the label itself is a link (click navigates); hover/keyboard still open the menu. */
+  href?: string;
 }) {
   const rootRef = useRef<HTMLDivElement>(null);
-  const triggerRef = useRef<HTMLButtonElement>(null);
+  const triggerRef = useRef<HTMLElement>(null);
   const menuRef = useRef<HTMLDivElement>(null);
   const itemRefs = useRef<(HTMLAnchorElement | null)[]>([]);
   const tlRef = useRef<gsap.core.Timeline | null>(null);
@@ -271,7 +274,7 @@ function NavDropdown({
   };
 
   const onTriggerKeyDown = (e: React.KeyboardEvent) => {
-    if (e.key === "ArrowDown" || e.key === "Enter" || e.key === " ") {
+    if (e.key === "ArrowDown" || (e.key === "Enter" && !href) || e.key === " ") {
       e.preventDefault();
       setOpen(true);
       requestAnimationFrame(() => focusItem(0));
@@ -300,6 +303,21 @@ function NavDropdown({
     }
   };
 
+  const triggerClassName = cn(
+    "group flex items-center gap-1.5 font-sans text-small font-medium transition-colors duration-[360ms] ease-brand-out",
+    open
+      ? "text-accent-600 group-data-[scrolled=true]/nav:text-accent-300"
+      : "text-neutral-900 hover:text-accent-600 group-data-[scrolled=true]/nav:text-neutral-200"
+  );
+  const triggerContent = (
+    <>
+      {label}
+      <span className={cn("transition-transform duration-300 ease-brand-out", open && "rotate-180")}>
+        <Chevron />
+      </span>
+    </>
+  );
+
   return (
     <div
       ref={rootRef}
@@ -308,26 +326,32 @@ function NavDropdown({
       onMouseLeave={() => setOpen(false)}
     >
       <span className="block overflow-hidden py-1">
-        <button
-          ref={triggerRef}
-          data-nav-inner
-          type="button"
-          aria-haspopup="menu"
-          aria-expanded={open}
-          onKeyDown={onTriggerKeyDown}
-          onClick={() => setOpen((o) => !o)}
-          className={cn(
-            "group flex items-center gap-1.5 font-sans text-small font-medium transition-colors duration-[360ms] ease-brand-out",
-            open
-              ? "text-accent-600 group-data-[scrolled=true]/nav:text-accent-300"
-              : "text-neutral-900 hover:text-accent-600 group-data-[scrolled=true]/nav:text-neutral-200"
-          )}
-        >
-          {label}
-          <span className={cn("transition-transform duration-300 ease-brand-out", open && "rotate-180")}>
-            <Chevron />
-          </span>
-        </button>
+        {href ? (
+          <a
+            ref={triggerRef as React.RefObject<HTMLAnchorElement>}
+            data-nav-inner
+            href={href}
+            aria-haspopup="menu"
+            aria-expanded={open}
+            onKeyDown={onTriggerKeyDown}
+            className={triggerClassName}
+          >
+            {triggerContent}
+          </a>
+        ) : (
+          <button
+            ref={triggerRef as React.RefObject<HTMLButtonElement>}
+            data-nav-inner
+            type="button"
+            aria-haspopup="menu"
+            aria-expanded={open}
+            onKeyDown={onTriggerKeyDown}
+            onClick={() => setOpen((o) => !o)}
+            className={triggerClassName}
+          >
+            {triggerContent}
+          </button>
+        )}
       </span>
       {/* animated active-page underline */}
       <span
@@ -349,7 +373,7 @@ function NavDropdown({
           !open && "pointer-events-none"
         )}
       >
-        <div className="flex flex-col gap-3 rounded-2xl border border-white/70 bg-white/75 p-6 shadow-medium backdrop-blur-xl backdrop-saturate-150">
+        <div className="flex flex-col gap-3 rounded-2xl border border-white/70 bg-white/95 p-6 shadow-medium backdrop-blur-xl backdrop-saturate-150">
           {items.map((item, i) => {
             const itemActive = pathname === item.href;
             return (
@@ -564,6 +588,7 @@ export function Navbar() {
                   reducedRef={reducedRef}
                   active={isDropdownActive(link)}
                   pathname={pathname}
+                  href={link.label === "Products" ? link.href : undefined}
                 />
               ) : (
                 <span key={link.label} className="block overflow-hidden py-1">
