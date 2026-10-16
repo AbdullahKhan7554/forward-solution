@@ -100,11 +100,6 @@ export function ServicesBenefits() {
         {/* LEFT — heading + large photography */}
         <div className="lg:col-span-5">
           <div className="lg:sticky lg:top-[16vh]">
-            <div data-benefit-fade className="mb-8 flex items-center gap-4">
-              <span className="font-sans text-caption tracking-[0.2em] text-neutral-400">(04)</span>
-              <span className="h-px w-10 bg-neutral-300" />
-              <span className="font-serif text-small italic text-neutral-400">The Difference</span>
-            </div>
             <div data-benefit-fade className="mb-7 flex items-center gap-4">
               <span className="h-px w-10 bg-accent-500" />
               <span className="font-sans text-caption uppercase tracking-[0.32em] text-neutral-500">

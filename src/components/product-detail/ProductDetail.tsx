@@ -92,17 +92,6 @@ function useReveal(ref: RefObject<HTMLElement>) {
   }, [ref]);
 }
 
-/* ─── Section shell ─────────────────────────────────────────────────────── */
-function Slate({ n, label }: { n: string; label: string }) {
-  return (
-    <div data-fade className="mb-8 flex items-center gap-4">
-      <span className="font-sans text-caption tracking-[0.2em] text-neutral-400">{n}</span>
-      <span className="h-px w-10 bg-neutral-300" />
-      <span className="font-serif text-small italic text-neutral-400">{label}</span>
-    </div>
-  );
-}
-
 /* ─── 01 · HERO ─────────────────────────────────────────────────────────── */
 function Hero({ data }: { data: ProductDetailData }) {
   const { phase } = useIntro();
@@ -241,7 +230,6 @@ function Overview({ data }: { data: ProductDetailData }) {
   return (
     <section ref={ref} aria-labelledby="pd-overview-heading" className="relative overflow-hidden bg-pure">
       <div className="relative mx-auto w-full max-w-container px-6 py-[18vh] md:px-12 xl:px-20">
-        <Slate n="(01)" label="Overview" />
         <div className="grid grid-cols-1 items-center gap-x-16 gap-y-12 md:grid-cols-12">
           {/* optional overview image — left */}
           {data.overviewImageLabel && (
@@ -321,7 +309,6 @@ function Benefits({ data }: { data: ProductDetailData }) {
         style={{ background: "radial-gradient(70% 45% at 80% 4%, rgba(219,239,231,0.4) 0%, rgba(255,255,255,0) 58%)" }}
       />
       <div className="relative mx-auto w-full max-w-container px-6 py-[18vh] md:px-12 xl:px-20">
-        <Slate n="(02)" label="Benefits" />
         <h2 id="pd-benefits-heading" className="max-w-3xl font-display font-light leading-[1.04] tracking-[-0.015em] text-neutral-900">
           <RevealText text="Proven Benefits" as="span" trigger="scroll" stagger={0.06} className="justify-start text-[8.5vw] md:text-[4.2vw] xl:text-[54px]" />
           <RevealText text="on the Farm" as="span" trigger="scroll" stagger={0.06} className="justify-start text-[8.5vw] text-primary-700 md:text-[4.2vw] xl:text-[54px]" />
@@ -421,7 +408,7 @@ function HowItWorks({ data }: { data: ProductDetailData }) {
         <div className="mx-auto max-w-3xl text-center">
           <div data-fade className="mb-8 flex items-center justify-center gap-4">
             <span className="h-px w-10 bg-accent-500" />
-            <span className="font-sans text-caption uppercase tracking-[0.32em] text-neutral-500">(03) — How It Works</span>
+            <span className="font-sans text-caption uppercase tracking-[0.32em] text-neutral-500">How It Works</span>
             <span className="h-px w-10 bg-accent-500" />
           </div>
           <h2 id="pd-how-heading" className="font-display font-light leading-[1.08] tracking-[-0.015em] text-neutral-900">
@@ -473,7 +460,6 @@ function Applications({ data }: { data: ProductDetailData }) {
   return (
     <section ref={ref} aria-labelledby="pd-apps-heading" className="relative overflow-hidden bg-base">
       <div className="relative mx-auto w-full max-w-container px-6 py-[18vh] md:px-12 xl:px-20">
-        <Slate n="(04)" label="Applications" />
         <h2 id="pd-apps-heading" className="max-w-3xl font-display font-light leading-[1.04] tracking-[-0.015em] text-neutral-900">
           <RevealText text="Suitable For" as="span" trigger="scroll" stagger={0.06} className="justify-start text-[8.5vw] md:text-[4.2vw] xl:text-[54px]" />
         </h2>
@@ -501,7 +487,6 @@ function TechnicalHighlights({ data }: { data: ProductDetailData }) {
   return (
     <section ref={ref} aria-labelledby="pd-tech-heading" className="relative overflow-hidden bg-pure">
       <div className="relative mx-auto w-full max-w-container px-6 py-[18vh] md:px-12 xl:px-20">
-        <Slate n="(05)" label="Technical Highlights" />
         <div className="grid grid-cols-1 gap-x-16 gap-y-10 md:grid-cols-12">
           <h2 id="pd-tech-heading" className="md:col-span-4 font-display font-light leading-[1.05] tracking-[-0.015em] text-neutral-900">
             <RevealText text="Specifications" as="span" trigger="scroll" stagger={0.06} className="justify-start text-[8vw] md:text-[3.2vw] xl:text-[40px]" />
@@ -555,7 +540,6 @@ function Gallery({ data }: { data: ProductDetailData }) {
   return (
     <section ref={ref} aria-labelledby="pd-gallery-heading" className="relative overflow-hidden bg-base">
       <div className="relative mx-auto w-full max-w-container px-6 py-[18vh] md:px-12 xl:px-20">
-        <Slate n="(06)" label="Gallery" />
         <h2 id="pd-gallery-heading" className="sr-only">
           {data.name} gallery
         </h2>
@@ -595,7 +579,6 @@ function Downloads({ data }: { data: ProductDetailData }) {
   return (
     <section id="downloads" ref={ref} aria-labelledby="pd-dl-heading" className="relative overflow-hidden bg-pure">
       <div className="relative mx-auto w-full max-w-container px-6 py-[18vh] md:px-12 xl:px-20">
-        <Slate n="(07)" label="Downloads" />
         <h2 id="pd-dl-heading" className="max-w-3xl font-display font-light leading-[1.04] tracking-[-0.015em] text-neutral-900">
           <RevealText text="Documentation" as="span" trigger="scroll" stagger={0.06} className="justify-start text-[8.5vw] md:text-[4.2vw] xl:text-[54px]" />
         </h2>
@@ -641,7 +624,6 @@ function RelatedProducts({ data }: { data: ProductDetailData }) {
   return (
     <section ref={ref} aria-labelledby="pd-related-heading" className="relative overflow-hidden bg-pure">
       <div className="relative mx-auto w-full max-w-container px-6 py-[18vh] md:px-12 xl:px-20">
-        <Slate n="(08)" label="Related Products" />
         <h2 id="pd-related-heading" className="max-w-3xl font-display font-light leading-[1.04] tracking-[-0.015em] text-neutral-900">
           <RevealText text="More Poultry" as="span" trigger="scroll" stagger={0.06} className="justify-start text-[8.5vw] md:text-[4.2vw] xl:text-[54px]" />
           <RevealText text="Solutions" as="span" trigger="scroll" stagger={0.06} className="justify-start text-[8.5vw] text-primary-700 md:text-[4.2vw] xl:text-[54px]" />

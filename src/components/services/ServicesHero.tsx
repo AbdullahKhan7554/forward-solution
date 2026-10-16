@@ -73,10 +73,6 @@ export function ServicesHero() {
     const root = contentRef.current;
     gsap.set(root.querySelectorAll("[data-hero-fade]"), { autoAlpha: 0, y: 16 });
     gsap.set(root.querySelectorAll("[data-hero-cta]"), { autoAlpha: 0, y: 20 });
-    gsap.set(root.querySelectorAll("[data-hero-line]"), {
-      scaleX: 0,
-      transformOrigin: "0% 50%",
-    });
     gsap.set(root.querySelectorAll("[data-sheen]"), { xPercent: -140, autoAlpha: 0 });
   }, []);
 
@@ -93,12 +89,6 @@ export function ServicesHero() {
         ease: "power3.out",
         delay: 0.3,
         stagger: 0.12,
-      });
-      gsap.to(root.querySelectorAll("[data-hero-line]"), {
-        scaleX: 1,
-        duration: 1.1,
-        ease: "power3.inOut",
-        delay: 0.45,
       });
       gsap.to(root.querySelectorAll("[data-sheen]"), {
         keyframes: [
@@ -169,19 +159,6 @@ export function ServicesHero() {
               </div>
 
               <div className="max-w-3xl">
-                <div className="mb-6 flex items-center gap-4">
-                  <span
-                    data-hero-fade
-                    className="font-sans text-caption tracking-[0.2em] text-neutral-400"
-                  >
-                    (01)
-                  </span>
-                  <span data-hero-line className="h-px flex-1 bg-neutral-300" />
-                  <span data-hero-fade className="font-serif text-small italic text-neutral-400">
-                    The Expertise
-                  </span>
-                </div>
-
                 <h1 className="relative overflow-hidden pb-[0.08em] font-display font-light text-neutral-900">
                   <span
                     data-sheen

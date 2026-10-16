@@ -118,13 +118,6 @@ export function ProductOverview() {
       />
 
       <div className="relative mx-auto w-full max-w-container px-6 py-[18vh] md:px-12 xl:px-20">
-        {/* slate caption */}
-        <div data-po-fade className="mb-14 flex items-center gap-4 md:mb-16">
-          <span className="font-sans text-caption tracking-[0.2em] text-neutral-400">(02)</span>
-          <span className="h-px w-10 bg-neutral-300" />
-          <span className="font-serif text-small italic text-neutral-400">The Ecosystem</span>
-        </div>
-
         {/* editorial split */}
         <div className="grid grid-cols-1 items-center gap-x-12 gap-y-12 md:grid-cols-12">
           {/* large premium image plate */}

@@ -153,13 +153,6 @@ export function AboutWhoWeAre() {
       />
 
       <div className="relative mx-auto w-full max-w-container px-6 py-[18vh] md:px-12 xl:px-20">
-        {/* slate caption — chapter continuity */}
-        <div data-about-text className="mb-12 flex items-center gap-4 md:mb-16">
-          <span className="font-sans text-caption tracking-[0.2em] text-neutral-400">(02)</span>
-          <span className="h-px w-10 bg-neutral-300" />
-          <span className="font-serif text-small italic text-neutral-400">Who We Are</span>
-        </div>
-
         {/* editorial two-column: story left, collage right */}
         <div className="grid grid-cols-1 items-center gap-x-12 gap-y-14 lg:grid-cols-2">
           {/* LEFT — text + CTA */}

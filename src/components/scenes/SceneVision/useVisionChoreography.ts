@@ -40,7 +40,6 @@ export function useVisionChoreography(
 
     const ctx = gsap.context(() => {
       gsap.set("[data-vision-veil]", { autoAlpha: 1 }); // covers, then dims out
-      gsap.set("[data-vision-slate]", { autoAlpha: 0, y: 18 });
       gsap.set("[data-vision-fade]", { autoAlpha: 0, y: 22 });
       gsap.set("[data-vision-sheen]", { xPercent: -140, autoAlpha: 0 });
       gsap.set("[data-vision-white]", { autoAlpha: 0 });
@@ -53,7 +52,6 @@ export function useVisionChoreography(
       reveal
         // the lights lower - white veil dims out to reveal the deep field
         .to("[data-vision-veil]", { autoAlpha: 0, duration: 1.7, ease: "power2.inOut" }, 0)
-        .to("[data-vision-slate]", { autoAlpha: 1, y: 0, duration: 0.9, stagger: 0.14 }, 0.7)
         .add(() => setInView(true), 1.1)
         .to(
           "[data-vision-sheen]",

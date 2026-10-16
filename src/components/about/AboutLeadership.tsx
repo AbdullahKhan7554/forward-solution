@@ -76,15 +76,6 @@ export function AboutLeadership() {
       </span>
 
       <div className="relative mx-auto w-full max-w-container px-6 py-[20vh] md:px-12 xl:px-20">
-        {/* slate caption */}
-        <div data-lead-fade className="mb-12 flex items-center justify-center gap-4 md:mb-16">
-          <span className="font-sans text-caption tracking-[0.2em] text-neutral-400">(06)</span>
-          <span className="h-px w-10 bg-neutral-300" />
-          <span className="font-serif text-small italic text-neutral-400">
-            Leadership Philosophy
-          </span>
-        </div>
-
         {/* the editorial quote */}
         <blockquote className="mx-auto max-w-4xl text-center">
           <h2

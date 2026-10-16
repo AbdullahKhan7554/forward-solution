@@ -186,11 +186,6 @@ export function ProductCategories() {
       <div className="relative mx-auto w-full max-w-container px-6 py-[18vh] md:px-12 xl:px-20">
         {/* HEADER */}
         <header className="max-w-3xl">
-          <div data-cat-header className="mb-8 flex items-center gap-4">
-            <span className="font-sans text-caption tracking-[0.2em] text-neutral-400">(03)</span>
-            <span className="h-px w-10 bg-neutral-300" />
-            <span className="font-serif text-small italic text-neutral-400">The Categories</span>
-          </div>
           <div data-cat-header className="mb-7 flex items-center gap-4">
             <span className="h-px w-10 bg-accent-500" />
             <span className="font-sans text-caption uppercase tracking-[0.32em] text-neutral-500">

@@ -67,16 +67,6 @@ export function SceneInnovation() {
               className="relative z-raised mx-auto w-full max-w-container px-6 py-[14vh] will-change-transform md:px-12 md:py-0 xl:px-20"
             >
               {/* slate + eyebrow */}
-              <div data-innov-eyebrow className="mb-10 flex items-center gap-4">
-                <span className="font-sans text-caption tracking-[0.2em] text-neutral-400">
-                  (03)
-                </span>
-                <span className="h-px w-10 bg-neutral-300" />
-                <span className="font-serif text-small italic text-neutral-400">
-                  The Mission
-                </span>
-              </div>
-
               <div data-innov-eyebrow className="mb-8 flex items-center gap-4">
                 <span className="h-px w-10 bg-accent-500" />
                 <span className="font-sans text-caption uppercase tracking-[0.32em] text-neutral-500">

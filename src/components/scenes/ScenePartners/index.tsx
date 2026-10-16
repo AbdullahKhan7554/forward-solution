@@ -22,12 +22,6 @@ export function ScenePartners() {
       <div className="relative mx-auto w-full max-w-container px-6 pb-[24vh] pt-[18vh] md:px-12 xl:px-20">
         {/* HEADER */}
         <header className="max-w-3xl">
-          <div data-partners-fade className="mb-8 flex items-center gap-4">
-            <span className="font-sans text-caption tracking-[0.2em] text-neutral-400">(06)</span>
-            <span className="h-px w-10 bg-neutral-300" />
-            <span className="font-serif text-small italic text-neutral-400">The Network</span>
-          </div>
-
           <div data-partners-fade className="mb-7 flex items-center gap-4">
             <span className="h-px w-10 bg-accent-500" />
             <span className="font-sans text-caption uppercase tracking-[0.32em] text-neutral-500">

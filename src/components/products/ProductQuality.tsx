@@ -197,7 +197,7 @@ export function ProductQuality() {
           <div data-tq-header className="mb-8 flex items-center justify-center gap-4">
             <span className="h-px w-10 bg-accent-500" />
             <span className="font-sans text-caption uppercase tracking-[0.32em] text-neutral-500">
-              (07) — Quality Journey
+              Quality Journey
             </span>
             <span className="h-px w-10 bg-accent-500" />
           </div>

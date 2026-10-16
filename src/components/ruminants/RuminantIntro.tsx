@@ -43,12 +43,6 @@ export function RuminantIntro() {
         style={{ background: "radial-gradient(75% 55% at 22% 8%, rgba(234,242,247,0.55) 0%, rgba(255,255,255,0) 58%)" }}
       />
       <div className="relative mx-auto w-full max-w-container px-6 py-[20vh] md:px-12 xl:px-20">
-        <div data-ri-fade className="mb-12 flex items-center gap-4">
-          <span className="font-sans text-caption tracking-[0.2em] text-neutral-400">(02)</span>
-          <span className="h-px w-10 bg-neutral-300" />
-          <span className="font-serif text-small italic text-neutral-400">Introduction</span>
-        </div>
-
         <div className="grid grid-cols-1 items-start gap-x-16 gap-y-10 md:grid-cols-12">
           <h2 id="ruminant-intro-heading" className="font-display font-light leading-[1.06] tracking-[-0.015em] text-neutral-900 md:col-span-7">
             <RevealText text="Nutrition That Works" as="span" trigger="scroll" stagger={0.06} className="justify-start text-[8.5vw] md:text-[4.4vw] xl:text-[56px]" />

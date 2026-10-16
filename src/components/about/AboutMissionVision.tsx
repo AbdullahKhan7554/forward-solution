@@ -65,7 +65,6 @@ export function AboutMissionVision() {
     if (reduced) return;
 
     const ctx = gsap.context(() => {
-      gsap.set("[data-mv-slate]", { autoAlpha: 0, y: 20 });
       gsap.set("[data-mv-card='mission']", { autoAlpha: 0, x: -48, y: 16 });
       gsap.set("[data-mv-card='vision']", { autoAlpha: 0, x: 48, y: 16 });
 
@@ -75,7 +74,6 @@ export function AboutMissionVision() {
           defaults: { ease: "power3.out" },
           scrollTrigger: { trigger: root, start: "top 68%", once: true },
         })
-        .to("[data-mv-slate]", { autoAlpha: 1, y: 0, duration: 0.4 }, 0)
         .to("[data-mv-card='mission']", { autoAlpha: 1, x: 0, y: 0, duration: 0.7 }, 0.15)
         .to("[data-mv-card='vision']", { autoAlpha: 1, x: 0, y: 0, duration: 0.7 }, 0.3);
 
@@ -110,15 +108,9 @@ export function AboutMissionVision() {
       />
 
       <div className="relative mx-auto w-full max-w-container px-6 py-[18vh] md:px-12 xl:px-20">
-        {/* slate caption */}
-        <div data-mv-slate className="mb-14 flex items-center gap-4 md:mb-20">
-          <span className="font-sans text-caption tracking-[0.2em] text-neutral-400">(04)</span>
-          <span className="h-px w-10 bg-neutral-300" />
-          <span className="font-serif text-small italic text-neutral-400">Mission &amp; Vision</span>
-          <span id="about-mv-heading" className="sr-only">
-            Our Mission and Vision
-          </span>
-        </div>
+        <span id="about-mv-heading" className="sr-only">
+          Our Mission and Vision
+        </span>
 
         {/* two panels — editorial asymmetry across a 12-col field */}
         <div className="grid grid-cols-1 items-start gap-8 md:grid-cols-12 md:gap-10">

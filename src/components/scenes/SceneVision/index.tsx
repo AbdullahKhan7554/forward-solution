@@ -64,16 +64,6 @@ export function SceneVision() {
               data-parallax-content
               className="relative z-raised mx-auto w-full max-w-container px-6 py-[14vh] will-change-transform md:px-12 md:py-0 xl:px-20"
             >
-              <div data-vision-slate className="mb-12 flex items-center gap-4">
-                <span className="font-sans text-caption tracking-[0.2em] text-neutral-500">
-                  (04)
-                </span>
-                <span className="h-px w-10 bg-white/20" />
-                <span className="font-serif text-small italic text-neutral-400">
-                  The Vision
-                </span>
-              </div>
-
               <div className="grid grid-cols-1 items-start gap-x-10 gap-y-10 md:grid-cols-12">
                 {/* heading - left */}
                 <h2
