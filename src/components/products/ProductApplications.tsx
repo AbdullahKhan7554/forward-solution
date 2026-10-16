@@ -5,11 +5,12 @@ import { useIsomorphicLayoutEffect } from "@/hooks/useIsomorphicLayoutEffect";
 import { gsap, ScrollTrigger } from "@/lib/gsap";
 import { RevealText } from "@/components/primitives/RevealText";
 import { GlassCard } from "@/components/scenes/SceneInnovation/GlassCard";
+import { cn } from "@/lib/utils";
 
 /**
  * PRODUCTS · SCENE 05 — WHERE THEY'RE USED (Applications).
  *
- * Six real-world settings where Agriprom products go to work, as interactive
+ * Five real-world settings where Agriprom products go to work, as interactive
  * editorial glass cards. Minimal Lucide-style line icons (matching the Footer
  * set). Hover reuses GlassCard's lift + shadow and adds an accent glow, an icon
  * shift and a quiet "Learn more" affordance. Cards reveal in sequence. Reuses
@@ -63,14 +64,6 @@ const Mill = () => (
     <path d="M3 21V8l7-3v3l7-3v16M3 21h18M7 21v-4h3v4M14 21v-4h3v4" />
   </Icon>
 );
-const Paw = () => (
-  <Icon>
-    <circle cx="7" cy="8" r="1.6" />
-    <circle cx="12" cy="6" r="1.6" />
-    <circle cx="17" cy="8" r="1.6" />
-    <path d="M12 12c-2.5 0-4.5 2-4.5 4.2C7.5 18 9 19 12 19s4.5-1 4.5-2.8C16.5 14 14.5 12 12 12z" />
-  </Icon>
-);
 
 type Application = { title: string; body: string; icon: ReactNode };
 
@@ -80,12 +73,19 @@ const APPLICATIONS: Application[] = [
   { title: "Livestock", body: "Beef cattle, sheep and goat production.", icon: <Livestock /> },
   { title: "Veterinary Clinics", body: "Trusted pharmaceuticals for animal care.", icon: <Clinic /> },
   { title: "Feed Mills", body: "Additives and premixes for feed production.", icon: <Mill /> },
-  { title: "Companion Animals", body: "Everyday health for pets and companions.", icon: <Paw /> },
 ];
 
 function ApplicationCard({ app, index }: { app: Application; index: number }) {
   return (
-    <li data-app-card>
+    <li
+      data-app-card
+      className={cn(
+        "md:col-span-2",
+        // 5 cards: 3 + 2, with the second row centred
+        index === 3 && "md:col-start-2",
+        index === 4 && "sm:col-span-2 md:col-span-2"
+      )}
+    >
       <GlassCard className="relative h-full overflow-hidden">
         <span
           aria-hidden="true"
@@ -215,7 +215,7 @@ export function ProductApplications() {
           </h2>
         </header>
 
-        <ul className="mt-[12vh] grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 md:gap-8">
+        <ul className="mt-[12vh] grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-6 md:gap-8">
           {APPLICATIONS.map((app, i) => (
             <ApplicationCard key={app.title} app={app} index={i} />
           ))}

@@ -11,7 +11,7 @@ import { Footer } from "@/components/layout/Footer";
 export const metadata: Metadata = {
   title: "Knowledge Center — Agriprom Pakistan | Animal Health Insights & Research",
   description:
-    "Expert articles covering poultry, livestock, companion animals, veterinary medicine, nutrition and scientific innovations from the Agriprom Pakistan team.",
+    "Expert articles covering poultry, livestock, veterinary medicine, nutrition and scientific innovations from the Agriprom Pakistan team.",
   alternates: { canonical: "https://agriprompakistan.com/blog" },
 };
 

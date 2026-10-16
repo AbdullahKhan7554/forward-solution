@@ -92,17 +92,17 @@ export function SceneEcosystem() {
             className="mt-8 max-w-[52ch] text-pretty font-sans text-body-lg text-neutral-600"
           >
             Agriprom Pakistan delivers research-driven products across every major
-            livestock and companion animal sector.
+            livestock sector.
           </p>
         </header>
 
         {/* ECOSYSTEM FIELD */}
         <div className="relative mt-[12vh]">
-          <ul className="grid grid-cols-1 gap-y-16 md:grid-cols-12 md:grid-rows-2 md:gap-x-10 md:gap-y-16">
+          <ul className="grid grid-cols-1 gap-y-16 md:grid-cols-12 md:gap-x-10 md:gap-y-16">
             <li
               data-eco-parallax
               data-speed="0.04"
-              className="will-change-transform md:col-span-6 md:row-span-2"
+              className="will-change-transform md:col-span-6"
             >
               <CategoryBlock
                 variant="feature"
@@ -115,7 +115,7 @@ export function SceneEcosystem() {
             <li
               data-eco-parallax
               data-speed="0.08"
-              className="will-change-transform md:col-start-8 md:col-span-5 md:row-start-1"
+              className="will-change-transform md:col-start-8 md:col-span-5 md:self-end"
             >
               <CategoryBlock
                 variant="medium"
@@ -123,19 +123,6 @@ export function SceneEcosystem() {
                 description="Supporting better health, growth, and performance."
                 imageSrc="/reuminant.jpg"
                 href="/ruminants/"
-              />
-            </li>
-            <li
-              data-eco-parallax
-              data-speed="0.11"
-              className="will-change-transform md:col-start-8 md:col-span-5 md:row-start-2 md:pt-[6vh]"
-            >
-              <CategoryBlock
-                variant="medium"
-                name="Companion Animals"
-                description="Helping companion animals live longer, healthier, more active lives."
-                imageSrc="/animal%20comapnion.jpg"
-                href="/companion-animals"
               />
             </li>
           </ul>
@@ -150,7 +137,7 @@ export function SceneEcosystem() {
             <div data-eco-fade className="will-change-transform">
               <GlassCard>
                 <p className="text-pretty font-sans text-body text-neutral-700">
-                  Poultry, ruminants and companion animals — every solution belongs to
+                  Poultry and ruminants — every solution belongs to
                   one connected scientific system.
                 </p>
                 <a

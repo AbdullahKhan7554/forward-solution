@@ -44,7 +44,7 @@ const MILESTONES: Milestone[] = [
   {
     name: "Growth",
     description:
-      "A widening portfolio across poultry, ruminant and companion animals earns the trust of veterinarians and producers nationwide.",
+      "A widening portfolio across poultry and ruminant health earns the trust of veterinarians and producers nationwide.",
     imageSrc: "/growth.jpg",
   },
   {

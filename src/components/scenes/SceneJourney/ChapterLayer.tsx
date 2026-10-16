@@ -75,7 +75,7 @@ export function ChapterLayer({
           <div data-journey-fade className="mb-6 flex items-baseline gap-2">
             <span className="font-display text-h4 font-light text-primary-700">{num}</span>
             <span className="font-sans text-caption tracking-[0.22em] text-neutral-400">
-              / 05
+              / 04
             </span>
           </div>
 

@@ -256,7 +256,6 @@ export function Footer() {
             <ul className="flex flex-col gap-1">
               <li><FooterLink href="/products/poultry">Poultry</FooterLink></li>
               <li><FooterLink href="/ruminants/">Ruminants</FooterLink></li>
-              <li><FooterLink href="/companion-animals">Companion Animals</FooterLink></li>
               <li><FooterLink href="/products/poultry">Feed Additives</FooterLink></li>
               <li><FooterLink href="/ruminants/">Veterinary Solutions</FooterLink></li>
             </ul>

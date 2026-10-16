@@ -56,7 +56,6 @@ const SERVICES: SearchItem[] = [
 const CATEGORIES: SearchItem[] = [
   { id: "cat-poultry", title: "Poultry", group: "Categories", href: "/products/poultry", description: "Nutrition, gut health and performance for poultry." },
   { id: "cat-ruminants", title: "Ruminants", group: "Categories", href: "/ruminants", description: "Health and productivity for dairy and beef cattle." },
-  { id: "cat-companion", title: "Companion Animals", group: "Categories", href: "/companion-animals", description: "Vaccines and healthcare for dogs and cats." },
   { id: "cat-enzymes", title: "Enzymes", group: "Categories", href: "/products/poultry/enzymes", description: "NSP and phytase enzymes for feed efficiency." },
   { id: "cat-organic-acids", title: "Organic Acids", group: "Categories", href: "/products/poultry/organic-acids", description: "Gut health and performance organic acids." },
   { id: "cat-antioxidants", title: "Antioxidants", group: "Categories", href: "/products/poultry/antioxidants", description: "Feed and fat stabilisation antioxidants." },

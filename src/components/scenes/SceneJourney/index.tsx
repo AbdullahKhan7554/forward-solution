@@ -14,7 +14,7 @@ import { useJourneyChoreography } from "./useJourneyChoreography";
  * reduced motion: sequential vertical storytelling. Enters from white, resolves
  * into white. Reuses MaskedReveal, RevealText, LabPlate + established GSAP.
  *
- * Content: the five existing categories only. No invented products / SKUs.
+ * Content: the four existing categories only. No invented products / SKUs.
  */
 const CHAPTERS: {
   name: string;
@@ -35,22 +35,16 @@ const CHAPTERS: {
     imageSrc: "/reuminant.jpg",
   },
   {
-    name: "Companion Animals",
-    description: "Helping companion animals live longer, healthier lives.",
-    side: "right",
-    imageSrc: "/animal%20comapnion.jpg",
-  },
-  {
     name: "Bio Security",
     description: "Disease prevention and hygiene that keep herds protected.",
-    side: "left",
+    side: "right",
     imageSrc: "/biosecurity.jpg",
   },
   {
     name: "Nutrition",
     description:
       "Research-driven nutrition that improves feed conversion and productivity.",
-    side: "right",
+    side: "left",
     imageSrc: "/nutrition.jpg",
   },
 ];

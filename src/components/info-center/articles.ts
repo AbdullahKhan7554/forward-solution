@@ -19,7 +19,6 @@ export type ArticleSection = {
 export type FilterCategory =
   | "Poultry"
   | "Ruminants"
-  | "Companion Animals"
   | "Veterinary"
   | "Nutrition"
   | "Industry News";
@@ -29,7 +28,6 @@ export const ARTICLE_FILTERS = [
   "All",
   "Poultry",
   "Ruminants",
-  "Companion Animals",
   "Veterinary",
   "Nutrition",
   "Industry News",
@@ -259,49 +257,6 @@ export const articles: Article[] = [
       "SARA rarely looks like illness but erodes performance herd-wide.",
       "Fermentable carbohydrate and low effective fibre are the main drivers.",
       "Stable rumen pH — through ration and buffers — is the best defence.",
-    ],
-  },
-  {
-    slug: "core-vaccination-dogs-cats",
-    title: "Core Vaccination Schedules for Dogs and Cats: A Practical Guide",
-    category: "Preventive Care",
-    filter: "Companion Animals",
-    date: "May 6, 2025",
-    readingTime: "5 min read",
-    author: "Agriprom Technical Team",
-    excerpt:
-      "The vaccines every companion animal needs — and why timing decides protection.",
-    href: "/blog/core-vaccination-dogs-cats",
-    image: "/6.jpg",
-    intro:
-      "Vaccination remains the most effective, most economical protection a pet owner can give a dog or cat. Understanding which vaccines are essential — and when they should be given — is the difference between reliable immunity and a dangerous gap.",
-    sections: [
-      {
-        heading: "Core versus non-core",
-        paragraphs: [
-          "Core vaccines protect against diseases that are widespread, severe and often fatal — distemper, parvovirus and rabies in dogs; panleukopenia and feline herpes and calicivirus in cats. These are recommended for every animal.",
-          "Non-core vaccines are chosen according to lifestyle and local risk, guided by a veterinarian who knows the animal and its environment.",
-        ],
-      },
-      {
-        heading: "Why timing matters",
-        paragraphs: [
-          "Puppies and kittens are shielded early by maternal antibodies, which also block a vaccine from taking hold. A structured series through the first months bridges the window as that maternal cover fades.",
-          "Skipping or delaying a dose can leave an animal unprotected at exactly the age it is most vulnerable.",
-        ],
-      },
-      {
-        heading: "Lifelong protection",
-        paragraphs: [
-          "After the initial course, boosters maintain immunity across the animal's life, with intervals set by vaccine type and veterinary guidance.",
-          "A documented, consistent schedule — not one-off catch-ups — is what keeps companion animals genuinely protected.",
-        ],
-      },
-    ],
-    takeaways: [
-      "Core vaccines guard against the most severe, common diseases.",
-      "Early-life timing works around fading maternal antibodies.",
-      "Consistent boosters sustain protection for life.",
     ],
   },
   {

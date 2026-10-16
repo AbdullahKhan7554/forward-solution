@@ -123,12 +123,6 @@ const OTHERS: Category[] = [
     href: "/ruminants/",
     imageSrc: "/reuminant.jpg",
   },
-  {
-    name: "Companion Animals",
-    description: "Everyday health and nutrition for dogs, cats and companion species.",
-    href: "/companion-animals",
-    imageSrc: "/animal%20comapnion.jpg",
-  },
 ];
 export function ProductCategories() {
   const rootRef = useRef<HTMLElement>(null);
@@ -224,16 +218,13 @@ export function ProductCategories() {
           </h2>
         </header>
 
-        {/* MAGAZINE FIELD — feature + two, then two */}
-        <div className="mt-[12vh] grid grid-cols-1 gap-x-10 gap-y-16 md:grid-cols-12 md:grid-rows-2">
-          <div className="md:col-span-7 md:row-span-2">
+        {/* MAGAZINE FIELD — two features, the second offset for rhythm */}
+        <div className="mt-[12vh] grid grid-cols-1 gap-x-10 gap-y-16 md:grid-cols-12">
+          <div className="md:col-span-6">
             <CategoryCard category={POULTRY} feature />
           </div>
-          <div className="md:col-span-5 md:col-start-8 md:row-start-1">
-            <CategoryCard category={OTHERS[0]} />
-          </div>
-          <div className="md:col-span-5 md:col-start-8 md:row-start-2 md:pt-[6vh]">
-            <CategoryCard category={OTHERS[1]} />
+          <div className="md:col-span-6 md:pt-[12vh]">
+            <CategoryCard category={OTHERS[0]} feature />
           </div>
         </div>
 

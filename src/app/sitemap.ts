@@ -13,7 +13,6 @@ const STATIC_ROUTES = [
   "/blog",
   "/products",
   "/ruminants",
-  "/companion-animals",
   "/privacy-policy",
   "/terms-of-use",
   // product categories

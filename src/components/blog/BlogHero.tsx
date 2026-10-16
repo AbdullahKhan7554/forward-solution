@@ -205,8 +205,8 @@ export function BlogHero() {
                   data-hero-cta
                   className="mt-8 max-w-[58ch] text-pretty font-sans text-body-lg text-neutral-600"
                 >
-                  Explore expert articles covering poultry, livestock, companion animals,
-                  veterinary medicine, nutrition and scientific innovations.
+                  Explore expert articles covering poultry, livestock, veterinary medicine,
+                  nutrition and scientific innovations.
                 </p>
 
                 {/* Primary button — same as the other heroes */}

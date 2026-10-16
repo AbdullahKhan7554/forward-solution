@@ -35,12 +35,6 @@ const PRODUCT_ITEMS: DropdownItem[] = [
     href: "/products/ruminants",
     Icon: CowIcon,
   },
-  {
-    title: "Companion Animals",
-    desc: "Premium companion animal healthcare",
-    href: "/products/companion-animals",
-    Icon: DogIcon,
-  },
 ];
 
 const RESOURCE_ITEMS: DropdownItem[] = [
@@ -80,7 +74,7 @@ const LINKS: NavLink[] = [
     label: "Products",
     href: "/products",
     dropdown: PRODUCT_ITEMS,
-    activePrefixes: ["/products", "/ruminants", "/companion-animals"],
+    activePrefixes: ["/products", "/ruminants"],
   },
   { label: "Blogs", href: "/blog" },
   {
@@ -127,16 +121,6 @@ function CowIcon() {
       <path d="M8 4a6.5 6.5 0 0 0-4.7 11 4 4 0 0 0 3.2 5.5c1.7.2 3.5.3 5.5.3s3.8-.1 5.5-.3a4 4 0 0 0 3.2-5.5A6.5 6.5 0 0 0 16 4" />
       <path d="M8 4c1.2 1 2.6 1.5 4 1.5S14.8 5 16 4" />
       <path d="M9.5 15.5c.8.6 1.6.9 2.5.9s1.7-.3 2.5-.9" />
-    </IconBase>
-  );
-}
-function DogIcon() {
-  return (
-    <IconBase>
-      <path d="M11.25 16.25h1.5L12 17z" />
-      <path d="M16 14v.5M8 14v.5" />
-      <path d="M4.42 11.25A13 13 0 0 0 4 14.56C4 18.73 7.58 21 12 21s8-2.27 8-6.44a11.7 11.7 0 0 0-.49-3.31" />
-      <path d="M8.5 8.5c-.38 1.05-1.08 2.03-2.34 2.5-1.93.72-3.58-.3-3.66-1-.11-.99 1.18-6.53 4-7C8.42 2.68 10.15 3.85 10.15 5.24A7.5 7.5 0 0 1 14 5.28c0-1.39 1.84-2.6 3.77-2.28 2.82.47 4.11 6.01 4 7-.08.7-1.73 1.72-3.66 1-1.26-.47-1.96-1.45-2.34-2.5" />
     </IconBase>
   );
 }

@@ -26,7 +26,7 @@ export const FAQ_CATEGORIES: FaqCategory[] = [
       },
       {
         q: "Which animal categories do you serve?",
-        a: "Poultry, ruminants (dairy and beef cattle) and companion animals, each with dedicated ranges tailored to their nutritional and health needs.",
+        a: "Poultry and ruminants (dairy and beef cattle), each with dedicated ranges tailored to their nutritional and health needs.",
       },
       {
         q: "Are your products internationally certified?",
