@@ -3,7 +3,6 @@
 import { useRef, type ComponentType } from "react";
 import { useIsomorphicLayoutEffect } from "@/hooks/useIsomorphicLayoutEffect";
 import { gsap, ScrollTrigger } from "@/lib/gsap";
-import { useLenis } from "@/components/providers/SmoothScrollProvider";
 import { RevealText } from "@/components/primitives/RevealText";
 import { FlaskIcon, VetIcon, TruckIcon, LifebuoyIcon, PeopleIcon, AwardIcon } from "@/components/services/icons";
 import { MailIcon } from "@/components/contact/icons";
@@ -11,7 +10,7 @@ import { MailIcon } from "@/components/contact/icons";
 /**
  * FAQ · SCENE 02 — QUICK NAVIGATION.
  *
- * Premium glass cards that smooth-scroll to each FAQ section (Lenis). Hover
+ * Premium glass cards that smooth-scroll to each FAQ section (native). Hover
  * lifts the card, deepens the shadow, adds a soft green glow and animates the
  * icon. Reveals on scroll with the shared batch stagger. Reduced motion safe.
  */
@@ -30,7 +29,6 @@ const CARDS: NavCard[] = [
 
 export function FaqQuickNav() {
   const rootRef = useRef<HTMLElement>(null);
-  const lenis = useLenis();
 
   useIsomorphicLayoutEffect(() => {
     const root = rootRef.current;
@@ -61,8 +59,7 @@ export function FaqQuickNav() {
     e.preventDefault();
     const el = document.getElementById(href.slice(1));
     if (!el) return;
-    if (lenis) lenis.scrollTo(el, { offset: -100 });
-    else el.scrollIntoView({ behavior: "smooth", block: "start" });
+    window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - 100, behavior: "smooth" });
   };
 
   return (

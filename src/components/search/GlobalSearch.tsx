@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 
@@ -9,17 +9,11 @@ import { useRouter } from "next/navigation";
  * page (a real link, so it works without JS and is prefetchable). ⌘K / Ctrl K
  * routes to the same page.
  *
- *   Desktop: a glass pill with label + shortcut badge.
+ *   Desktop: a glass pill with label.
  *   Mobile:  the search icon.
  */
 export function GlobalSearch() {
   const router = useRouter();
-  const [isMac, setIsMac] = useState(false);
-
-  useEffect(() => {
-    setIsMac(/mac|iphone|ipad|ipod/i.test(navigator.platform || navigator.userAgent));
-  }, []);
-
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
       if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k") {
@@ -46,15 +40,6 @@ export function GlobalSearch() {
       </span>
       <span className="hidden font-sans text-small font-medium text-neutral-600 transition-colors duration-[360ms] ease-brand-out group-hover:text-primary-700 group-data-[scrolled=true]/nav:text-neutral-200 lg:inline">
         Search
-      </span>
-      <span className="hidden items-center gap-1 rounded-md border border-neutral-300 bg-white/60 px-1.5 py-0.5 font-sans text-[11px] font-medium text-neutral-500 group-data-[scrolled=true]/nav:border-white/20 group-data-[scrolled=true]/nav:bg-white/10 group-data-[scrolled=true]/nav:text-neutral-300 lg:flex">
-        {isMac ? (
-          <>
-            <span className="text-[13px] leading-none">⌘</span>K
-          </>
-        ) : (
-          <>Ctrl K</>
-        )}
       </span>
     </Link>
   );

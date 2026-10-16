@@ -3,7 +3,6 @@
 import { useEffect, useMemo, useRef, useState, type ReactNode } from "react";
 import { useIsomorphicLayoutEffect } from "@/hooks/useIsomorphicLayoutEffect";
 import { gsap, ScrollTrigger } from "@/lib/gsap";
-import { useLenis } from "@/components/providers/SmoothScrollProvider";
 import { RevealText } from "@/components/primitives/RevealText";
 import { cn } from "@/lib/utils";
 
@@ -18,7 +17,7 @@ export type LegalSection = {
  *
  * A soft-white cinematic hero, a fixed reading-progress indicator, a sticky
  * glass table-of-contents that tracks the active section, smooth anchor
- * navigation (Lenis) and elegant fade-in sections at a generous reading width.
+ * navigation (native) and elegant fade-in sections at a generous reading width.
  * Reduced motion: everything static; the progress bar and TOC still work.
  */
 export function LegalPage({
@@ -35,7 +34,6 @@ export function LegalPage({
   sections: LegalSection[];
 }) {
   const rootRef = useRef<HTMLElement>(null);
-  const lenis = useLenis();
   const [progress, setProgress] = useState(0);
   const [active, setActive] = useState(sections[0]?.id ?? "");
 
@@ -98,8 +96,7 @@ export function LegalPage({
     e.preventDefault();
     const el = document.getElementById(id);
     if (!el) return;
-    if (lenis) lenis.scrollTo(el, { offset: -120 });
-    else el.scrollIntoView({ behavior: "smooth", block: "start" });
+    window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - 120, behavior: "smooth" });
     setActive(id);
     if (typeof history !== "undefined") history.replaceState(null, "", `#${id}`);
   };
