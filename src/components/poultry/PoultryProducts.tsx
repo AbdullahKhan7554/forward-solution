@@ -6,7 +6,6 @@ import { gsap, ScrollTrigger } from "@/lib/gsap";
 import { RevealText } from "@/components/primitives/RevealText";
 import { ProductMedia } from "@/components/product-detail/ProductMedia";
 import { CatalogCard } from "@/components/catalog/CatalogCard";
-import { cn } from "@/lib/utils";
 
 /**
  * POULTRY · SECTION 03 — PRODUCT CATEGORIES.
@@ -33,9 +32,9 @@ const PRODUCTS: Product[] = [
   { name: "Phytogenic Anticoccidials", blurb: "Plant-powered protection against coccidiosis.", href: "/products/poultry/phytogenic-anticoccidials" },
 ];
 
-function ProductCard({ product, className }: { product: Product; className?: string }) {
+function ProductCard({ product }: { product: Product }) {
   return (
-    <li data-pp-card className={className}>
+    <li data-pp-card>
       <CatalogCard
         href={product.href}
         title={product.name}
@@ -136,22 +135,10 @@ export function PoultryProducts() {
           </h2>
         </header>
 
-        <ul className="mt-[12vh] grid grid-cols-1 gap-x-8 gap-y-14 sm:grid-cols-4 lg:grid-cols-8">
-          {PRODUCTS.map((product, i) => {
-            const isLast = i === PRODUCTS.length - 1;
-            return (
-              <ProductCard
-                key={product.name}
-                product={product}
-                // 2 tracks per card; a lone last card is centred so rows stay balanced
-                className={cn(
-                  "sm:col-span-2",
-                  isLast && PRODUCTS.length % 2 === 1 && "sm:col-start-2",
-                  isLast && PRODUCTS.length % 4 === 1 && "lg:col-start-4"
-                )}
-              />
-            );
-          })}
+        <ul className="mt-[10vh] grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 md:gap-8">
+          {PRODUCTS.map((product) => (
+            <ProductCard key={product.name} product={product} />
+          ))}
         </ul>
       </div>
     </section>

@@ -98,7 +98,7 @@ export function CategoryShowcase({
 
       {products.length > 0 && (
         <section aria-label={`${titleTop} ${titleBottom} products`} className="bg-base">
-          <ul className="mx-auto grid w-full max-w-container grid-cols-1 gap-8 px-6 pb-[16vh] pt-[6vh] sm:grid-cols-2 md:px-12 lg:grid-cols-3 xl:px-20">
+          <ul className="mx-auto grid w-full max-w-container grid-cols-1 gap-6 px-6 pb-[16vh] pt-[6vh] sm:grid-cols-2 md:gap-8 md:px-12 lg:grid-cols-3 xl:px-20">
             {products.map((p) => (
               <li key={p.data.slug}>
                 <CatalogCard
