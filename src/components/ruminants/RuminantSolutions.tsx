@@ -50,7 +50,7 @@ export function RuminantSolutions() {
       <div className="relative mx-auto w-full max-w-container px-6 py-[18vh] md:px-12 xl:px-20">
         <header className="max-w-3xl">
           <h2 id="ruminant-solutions-heading" className="font-display font-light leading-[1.04] tracking-[-0.015em] text-neutral-900">
-            <RevealText text="Six Pillars of" as="span" trigger="scroll" stagger={0.06} className="justify-start text-[8.5vw] md:text-[4.4vw] xl:text-[58px]" />
+            <RevealText text="Seven Pillars of" as="span" trigger="scroll" stagger={0.06} className="justify-start text-[8.5vw] md:text-[4.4vw] xl:text-[58px]" />
             <RevealText text="Ruminant Performance" as="span" trigger="scroll" stagger={0.06} className="justify-start text-[8.5vw] text-primary-700 md:text-[4.4vw] xl:text-[58px]" />
           </h2>
         </header>

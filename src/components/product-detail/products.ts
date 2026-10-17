@@ -1158,8 +1158,6 @@ export const PRODUCTS: Record<string, ProductDetailData> = {
       { label: "Species", values: ["Dairy Cattle"] },
       { label: "Form", values: ["Granules"] },
       { label: "Packaging", values: ["25 KG"] },
-      { label: "Manufacturer", values: ["—"] },
-      { label: "Country of Origin", values: ["—"] },
     ],
     metaTitle: "MATRIXIN — Agriprom Pakistan | Ruminant Rumen Protected Amino Acids",
     metaDescription:
@@ -1190,8 +1188,6 @@ export const PRODUCTS: Record<string, ProductDetailData> = {
       { label: "Species", values: ["Dairy Cattle"] },
       { label: "Form", values: ["Granules"] },
       { label: "Packaging", values: ["25 KG"] },
-      { label: "Manufacturer", values: ["—"] },
-      { label: "Country of Origin", values: ["—"] },
     ],
     metaTitle: "MATONIN — Agriprom Pakistan | Ruminant Rumen Protected Amino Acids",
     metaDescription:
@@ -1223,8 +1219,6 @@ export const PRODUCTS: Record<string, ProductDetailData> = {
       { label: "Species", values: ["Ruminants"] },
       { label: "Form", values: ["Powder / Granules"] },
       { label: "Packaging", values: ["25 KG"] },
-      { label: "Manufacturer", values: ["—"] },
-      { label: "Country of Origin", values: ["—"] },
     ],
     metaTitle: "BaneBe — Agriprom Pakistan | Ruminant Toxin Binders",
     metaDescription:
@@ -1257,7 +1251,6 @@ export const PRODUCTS: Record<string, ProductDetailData> = {
       { label: "Form", values: ["Powder"] },
       { label: "Packaging", values: ["25 KG"] },
       { label: "Manufacturer", values: ["Elanco"] },
-      { label: "Country of Origin", values: ["—"] },
     ],
     metaTitle: "ELENCOFIX SUPER — Agriprom Pakistan | Ruminant Toxin Binders",
     metaDescription:
@@ -1289,10 +1282,6 @@ export const PRODUCTS: Record<string, ProductDetailData> = {
     specs: [
       { label: "Category", values: ["Organic Trace Minerals"] },
       { label: "Species", values: ["Dairy & Beef Cattle"] },
-      { label: "Form", values: ["Powder / Granules (Verify)"] },
-      { label: "Packaging", values: ["25 KG Bag (Verify)"] },
-      { label: "Manufacturer", values: ["Verify with Client"] },
-      { label: "Country of Origin", values: ["Verify with Client"] },
     ],
     metaTitle: "MINLEX CATTLE — Agriprom Pakistan | Ruminant Organic Minerals",
     metaDescription:
@@ -1323,9 +1312,6 @@ export const PRODUCTS: Record<string, ProductDetailData> = {
       { label: "Category", values: ["Biosecurity Solution"] },
       { label: "Species", values: ["Poultry, Dairy Cattle, Sheep & Goats"] },
       { label: "Form", values: ["Liquid Cleaner"] },
-      { label: "Packaging", values: ["1L / 5L / 20L (Verify)"] },
-      { label: "Manufacturer", values: ["—"] },
-      { label: "Country of Origin", values: ["—"] },
     ],
     metaTitle: "CleanEx — Agriprom Pakistan | Ruminant Biosecurity Solutions",
     metaDescription:
@@ -1356,9 +1342,6 @@ export const PRODUCTS: Record<string, ProductDetailData> = {
       { label: "Category", values: ["Biosecurity Solution"] },
       { label: "Species", values: ["Poultry, Dairy Cattle, Sheep & Goats"] },
       { label: "Form", values: ["Liquid Disinfectant"] },
-      { label: "Packaging", values: ["1L / 5L / 20L (Verify)"] },
-      { label: "Manufacturer", values: ["—"] },
-      { label: "Country of Origin", values: ["—"] },
     ],
     metaTitle: "GermEx — Agriprom Pakistan | Ruminant Biosecurity Solutions",
     metaDescription:
@@ -1391,8 +1374,6 @@ export const PRODUCTS: Record<string, ProductDetailData> = {
       { label: "Material", values: ["High-Density Rubber"] },
       { label: "Surface", values: ["Anti-Slip"] },
       { label: "Installation", values: ["Interlocking Puzzle Design"] },
-      { label: "Manufacturer", values: ["—"] },
-      { label: "Country of Origin", values: ["—"] },
     ],
     metaTitle: "Puzzle Comfort Mat — Agriprom Pakistan | Ruminant Comfort Solutions",
     metaDescription:
@@ -1425,8 +1406,6 @@ export const PRODUCTS: Record<string, ProductDetailData> = {
       { label: "Material", values: ["Premium Foam & Rubber"] },
       { label: "Surface", values: ["Comfortable Soft Layer"] },
       { label: "Installation", values: ["Stall Mattress System"] },
-      { label: "Manufacturer", values: ["—"] },
-      { label: "Country of Origin", values: ["—"] },
     ],
     metaTitle: "Mammouth Mattress — Agriprom Pakistan | Ruminant Comfort Solutions",
     metaDescription:
@@ -1459,8 +1438,6 @@ export const PRODUCTS: Record<string, ProductDetailData> = {
       { label: "Material", values: ["EVA Foam"] },
       { label: "Surface", values: ["Anti-Slip"] },
       { label: "Installation", values: ["Stable Flooring"] },
-      { label: "Manufacturer", values: ["—"] },
-      { label: "Country of Origin", values: ["—"] },
     ],
     metaTitle: "EVA Horse Stable Mat — Agriprom Pakistan | Ruminant Comfort Solutions",
     metaDescription:
@@ -1493,8 +1470,6 @@ export const PRODUCTS: Record<string, ProductDetailData> = {
       { label: "Material", values: ["Galvanized Steel"] },
       { label: "Finish", values: ["Corrosion Resistant"] },
       { label: "Installation", values: ["Feeding System"] },
-      { label: "Manufacturer", values: ["—"] },
-      { label: "Country of Origin", values: ["—"] },
     ],
     metaTitle: "Standard Self Locks — Agriprom Pakistan | Ruminant Comfort Solutions",
     metaDescription:
@@ -1527,8 +1502,6 @@ export const PRODUCTS: Record<string, ProductDetailData> = {
       { label: "Material", values: ["Galvanized Steel"] },
       { label: "System", values: ["Free Stall"] },
       { label: "Installation", values: ["Barn Infrastructure"] },
-      { label: "Manufacturer", values: ["—"] },
-      { label: "Country of Origin", values: ["—"] },
     ],
     metaTitle: "Free Stall Systems — Agriprom Pakistan | Ruminant Comfort Solutions",
     metaDescription:
