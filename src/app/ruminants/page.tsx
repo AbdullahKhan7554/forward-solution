@@ -6,13 +6,6 @@ import { Footer } from "@/components/layout/Footer";
 import { RuminantHero } from "@/components/ruminants/RuminantHero";
 import { RuminantIntro } from "@/components/ruminants/RuminantIntro";
 import { RuminantSolutions } from "@/components/ruminants/RuminantSolutions";
-import { RuminantAminoAcids } from "@/components/ruminants/RuminantAminoAcids";
-import { RuminantToxinBinders } from "@/components/ruminants/RuminantToxinBinders";
-import { RuminantOrganicMinerals } from "@/components/ruminants/RuminantOrganicMinerals";
-import { RuminantBiosecurity } from "@/components/ruminants/RuminantBiosecurity";
-import { RuminantComfort } from "@/components/ruminants/RuminantComfort";
-import { RuminantEnergyBoosters } from "@/components/ruminants/RuminantEnergyBoosters";
-import { RuminantYeastCulture } from "@/components/ruminants/RuminantYeastCulture";
 import { RuminantCTA } from "@/components/ruminants/RuminantCTA";
 
 export const metadata: Metadata = {
@@ -25,7 +18,7 @@ export const metadata: Metadata = {
 /**
  * RUMINANTS — a cinematic single-page experience, in the same film.
  * Shell: IntroProvider + Preloader + Navbar + Footer.
- *   01 Hero · 02 Introduction · 03 Solutions Overview · 04 Category sections · 05 CTA
+ *   01 Hero · 02 Introduction · 03 Category grid (→ /products/ruminants/<category>) · 04 CTA
  */
 export default function RuminantsPage() {
   return (
@@ -36,13 +29,6 @@ export default function RuminantsPage() {
         <RuminantHero />
         <RuminantIntro />
         <RuminantSolutions />
-        <RuminantAminoAcids />
-        <RuminantToxinBinders />
-        <RuminantOrganicMinerals />
-        <RuminantBiosecurity />
-        <RuminantComfort />
-        <RuminantEnergyBoosters />
-        <RuminantYeastCulture />
         <RuminantCTA />
       </main>
       <Footer />

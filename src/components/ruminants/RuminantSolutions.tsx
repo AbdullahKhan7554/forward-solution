@@ -12,7 +12,7 @@ import { RUMINANT_CATEGORIES } from "./categories";
  * RUMINANTS · SCENE 03 — SOLUTIONS OVERVIEW.
  *
  * Category cards via the shared CatalogCard (same as the poultry grid):
- * image, title, one line, "Explore →". Each card anchor-links to its section.
+ * image, title, one line, "Explore →". Each card links to its category page.
  */
 
 export function RuminantSolutions() {
@@ -59,7 +59,7 @@ export function RuminantSolutions() {
           {RUMINANT_CATEGORIES.map((c) => (
             <li key={c.id} data-rs-card>
               <CatalogCard
-                href={`#${c.id}`}
+                href={`/products/ruminants/${c.id}`}
                 title={c.name}
                 line={c.tagline}
                 action="Explore"

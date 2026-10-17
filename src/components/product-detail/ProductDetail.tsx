@@ -31,12 +31,13 @@ function SlotImage({
 }
 
 /**
- * PRODUCT DETAIL — the poultry product page, rendered with the shared
+ * PRODUCT DETAIL — the poultry and ruminant product page, rendered with the shared
  * ProductCompact layout (same as ruminant products). Only hero, specs,
  * benefits, applications and CTA are rendered; overview, flow, gallery,
  * downloads and related data stay in products.ts but are not shown.
  */
 export function ProductDetail({ data }: { data: ProductDetailData }) {
+  const ruminants = data.catalog === "ruminants";
   return (
     <IntroProvider>
       <Preloader caption={`N°01 — ${data.name}`} ariaLabel={`Entering Agriprom Pakistan — ${data.name}`} />
@@ -46,7 +47,7 @@ export function ProductDetail({ data }: { data: ProductDetailData }) {
           as="h1"
           className="mx-auto w-full max-w-container px-6 pb-[14vh] pt-[22vh] md:px-12 xl:px-20"
           eyebrow={
-            <a href="/products/poultry" className="transition-colors hover:text-primary-700">
+            <a href={ruminants ? "/products/ruminants" : "/products/poultry"} className="transition-colors hover:text-primary-700">
               {data.eyebrow}
             </a>
           }
@@ -58,7 +59,7 @@ export function ProductDetail({ data }: { data: ProductDetailData }) {
               <SlotImage
                 media={data.media}
                 label="Hero Product Image"
-                alt={`${data.name} — Agriprom Pakistan poultry solution`}
+                alt={`${data.name} — Agriprom Pakistan ${ruminants ? "ruminant" : "poultry"} solution`}
                 src={data.assets?.hero}
               />
             ),
@@ -66,7 +67,7 @@ export function ProductDetail({ data }: { data: ProductDetailData }) {
             benefits: data.benefits,
             applications: data.applications,
           }}
-          cta={{
+          cta={ruminants ? { primaryLabel: "Contact Our Experts" } : {
             heading: `${data.cta?.top ?? "Talk To Our"} ${data.cta?.bottom ?? "Experts"}`,
             body: data.cta?.body ?? `Get tailored recommendations for ${data.name} built around your birds, your feed and your goals.`,
             primaryLabel: data.cta?.primaryLabel ?? "Talk To Our Experts",

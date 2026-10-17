@@ -21,12 +21,14 @@ export function CategoryShowcase({
   titleBottom,
   intro,
   items,
+  backHref = "/products/poultry",
 }: {
   eyebrow: string;
   titleTop: string;
   titleBottom: string;
   intro: string;
   items: ShowcaseItem[];
+  backHref?: string;
 }) {
   const headerRef = useRef<HTMLElement>(null);
 
@@ -66,7 +68,7 @@ export function CategoryShowcase({
         <div className="relative mx-auto w-full max-w-container px-6 pb-[6vh] pt-[26vh] md:px-12 xl:px-20">
           <div data-cs-fade className="mb-7 flex items-center gap-3 font-sans text-caption uppercase tracking-[0.28em] text-neutral-500">
             <span className="h-px w-10 bg-accent-500" />
-            <a href="/products/poultry" className="transition-colors hover:text-primary-700">{eyebrow}</a>
+            <a href={backHref} className="transition-colors hover:text-primary-700">{eyebrow}</a>
           </div>
           <h1 id="cs-heading" className="font-display font-light leading-[1.03] tracking-[-0.015em] text-neutral-900">
             <RevealText text={titleTop} as="span" trigger="scroll" stagger={0.06} className="justify-start text-[11vw] md:text-[5.4vw] xl:text-[72px]" />

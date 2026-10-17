@@ -12,6 +12,7 @@ const STATIC_ROUTES = [
   "/blog",
   "/products",
   "/ruminants",
+  "/products/ruminants",
   // product categories
   "/products/poultry",
   "/products/poultry/enzymes",
@@ -46,6 +47,29 @@ const STATIC_ROUTES = [
   "/products/poultry/feed-pigment/canthaxanthin-lutein",
   "/products/poultry/feed-hygienizer/moldcid",
   "/products/poultry/phytogenic-anticoccidials/coxield",
+  // ruminant categories + products
+  "/products/ruminants/rumen-protected-amino-acids",
+  "/products/ruminants/rumen-protected-amino-acids/matrixin",
+  "/products/ruminants/rumen-protected-amino-acids/matonin",
+  "/products/ruminants/toxin-binders",
+  "/products/ruminants/toxin-binders/banebe",
+  "/products/ruminants/toxin-binders/elencofix-super",
+  "/products/ruminants/organic-minerals",
+  "/products/ruminants/organic-minerals/minlex-cattle",
+  "/products/ruminants/biosecurity",
+  "/products/ruminants/biosecurity/cleanex",
+  "/products/ruminants/biosecurity/germex",
+  "/products/ruminants/comfort",
+  "/products/ruminants/comfort/puzzle-comfort-mat",
+  "/products/ruminants/comfort/mammouth-mattress",
+  "/products/ruminants/comfort/eva-horse-stable-mat",
+  "/products/ruminants/comfort/standard-self-locks",
+  "/products/ruminants/comfort/free-stall-systems",
+  "/products/ruminants/energy-boosters",
+  "/products/ruminants/energy-boosters/energy-booster",
+  "/products/ruminants/energy-boosters/lactomin-boost",
+  "/products/ruminants/yeast-culture",
+  "/products/ruminants/yeast-culture/yeastics-r",
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {
