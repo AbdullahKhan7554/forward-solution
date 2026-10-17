@@ -132,7 +132,7 @@ export function RuminantBiosecurity() {
       <div className="relative mx-auto w-full max-w-container px-6 py-[16vh] md:px-12 xl:px-20">
         {/* header */}
         <div data-bio-fade className="mb-6 flex items-center gap-4">
-          <span className="font-sans text-caption tracking-[0.2em] text-neutral-400">05</span>
+          <span className="font-sans text-caption tracking-[0.2em] text-neutral-400">04</span>
           <span className="h-px w-10 bg-accent-500" />
           <span className="font-sans text-caption uppercase tracking-[0.28em] text-neutral-500">Ruminants · Biosecurity</span>
         </div>

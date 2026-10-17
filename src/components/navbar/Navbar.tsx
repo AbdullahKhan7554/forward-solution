@@ -31,27 +31,6 @@ const PRODUCT_ITEMS: DropdownItem[] = [
   },
 ];
 
-const RESOURCE_ITEMS: DropdownItem[] = [
-  {
-    title: "FAQ",
-    desc: "Answers to the questions we hear most",
-    href: "/faq",
-    Icon: HelpIcon,
-  },
-  {
-    title: "Privacy Policy",
-    desc: "How we handle and protect your data",
-    href: "/privacy-policy",
-    Icon: ShieldIcon,
-  },
-  {
-    title: "Terms & Conditions",
-    desc: "The terms governing use of our site",
-    href: "/terms-of-use",
-    Icon: DocIcon,
-  },
-];
-
 type NavLink = {
   label: string;
   href: string;
@@ -71,12 +50,6 @@ const LINKS: NavLink[] = [
     activePrefixes: ["/products", "/ruminants"],
   },
   { label: "Blogs", href: "/blog" },
-  {
-    label: "Resources",
-    href: "/faq",
-    dropdown: RESOURCE_ITEMS,
-    activePrefixes: ["/faq", "/privacy-policy", "/terms-of-use"],
-  },
 ];
 
 /* ── thin-line category icons (Lucide-style, self-contained) ─────────────── */
@@ -105,32 +78,6 @@ function CowIcon() {
       <path d="M8 4a6.5 6.5 0 0 0-4.7 11 4 4 0 0 0 3.2 5.5c1.7.2 3.5.3 5.5.3s3.8-.1 5.5-.3a4 4 0 0 0 3.2-5.5A6.5 6.5 0 0 0 16 4" />
       <path d="M8 4c1.2 1 2.6 1.5 4 1.5S14.8 5 16 4" />
       <path d="M9.5 15.5c.8.6 1.6.9 2.5.9s1.7-.3 2.5-.9" />
-    </IconBase>
-  );
-}
-function HelpIcon() {
-  return (
-    <IconBase>
-      <circle cx="12" cy="12" r="9" />
-      <path d="M9.3 9.3a2.7 2.7 0 0 1 5.2 1c0 1.8-2.7 2.7-2.7 2.7" />
-      <path d="M12 17h.01" />
-    </IconBase>
-  );
-}
-function ShieldIcon() {
-  return (
-    <IconBase>
-      <path d="M12 3 5 6v5.5c0 4.3 2.9 7.4 7 8.5 4.1-1.1 7-4.2 7-8.5V6z" />
-      <path d="m9.2 12 2 2 3.6-3.8" />
-    </IconBase>
-  );
-}
-function DocIcon() {
-  return (
-    <IconBase>
-      <path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z" />
-      <path d="M14 3v5h5" />
-      <path d="M9 13h6M9 17h4" />
     </IconBase>
   );
 }

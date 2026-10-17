@@ -8,13 +8,10 @@ const STATIC_ROUTES = [
   "/",
   "/about",
   "/services",
-  "/faq",
   "/contact-us",
   "/blog",
   "/products",
   "/ruminants",
-  "/privacy-policy",
-  "/terms-of-use",
   // product categories
   "/products/poultry",
   "/products/poultry/enzymes",

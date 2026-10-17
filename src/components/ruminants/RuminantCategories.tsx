@@ -120,7 +120,7 @@ export function RuminantCategories() {
     <section ref={rootRef} aria-label="Ruminant solution categories" className="relative">
       {RUMINANT_CATEGORIES.map((category, i) =>
         // These categories have their own bespoke showcase sections.
-        ["rumen-protected-amino-acids", "toxin-binders", "organic-minerals", "vaccines", "biosecurity"].includes(category.id) ? null : (
+        ["rumen-protected-amino-acids", "toxin-binders", "organic-minerals", "biosecurity"].includes(category.id) ? null : (
           <CategorySection key={category.id} category={category} index={i} />
         )
       )}

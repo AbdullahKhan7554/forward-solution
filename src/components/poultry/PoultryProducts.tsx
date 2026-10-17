@@ -4,18 +4,15 @@ import { useRef } from "react";
 import { useIsomorphicLayoutEffect } from "@/hooks/useIsomorphicLayoutEffect";
 import { gsap, ScrollTrigger } from "@/lib/gsap";
 import { RevealText } from "@/components/primitives/RevealText";
-import { MaskedReveal } from "@/components/primitives/MaskedReveal";
-import { LabPlate } from "@/components/scenes/SceneUnfolding/LabPlate";
+import { ProductMedia } from "@/components/product-detail/ProductMedia";
+import { CatalogCard } from "@/components/catalog/CatalogCard";
 import { cn } from "@/lib/utils";
 
 /**
  * POULTRY · SECTION 03 — PRODUCT CATEGORIES.
  *
- * Eight premium editorial cards: large image, minimal title, a short line, and a
- * magnetic arrow button. Hover lifts the card into glass elevation, zooms the
- * image and draws the button toward the cursor (magnetic). Reuses MaskedReveal,
- * LabPlate, RevealText and the GSAP clock; the magnetic pull uses gsap.quickTo.
- * Reduced motion: no magnetism, no zoom — everything calm and legible.
+ * Category cards via the shared CatalogCard (same as the ruminant grid):
+ * image, title, one line, "Explore →"; 200ms lift + image zoom on hover.
  */
 
 type Product = { name: string; blurb: string; href: string; image?: string };
@@ -36,91 +33,16 @@ const PRODUCTS: Product[] = [
   { name: "Phytogenic Anticoccidials", blurb: "Plant-powered protection against coccidiosis.", href: "/products/poultry/phytogenic-anticoccidials" },
 ];
 
-function ArrowGlyph() {
-  return (
-    <svg
-      width="22"
-      height="10"
-      viewBox="0 0 30 12"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="1.5"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      aria-hidden="true"
-    >
-      <path d="M1 6h27M22 1l6 5-6 5" />
-    </svg>
-  );
-}
-
 function ProductCard({ product, className }: { product: Product; className?: string }) {
-  const cardRef = useRef<HTMLAnchorElement>(null);
-  const btnRef = useRef<HTMLSpanElement>(null);
-
-  // Magnetic button — the arrow leans toward the cursor while over the card.
-  useIsomorphicLayoutEffect(() => {
-    const reduced =
-      typeof window !== "undefined" &&
-      window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    if (reduced) return;
-    const card = cardRef.current;
-    const btn = btnRef.current;
-    if (!card || !btn) return;
-
-    const xTo = gsap.quickTo(btn, "x", { duration: 0.5, ease: "power3" });
-    const yTo = gsap.quickTo(btn, "y", { duration: 0.5, ease: "power3" });
-
-    const onMove = (e: PointerEvent) => {
-      const r = card.getBoundingClientRect();
-      xTo((e.clientX - (r.left + r.width / 2)) * 0.16);
-      yTo((e.clientY - (r.top + r.height / 2)) * 0.16);
-    };
-    const onLeave = () => {
-      xTo(0);
-      yTo(0);
-    };
-
-    card.addEventListener("pointermove", onMove);
-    card.addEventListener("pointerleave", onLeave);
-    return () => {
-      card.removeEventListener("pointermove", onMove);
-      card.removeEventListener("pointerleave", onLeave);
-    };
-  }, []);
-
   return (
     <li data-pp-card className={className}>
-      <a
-        ref={cardRef}
+      <CatalogCard
         href={product.href}
-        aria-label={`${product.name} — explore`}
-        className="group block h-full rounded-lg p-3 transition-[transform,background-color,box-shadow] duration-200 ease-brand-out will-change-transform hover:-translate-y-1.5 hover:bg-white/85 hover:shadow-floating focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-500"
-      >
-        <MaskedReveal className="aspect-[3/4] w-full overflow-hidden rounded-md ring-1 ring-white/50">
-          <div className="h-full w-full transition-transform duration-300 ease-brand-out group-hover:scale-[1.05]">
-            <LabPlate src={product.image} alt={`${product.name} for poultry — Agriprom Pakistan`} />
-          </div>
-        </MaskedReveal>
-
-        <div className="mt-5 flex items-start justify-between gap-4 px-1">
-          <div>
-            <h3 className="font-display text-h4 font-medium tracking-[-0.01em] text-neutral-900">
-              <RevealText text={product.name} as="span" trigger="scroll" stagger={0.05} />
-            </h3>
-            <p className="mt-1.5 max-w-[30ch] text-pretty font-sans text-small text-neutral-500">
-              {product.blurb}
-            </p>
-          </div>
-          <span
-            ref={btnRef}
-            aria-hidden="true"
-            className="mt-1 inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-neutral-300 text-primary-700 will-change-transform transition-colors duration-200 ease-brand-out group-hover:border-primary-500 group-hover:bg-primary-600 group-hover:text-pure"
-          >
-            <ArrowGlyph />
-          </span>
-        </div>
-      </a>
+        title={product.name}
+        line={product.blurb}
+        action="Explore"
+        image={<ProductMedia label={product.name} alt={`${product.name} for poultry — Agriprom Pakistan`} src={product.image} className="h-full w-full" />}
+      />
     </li>
   );
 }

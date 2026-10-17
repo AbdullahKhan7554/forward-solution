@@ -87,6 +87,9 @@ const PRODUCTS: SearchItem[] = [
   { id: "prod-alterion-ne", title: "Alterion NE", group: "Products", category: "Probiotics", href: "/products/poultry/probiotics/alterion-ne", description: "Bacillus subtilis probiotic for gut health and poultry performance." },
   { id: "prod-antifly", title: "Antifly", group: "Products", category: "Fly Control", href: "/products/poultry/fly-control/antifly", description: "Poultry feed premix for fly control through larvae growth regulation." },
   { id: "prod-canthaxanthin-lutein", title: "Canthaxanthin & Lutein Feed Pigment", group: "Products", category: "Feed Pigment", href: "/products/poultry/feed-pigment/canthaxanthin-lutein", description: "Red and yellow carotenoid pigments for egg yolk and broiler skin colour." },
+  { id: "prod-energy-booster", title: "Energy Booster", group: "Products", category: "Energy Boosters", href: "/ruminants#energy-boosters", description: "FRESH COW ENERGY", keywords: "ruminant dairy cattle propylene glycol ketosis" },
+  { id: "prod-lactomin-boost", title: "Lactomin Boost", group: "Products", category: "Energy Boosters", href: "/ruminants#energy-boosters", description: "ONE PREMIX - FOR LACTATION, FATTENING & GROWTH", keywords: "ruminant dairy premix vitamin mineral" },
+  { id: "prod-yeastics-r", title: "Yeastics-R", group: "Products", category: "Yeast Culture", href: "/ruminants#yeast-culture", description: "HIGH POLYSACCHARIDE TRADITIONAL CHINESE MEDICINE YEAST CULTURE", keywords: "ruminant yeast astragalus rumen" },
   { id: "prod-moldcid", title: "MoldCid", group: "Products", category: "Feed Hygienizer", href: "/products/poultry/feed-hygienizer/moldcid", description: "Propionic acid–based feed preservative against mold and spoilage." },
   { id: "prod-coxield", title: "Coxield", group: "Products", category: "Phytogenic Anticoccidials", href: "/products/poultry/phytogenic-anticoccidials/coxield", description: "Phytogenic anticoccidial with three modes of action." },
 ];

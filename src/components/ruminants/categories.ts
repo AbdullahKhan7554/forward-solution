@@ -44,15 +44,6 @@ export const RUMINANT_CATEGORIES: RuminantCategory[] = [
     image: "/images/products/ruminants/Minlex-Cattle-768x949.jpg",
   },
   {
-    id: "vaccines",
-    name: "Vaccines",
-    tagline: "Globally-qualified preventive herd health.",
-    description:
-      "Preventive vaccination is the foundation of herd health. Agriprom brings globally-qualified vaccines and cold-chain reliability to protect cattle against the diseases that cost most.",
-    products: ["FMD Vaccine", "HS Vaccine", "Clostridial Vaccine"],
-    image: "/images/products/ruminants/Supravac-10-768x949.jpg",
-  },
-  {
     id: "biosecurity",
     name: "Biosecurity Solutions",
     tagline: "Hygiene and disinfection that protect herds.",
@@ -69,5 +60,19 @@ export const RUMINANT_CATEGORIES: RuminantCategory[] = [
       "Comfortable cows eat more, produce more and last longer. Our comfort and welfare solutions address heat stress, resting behaviour and hygiene to protect productivity and herd longevity.",
     products: ["Cooling Solutions", "Cubicle Comfort", "Bedding Conditioners"],
     image: "/images/products/ruminants/BaneBe-768x949.jpg",
+  },
+  {
+    id: "energy-boosters",
+    name: "Energy Boosters",
+    tagline: "Rapid energy & metabolic support for transition cows.",
+    description: "Rapid energy & metabolic support for transition cows.",
+    products: ["Energy Booster", "Lactomin Boost"],
+  },
+  {
+    id: "yeast-culture",
+    name: "Yeast Culture",
+    tagline: "Rumen health & immune support for maximum yield.",
+    description: "Rumen health & immune support for maximum yield.",
+    products: ["Yeastics-R"],
   },
 ];

@@ -158,7 +158,7 @@ export function RuminantComfort() {
       <div aria-hidden="true" className="pointer-events-none absolute inset-0" style={{ background: "radial-gradient(72% 55% at 78% 6%, rgba(219,239,231,0.42) 0%, rgba(255,255,255,0) 58%)" }} />
       <div className="relative mx-auto w-full max-w-container px-6 py-[16vh] md:px-12 xl:px-20">
         <div data-cf-fade className="mb-6 flex items-center gap-4">
-          <span className="font-sans text-caption tracking-[0.2em] text-neutral-400">06</span>
+          <span className="font-sans text-caption tracking-[0.2em] text-neutral-400">05</span>
           <span className="h-px w-10 bg-accent-500" />
           <span className="font-sans text-caption uppercase tracking-[0.28em] text-neutral-500">Ruminants · Comfort &amp; Housing</span>
         </div>

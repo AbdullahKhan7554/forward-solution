@@ -9,15 +9,16 @@ import { RuminantSolutions } from "@/components/ruminants/RuminantSolutions";
 import { RuminantAminoAcids } from "@/components/ruminants/RuminantAminoAcids";
 import { RuminantToxinBinders } from "@/components/ruminants/RuminantToxinBinders";
 import { RuminantOrganicMinerals } from "@/components/ruminants/RuminantOrganicMinerals";
-import { RuminantVaccines } from "@/components/ruminants/RuminantVaccines";
 import { RuminantBiosecurity } from "@/components/ruminants/RuminantBiosecurity";
 import { RuminantComfort } from "@/components/ruminants/RuminantComfort";
+import { RuminantEnergyBoosters } from "@/components/ruminants/RuminantEnergyBoosters";
+import { RuminantYeastCulture } from "@/components/ruminants/RuminantYeastCulture";
 import { RuminantCTA } from "@/components/ruminants/RuminantCTA";
 
 export const metadata: Metadata = {
   title: "Ruminant Solutions — Agriprom Pakistan | Dairy & Beef Cattle Nutrition",
   description:
-    "Science-driven ruminant nutrition, health and comfort for dairy and beef cattle — rumen-protected amino acids, toxin binders, organic minerals, vaccines, biosecurity and comfort solutions.",
+    "Science-driven ruminant nutrition, health and comfort for dairy and beef cattle — rumen-protected amino acids, toxin binders, organic minerals, biosecurity, comfort, energy boosters and yeast culture.",
   alternates: { canonical: "https://agriprompakistan.com/ruminants" },
 };
 
@@ -38,9 +39,10 @@ export default function RuminantsPage() {
         <RuminantAminoAcids />
         <RuminantToxinBinders />
         <RuminantOrganicMinerals />
-        <RuminantVaccines />
         <RuminantBiosecurity />
         <RuminantComfort />
+        <RuminantEnergyBoosters />
+        <RuminantYeastCulture />
         <RuminantCTA />
       </main>
       <Footer />

@@ -9,6 +9,11 @@ const nextConfig = {
       { source: "/companion-animals", destination: "/products", permanent: true },
       { source: "/products/companion-animals", destination: "/products", permanent: true },
       { source: "/blog/core-vaccination-dogs-cats", destination: "/blog", permanent: true },
+      { source: "/faq", destination: "/", permanent: true },
+      { source: "/privacy-policy", destination: "/", permanent: true },
+      { source: "/terms-of-use", destination: "/", permanent: true },
+      { source: "/ruminants/vaccines", destination: "/ruminants", permanent: true },
+      { source: "/products/ruminants/vaccines", destination: "/ruminants", permanent: true },
     ];
   },
 };

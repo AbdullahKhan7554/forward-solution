@@ -302,8 +302,6 @@ export function Footer() {
           <p>© 2026 Agriprom Pakistan. All Rights Reserved.</p>
           <p className="font-serif italic text-neutral-400">Designed with Precision.</p>
           <nav aria-label="Legal" className="flex items-center gap-6">
-            <FooterLink href="/privacy-policy/">Privacy Policy</FooterLink>
-            <FooterLink href="/terms-of-use/">Terms</FooterLink>
             <FooterLink href="#">Sitemap</FooterLink>
           </nav>
         </div>

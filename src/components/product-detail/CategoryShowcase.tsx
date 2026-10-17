@@ -4,13 +4,14 @@ import { useRef } from "react";
 import { useIsomorphicLayoutEffect } from "@/hooks/useIsomorphicLayoutEffect";
 import { gsap } from "@/lib/gsap";
 import { RevealText } from "@/components/primitives/RevealText";
-import { ProductShowcase } from "./ProductShowcase";
+import { CatalogCard } from "@/components/catalog/CatalogCard";
+import { ProductMedia } from "./ProductMedia";
 import { PRODUCTS } from "./products";
 
 /**
- * CategoryShowcase — a category page rendered as premium product showcases
- * (never simple cards). A cinematic header, then one full ProductShowcase per
- * product with alternating layouts. Empty categories show a graceful state.
+ * CategoryShowcase — a category page: header, then a grid of shared
+ * CatalogCard product cards (image, name, tagline, "Details →") linking to each
+ * product page. Empty categories show a graceful state.
  */
 export type ShowcaseItem = { slug: string; href: string };
 
@@ -93,9 +94,23 @@ export function CategoryShowcase({
         )}
       </section>
 
-      {products.map((p, i) => (
-        <ProductShowcase key={p.data.slug} data={p.data} href={p.href} index={i} />
-      ))}
+      {products.length > 0 && (
+        <section aria-label={`${titleTop} ${titleBottom} products`} className="bg-base">
+          <ul className="mx-auto grid w-full max-w-container grid-cols-1 gap-8 px-6 pb-[16vh] pt-[6vh] sm:grid-cols-2 md:px-12 lg:grid-cols-3 xl:px-20">
+            {products.map((p) => (
+              <li key={p.data.slug}>
+                <CatalogCard
+                  href={p.href}
+                  title={p.data.name}
+                  line={p.data.subtitle}
+                  action="Details"
+                  image={<ProductMedia label={p.data.name} alt={`${p.data.name} — Agriprom Pakistan`} src={p.data.assets?.hero} className="h-full w-full" />}
+                />
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
     </>
   );
 }
