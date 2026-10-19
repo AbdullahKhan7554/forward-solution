@@ -90,6 +90,7 @@ const PRODUCTS: SearchItem[] = [
   { id: "prod-prosid-tb-207", title: "ProSid TB 207", group: "Products", category: "Toxin Binders", href: "/products/poultry/prosid-tb-207", description: "Multi-functional mycotoxin binder with phytogenics and calcium propionate." },
   { id: "prod-compound-antioxidant", title: "Compound Antioxidant", group: "Products", category: "Antioxidants", href: "/products/poultry/antioxidants/compound-antioxidant", description: "Protects feed and fats from oxidation." },
   { id: "prod-lysolip", title: "LysoLip", group: "Products", category: "Emulsifiers", href: "/products/poultry/emulsifier/lysolip", description: "Lyso-phospholipid emulsifier for energy uptake." },
+  { id: "prod-bilepro", title: "BilePro", group: "Products", category: "Bile Acids", href: "/products/poultry/bile-acids/bilepro", description: "Bile acid additive for fat digestion and liver health." },
   { id: "prod-minlex", title: "Minlex Poultry", group: "Products", category: "Organic Minerals", href: "/products/poultry/organic-minerals/minlex-poultry", description: "Chelated organic trace minerals for poultry." },
   { id: "prod-alterion-ne", title: "Alterion NE", group: "Products", category: "Probiotics", href: "/products/poultry/probiotics/alterion-ne", description: "Bacillus subtilis probiotic for gut health and poultry performance." },
   { id: "prod-antifly", title: "Antifly", group: "Products", category: "Fly Control", href: "/products/poultry/fly-control/antifly", description: "Poultry feed premix for fly control through larvae growth regulation." },

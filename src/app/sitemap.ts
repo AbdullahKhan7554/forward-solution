@@ -19,6 +19,7 @@ const STATIC_ROUTES = [
   "/products/poultry/organic-acids",
   "/products/poultry/antioxidants",
   "/products/poultry/bile-acids",
+  "/products/poultry/bile-acids/bilepro",
   "/products/poultry/emulsifier",
   "/products/poultry/toxin-binders",
   "/products/poultry/organic-minerals",

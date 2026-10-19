@@ -3,13 +3,17 @@ import { IntroProvider } from "@/components/providers/IntroProvider";
 import { Preloader } from "@/components/scenes/SceneThreshold/Preloader";
 import { Navbar } from "@/components/navbar/Navbar";
 import { Footer } from "@/components/layout/Footer";
-import { CategoryShowcase } from "@/components/product-detail/CategoryShowcase";
+import { CategoryShowcase, type ShowcaseItem } from "@/components/product-detail/CategoryShowcase";
 
 export const metadata: Metadata = {
   title: "Poultry Bile Acids — Agriprom Pakistan",
   description:
     "Agriprom Pakistan's poultry bile acid range for improved fat emulsification, lipid digestion, liver health and feed efficiency.",
 };
+
+const ITEMS: ShowcaseItem[] = [
+  { slug: "bilepro", href: "/products/poultry/bile-acids/bilepro" },
+];
 
 export default function PoultryBileAcidsPage() {
   return (
@@ -22,7 +26,7 @@ export default function PoultryBileAcidsPage() {
           titleTop="Bile"
           titleBottom="Acids"
           intro="Bile acid technologies that improve fat emulsification, lipid digestion, liver health and energy utilization."
-          items={[]}
+          items={ITEMS}
         />
       </main>
       <Footer />

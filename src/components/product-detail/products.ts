@@ -829,6 +829,80 @@ export const PRODUCTS: Record<string, ProductDetailData> = {
       "LysoLip is a lysophospholipid-based feed emulsifier (~6.5% lysophospholipids) that improves fat digestion, nutrient absorption, gut health, liver health and poultry performance.",
   },
 
+  bilepro: {
+    slug: "bilepro",
+    assets: { hero: "/images/products/poultry/Bilepro.jpg", overview: "/images/products/poultry/Bilepro.jpg" },
+    eyebrow: "Poultry · Bile Acids",
+    name: "BilePro",
+    subtitle: "Bile acid-based feed additive for fat digestion, liver health & cost efficiency",
+    intro:
+      "BilePro is a high-performance bile acid-based feed additive developed to optimize fat emulsification, digestion, and absorption while supporting liver health and overall poultry performance. It enhances fat-soluble nutrient absorption, accelerates toxin degradation, and significantly improves feed efficiency for modern poultry production.",
+    overviewLead:
+      "BilePro is a high-performance bile acid-based feed additive developed to optimize fat emulsification, digestion, and absorption while supporting liver health and overall poultry performance.",
+    overviewPoints: [
+      "Bile acid-based feed additive (30% bile acid + 70% carrier).",
+      "Improves fat digestion and utilization.",
+      "Protects liver health and prevents fatty liver.",
+      "Enhances fat-soluble vitamin absorption.",
+      "Reduces feed formulation costs.",
+    ],
+    benefits: [
+      "Improves fat digestion & utilization (increases fat utilization rate by 15–20%)",
+      "Protects liver health and prevents fatty liver",
+      "Increases feed conversion ratio (FCR) and growth performance",
+      "Accelerates degradation of mycotoxins and endotoxins",
+      "Enhances fat-soluble vitamin absorption (Vitamins A, D, E, K)",
+      "Improves eggshell quality and egg production rates",
+      "Enhances chick quality and hatching/fertilization rates in breeders",
+      "Reduces feed formulation costs",
+    ],
+    flow: [
+      "BilePro",
+      "Improves Fat Emulsification",
+      "Better Fat Digestion",
+      "Higher Nutrient Absorption",
+      "Improved Liver Health",
+      "Higher Poultry Performance",
+    ],
+    applications: [
+      "Broilers",
+      "Layers",
+      "Breeders",
+      "Commercial Feed Mills",
+      "Poultry Nutrition Programs",
+    ],
+    specs: [
+      { label: "Product", values: ["BilePro"] },
+      { label: "Category", values: ["Bile Acids"] },
+      { label: "Technology", values: ["Bile Acid-Based Feed Additive"] },
+      { label: "Active Component", values: ["30% Bile Acid + 70% Carrier"] },
+      {
+        label: "Primary Benefits",
+        values: [
+          "Improves Fat Utilization",
+          "Protects Liver Health",
+          "Enhances Nutrient Absorption",
+          "Optimizes Feed Efficiency",
+        ],
+      },
+      { label: "Target Animal", values: ["Livestock", "Poultry", "Ruminant", "Aqua"] },
+    ],
+    media: "placeholder",
+    gallery: ["Product Packaging", "Application Image", "Technical Illustration"],
+    overviewImageLabel: "Product Overview",
+    cta: {
+      top: "Need Technical",
+      bottom: "Guidance?",
+      body: "Speak with our technical specialists to find the right nutritional solution for your poultry operation.",
+      primaryLabel: "Contact Expert",
+      secondaryLabel: "View All Poultry Products",
+      secondaryHref: "/products/poultry",
+    },
+    metaTitle: "BilePro — Agriprom Pakistan | Bile Acid Poultry Feed Additive",
+    metaDescription:
+      "BilePro is a bile acid-based feed additive (30% bile acid) that improves fat digestion, liver health, fat-soluble vitamin absorption, FCR and feed cost efficiency in poultry.",
+  },
+
   "minlex-poultry": {
     slug: "minlex-poultry",
     assets: { hero: "/images/products/poultry/Minlex-Poultry.jpg", overview: "/images/products/poultry/Minlex-Poultry.jpg" },
