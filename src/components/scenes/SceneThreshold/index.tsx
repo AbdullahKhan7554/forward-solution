@@ -25,9 +25,8 @@ export function SceneThreshold() {
   const cueRef = useRef<HTMLDivElement>(null);
   const [active, setActive] = useState(0);
 
-  // advance the slideshow; stays on slide 1 under prefers-reduced-motion
+  // advance the slideshow from mount; reduced motion only makes the fade instant (globals.css)
   useEffect(() => {
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     const id = window.setInterval(
       () => setActive((i) => (i + 1) % SLIDES.length),
       SLIDE_INTERVAL_MS
