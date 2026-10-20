@@ -102,10 +102,15 @@ function RollLink({ label, href, active }: { label: string; href: string; active
     >
       <span className="relative block h-[1.35em] overflow-hidden">
         <span className="block transition-transform duration-[560ms] ease-brand-luxury group-hover:-translate-y-1/2">
-          <span className="flex h-[1.35em] items-center font-sans text-small font-medium text-neutral-900 transition-colors duration-[360ms] ease-brand-out">
+          <span
+            className={cn(
+              "flex h-[1.35em] items-center font-sans text-[17px] font-semibold transition-colors duration-[360ms] ease-brand-out",
+              active ? "text-[#008A4B]" : "text-white"
+            )}
+          >
             {label}
           </span>
-          <span className="flex h-[1.35em] items-center font-sans text-small font-medium text-accent-600">
+          <span className="flex h-[1.35em] items-center font-sans text-[17px] font-semibold text-[#008A4B]">
             {label}
           </span>
         </span>
@@ -114,7 +119,7 @@ function RollLink({ label, href, active }: { label: string; href: string; active
       <span
         aria-hidden="true"
         className={cn(
-          "absolute bottom-0 left-0 h-px w-full origin-left bg-accent-500 transition-transform duration-300 ease-brand-out",
+          "absolute bottom-0 left-0 h-px w-full origin-left bg-[#008A4B] transition-transform duration-300 ease-brand-out",
           active ? "scale-x-100" : "scale-x-0"
         )}
       />
@@ -235,10 +240,10 @@ function NavDropdown({
   };
 
   const triggerClassName = cn(
-    "group flex items-center gap-1.5 font-sans text-small font-medium transition-colors duration-[360ms] ease-brand-out",
-    open
-      ? "text-accent-600"
-      : "text-neutral-900 hover:text-accent-600"
+    "group flex items-center gap-1.5 font-sans text-[17px] font-semibold transition-colors duration-[360ms] ease-brand-out",
+    open || active
+      ? "text-[#008A4B]"
+      : "text-white hover:text-[#008A4B]"
   );
   const triggerContent = (
     <>
@@ -288,7 +293,7 @@ function NavDropdown({
       <span
         aria-hidden="true"
         className={cn(
-          "absolute -bottom-1 left-0 h-px w-[calc(100%-18px)] origin-left bg-accent-500 transition-transform duration-300 ease-brand-out",
+          "absolute -bottom-1 left-0 h-px w-[calc(100%-18px)] origin-left bg-[#008A4B] transition-transform duration-300 ease-brand-out",
           active ? "scale-x-100" : "scale-x-0"
         )}
       />
@@ -512,7 +517,7 @@ export function Navbar() {
     <>
       <header
         ref={ref}
-        className="group/nav fixed inset-x-0 top-0 z-sticky border-b border-neutral-200 bg-white py-3 shadow-[0_14px_44px_-16px_rgba(0,0,0,0.18)]"
+        className="group/nav fixed inset-x-0 top-0 z-sticky border-b border-white/10 bg-dark-rich py-3 shadow-[0_14px_44px_-16px_rgba(0,0,0,0.18)]"
       >
         <div className="mx-auto flex max-w-container items-center justify-between px-6 md:px-12 xl:px-20">
           <a href="/" aria-label="Agriprom Pakistan — home" className="block overflow-hidden">
@@ -549,14 +554,14 @@ export function Navbar() {
               <a
                 data-nav-inner
                 href="/contact-us/"
-                className="group block will-change-transform rounded-sm border border-transparent bg-neutral-900 px-8 py-3.5 shadow-soft transition-colors duration-[360ms] ease-brand-out hover:bg-neutral-800"
+                className="group block will-change-transform rounded-sm border border-transparent bg-white px-8 py-3.5 shadow-soft transition-colors duration-[360ms] ease-brand-out hover:bg-white/90"
               >
                 <span className="block h-[1.2em] overflow-hidden">
                   <span className="block transition-transform duration-[560ms] ease-brand-luxury group-hover:-translate-y-1/2">
-                    <span className="flex h-[1.2em] items-center font-sans text-small font-medium text-neutral-50">
+                    <span className="flex h-[1.2em] items-center font-sans text-small font-medium text-dark-rich">
                       Contact
                     </span>
-                    <span className="flex h-[1.2em] items-center font-sans text-small font-medium text-accent-300">
+                    <span className="flex h-[1.2em] items-center font-sans text-small font-medium text-[#008A4B]">
                       Contact
                     </span>
                   </span>
@@ -569,13 +574,13 @@ export function Navbar() {
             type="button"
             onClick={() => setMenuOpen(true)}
             aria-label="Open menu"
-            className="group relative flex h-11 w-11 items-center justify-center rounded-full border border-neutral-300/70 bg-white/40 backdrop-blur-md transition-[background-color,border-color,box-shadow] duration-[360ms] ease-brand-out hover:border-accent-500/50 hover:bg-white/75 hover:shadow-soft lg:hidden"
+            className="group relative flex h-11 w-11 items-center justify-center rounded-full border border-white/20 bg-white/10 backdrop-blur-md transition-[background-color,border-color,box-shadow] duration-[360ms] ease-brand-out hover:border-[#008A4B]/60 hover:bg-white/20 hover:shadow-soft lg:hidden"
           >
             {/* editorial variable-width bars that redistribute on press/hover */}
             <span className="relative block h-[11px] w-[22px]">
-              <span className="absolute left-0 top-0 h-[1.5px] w-full origin-left rounded-full bg-neutral-900 transition-all duration-[360ms] ease-brand-luxury group-hover:w-[64%]" />
-              <span className="absolute left-0 top-1/2 h-[1.5px] w-[68%] -translate-y-1/2 rounded-full bg-neutral-900 transition-all duration-[360ms] ease-brand-luxury group-hover:w-full" />
-              <span className="absolute bottom-0 left-0 h-[1.5px] w-full origin-left rounded-full bg-neutral-900 transition-all duration-[360ms] ease-brand-luxury group-hover:w-[42%]" />
+              <span className="absolute left-0 top-0 h-[1.5px] w-full origin-left rounded-full bg-white transition-all duration-[360ms] ease-brand-luxury group-hover:w-[64%]" />
+              <span className="absolute left-0 top-1/2 h-[1.5px] w-[68%] -translate-y-1/2 rounded-full bg-white transition-all duration-[360ms] ease-brand-luxury group-hover:w-full" />
+              <span className="absolute bottom-0 left-0 h-[1.5px] w-full origin-left rounded-full bg-white transition-all duration-[360ms] ease-brand-luxury group-hover:w-[42%]" />
             </span>
           </button>
           </div>
