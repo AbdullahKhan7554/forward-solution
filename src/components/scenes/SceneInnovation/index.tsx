@@ -66,6 +66,8 @@ export function SceneInnovation() {
             <div
               className="relative z-raised mx-auto w-full max-w-container px-6 py-16 md:py-24 md:px-12 xl:px-20"
             >
+              <div className="grid grid-cols-1 items-center gap-12 md:gap-20 lg:grid-cols-[minmax(0,1fr)_auto]">
+              <div className="min-w-0">
               {/* slate + eyebrow */}
               <div data-innov-eyebrow className="mb-8 flex items-center gap-4">
                 <span className="h-px w-10 bg-accent-500" />
@@ -95,7 +97,7 @@ export function SceneInnovation() {
                     play={inView}
                     delay={0.15}
                     stagger={0.045}
-                    className="justify-start text-[6.5vw] md:text-[3.1vw] xl:text-[42px]"
+                    className="max-w-[16em] justify-start text-[6.5vw] md:text-[3.1vw] xl:text-[42px]"
                   />
                   <RevealText
                     text="animal health."
@@ -127,12 +129,13 @@ export function SceneInnovation() {
                 </p>
               </div>
 
-              {/* floating editorial image — stacks in-flow on mobile/tablet, floats
-                  to the right on desktop. Absolute on lg keeps the desktop layout
-                  identical; block+in-flow below lg guarantees it stays visible. */}
+              </div>
+
+              {/* editorial image — its own column: below the text on mobile/tablet,
+                  right of the text on desktop */}
               <div
                 aria-hidden="true"
-                className="pointer-events-none relative z-base mx-auto mt-14 w-[62%] max-w-[260px] lg:absolute lg:right-8 lg:top-1/2 lg:mt-0 lg:w-[26vw] lg:max-w-[380px] lg:-translate-y-1/2 xl:right-20"
+                className="pointer-events-none relative z-base mx-auto w-[62%] max-w-[260px] lg:mx-0 lg:w-[26vw] lg:max-w-[380px]"
               >
                 <div className="relative aspect-[2/3] w-full overflow-hidden rounded-[28px] border border-secondary-500/20 bg-white shadow-floating">
                   <Image
@@ -144,6 +147,7 @@ export function SceneInnovation() {
                     className="object-contain"
                   />
                 </div>
+              </div>
               </div>
             </div>
 
