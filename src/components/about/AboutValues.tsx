@@ -133,12 +133,12 @@ function ValueCard({ value, index }: { value: Value; index: number }) {
             <span className="inline-flex h-12 w-12 items-center justify-center rounded-full border border-white/70 bg-white/60 text-primary-700 shadow-soft transition-colors duration-300 ease-brand-out group-hover:text-accent-600">
               {value.icon}
             </span>
-            <span className="font-sans text-caption tracking-[0.24em] text-neutral-400">
+            <span className="font-sans text-caption tracking-[0.24em] text-neutral-900">
               {String(index + 1).padStart(2, "0")}
             </span>
           </div>
           <h3 className="font-display text-h4 font-medium text-neutral-900">{value.title}</h3>
-          <p className="mt-3 text-pretty font-sans text-body text-neutral-600">{value.body}</p>
+          <p className="mt-3 text-pretty font-sans text-body text-neutral-900">{value.body}</p>
         </div>
       </GlassCard>
     </li>
@@ -204,12 +204,12 @@ export function AboutValues() {
         }}
       />
 
-      <div className="relative mx-auto w-full max-w-container px-6 py-[18vh] md:px-12 xl:px-20">
+      <div className="relative mx-auto w-full max-w-container px-6 py-16 md:py-24 md:px-12 xl:px-20">
         {/* slate + heading */}
         <div data-values-slate className="max-w-3xl">
           <div className="mb-7 flex items-center gap-4">
             <span className="h-px w-10 bg-accent-500" />
-            <span className="font-sans text-caption uppercase tracking-[0.3em] text-neutral-500">
+            <span className="font-sans text-caption uppercase tracking-[0.3em] text-neutral-900">
               What We Stand For
             </span>
           </div>

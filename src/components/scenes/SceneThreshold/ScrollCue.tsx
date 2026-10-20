@@ -17,7 +17,7 @@ export function ScrollCue() {
           <span className="absolute left-0 top-0 block h-6 w-px animate-scroll-cue bg-primary-600" />
         )}
       </span>
-      <span className="font-serif text-small italic text-neutral-400">scroll</span>
+      <span className="font-serif text-small italic text-neutral-900">scroll</span>
     </div>
   );
 }

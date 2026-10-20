@@ -47,7 +47,7 @@ function BenefitPanel({ benefit }: { benefit: Benefit }) {
       <h3 className="mt-6 font-display text-h4 font-light tracking-[-0.01em] text-neutral-900">
         {benefit.title}
       </h3>
-      <p className="mt-3 text-pretty font-sans text-small leading-[1.6] text-neutral-600">
+      <p className="mt-3 text-pretty font-sans text-small leading-[1.6] text-neutral-900">
         {benefit.body}
       </p>
     </div>
@@ -96,13 +96,13 @@ export function ServicesBenefits() {
       aria-labelledby="benefits-heading"
       className="relative overflow-hidden bg-pure"
     >
-      <div className="relative mx-auto grid w-full max-w-container grid-cols-1 gap-x-14 gap-y-[8vh] px-6 py-[16vh] md:px-12 lg:grid-cols-12 xl:px-20">
+      <div className="relative mx-auto grid w-full max-w-container grid-cols-1 gap-x-14 gap-y-[8vh] px-6 py-16 md:py-24 md:px-12 lg:grid-cols-12 xl:px-20">
         {/* LEFT — heading + large photography */}
         <div className="lg:col-span-5">
           <div className="lg:sticky lg:top-[16vh]">
             <div data-benefit-fade className="mb-7 flex items-center gap-4">
               <span className="h-px w-10 bg-accent-500" />
-              <span className="font-sans text-caption uppercase tracking-[0.32em] text-neutral-500">
+              <span className="font-sans text-caption uppercase tracking-[0.32em] text-neutral-900">
                 Why Agriprom
               </span>
             </div>

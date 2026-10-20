@@ -66,7 +66,7 @@ export function CategoryShowcase({
           style={{ background: "radial-gradient(80% 55% at 20% 6%, rgba(234,242,247,0.6) 0%, rgba(255,255,255,0) 58%)" }}
         />
         <div className="relative mx-auto w-full max-w-container px-6 pb-[6vh] pt-[26vh] md:px-12 xl:px-20">
-          <div data-cs-fade className="mb-7 flex items-center gap-3 font-sans text-caption uppercase tracking-[0.28em] text-neutral-500">
+          <div data-cs-fade className="mb-7 flex items-center gap-3 font-sans text-caption uppercase tracking-[0.28em] text-neutral-900">
             <span className="h-px w-10 bg-accent-500" />
             <a href={backHref} className="transition-colors hover:text-primary-700">{eyebrow}</a>
           </div>
@@ -74,14 +74,14 @@ export function CategoryShowcase({
             <RevealText text={titleTop} as="span" trigger="scroll" stagger={0.06} className="justify-start text-[11vw] md:text-[5.4vw] xl:text-[72px]" />
             <RevealText text={titleBottom} as="span" trigger="scroll" stagger={0.06} className="justify-start text-[11vw] text-primary-700 md:text-[5.4vw] xl:text-[72px]" />
           </h1>
-          <p data-cs-fade className="mt-8 max-w-[56ch] text-pretty font-sans text-body-lg text-neutral-600">{intro}</p>
+          <p data-cs-fade className="mt-8 max-w-[56ch] text-pretty font-sans text-body-lg text-neutral-900">{intro}</p>
         </div>
 
         {products.length === 0 && (
-          <div className="relative mx-auto w-full max-w-container px-6 pb-[16vh] md:px-12 xl:px-20">
+          <div className="relative mx-auto w-full max-w-container px-6 pb-16 md:pb-24 md:px-12 xl:px-20">
             <div data-cs-fade className="rounded-lg border border-white/70 bg-white/85 p-12 text-center shadow-glass md:p-16">
-              <p className="font-serif text-body-lg italic text-neutral-500">Products coming soon.</p>
-              <p className="mx-auto mt-4 max-w-[46ch] font-sans text-body text-neutral-600">
+              <p className="font-serif text-body-lg italic text-neutral-900">Products coming soon.</p>
+              <p className="mx-auto mt-4 max-w-[46ch] font-sans text-body text-neutral-900">
                 We&rsquo;re expanding this range. Talk to our technical team about solutions for your
                 operation in the meantime.
               </p>
@@ -98,7 +98,7 @@ export function CategoryShowcase({
 
       {products.length > 0 && (
         <section aria-label={`${titleTop} ${titleBottom} products`} className="bg-base">
-          <ul className="mx-auto grid w-full max-w-container grid-cols-1 gap-6 px-6 pb-[16vh] pt-[6vh] sm:grid-cols-2 md:gap-8 md:px-12 lg:grid-cols-3 xl:px-20">
+          <ul className="mx-auto grid w-full max-w-container grid-cols-1 gap-6 px-6 pb-16 md:pb-24 pt-[6vh] sm:grid-cols-2 md:gap-8 md:px-12 lg:grid-cols-3 xl:px-20">
             {products.map((p) => (
               <li key={p.data.slug}>
                 <CatalogCard

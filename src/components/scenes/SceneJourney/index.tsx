@@ -8,10 +8,7 @@ import { useJourneyChoreography } from "./useJourneyChoreography";
  * SCENE 06 - PRODUCT JOURNEY.
  *
  * A documentary walk through Agriprom's five existing product categories, each
- * a full-viewport museum chapter. Desktop + motion: sticky chapters that melt
- * (the next covers the previous on scroll) with a slow image push. Mobile /
- * reduced motion: sequential vertical storytelling. Enters from white, resolves
- * into white. Reuses MaskedReveal, RevealText, LabPlate + established GSAP.
+ * a full-viewport museum chapter, stacked as sequential vertical storytelling. Reuses MaskedReveal, RevealText, LabPlate + established GSAP.
  *
  * Content: the four existing categories only. No invented products / SKUs.
  */
@@ -66,12 +63,8 @@ export function SceneJourney() {
           description={chapter.description}
           imageSrc={chapter.imageSrc}
           side={chapter.side}
-          sticky={false}
         />
       ))}
-
-      {/* large white breathing space - the final chapter disappears into light */}
-      <div aria-hidden="true" className="relative h-[70svh] w-full bg-pure" />
     </section>
   );
 }

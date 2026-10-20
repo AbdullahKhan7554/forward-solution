@@ -7,13 +7,10 @@ import { cn } from "@/lib/utils";
 
 /**
  * ChapterLayer - one full-viewport documentary chapter of the Product Journey.
- * Editorial split (image / type), alternating L-R. On desktop with motion the
- * chapters are sticky so each one is covered by the next (the melt); on mobile
- * / reduced motion they stack vertically (sequential storytelling).
+ * Editorial split (image / type), alternating L-R; chapters stack vertically.
  *
- * Reuses MaskedReveal (image unveil + settle) and RevealText (name). The image
- * push-in (data-journey-push) and the fades (data-journey-fade) are driven by
- * useJourneyChoreography.
+ * Reuses MaskedReveal (image unveil + settle) and RevealText (name). The fades
+ * (data-journey-fade) are driven by useJourneyChoreography.
  */
 export function ChapterLayer({
   index,
@@ -21,14 +18,12 @@ export function ChapterLayer({
   description,
   imageSrc,
   side,
-  sticky,
 }: {
   index: number;
   name: string;
   description: string;
   imageSrc?: string;
   side: "left" | "right";
-  sticky: boolean;
 }) {
   const num = String(index + 1).padStart(2, "0");
 
@@ -36,10 +31,7 @@ export function ChapterLayer({
     <article
       data-journey-chapter
       aria-labelledby={`journey-ch-${num}`}
-      className={cn(
-        "relative h-[100svh] w-full overflow-hidden bg-pure",
-        sticky && "md:sticky md:top-0"
-      )}
+      className="relative h-[100svh] w-full overflow-hidden bg-pure"
     >
       <div
         className={cn(
@@ -74,7 +66,7 @@ export function ChapterLayer({
         <div className="flex h-[54%] w-full flex-col justify-center px-6 md:h-full md:w-1/2 md:px-12 xl:px-20">
           <div data-journey-fade className="mb-6 flex items-baseline gap-2">
             <span className="font-display text-h4 font-light text-primary-700">{num}</span>
-            <span className="font-sans text-caption tracking-[0.22em] text-neutral-400">
+            <span className="font-sans text-caption tracking-[0.22em] text-neutral-900">
               / 04
             </span>
           </div>
@@ -94,7 +86,7 @@ export function ChapterLayer({
 
           <p
             data-journey-fade
-            className="mt-7 max-w-[42ch] text-pretty font-sans text-body-lg text-neutral-600"
+            className="mt-7 max-w-[42ch] text-pretty font-sans text-body-lg text-neutral-900"
           >
             {description}
           </p>

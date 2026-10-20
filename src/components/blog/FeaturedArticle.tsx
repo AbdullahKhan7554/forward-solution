@@ -72,12 +72,12 @@ export function FeaturedArticle({
         }}
       />
 
-      <div className="relative mx-auto w-full max-w-container px-6 py-[16vh] md:px-12 xl:px-20">
+      <div className="relative mx-auto w-full max-w-container px-6 py-16 md:py-24 md:px-12 xl:px-20">
         {/* Section slate */}
         <header className="mb-[8vh] max-w-3xl">
           <div data-feat-fade className="mb-6 flex items-center gap-4">
             <span className="h-px w-10 bg-accent-500" />
-            <span className="font-sans text-caption uppercase tracking-[0.32em] text-neutral-500">
+            <span className="font-sans text-caption uppercase tracking-[0.32em] text-neutral-900">
               Featured Article
             </span>
           </div>
@@ -116,7 +116,7 @@ export function FeaturedArticle({
           <div className="md:col-span-5">
             <div
               data-feat-fade
-              className="mb-5 flex items-center gap-3 font-sans text-caption uppercase tracking-[0.16em] text-neutral-400"
+              className="mb-5 flex items-center gap-3 font-sans text-caption uppercase tracking-[0.16em] text-neutral-900"
             >
               <span>{article.date}</span>
               <span className="h-1 w-1 rounded-full bg-neutral-300" />
@@ -132,7 +132,7 @@ export function FeaturedArticle({
 
             <p
               data-feat-fade
-              className="mt-6 max-w-[54ch] text-pretty font-sans text-body-lg text-neutral-600"
+              className="mt-6 max-w-[54ch] text-pretty font-sans text-body-lg text-neutral-900"
             >
               {article.excerpt}
             </p>

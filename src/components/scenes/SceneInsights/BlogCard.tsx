@@ -43,7 +43,7 @@ export function BlogCard({
         </div>
 
         <div className={cn("flex flex-1 flex-col", isFeatured ? "mt-7" : "mt-6")}>
-          <div className="mb-4 flex items-center gap-3 font-sans text-caption uppercase tracking-[0.16em] text-neutral-400">
+          <div className="mb-4 flex items-center gap-3 font-sans text-caption uppercase tracking-[0.16em] text-neutral-900">
             <span>{post.date}</span>
             <span className="h-1 w-1 rounded-full bg-neutral-300" />
             <span>{post.readingTime}</span>
@@ -60,7 +60,7 @@ export function BlogCard({
 
           <p
             className={cn(
-              "mt-4 max-w-[52ch] text-pretty font-sans text-neutral-600",
+              "mt-4 max-w-[52ch] text-pretty font-sans text-neutral-900",
               isFeatured ? "text-body-lg" : "text-body"
             )}
           >

@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { useIsomorphicLayoutEffect } from "@/hooks/useIsomorphicLayoutEffect";
 import { usePrefersReducedMotion } from "@/hooks/usePrefersReducedMotion";
@@ -10,90 +10,58 @@ import { RevealText } from "@/components/primitives/RevealText";
 import { ScrollCue } from "@/components/scenes/SceneThreshold/ScrollCue";
 import { cn } from "@/lib/utils";
 
-// Cinematic crossfade set — light-toned scenes so the luminous film (and the dark
-// navbar/headline) stays consistent. Local assets only, no placeholders.
+// Slideshow set — light-toned scenes so the dark navbar/headline stays legible.
+// Local assets only, no placeholders.
 const SLIDES = [
   "/images/heroabout/h1.jpg", // the laboratory
   "/images/heroabout/ChatGPT Image Jul 2, 2026, 06_50_41 PM.png", // the team
   "/images/heroabout/h4.png", // the science (cells)
 ];
 
-// Timing — tuned for a slow, expensive cinema camera.
-const CYCLE = 5.5; // seconds each slide holds before the next crossfades in
-const FADE = 1.7; // crossfade duration
-const KB = 15; // ken-burns push duration (scale 1 → 1.08)
+// Timing — one slide at a time: fade out, swap, fade in.
+const CYCLE_MS = 5000; // each slide holds this long
+const FADE_MS = 700; // fade-out / fade-in duration
 
 /**
  * ABOUT · SCENE 01 — THE HERO (cinematic).
  *
- * A premium Apple × Stripe × Moderna × Rivian opening: a slow crossfading image
- * cinema (each slide a Ken-Burns push + micro drift, dissolving — never sliding),
- * layered cinematic overlays, an almost-invisible light sweep, the shared dust
- * particles, and the existing masked headline + CTA reveal. One scroll scales the
- * whole hero down and parallaxes the background into the next section as one film.
- *
- * transform/opacity/filter only · no layout shift · reduced-motion → a simple
- * static fade (no camera, particles or parallax).
+ * A simple slideshow (one image visible at a time, a plain fade every 5s),
+ * layered overlays, the shared dust particles, and the existing masked headline
+ * + CTA reveal. Reduced motion: slides swap without the fade.
  */
 export function AboutHero() {
   const { phase } = useIntro();
   const reducedMotion = usePrefersReducedMotion();
   const outerRef = useRef<HTMLDivElement>(null);
   const stageRef = useRef<HTMLDivElement>(null);
-  const slidesRef = useRef<HTMLDivElement>(null);
-  const sweepRef = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
   const cueRef = useRef<HTMLDivElement>(null);
   const reducedRef = useRef(false);
   const playedRef = useRef(false);
   const revealing = phase === "revealing";
+  const [active, setActive] = useState(0);
+  const [visible, setVisible] = useState(true);
 
-  // ── Cinema: crossfade + Ken-Burns + light sweep (all self-driving loops) ──
   useIsomorphicLayoutEffect(() => {
     reducedRef.current =
       typeof window !== "undefined" &&
       window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    if (reducedRef.current || !slidesRef.current) return;
+  }, []);
 
-    const ctx = gsap.context(() => {
-      const slides = gsap.utils.toArray<HTMLElement>("[data-slide]", slidesRef.current!);
-      if (!slides.length) return;
-
-      const kb = (slide: HTMLElement, dir: number) => {
-        const el = slide.querySelector<HTMLElement>("[data-kb]");
-        if (!el) return;
-        gsap.fromTo(
-          el,
-          { scale: 1, xPercent: 0, yPercent: 0 },
-          { scale: 1.08, xPercent: dir * 1.6, yPercent: dir * -0.8, duration: KB, ease: "none" }
-        );
-      };
-
-      // opening: first slide dissolves in from black-clean atmosphere + its push
-      gsap.set(slides, { autoAlpha: 0 });
-      gsap.fromTo(slides[0], { autoAlpha: 0 }, { autoAlpha: 1, duration: 1.9, ease: "power2.out" });
-      kb(slides[0], -1);
-
-      // crossfade cycle — outgoing fades while incoming is already pushing in.
-      let idx = 0;
-      const advance = () => {
-        const next = (idx + 1) % slides.length;
-        gsap.to(slides[idx], { autoAlpha: 0, duration: FADE, ease: "power2.inOut" });
-        gsap.to(slides[next], { autoAlpha: 1, duration: FADE, ease: "power2.inOut" });
-        kb(slides[next], next % 2 === 0 ? -1 : 1);
-        idx = next;
-      };
-      gsap.timeline({ repeat: -1 }).call(advance, undefined, CYCLE);
-
-      // light sweep — sunlight moving inside the laboratory (off-screen at both ends)
-      gsap.fromTo(
-        sweepRef.current,
-        { xPercent: -60 },
-        { xPercent: 220, duration: 19, ease: "sine.inOut", repeat: -1 }
-      );
-    }, slidesRef);
-
-    return () => ctx.revert();
+  // ── Slideshow: fade current out, swap, fade next in (never two at once) ──
+  useEffect(() => {
+    let swap: ReturnType<typeof setTimeout> | undefined;
+    const cycle = setInterval(() => {
+      setVisible(false);
+      swap = setTimeout(() => {
+        setActive((i) => (i + 1) % SLIDES.length);
+        setVisible(true);
+      }, FADE_MS);
+    }, CYCLE_MS);
+    return () => {
+      clearInterval(cycle);
+      clearTimeout(swap);
+    };
   }, []);
 
   // Prime the reveal states before first paint.
@@ -149,17 +117,20 @@ export function AboutHero() {
       <div ref={outerRef} className="relative">
         <div
           ref={stageRef}
-          className="relative h-[100svh] min-h-[620px] w-full overflow-hidden bg-base will-change-transform"
+          className="relative h-[100svh] min-h-[620px] w-full overflow-hidden bg-base"
         >
-          {/* ── CROSSFADE CINEMA ── */}
-          <div ref={slidesRef} className="absolute inset-0 will-change-transform">
+          {/* ── SLIDESHOW ── */}
+          <div className="absolute inset-0">
             {SLIDES.map((src, i) => (
               <div
                 key={src}
-                data-slide
-                className={cn("absolute inset-0", i === 0 ? "opacity-100" : "opacity-0")}
+                className={cn(
+                  "absolute inset-0 transition-opacity ease-linear motion-reduce:transition-none",
+                  i === active && visible ? "opacity-100" : "opacity-0"
+                )}
+                style={{ transitionDuration: `${FADE_MS}ms` }}
               >
-                <div data-kb className="relative h-full w-full will-change-transform">
+                <div className="relative h-full w-full">
                   <Image
                     src={src}
                     alt=""
@@ -172,18 +143,6 @@ export function AboutHero() {
               </div>
             ))}
           </div>
-
-          {/* ── LIGHT SWEEP — almost invisible sunlight moving across the glass ── */}
-          <div
-            ref={sweepRef}
-            aria-hidden="true"
-            className="pointer-events-none absolute inset-y-[-10%] left-0 w-[45%] will-change-transform"
-            style={{
-              background:
-                "linear-gradient(105deg, transparent 0%, rgba(255,255,255,0.10) 45%, rgba(255,255,255,0.16) 50%, rgba(255,255,255,0.10) 55%, transparent 100%)",
-              mixBlendMode: "screen",
-            }}
-          />
 
           {/* ── CINEMATIC OVERLAYS ── */}
           {/* blue atmospheric gradient */}
@@ -256,7 +215,7 @@ export function AboutHero() {
               {/* Eyebrow — top-left */}
               <div data-hero-fade className="flex items-center gap-4">
                 <span className="h-px w-10 bg-accent-500" />
-                <span className="font-sans text-caption uppercase tracking-[0.3em] text-neutral-500">
+                <span className="font-sans text-caption uppercase tracking-[0.3em] text-neutral-900">
                   About Agriprom
                 </span>
               </div>
@@ -295,7 +254,7 @@ export function AboutHero() {
                 {/* Paragraph */}
                 <p
                   data-hero-cta
-                  className="mt-8 max-w-[56ch] text-pretty font-sans text-body-lg text-neutral-600"
+                  className="mt-8 max-w-[56ch] text-pretty font-sans text-body-lg text-neutral-900"
                 >
                   Agriprom Pakistan delivers globally trusted animal health and nutrition
                   solutions that empower veterinarians, livestock producers and distributors

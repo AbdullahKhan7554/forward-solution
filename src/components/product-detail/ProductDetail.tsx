@@ -45,7 +45,7 @@ export function ProductDetail({ data }: { data: ProductDetailData }) {
       <main className="bg-base">
         <ProductCompact
           as="h1"
-          className="mx-auto w-full max-w-container px-6 pb-[14vh] pt-[22vh] md:px-12 xl:px-20"
+          className="mx-auto w-full max-w-container px-6 pb-16 md:pb-24 pt-[22vh] md:px-12 xl:px-20"
           eyebrow={
             <a href={ruminants ? "/products/ruminants" : "/products/poultry"} className="transition-colors hover:text-primary-700">
               {data.eyebrow}

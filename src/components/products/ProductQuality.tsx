@@ -72,7 +72,7 @@ function Row({ stage, index }: { stage: Stage; index: number }) {
             className={cn(cardLeft && "md:justify-end")}
           />
         </h3>
-        <p className="mt-3 text-pretty font-sans text-body text-neutral-600">
+        <p className="mt-3 text-pretty font-sans text-body text-neutral-900">
           {stage.description}
         </p>
       </GlassCard>
@@ -183,12 +183,12 @@ export function ProductQuality() {
         }}
       />
 
-      <div className="relative mx-auto w-full max-w-container px-6 py-[18vh] md:px-12 xl:px-20">
+      <div className="relative mx-auto w-full max-w-container px-6 py-16 md:py-24 md:px-12 xl:px-20">
         {/* header */}
         <div className="mx-auto max-w-3xl text-center">
           <div data-tq-header className="mb-8 flex items-center justify-center gap-4">
             <span className="h-px w-10 bg-accent-500" />
-            <span className="font-sans text-caption uppercase tracking-[0.32em] text-neutral-500">
+            <span className="font-sans text-caption uppercase tracking-[0.32em] text-neutral-900">
               Quality Journey
             </span>
             <span className="h-px w-10 bg-accent-500" />
@@ -214,7 +214,7 @@ export function ProductQuality() {
           </h2>
           <p
             data-tq-header
-            className="mx-auto mt-8 max-w-[58ch] text-pretty font-sans text-body-lg text-neutral-600"
+            className="mx-auto mt-8 max-w-[58ch] text-pretty font-sans text-body-lg text-neutral-900"
           >
             Every product travels a rigorous journey — so what reaches your farm is exactly what
             the science intended.

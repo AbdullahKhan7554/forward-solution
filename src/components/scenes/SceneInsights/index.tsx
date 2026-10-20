@@ -37,12 +37,12 @@ export function SceneInsights() {
         }}
       />
 
-      <div className="relative mx-auto w-full max-w-container px-6 pb-[22vh] pt-[18vh] md:px-12 xl:px-20">
+      <div className="relative mx-auto w-full max-w-container px-6 py-16 md:py-24 md:px-12 xl:px-20">
         {/* HEADER */}
         <header className="max-w-3xl">
           <div data-insights-fade className="mb-7 flex items-center gap-4">
             <span className="h-px w-10 bg-accent-500" />
-            <span className="font-sans text-caption uppercase tracking-[0.32em] text-neutral-500">
+            <span className="font-sans text-caption uppercase tracking-[0.32em] text-neutral-900">
               Insights &amp; Knowledge
             </span>
           </div>
@@ -69,7 +69,7 @@ export function SceneInsights() {
 
           <p
             data-insights-fade
-            className="mt-8 max-w-[58ch] text-pretty font-sans text-body-lg text-neutral-600"
+            className="mt-8 max-w-[58ch] text-pretty font-sans text-body-lg text-neutral-900"
           >
             Stay updated with expert perspectives, animal nutrition research, poultry
             management strategies and the latest developments shaping modern livestock
@@ -95,7 +95,7 @@ export function SceneInsights() {
           <h3 className="font-display text-h3 font-light tracking-[-0.01em] text-neutral-900 md:text-[36px]">
             Want More Industry Insights?
           </h3>
-          <p className="mt-4 max-w-[46ch] font-sans text-body-lg text-neutral-600">
+          <p className="mt-4 max-w-[46ch] font-sans text-body-lg text-neutral-900">
             Explore our growing knowledge library.
           </p>
           <a

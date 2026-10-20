@@ -70,8 +70,8 @@ export function ProductMedia({
                 <path d="m21 16-5-5L5 20" />
               </svg>
             </span>
-            <span className="font-display text-h4 font-medium text-neutral-700">{label}</span>
-            <span className="font-sans text-caption uppercase tracking-[0.24em] text-neutral-400">
+            <span className="font-display text-h4 font-medium text-neutral-900">{label}</span>
+            <span className="font-sans text-caption uppercase tracking-[0.24em] text-neutral-900">
               Image placeholder
             </span>
           </div>

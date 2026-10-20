@@ -92,7 +92,7 @@ export function CategoryBlock({
           </h3>
           <p
             data-eco-fade
-            className="mt-2 max-w-[34ch] font-sans text-body text-neutral-600"
+            className="mt-2 max-w-[34ch] font-sans text-body text-neutral-900"
           >
             {description}
           </p>

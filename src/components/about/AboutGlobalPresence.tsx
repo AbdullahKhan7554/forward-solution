@@ -204,19 +204,19 @@ export function AboutGlobalPresence() {
               />
               <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-accent-500" />
             </span>
-            <span className="font-sans text-caption uppercase tracking-[0.24em] text-neutral-400">
+            <span className="font-sans text-caption uppercase tracking-[0.24em] text-neutral-900">
               {ind.label}
             </span>
           </span>
         ))}
       </div>
 
-      <div className="relative mx-auto w-full max-w-container px-6 pb-[22vh] pt-[18vh] md:px-12 xl:px-20">
+      <div className="relative mx-auto w-full max-w-container px-6 py-16 md:py-24 md:px-12 xl:px-20">
         {/* HEADER */}
         <header className="max-w-3xl">
           <div data-glob-fade className="mb-7 flex items-center gap-4">
             <span className="h-px w-10 bg-accent-500" />
-            <span className="font-sans text-caption uppercase tracking-[0.32em] text-neutral-500">
+            <span className="font-sans text-caption uppercase tracking-[0.32em] text-neutral-900">
               International Collaboration
             </span>
           </div>
@@ -243,7 +243,7 @@ export function AboutGlobalPresence() {
 
           <p
             data-glob-fade
-            className="mt-8 max-w-[56ch] text-pretty font-sans text-body-lg text-neutral-600"
+            className="mt-8 max-w-[56ch] text-pretty font-sans text-body-lg text-neutral-900"
           >
             Through long-term international partnerships, Agriprom Pakistan brings globally
             recognised animal health and nutrition science home — and keeps it moving,
@@ -266,7 +266,7 @@ export function AboutGlobalPresence() {
                   {f.icon}
                 </span>
                 <h3 className="font-display text-h4 font-medium text-neutral-900">{f.title}</h3>
-                <p className="mt-3 text-pretty font-sans text-body text-neutral-600">{f.body}</p>
+                <p className="mt-3 text-pretty font-sans text-body text-neutral-900">{f.body}</p>
               </GlassCard>
             </li>
           ))}
@@ -288,7 +288,7 @@ export function AboutGlobalPresence() {
                   {stat.suffix}
                 </span>
               </div>
-              <span className="mt-4 block font-sans text-caption uppercase tracking-[0.28em] text-neutral-500">
+              <span className="mt-4 block font-sans text-caption uppercase tracking-[0.28em] text-neutral-900">
                 {stat.label}
               </span>
             </div>

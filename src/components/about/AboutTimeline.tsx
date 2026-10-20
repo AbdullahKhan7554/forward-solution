@@ -118,7 +118,7 @@ function Row({ milestone, index }: { milestone: Milestone; index: number }) {
         <h3 className="font-display text-h3 font-medium text-neutral-900">
           <RevealText text={milestone.name} as="span" trigger="scroll" stagger={0.05} />
         </h3>
-        <p className="mt-3 text-pretty font-sans text-body text-neutral-600">
+        <p className="mt-3 text-pretty font-sans text-body text-neutral-900">
           {milestone.description}
         </p>
       </GlassCard>
@@ -227,12 +227,12 @@ export function AboutTimeline() {
         }}
       />
 
-      <div className="relative mx-auto w-full max-w-container px-6 py-[16vh] md:px-12 xl:px-20">
+      <div className="relative mx-auto w-full max-w-container px-6 py-16 md:py-24 md:px-12 xl:px-20">
         {/* Scene header */}
         <div className="mx-auto max-w-3xl text-center">
           <div className="mb-8 flex items-center justify-center gap-4">
             <span className="h-px w-10 bg-accent-500" />
-            <span className="font-sans text-caption uppercase tracking-[0.32em] text-neutral-500">
+            <span className="font-sans text-caption uppercase tracking-[0.32em] text-neutral-900">
               Our Journey
             </span>
             <span className="h-px w-10 bg-accent-500" />
@@ -256,7 +256,7 @@ export function AboutTimeline() {
               className="justify-center text-[8.5vw] text-primary-700 md:text-[4.4vw] xl:text-[56px]"
             />
           </h2>
-          <p className="mx-auto mt-8 max-w-[58ch] text-pretty font-sans text-body-lg text-neutral-600">
+          <p className="mx-auto mt-8 max-w-[58ch] text-pretty font-sans text-body-lg text-neutral-900">
             From a single conviction to a nationwide partner in animal health — the milestones
             that shaped Agriprom Pakistan.
           </p>

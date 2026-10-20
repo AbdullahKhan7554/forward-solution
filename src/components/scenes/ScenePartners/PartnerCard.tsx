@@ -58,7 +58,7 @@ export function PartnerCard({
           >
             {partner.name}
           </p>
-          <p className="mt-1.5 font-sans text-caption uppercase tracking-[0.18em] text-neutral-500 opacity-70 transition-opacity duration-150 ease-brand-out group-hover:opacity-100 group-focus-visible:opacity-100">
+          <p className="mt-1.5 font-sans text-caption uppercase tracking-[0.18em] text-neutral-900 opacity-70 transition-opacity duration-150 ease-brand-out group-hover:opacity-100 group-focus-visible:opacity-100">
             {partner.description}
           </p>
         </div>

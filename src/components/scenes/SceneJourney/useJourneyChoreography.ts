@@ -6,16 +6,13 @@ import { gsap, ScrollTrigger } from "@/lib/gsap";
 
 /**
  * useJourneyChoreography - scene choreography for Scene 06. No new utilities:
- * images/names reveal via MaskedReveal / RevealText themselves; the sticky melt
- * is pure CSS stacking. This hook only adds:
+ * images/names reveal via MaskedReveal / RevealText themselves. This hook only
+ * adds:
  *
- *   PUSH  - each chapter image scales up slowly while its chapter is held
- *           (the almost-invisible dolly), scrubbed to that chapter's scroll.
  *   FADE  - index / description / rule fade up as each chapter enters
  *           (ScrollTrigger.batch), earned by scroll.
  *
- * Reduced motion: nothing runs; every element is visible and static, chapters
- * stack vertically (sticky is not applied in the view under reduced motion).
+ * Reduced motion: nothing runs; every element is visible and static.
  */
 export function useJourneyChoreography(rootRef: RefObject<HTMLElement>) {
   useIsomorphicLayoutEffect(() => {

@@ -134,12 +134,12 @@ export function ArticlesGrid() {
         }}
       />
 
-      <div className="relative mx-auto w-full max-w-container px-6 pb-[20vh] pt-[14vh] md:px-12 xl:px-20">
+      <div className="relative mx-auto w-full max-w-container px-6 py-16 md:py-24 md:px-12 xl:px-20">
         {/* HEADER */}
         <header className="mx-auto max-w-3xl text-center">
           <div data-blog-fade className="mb-6 flex items-center justify-center gap-4">
             <span className="h-px w-10 bg-accent-500" />
-            <span className="font-sans text-caption uppercase tracking-[0.32em] text-neutral-500">
+            <span className="font-sans text-caption uppercase tracking-[0.32em] text-neutral-900">
               All Articles
             </span>
           </div>
@@ -176,7 +176,7 @@ export function ArticlesGrid() {
 
         {/* empty state (a filter with no articles yet) */}
         {shown.length === 0 && (
-          <p className="mt-14 text-center font-sans text-body text-neutral-500">
+          <p className="mt-14 text-center font-sans text-body text-neutral-900">
             New articles in this category are on the way.
           </p>
         )}

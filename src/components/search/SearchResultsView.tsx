@@ -54,12 +54,12 @@ function ResultCard({ item }: { item: SearchItem }) {
           {item.title}
         </h3>
         {item.category && (
-          <span className="mt-3 inline-flex w-fit rounded-full border border-neutral-200 bg-white/70 px-3 py-1 font-sans text-[11px] uppercase tracking-[0.14em] text-neutral-500">
+          <span className="mt-3 inline-flex w-fit rounded-full border border-neutral-200 bg-white/70 px-3 py-1 font-sans text-[11px] uppercase tracking-[0.14em] text-neutral-900">
             {item.category}
           </span>
         )}
         {item.description && (
-          <p className="mt-4 text-pretty font-sans text-small leading-[1.6] text-neutral-600">
+          <p className="mt-4 text-pretty font-sans text-small leading-[1.6] text-neutral-900">
             {item.description}
           </p>
         )}
@@ -90,7 +90,7 @@ function EmptyState({ query }: { query: string }) {
       <h3 className="mt-8 font-display text-h3 font-light text-neutral-900">
         Nothing found{query ? " for that" : ""}
       </h3>
-      <p className="mt-4 max-w-[44ch] font-sans text-body-lg text-neutral-500">
+      <p className="mt-4 max-w-[44ch] font-sans text-body-lg text-neutral-900">
         {query
           ? "We couldn't match your search. Try a product name, a category, or a topic like “mycotoxins” or “enzymes”."
           : "Start typing to search products, blogs, services and pages."}
@@ -180,12 +180,12 @@ export function SearchResultsView() {
         }}
       />
 
-      <div className="relative mx-auto w-full max-w-container px-6 pb-[16vh] pt-[20vh] md:px-12 xl:px-20">
+      <div className="relative mx-auto w-full max-w-container px-6 pb-16 md:pb-24 pt-[20vh] md:px-12 xl:px-20">
         {/* HEADER */}
         <header className="max-w-3xl">
           <div className="mb-7 flex items-center gap-4">
             <span className="h-px w-10 bg-accent-500" />
-            <span className="font-sans text-caption uppercase tracking-[0.32em] text-neutral-500">
+            <span className="font-sans text-caption uppercase tracking-[0.32em] text-neutral-900">
               Search
             </span>
           </div>
@@ -203,7 +203,7 @@ export function SearchResultsView() {
         {/* SEARCH INPUT */}
         <div className="mt-12 max-w-2xl">
           <div className="flex items-center gap-4 rounded-2xl border border-white/70 bg-white/85 px-6 py-5 shadow-glass">
-            <span aria-hidden="true" className="text-neutral-400">
+            <span aria-hidden="true" className="text-neutral-900">
               <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
                 <circle cx="11" cy="11" r="7" />
                 <path d="m21 21-4.3-4.3" />
@@ -223,7 +223,7 @@ export function SearchResultsView() {
                 type="button"
                 onClick={() => setQuery("")}
                 aria-label="Clear search"
-                className="shrink-0 text-neutral-400 transition-colors duration-200 ease-brand-out hover:text-neutral-700"
+                className="shrink-0 text-neutral-900 transition-colors duration-200 ease-brand-out hover:text-neutral-700"
               >
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M18 6 6 18M6 6l12 12" />
@@ -239,16 +239,16 @@ export function SearchResultsView() {
             <BlogFilters filters={FILTERS} active={filter} onSelect={setFilter} />
           </div>
           <div className="flex items-center gap-4">
-            <span className="hidden font-sans text-caption uppercase tracking-[0.16em] text-neutral-400 sm:inline">
+            <span className="hidden font-sans text-caption uppercase tracking-[0.16em] text-neutral-900 sm:inline">
               {sorted.length} result{sorted.length === 1 ? "" : "s"}
             </span>
             <label className="flex items-center gap-2.5">
-              <span className="font-sans text-caption uppercase tracking-[0.16em] text-neutral-400">Sort</span>
+              <span className="font-sans text-caption uppercase tracking-[0.16em] text-neutral-900">Sort</span>
               <select
                 value={sort}
                 onChange={(e) => setSort(e.target.value as Sort)}
                 aria-label="Sort results"
-                className="rounded-full border border-neutral-200 bg-white/70 py-2 pl-4 pr-9 font-sans text-small font-medium text-neutral-700 shadow-glass outline-none transition-colors duration-200 ease-brand-out focus-visible:ring-2 focus-visible:ring-accent-500"
+                className="rounded-full border border-neutral-200 bg-white/70 py-2 pl-4 pr-9 font-sans text-small font-medium text-neutral-900 shadow-glass outline-none transition-colors duration-200 ease-brand-out focus-visible:ring-2 focus-visible:ring-accent-500"
                 style={{
                   appearance: "none",
                   backgroundImage:
@@ -345,7 +345,7 @@ function PageButton({
         "inline-flex h-11 min-w-[44px] items-center justify-center rounded-full px-3 font-sans text-small font-medium outline-none transition-all duration-300 ease-brand-out focus-visible:ring-2 focus-visible:ring-accent-500 disabled:cursor-not-allowed disabled:opacity-35",
         active
           ? "bg-primary-600 text-pure shadow-soft"
-          : "border border-white/60 bg-white/85 text-neutral-600 shadow-glass hover:-translate-y-px hover:border-accent-300/60 hover:text-primary-700"
+          : "border border-white/60 bg-white/85 text-neutral-900 shadow-glass hover:-translate-y-px hover:border-accent-300/60 hover:text-primary-700"
       )}
     >
       {children}

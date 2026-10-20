@@ -93,11 +93,11 @@ export function ProductBrands() {
     >
       <WorldMap />
 
-      <div className="relative mx-auto w-full max-w-container px-6 pb-[22vh] pt-[18vh] md:px-12 xl:px-20">
+      <div className="relative mx-auto w-full max-w-container px-6 py-16 md:py-24 md:px-12 xl:px-20">
         <header className="max-w-3xl">
           <div data-brand-header className="mb-7 flex items-center gap-4">
             <span className="h-px w-10 bg-accent-500" />
-            <span className="font-sans text-caption uppercase tracking-[0.32em] text-neutral-500">
+            <span className="font-sans text-caption uppercase tracking-[0.32em] text-neutral-900">
               International Brands
             </span>
           </div>
@@ -123,7 +123,7 @@ export function ProductBrands() {
 
           <p
             data-brand-header
-            className="mt-8 max-w-[56ch] text-pretty font-sans text-body-lg text-neutral-600"
+            className="mt-8 max-w-[56ch] text-pretty font-sans text-body-lg text-neutral-900"
           >
             Every Agriprom product is backed by a globally recognised manufacturer — the science
             and standards of the world&rsquo;s best, delivered to Pakistan.

@@ -139,7 +139,7 @@ function SolutionCard({ solution, index }: { solution: Solution; index: number }
 
           <ul data-feat-fade className="mt-7 flex flex-col gap-3">
             {solution.benefits.map((b) => (
-              <li key={b} className="flex items-center gap-3 font-sans text-body text-neutral-700">
+              <li key={b} className="flex items-center gap-3 font-sans text-body text-neutral-900">
                 <span className="inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-accent-100 text-accent-700">
                   <Check />
                 </span>
@@ -149,10 +149,10 @@ function SolutionCard({ solution, index }: { solution: Solution; index: number }
           </ul>
 
           <div data-feat-fade className="mt-8 border-t border-neutral-200/80 pt-6">
-            <span className="font-sans text-caption uppercase tracking-[0.24em] text-neutral-400">
+            <span className="font-sans text-caption uppercase tracking-[0.24em] text-neutral-900">
               Application
             </span>
-            <p className="mt-2 font-sans text-body text-neutral-600">{solution.application}</p>
+            <p className="mt-2 font-sans text-body text-neutral-900">{solution.application}</p>
           </div>
 
           <a
@@ -247,12 +247,12 @@ export function FeaturedSolutions() {
         }}
       />
 
-      <div className="relative mx-auto w-full max-w-container px-6 py-[18vh] md:px-12 xl:px-20">
+      <div className="relative mx-auto w-full max-w-container px-6 py-16 md:py-24 md:px-12 xl:px-20">
         {/* HEADER */}
         <header className="max-w-3xl">
           <div data-feat-header className="mb-7 flex items-center gap-4">
             <span className="h-px w-10 bg-accent-500" />
-            <span className="font-sans text-caption uppercase tracking-[0.32em] text-neutral-500">
+            <span className="font-sans text-caption uppercase tracking-[0.32em] text-neutral-900">
               Featured Solutions
             </span>
           </div>

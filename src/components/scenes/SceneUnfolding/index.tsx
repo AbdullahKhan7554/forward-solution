@@ -96,14 +96,14 @@ export function SceneUnfolding() {
         }}
       />
 
-      <div className="relative mx-auto w-full max-w-container px-6 py-[18vh] md:px-12 xl:px-20">
+      <div className="relative mx-auto w-full max-w-container px-6 py-16 md:py-24 md:px-12 xl:px-20">
         {/* editorial two-column: story left, collage right */}
         <div className="grid grid-cols-1 items-center gap-x-12 gap-y-14 lg:grid-cols-2">
           {/* LEFT — text + CTA */}
           <div className="max-w-xl">
             <div data-about-text className="mb-7 flex items-center gap-4">
               <span className="h-px w-10 bg-accent-500" />
-              <span className="font-sans text-caption uppercase tracking-[0.3em] text-neutral-500">
+              <span className="font-sans text-caption uppercase tracking-[0.3em] text-neutral-900">
                 About Agriprom Pakistan
               </span>
             </div>
@@ -128,7 +128,7 @@ export function SceneUnfolding() {
               />
             </h2>
 
-            <p data-about-text className="mt-8 text-pretty font-sans text-body-lg text-neutral-700">
+            <p data-about-text className="mt-8 text-pretty font-sans text-body-lg text-neutral-900">
               With over a decade of experience in the Poultry and Dairy sectors, AGRIPROM
               PAKISTAN addresses emerging challenges at the grassroots level in Pakistan. Our
               innovative solutions are designed to meet the evolving needs of the poultry and

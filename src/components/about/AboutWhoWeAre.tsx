@@ -10,17 +10,12 @@ import { GlassCard } from "@/components/scenes/SceneInnovation/GlassCard";
 /**
  * ABOUT · SCENE 02 — WHO WE ARE.
  *
- * The elegant storytelling beat after the cinematic hero: text + CTA on the left,
- * a luxury editorial image collage on the right (large / overlapping / floating,
- * different elevations, generous negative space). On enter the heading, paragraph
- * and button reveal, then the images stagger in (fade + rise + subtle scale-down);
- * afterward each image drifts independently on scroll. Reuses every design/motion
- * token — nothing new invented. transform/opacity only.
+ * The storytelling beat after the hero: text + CTA on the left, a single static
+ * image on the right in normal flow. On enter the heading, paragraph and button
+ * reveal. Reuses every design/motion token — nothing new invented.
  */
 
-const IMG_LAB = "/images/heroabout/h1.jpg"; // large — the environment
-const IMG_TEAM = "/images/heroabout/ChatGPT Image Jul 2, 2026, 06_50_41 PM.png"; // overlapping — the people
-const IMG_SCIENCE = "/images/heroabout/h6.png"; // floating — the science
+const IMG_LAB = "/images/heroabout/h1.jpg";
 
 type Pillar = { label: string; title: string; body: string };
 
@@ -42,31 +37,6 @@ const PILLARS: Pillar[] = [
   },
 ];
 
-/** One collage image — reveal target › hover surface. */
-function CollageImage({
-  src,
-  className,
-  sizes,
-  priority,
-}: {
-  src: string;
-  className: string;
-  sizes: string;
-  priority?: boolean;
-}) {
-  return (
-    <div className={className}>
-      <div data-about-img className="h-full w-full">
-        <div className="group h-full w-full overflow-hidden rounded-xl shadow-soft transition-[transform,box-shadow] duration-[250ms] ease-brand-out will-change-transform hover:-translate-y-2 hover:scale-[1.02] hover:shadow-medium">
-          <div className="relative h-full w-full">
-            <Image src={src} alt="" fill sizes={sizes} priority={priority} className="object-cover" />
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-}
-
 export function AboutWhoWeAre() {
   const rootRef = useRef<HTMLElement>(null);
 
@@ -82,17 +52,15 @@ export function AboutWhoWeAre() {
     const ctx = gsap.context(() => {
       // prime hidden states before paint
       gsap.set("[data-about-text]", { autoAlpha: 0, y: 50 });
-      gsap.set("[data-about-img]", { autoAlpha: 0, y: 50, scale: 1.08 });
       gsap.set("[data-who-line]", { scaleX: 0, transformOrigin: "0% 50%" });
       gsap.set("[data-who-card]", { autoAlpha: 0, y: 26 });
 
-      // reveal: text (heading → paragraph → button) then images, staggered
+      // reveal: text (heading → paragraph → button), staggered
       const tl = gsap.timeline({
         defaults: { ease: "power4.out", duration: 0.8 },
         scrollTrigger: { trigger: root, start: "top 70%", toggleActions: "play none none none" },
       });
       tl.to("[data-about-text]", { autoAlpha: 1, y: 0, stagger: 0.15 }, 0.1);
-      tl.to("[data-about-img]", { autoAlpha: 1, y: 0, scale: 1, stagger: 0.15 }, 0.35);
 
       // pillars settle in as they enter
       ScrollTrigger.batch("[data-who-card]", {
@@ -140,14 +108,14 @@ export function AboutWhoWeAre() {
         }}
       />
 
-      <div className="relative mx-auto w-full max-w-container px-6 py-[18vh] md:px-12 xl:px-20">
-        {/* editorial two-column: story left, collage right */}
+      <div className="relative mx-auto w-full max-w-container px-6 py-16 md:py-24 md:px-12 xl:px-20">
+        {/* editorial two-column: story left, image right */}
         <div className="grid grid-cols-1 items-center gap-x-12 gap-y-14 lg:grid-cols-2">
           {/* LEFT — text + CTA */}
           <div className="max-w-xl">
             <div data-about-text className="mb-7 flex items-center gap-4">
               <span className="h-px w-10 bg-accent-500" />
-              <span className="font-sans text-caption uppercase tracking-[0.3em] text-neutral-500">
+              <span className="font-sans text-caption uppercase tracking-[0.3em] text-neutral-900">
                 Who We Are
               </span>
             </div>
@@ -172,12 +140,12 @@ export function AboutWhoWeAre() {
               />
             </h2>
 
-            <p data-about-text className="mt-8 text-pretty font-sans text-body-lg text-neutral-700">
+            <p data-about-text className="mt-8 text-pretty font-sans text-body-lg text-neutral-900">
               Agriprom Pakistan exists to bring globally-qualified animal health and nutrition
               science to the veterinarians, livestock producers and distributors who feed the
               nation.
             </p>
-            <p data-about-text className="mt-5 text-pretty font-sans text-body text-neutral-600">
+            <p data-about-text className="mt-5 text-pretty font-sans text-body text-neutral-900">
               We pair world-class manufacturing partnerships with deep local understanding —
               delivering vaccines, feed additives, biosecurity and nutrition that raise the
               standard of productivity across every province.
@@ -198,25 +166,14 @@ export function AboutWhoWeAre() {
             </a>
           </div>
 
-          {/* RIGHT — luxury floating image collage */}
-          <div className="relative flex flex-col gap-6 md:block md:min-h-[560px] xl:min-h-[640px]">
-            {/* large — the environment */}
-            <CollageImage
+          {/* RIGHT — single static image */}
+          <div className="relative aspect-[4/3] w-full overflow-hidden rounded-xl shadow-soft">
+            <Image
               src={IMG_LAB}
-              sizes="(max-width: 768px) 100vw, 40vw"
-              className="relative aspect-[4/3] w-full md:absolute md:right-0 md:top-[4%] md:z-10 md:aspect-[4/3] md:w-[76%]"
-            />
-            {/* overlapping — the people */}
-            <CollageImage
-              src={IMG_TEAM}
-              sizes="(max-width: 768px) 100vw, 28vw"
-              className="relative aspect-[4/5] w-full md:absolute md:bottom-0 md:left-0 md:z-20 md:aspect-[4/5] md:w-[52%]"
-            />
-            {/* floating — the science */}
-            <CollageImage
-              src={IMG_SCIENCE}
-              sizes="(max-width: 768px) 100vw, 18vw"
-              className="relative aspect-square w-2/3 md:absolute md:left-[8%] md:top-0 md:z-30 md:aspect-square md:w-[30%]"
+              alt=""
+              fill
+              sizes="(max-width: 1024px) 100vw, 50vw"
+              className="object-cover"
             />
           </div>
         </div>
@@ -231,7 +188,7 @@ export function AboutWhoWeAre() {
                   <h3 className="font-display text-h4 font-medium text-neutral-900">
                     {pillar.title}
                   </h3>
-                  <p className="mt-3 text-pretty font-sans text-body text-neutral-600">
+                  <p className="mt-3 text-pretty font-sans text-body text-neutral-900">
                     {pillar.body}
                   </p>
                 </GlassCard>

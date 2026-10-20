@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, type MutableRefObject, type RefObject } from "react";
+import { useState, type RefObject } from "react";
 import { useIsomorphicLayoutEffect } from "@/hooks/useIsomorphicLayoutEffect";
 import { gsap, ScrollTrigger } from "@/lib/gsap";
 
@@ -12,16 +12,12 @@ import { gsap, ScrollTrigger } from "@/lib/gsap";
  *              reveal the deep field: the lights lower as you enter the room.
  *   REVEAL   - slate settles -> the vision surfaces clause-by-clause (lit by
  *              one sheen) -> the body fades up.
- *   PARALLAX - scrubbed, subtle vertical drift.
- *   DISSOLVE - the tail blooms back to white for the next scene.
- *   DEPTH    - almost-imperceptible mouse parallax on the background.
  *
- * `scrollProgressRef` feeds the WebGL particles. Returns `inView` to gate the
+ * Plays once on entry. Returns `inView` to gate the
  * heading. Reduced motion: static dark scene, fully legible, zero motion.
  */
 export function useVisionChoreography(
-  rootRef: RefObject<HTMLElement>,
-  scrollProgressRef: MutableRefObject<number>
+  rootRef: RefObject<HTMLElement>
 ) {
   const [inView, setInView] = useState(false);
 
@@ -71,7 +67,7 @@ export function useVisionChoreography(
       ctx.revert();
       ScrollTrigger.refresh();
     };
-  }, [rootRef, scrollProgressRef]);
+  }, [rootRef]);
 
   return { inView };
 }

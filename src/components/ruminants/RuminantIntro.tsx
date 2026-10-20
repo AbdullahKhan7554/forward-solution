@@ -42,7 +42,7 @@ export function RuminantIntro() {
         className="pointer-events-none absolute inset-0"
         style={{ background: "radial-gradient(75% 55% at 22% 8%, rgba(234,242,247,0.55) 0%, rgba(255,255,255,0) 58%)" }}
       />
-      <div className="relative mx-auto w-full max-w-container px-6 py-[20vh] md:px-12 xl:px-20">
+      <div className="relative mx-auto w-full max-w-container px-6 py-16 md:py-24 md:px-12 xl:px-20">
         <div className="grid grid-cols-1 items-start gap-x-16 gap-y-10 md:grid-cols-12">
           <h2 id="ruminant-intro-heading" className="font-display font-light leading-[1.06] tracking-[-0.015em] text-neutral-900 md:col-span-7">
             <RevealText text="Nutrition That Works" as="span" trigger="scroll" stagger={0.06} className="justify-start text-[8.5vw] md:text-[4.4vw] xl:text-[56px]" />
@@ -50,11 +50,11 @@ export function RuminantIntro() {
           </h2>
 
           <div className="space-y-6 md:col-span-4 md:col-start-9 md:pt-3">
-            <p data-ri-fade className="text-pretty font-sans text-body-lg text-neutral-700">
+            <p data-ri-fade className="text-pretty font-sans text-body-lg text-neutral-900">
               Ruminants digest through a living fermentation vat — the rumen — where microbes turn
               fibre into energy and protein. Feeding them well means feeding that ecosystem first.
             </p>
-            <p data-ri-fade className="text-pretty font-sans text-body text-neutral-600">
+            <p data-ri-fade className="text-pretty font-sans text-body text-neutral-900">
               Agriprom&rsquo;s ruminant range protects nutrients from rumen degradation, safeguards
               feed and liver health, and supports fertility, immunity and comfort — so every cow
               performs closer to her genetic potential.

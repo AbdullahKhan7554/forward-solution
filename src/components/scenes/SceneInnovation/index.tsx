@@ -21,13 +21,12 @@ import { useInnovationChoreography } from "./useInnovationChoreography";
  */
 export function SceneInnovation() {
   const rootRef = useRef<HTMLElement>(null);
-  const scrollProgress = useRef(0);
-  const { inView } = useInnovationChoreography(rootRef, scrollProgress);
+  const { inView } = useInnovationChoreography(rootRef);
 
   return (
     <section ref={rootRef} aria-labelledby="mission-heading" className="relative bg-pure">
-      <div className="relative h-[210svh]">
-        <div className="sticky top-0 flex min-h-[100svh] items-center overflow-hidden">
+      <div className="relative">
+        <div className="relative flex items-center overflow-hidden">
           <div data-innov-dissolve className="relative w-full">
             {/* atmospheric brighten */}
             <div
@@ -65,13 +64,12 @@ export function SceneInnovation() {
 
             {/* the statement */}
             <div
-              data-parallax-content
-              className="relative z-raised mx-auto w-full max-w-container px-6 py-[14vh] will-change-transform md:px-12 md:py-0 xl:px-20"
+              className="relative z-raised mx-auto w-full max-w-container px-6 py-16 md:py-24 md:px-12 xl:px-20"
             >
               {/* slate + eyebrow */}
               <div data-innov-eyebrow className="mb-8 flex items-center gap-4">
                 <span className="h-px w-10 bg-accent-500" />
-                <span className="font-sans text-caption uppercase tracking-[0.32em] text-neutral-500">
+                <span className="font-sans text-caption uppercase tracking-[0.32em] text-neutral-900">
                   Our Mission
                 </span>
               </div>
@@ -114,14 +112,14 @@ export function SceneInnovation() {
               <div className="mt-10 max-w-2xl space-y-5">
                 <p
                   data-innov-fade
-                  className="text-pretty font-sans text-body-lg text-neutral-600"
+                  className="text-pretty font-sans text-body-lg text-neutral-900"
                 >
                   We constantly endeavor to understand the needs of our clients, and the
                   livestock industry, and identify opportunities, to provide solutions.
                 </p>
                 <p
                   data-innov-fade
-                  className="text-pretty font-sans text-body-lg text-neutral-600"
+                  className="text-pretty font-sans text-body-lg text-neutral-900"
                 >
                   We continuously upgrade our products and conceptual services to improve
                   the economy and productivity of livestock farmers, both at the farm and

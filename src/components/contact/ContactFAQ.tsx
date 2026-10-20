@@ -100,7 +100,7 @@ function AccordionItem({
         ref={bodyRef}
         className="h-0 overflow-hidden"
       >
-        <p className="max-w-[64ch] pb-9 pr-10 font-sans text-body-lg leading-[1.7] text-neutral-600">
+        <p className="max-w-[64ch] pb-9 pr-10 font-sans text-body-lg leading-[1.7] text-neutral-900">
           {item.a}
         </p>
       </div>
@@ -151,13 +151,8 @@ export function ContactFAQ() {
       aria-labelledby="faq-heading"
       className="relative overflow-hidden bg-pure"
     >
-      <div className="relative mx-auto w-full max-w-4xl px-6 py-[16vh] md:px-8">
+      <div className="relative mx-auto w-full max-w-4xl px-6 py-16 md:py-24 md:px-8">
         <header className="mb-[9vh] text-center">
-          <div data-faq-fade className="mb-8 flex items-center justify-center gap-4">
-            <span className="font-sans text-caption tracking-[0.2em] text-neutral-400"></span>
-            <span className="h-px w-10 bg-neutral-300" />
-            <span className="font-serif text-small italic text-neutral-400"></span>
-          </div>
           <h2
             id="faq-heading"
             className="font-display font-light leading-[1.05] tracking-[-0.015em] text-neutral-900"

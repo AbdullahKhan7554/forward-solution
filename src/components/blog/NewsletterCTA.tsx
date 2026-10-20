@@ -50,11 +50,11 @@ export function NewsletterCTA() {
         />
       </div>
 
-      <div className="relative mx-auto flex min-h-[76svh] w-full max-w-container flex-col items-center justify-center px-6 py-[16vh] text-center md:px-12">
+      <div className="relative mx-auto flex w-full max-w-container flex-col items-center justify-center px-6 py-16 md:py-24 text-center md:px-12">
         <div data-cta-scale className="flex w-full max-w-[720px] flex-col items-center">
           <div data-cta-fade className="mb-8 flex items-center gap-4">
             <span className="h-px w-10 bg-accent-500" />
-            <span className="font-sans text-caption uppercase tracking-[0.32em] text-neutral-500">
+            <span className="font-sans text-caption uppercase tracking-[0.32em] text-neutral-900">
               Stay Informed
             </span>
           </div>
@@ -81,7 +81,7 @@ export function NewsletterCTA() {
 
           <p
             data-cta-fade
-            className="mt-8 max-w-[56ch] text-pretty font-sans text-body-lg text-neutral-600"
+            className="mt-8 max-w-[56ch] text-pretty font-sans text-body-lg text-neutral-900"
           >
             Join our newsletter for the latest research, nutrition insights and practical
             guidance from the Agriprom team — a few emails a month, never more.
@@ -128,7 +128,7 @@ export function NewsletterCTA() {
             </form>
           )}
 
-          <p data-cta-fade className="mt-5 font-sans text-caption text-neutral-400">
+          <p data-cta-fade className="mt-5 font-sans text-caption text-neutral-900">
             No spam. Unsubscribe anytime.
           </p>
         </div>

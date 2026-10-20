@@ -139,24 +139,12 @@ export function ContactHero() {
             >
               <div data-hero-fade className="flex items-center gap-4">
                 <span className="h-px w-10 bg-accent-500" />
-                <span className="font-sans text-caption uppercase tracking-[0.3em] text-neutral-500">
+                <span className="font-sans text-caption uppercase tracking-[0.3em] text-neutral-900">
                  
                 </span>
               </div>
 
               <div className="max-w-3xl">
-                <div className="mb-6 flex items-center gap-4">
-                  <span
-                    data-hero-fade
-                    className="font-sans text-caption tracking-[0.2em] text-neutral-400"
-                  >
-                    
-                  </span>
-                  <span data-hero-line className="h-px flex-1 bg-neutral-300" />
-                  <span data-hero-fade className="font-serif text-small italic text-neutral-400">
-                    
-                  </span>
-                </div>
 
                 <h1 className="relative overflow-hidden pb-[0.08em] font-display font-light text-neutral-900">
                   <span
@@ -188,7 +176,7 @@ export function ContactHero() {
 
                 <p
                   data-hero-cta
-                  className="mt-8 max-w-[56ch] text-pretty font-sans text-body-lg text-neutral-600"
+                  className="mt-8 max-w-[56ch] text-pretty font-sans text-body-lg text-neutral-900"
                 >
                   Whether you&rsquo;re a veterinarian, producer or distributor, our team across
                   Pakistan is ready to help — available around the clock.

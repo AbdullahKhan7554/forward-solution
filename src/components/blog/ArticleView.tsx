@@ -73,7 +73,7 @@ export function ArticleView({
           {/* back link */}
           <a
             href="/blog"
-            className="group inline-flex items-center gap-2.5 font-sans text-small font-medium text-neutral-500 outline-none transition-colors duration-200 ease-brand-out hover:text-primary-700 focus-visible:text-primary-700"
+            className="group inline-flex items-center gap-2.5 font-sans text-small font-medium text-neutral-900 outline-none transition-colors duration-200 ease-brand-out hover:text-primary-700 focus-visible:text-primary-700"
           >
             <span
               aria-hidden="true"
@@ -87,7 +87,7 @@ export function ArticleView({
           {/* category slate */}
           <div className="mb-7 mt-10 flex items-center gap-4">
             <span className="h-px w-10 bg-accent-500" />
-            <span className="font-sans text-caption uppercase tracking-[0.28em] text-neutral-500">
+            <span className="font-sans text-caption uppercase tracking-[0.28em] text-neutral-900">
               {article.category}
             </span>
           </div>
@@ -104,8 +104,8 @@ export function ArticleView({
           </h1>
 
           {/* byline */}
-          <div className="mt-9 flex flex-wrap items-center gap-x-3 gap-y-2 font-sans text-caption uppercase tracking-[0.16em] text-neutral-400">
-            <span className="text-neutral-600">{article.author}</span>
+          <div className="mt-9 flex flex-wrap items-center gap-x-3 gap-y-2 font-sans text-caption uppercase tracking-[0.16em] text-neutral-900">
+            <span className="text-neutral-900">{article.author}</span>
             <span className="h-1 w-1 rounded-full bg-neutral-300" />
             <span>{article.date}</span>
             <span className="h-1 w-1 rounded-full bg-neutral-300" />
@@ -149,7 +149,7 @@ export function ArticleView({
                 <p
                   key={j}
                   data-article-fade
-                  className="mt-5 text-pretty font-sans text-body-lg leading-[1.75] text-neutral-600"
+                  className="mt-5 text-pretty font-sans text-body-lg leading-[1.75] text-neutral-900"
                 >
                   {p}
                 </p>
@@ -173,7 +173,7 @@ export function ArticleView({
                       aria-hidden="true"
                       className="mt-[0.55em] h-1.5 w-1.5 shrink-0 rounded-full bg-accent-500"
                     />
-                    <span className="font-sans text-body-lg leading-[1.6] text-neutral-700">
+                    <span className="font-sans text-body-lg leading-[1.6] text-neutral-900">
                       {t}
                     </span>
                   </li>
@@ -214,12 +214,12 @@ export function ArticleView({
                 "radial-gradient(66% 44% at 22% 4%, rgba(219,239,231,0.3) 0%, rgba(255,255,255,0) 58%)",
             }}
           />
-          <div className="relative mx-auto w-full max-w-container px-6 py-[14vh] md:px-12 xl:px-20">
+          <div className="relative mx-auto w-full max-w-container px-6 py-16 md:py-24 md:px-12 xl:px-20">
             <header className="mb-[7vh] flex items-center gap-4">
               <span className="h-px w-10 bg-accent-500" />
               <span
                 id="related-heading"
-                className="font-sans text-caption uppercase tracking-[0.32em] text-neutral-500"
+                className="font-sans text-caption uppercase tracking-[0.32em] text-neutral-900"
               >
                 Continue Reading
               </span>

@@ -7,10 +7,7 @@ import { ScrollCue } from "./ScrollCue";
 /**
  * SCENE 01 - THE THRESHOLD
  *
- * A sticky "stage" holds the scene for one-and-a-bit viewports of scroll. That
- * scroll drives a single scrubbed timeline (DOM parallax + fade) AND feeds a
- * plain ref the WebGL reads each frame (camera push + particle drift). One
- * scroll, every layer moving in concert - the world recedes as we move forward.
+ * A single full-viewport hero stage; no scroll-linked motion.
  */
 export function SceneThreshold() {
   const outerRef = useRef<HTMLDivElement>(null);
@@ -23,7 +20,7 @@ export function SceneThreshold() {
       aria-label="Empowering Animal Health And Productivity Through Innovative Feed Additives"
       className="relative"
     >
-      {/* Scroll runway for the sticky stage (all within Scene 01). */}
+      {/* Hero stage */}
       <div ref={outerRef} className="relative">
         <div className="relative h-[100svh] min-h-[620px] w-full overflow-hidden bg-base">
           {/* static atmosphere gradient */}

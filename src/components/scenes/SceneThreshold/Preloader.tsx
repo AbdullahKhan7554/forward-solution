@@ -11,7 +11,8 @@ import { gsap } from "@/lib/gsap";
  * Just the brand logo on the base field: it surfaces, holds a beat, then
  * dissolves as the curtain lifts into the hero. It calls complete() at the same
  * moment as before, so the hero reveal timing is unchanged. Reduced motion: an
- * instant calm dissolve.
+ * instant calm dissolve. Skipped entirely after the first visit in a session
+ * (see IntroProvider).
  *
  * `caption` is kept in the props for API compatibility (no longer rendered);
  * `ariaLabel` still names the curtain for screen readers.
@@ -22,12 +23,14 @@ export function Preloader({
   caption?: string;
   ariaLabel?: string;
 } = {}) {
-  const { complete } = useIntro();
+  const { complete, preloader } = useIntro();
   const rootRef = useRef<HTMLDivElement>(null);
   const logoRef = useRef<HTMLImageElement>(null);
   const [gone, setGone] = useState(false);
 
   useIsomorphicLayoutEffect(() => {
+    if (preloader !== "play") return;
+
     const reduced =
       typeof window !== "undefined" &&
       window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -59,9 +62,9 @@ export function Preloader({
     }, rootRef);
 
     return () => ctx.revert();
-  }, [complete]);
+  }, [complete, preloader]);
 
-  if (gone) return null;
+  if (gone || preloader === "skip") return null;
 
   return (
     <div

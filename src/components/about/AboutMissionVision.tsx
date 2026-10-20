@@ -90,7 +90,7 @@ export function AboutMissionVision() {
         }}
       />
 
-      <div className="relative mx-auto w-full max-w-container px-6 py-[18vh] md:px-12 xl:px-20">
+      <div className="relative mx-auto w-full max-w-container px-6 py-16 md:py-24 md:px-12 xl:px-20">
         <span id="about-mv-heading" className="sr-only">
           Our Mission and Vision
         </span>
@@ -119,7 +119,7 @@ export function AboutMissionVision() {
                   className="justify-start text-[8vw] md:text-[3.4vw] xl:text-[42px]"
                 />
               </h3>
-              <p className="mt-7 max-w-[46ch] text-pretty font-sans text-body-lg text-neutral-600">
+              <p className="mt-7 max-w-[46ch] text-pretty font-sans text-body-lg text-neutral-900">
                 To advance animal health and productivity across Pakistan by delivering
                 globally-qualified, science-driven solutions — with integrity, quality and
                 unwavering support for the people who raise the nation&rsquo;s livestock.
@@ -149,7 +149,7 @@ export function AboutMissionVision() {
                   className="justify-start text-[8vw] md:text-[3.4vw] xl:text-[42px]"
                 />
               </h3>
-              <p className="mt-7 max-w-[46ch] text-pretty font-sans text-body-lg text-neutral-600">
+              <p className="mt-7 max-w-[46ch] text-pretty font-sans text-body-lg text-neutral-900">
                 To be Pakistan&rsquo;s most trusted partner in animal health — connecting global
                 scientific innovation with local expertise to build a healthier, more
                 sustainable and more resilient food chain.

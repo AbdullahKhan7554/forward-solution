@@ -44,7 +44,7 @@ function Check() {
 
 function Label({ children }: { children: ReactNode }) {
   return (
-    <h3 className="mb-5 flex items-center gap-4 font-sans text-caption uppercase tracking-[0.24em] text-neutral-500">
+    <h3 className="mb-5 flex items-center gap-4 font-sans text-caption uppercase tracking-[0.24em] text-neutral-900">
       <span className="h-px w-8 bg-accent-500" />
       {children}
     </h3>
@@ -103,7 +103,7 @@ export function ProductCompact({
       <div className="grid grid-cols-1 items-center gap-x-16 gap-y-10 md:grid-cols-12">
         <div data-pc-fade className="md:col-span-6">
           {eyebrow && (
-            <div className="mb-6 flex items-center gap-3 font-sans text-caption uppercase tracking-[0.28em] text-neutral-500">
+            <div className="mb-6 flex items-center gap-3 font-sans text-caption uppercase tracking-[0.28em] text-neutral-900">
               <span className="h-px w-10 bg-accent-500" />
               {eyebrow}
             </div>
@@ -112,7 +112,7 @@ export function ProductCompact({
           {product.tagline && (
             <p className="mt-4 font-sans text-caption uppercase tracking-[0.16em] text-primary-700">{product.tagline}</p>
           )}
-          <p className="mt-5 max-w-[52ch] text-pretty font-sans text-body-lg text-neutral-600">{product.intro}</p>
+          <p className="mt-5 max-w-[52ch] text-pretty font-sans text-body-lg text-neutral-900">{product.intro}</p>
         </div>
         <div data-pc-fade className="md:col-span-5 md:col-start-8">
           <div className="aspect-[4/5] w-full overflow-hidden rounded-lg shadow-medium ring-1 ring-white/60">{product.image}</div>
@@ -128,7 +128,7 @@ export function ProductCompact({
               key={row.label}
               className={cn("grid grid-cols-1 gap-1 px-6 py-4 sm:grid-cols-[minmax(160px,1fr)_2fr] sm:gap-8", i > 0 && "border-t border-neutral-200/70")}
             >
-              <dt className="font-sans text-caption uppercase tracking-[0.18em] text-neutral-500">{row.label}</dt>
+              <dt className="font-sans text-caption uppercase tracking-[0.18em] text-neutral-900">{row.label}</dt>
               <dd className="font-sans text-body text-neutral-900">{row.values.join(", ")}</dd>
             </div>
           ))}
@@ -146,7 +146,7 @@ export function ProductCompact({
         <Label>Applications</Label>
         <ul className="flex flex-wrap gap-3">
           {product.applications.map((a) => (
-            <li key={a} className="rounded-full border border-neutral-200 bg-white/70 px-5 py-2 font-sans text-body text-neutral-700">
+            <li key={a} className="rounded-full border border-neutral-200 bg-white/70 px-5 py-2 font-sans text-body text-neutral-900">
               {a}
             </li>
           ))}
@@ -167,7 +167,7 @@ export function ProductCompact({
           <p className="font-display text-h3 font-light leading-[1.15] text-neutral-900">{cta.heading}</p>
         )}
         {cta.body && (
-          <p className="mt-3 max-w-[56ch] text-pretty font-sans text-body-lg text-neutral-600">{cta.body}</p>
+          <p className="mt-3 max-w-[56ch] text-pretty font-sans text-body-lg text-neutral-900">{cta.body}</p>
         )}
         <div className={cn("flex flex-col gap-4 sm:flex-row sm:items-center", (cta.heading || cta.body) && "mt-8")}>
           <a

@@ -175,7 +175,7 @@ export function Footer() {
         </span>
       </div>
 
-      <div className="relative z-raised mx-auto w-full max-w-container px-6 pt-[16vh] md:px-12 xl:px-20">
+      <div className="relative z-raised mx-auto w-full max-w-container px-6 pt-16 md:pt-24 md:px-12 xl:px-20">
         {/* TOP MESSAGE */}
         <div className="mx-auto max-w-3xl text-center">
           <div data-footer-fade className="mb-8 flex items-center justify-center gap-4">

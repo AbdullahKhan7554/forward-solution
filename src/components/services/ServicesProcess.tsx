@@ -87,11 +87,11 @@ export function ServicesProcess() {
         }}
       />
 
-      <div className="relative mx-auto w-full max-w-container px-6 py-[16vh] md:px-12 xl:px-20">
+      <div className="relative mx-auto w-full max-w-container px-6 py-16 md:py-24 md:px-12 xl:px-20">
         <header className="mb-[10vh] max-w-3xl">
           <div data-process-fade className="mb-7 flex items-center gap-4">
             <span className="h-px w-10 bg-accent-500" />
-            <span className="font-sans text-caption uppercase tracking-[0.32em] text-neutral-500">
+            <span className="font-sans text-caption uppercase tracking-[0.32em] text-neutral-900">
               How We Work
             </span>
           </div>
@@ -141,7 +141,7 @@ export function ServicesProcess() {
                   <h3 className="font-display text-h4 font-light tracking-[-0.01em] text-neutral-900">
                     {step.title}
                   </h3>
-                  <p className="mt-3 text-pretty font-sans text-small leading-[1.6] text-neutral-600">
+                  <p className="mt-3 text-pretty font-sans text-small leading-[1.6] text-neutral-900">
                     {step.body}
                   </p>
                 </div>

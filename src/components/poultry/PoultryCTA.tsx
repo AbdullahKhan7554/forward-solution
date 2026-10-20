@@ -30,11 +30,11 @@ export function PoultryCTA() {
         }}
       />
 
-      <div className="relative mx-auto flex min-h-[80svh] w-full max-w-container flex-col items-center justify-center px-6 py-[20vh] text-center md:px-12">
+      <div className="relative mx-auto flex w-full max-w-container flex-col items-center justify-center px-6 py-16 md:py-24 text-center md:px-12">
         <div data-cta-scale className="flex w-full max-w-[820px] flex-col items-center">
           <div data-cta-fade className="mb-8 flex items-center gap-4">
             <span className="h-px w-10 bg-accent-500" />
-            <span className="font-sans text-caption uppercase tracking-[0.32em] text-neutral-500">
+            <span className="font-sans text-caption uppercase tracking-[0.32em] text-neutral-900">
               Let&rsquo;s Talk Poultry
             </span>
           </div>
@@ -59,7 +59,7 @@ export function PoultryCTA() {
             />
           </h2>
 
-          <p data-cta-fade className="mt-8 max-w-[52ch] text-pretty font-sans text-body-lg text-neutral-600">
+          <p data-cta-fade className="mt-8 max-w-[52ch] text-pretty font-sans text-body-lg text-neutral-900">
             Contact our technical experts for tailored recommendations built around your birds,
             your feed and your goals.
           </p>

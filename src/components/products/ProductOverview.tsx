@@ -117,7 +117,7 @@ export function ProductOverview() {
         }}
       />
 
-      <div className="relative mx-auto w-full max-w-container px-6 py-[18vh] md:px-12 xl:px-20">
+      <div className="relative mx-auto w-full max-w-container px-6 py-16 md:py-24 md:px-12 xl:px-20">
         {/* editorial split */}
         <div className="grid grid-cols-1 items-center gap-x-12 gap-y-12 md:grid-cols-12">
           {/* large premium image plate */}
@@ -152,7 +152,7 @@ export function ProductOverview() {
           <div className="md:col-span-5 md:col-start-8">
             <div data-po-fade className="mb-7 flex items-center gap-4">
               <span className="h-px w-10 bg-accent-500" />
-              <span className="font-sans text-caption uppercase tracking-[0.3em] text-neutral-500">
+              <span className="font-sans text-caption uppercase tracking-[0.3em] text-neutral-900">
                 The Complete Portfolio
               </span>
             </div>
@@ -177,12 +177,12 @@ export function ProductOverview() {
               />
             </h2>
 
-            <p data-po-fade className="mt-7 text-pretty font-sans text-body-lg text-neutral-600">
+            <p data-po-fade className="mt-7 text-pretty font-sans text-body-lg text-neutral-900">
               We organise every product around the animals it serves — poultry, ruminants and
               companion species — and the stage it supports, from nutrition and gut health to
               biosecurity and veterinary care.
             </p>
-            <p data-po-fade className="mt-5 text-pretty font-sans text-body text-neutral-500">
+            <p data-po-fade className="mt-5 text-pretty font-sans text-body text-neutral-900">
               One connected system, backed by globally-qualified brands and on-the-ground
               technical support, so producers always know exactly where to turn.
             </p>
@@ -222,7 +222,7 @@ export function ProductOverview() {
                       </span>
                     )}
                   </div>
-                  <span className="mt-4 block font-sans text-caption uppercase tracking-[0.24em] text-neutral-500">
+                  <span className="mt-4 block font-sans text-caption uppercase tracking-[0.24em] text-neutral-900">
                     {stat.label}
                   </span>
                 </GlassCard>

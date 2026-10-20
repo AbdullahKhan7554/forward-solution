@@ -33,7 +33,7 @@ export function CatalogCard({
       </div>
       <div className="flex flex-1 flex-col p-6">
         <h3 className="font-display text-h4 font-medium leading-[1.15] tracking-[-0.01em] text-neutral-900">{title}</h3>
-        {line && <p className="mt-1.5 text-pretty font-sans text-small text-neutral-500">{line}</p>}
+        {line && <p className="mt-1.5 text-pretty font-sans text-small text-neutral-900">{line}</p>}
         <span className="mt-auto inline-flex items-center gap-2 pt-5 font-sans text-caption uppercase tracking-[0.2em] text-primary-700">
           {action}
           <span aria-hidden="true" className="inline-block transition-transform duration-200 ease-brand-out group-hover:translate-x-1">&rarr;</span>

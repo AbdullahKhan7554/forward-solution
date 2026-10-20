@@ -98,7 +98,7 @@ export function PoultryScience() {
         }}
       />
 
-      <div className="relative mx-auto grid w-full max-w-container grid-cols-1 items-center gap-x-16 gap-y-14 px-6 py-[18vh] md:grid-cols-12 md:px-12 xl:px-20">
+      <div className="relative mx-auto grid w-full max-w-container grid-cols-1 items-center gap-x-16 gap-y-14 px-6 py-16 md:py-24 md:grid-cols-12 md:px-12 xl:px-20">
         {/* IMAGE — left */}
         <div className="md:col-span-6">
           <MaskedReveal
@@ -113,7 +113,7 @@ export function PoultryScience() {
         <div className="md:col-span-6">
           <div data-ps-fade className="mb-7 flex items-center gap-4">
             <span className="h-px w-10 bg-accent-500" />
-            <span className="font-sans text-caption uppercase tracking-[0.3em] text-neutral-500">
+            <span className="font-sans text-caption uppercase tracking-[0.3em] text-neutral-900">
               Scientific Overview
             </span>
           </div>
@@ -145,12 +145,12 @@ export function PoultryScience() {
                 data-ps-row
                 className="grid grid-cols-[auto_1fr] gap-x-6 border-t border-neutral-200 py-6 first:border-t-0 first:pt-0"
               >
-                <span className="font-sans text-caption tracking-[0.2em] text-neutral-400">
+                <span className="font-sans text-caption tracking-[0.2em] text-neutral-900">
                   {String(i + 1).padStart(2, "0")}
                 </span>
                 <div>
                   <h3 className="font-display text-h4 font-medium text-neutral-900">{o.title}</h3>
-                  <p className="mt-2 text-pretty font-sans text-body text-neutral-600">{o.body}</p>
+                  <p className="mt-2 text-pretty font-sans text-body text-neutral-900">{o.body}</p>
                 </div>
               </li>
             ))}

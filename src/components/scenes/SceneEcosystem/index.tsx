@@ -47,12 +47,12 @@ export function SceneEcosystem() {
         }}
       />
 
-      <div className="relative mx-auto w-full max-w-container px-6 pb-[26vh] pt-[18vh] md:px-12 xl:px-20">
+      <div className="relative mx-auto w-full max-w-container px-6 py-16 md:py-24 md:px-12 xl:px-20">
         {/* HEADER */}
         <header className="max-w-3xl">
           <div data-eco-fade className="mb-7 flex items-center gap-4">
             <span className="h-px w-10 bg-accent-500" />
-            <span className="font-sans text-caption uppercase tracking-[0.32em] text-neutral-500">
+            <span className="font-sans text-caption uppercase tracking-[0.32em] text-neutral-900">
               Our Ecosystem
             </span>
           </div>
@@ -79,7 +79,7 @@ export function SceneEcosystem() {
 
           <p
             data-eco-fade
-            className="mt-8 max-w-[52ch] text-pretty font-sans text-body-lg text-neutral-600"
+            className="mt-8 max-w-[52ch] text-pretty font-sans text-body-lg text-neutral-900"
           >
             Agriprom Pakistan delivers research-driven products across every major
             livestock sector.
@@ -126,7 +126,7 @@ export function SceneEcosystem() {
           >
             <div data-eco-fade className="will-change-transform">
               <GlassCard>
-                <p className="text-pretty font-sans text-body text-neutral-700">
+                <p className="text-pretty font-sans text-body text-neutral-900">
                   Poultry and ruminants — every solution belongs to
                   one connected scientific system.
                 </p>

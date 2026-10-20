@@ -121,7 +121,7 @@ export function BlogHero() {
               {/* Eyebrow — top-left */}
               <div data-hero-fade className="flex items-center gap-4">
                 <span className="h-px w-10 bg-accent-500" />
-                <span className="font-sans text-caption uppercase tracking-[0.3em] text-neutral-500">
+                <span className="font-sans text-caption uppercase tracking-[0.3em] text-neutral-900">
                   Knowledge Center
                 </span>
               </div>
@@ -160,7 +160,7 @@ export function BlogHero() {
                 {/* Paragraph */}
                 <p
                   data-hero-cta
-                  className="mt-8 max-w-[58ch] text-pretty font-sans text-body-lg text-neutral-600"
+                  className="mt-8 max-w-[58ch] text-pretty font-sans text-body-lg text-neutral-900"
                 >
                   Explore expert articles covering poultry, livestock, veterinary medicine,
                   nutrition and scientific innovations.

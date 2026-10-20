@@ -70,7 +70,7 @@ export function TrustLabels() {
         <li
           key={item.label}
           data-innov-trust
-          className="flex items-center gap-2.5 text-neutral-600 will-change-transform"
+          className="flex items-center gap-2.5 text-neutral-900 will-change-transform"
         >
           <span className="text-primary-600">{item.icon}</span>
           <span className="font-sans text-caption uppercase tracking-[0.18em]">

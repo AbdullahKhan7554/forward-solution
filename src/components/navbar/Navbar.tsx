@@ -102,10 +102,10 @@ function RollLink({ label, href, active }: { label: string; href: string; active
     >
       <span className="relative block h-[1.35em] overflow-hidden">
         <span className="block transition-transform duration-[560ms] ease-brand-luxury group-hover:-translate-y-1/2">
-          <span className="flex h-[1.35em] items-center font-sans text-small font-medium text-neutral-900 transition-colors duration-[360ms] ease-brand-out group-data-[scrolled=true]/nav:text-neutral-200">
+          <span className="flex h-[1.35em] items-center font-sans text-small font-medium text-neutral-900 transition-colors duration-[360ms] ease-brand-out">
             {label}
           </span>
-          <span className="flex h-[1.35em] items-center font-sans text-small font-medium text-accent-600 group-data-[scrolled=true]/nav:text-accent-300">
+          <span className="flex h-[1.35em] items-center font-sans text-small font-medium text-accent-600">
             {label}
           </span>
         </span>
@@ -237,8 +237,8 @@ function NavDropdown({
   const triggerClassName = cn(
     "group flex items-center gap-1.5 font-sans text-small font-medium transition-colors duration-[360ms] ease-brand-out",
     open
-      ? "text-accent-600 group-data-[scrolled=true]/nav:text-accent-300"
-      : "text-neutral-900 hover:text-accent-600 group-data-[scrolled=true]/nav:text-neutral-200"
+      ? "text-accent-600"
+      : "text-neutral-900 hover:text-accent-600"
   );
   const triggerContent = (
     <>
@@ -343,7 +343,7 @@ function NavDropdown({
                   >
                     {item.title}
                   </span>
-                  <span className="mt-0.5 block font-sans text-caption leading-snug text-neutral-500">
+                  <span className="mt-0.5 block font-sans text-caption leading-snug text-neutral-900">
                     {item.desc}
                   </span>
                 </span>
@@ -478,7 +478,6 @@ export function Navbar() {
   const ref = useRef<HTMLElement>(null);
   const reducedRef = useRef(false);
   const revealedRef = useRef(false);
-  const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   // Which mobile accordion is expanded (by label); null = all collapsed.
   const [openAccordion, setOpenAccordion] = useState<string | null>(null);
@@ -504,13 +503,6 @@ export function Navbar() {
     });
   }, [phase]);
 
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 90);
-    window.addEventListener("scroll", onScroll, { passive: true });
-    onScroll();
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
-
   const closeMobile = () => {
     setMenuOpen(false);
     setOpenAccordion(null);
@@ -520,13 +512,7 @@ export function Navbar() {
     <>
       <header
         ref={ref}
-        data-scrolled={scrolled ? "true" : "false"}
-        className={cn(
-          "group/nav fixed inset-x-0 top-0 z-sticky transition-all duration-[360ms] ease-brand-out",
-          scrolled
-            ? "border-b border-white/10 bg-dark-rich/90 py-3 shadow-[0_14px_44px_-16px_rgba(0,0,0,0.5)] backdrop-blur-xl backdrop-saturate-150"
-            : "border-b border-transparent bg-transparent py-5 shadow-none"
-        )}
+        className="group/nav fixed inset-x-0 top-0 z-sticky border-b border-neutral-200 bg-white py-3 shadow-[0_14px_44px_-16px_rgba(0,0,0,0.18)]"
       >
         <div className="mx-auto flex max-w-container items-center justify-between px-6 md:px-12 xl:px-20">
           <a href="/" aria-label="Agriprom Pakistan — home" className="block overflow-hidden">
@@ -563,7 +549,7 @@ export function Navbar() {
               <a
                 data-nav-inner
                 href="/contact-us/"
-                className="group block will-change-transform rounded-sm border border-transparent bg-neutral-900 px-8 py-3.5 shadow-soft transition-colors duration-[360ms] ease-brand-out hover:bg-neutral-800 group-data-[scrolled=true]/nav:border-white/25 group-data-[scrolled=true]/nav:bg-transparent group-data-[scrolled=true]/nav:shadow-none group-data-[scrolled=true]/nav:hover:border-accent-300/60"
+                className="group block will-change-transform rounded-sm border border-transparent bg-neutral-900 px-8 py-3.5 shadow-soft transition-colors duration-[360ms] ease-brand-out hover:bg-neutral-800"
               >
                 <span className="block h-[1.2em] overflow-hidden">
                   <span className="block transition-transform duration-[560ms] ease-brand-luxury group-hover:-translate-y-1/2">
@@ -583,13 +569,13 @@ export function Navbar() {
             type="button"
             onClick={() => setMenuOpen(true)}
             aria-label="Open menu"
-            className="group relative flex h-11 w-11 items-center justify-center rounded-full border border-neutral-300/70 bg-white/40 backdrop-blur-md transition-[background-color,border-color,box-shadow] duration-[360ms] ease-brand-out hover:border-accent-500/50 hover:bg-white/75 hover:shadow-soft group-data-[scrolled=true]/nav:border-white/20 group-data-[scrolled=true]/nav:bg-white/10 lg:hidden"
+            className="group relative flex h-11 w-11 items-center justify-center rounded-full border border-neutral-300/70 bg-white/40 backdrop-blur-md transition-[background-color,border-color,box-shadow] duration-[360ms] ease-brand-out hover:border-accent-500/50 hover:bg-white/75 hover:shadow-soft lg:hidden"
           >
             {/* editorial variable-width bars that redistribute on press/hover */}
             <span className="relative block h-[11px] w-[22px]">
-              <span className="absolute left-0 top-0 h-[1.5px] w-full origin-left rounded-full bg-neutral-900 transition-all duration-[360ms] ease-brand-luxury group-hover:w-[64%] group-data-[scrolled=true]/nav:bg-neutral-50" />
-              <span className="absolute left-0 top-1/2 h-[1.5px] w-[68%] -translate-y-1/2 rounded-full bg-neutral-900 transition-all duration-[360ms] ease-brand-luxury group-hover:w-full group-data-[scrolled=true]/nav:bg-neutral-50" />
-              <span className="absolute bottom-0 left-0 h-[1.5px] w-full origin-left rounded-full bg-neutral-900 transition-all duration-[360ms] ease-brand-luxury group-hover:w-[42%] group-data-[scrolled=true]/nav:bg-neutral-50" />
+              <span className="absolute left-0 top-0 h-[1.5px] w-full origin-left rounded-full bg-neutral-900 transition-all duration-[360ms] ease-brand-luxury group-hover:w-[64%]" />
+              <span className="absolute left-0 top-1/2 h-[1.5px] w-[68%] -translate-y-1/2 rounded-full bg-neutral-900 transition-all duration-[360ms] ease-brand-luxury group-hover:w-full" />
+              <span className="absolute bottom-0 left-0 h-[1.5px] w-full origin-left rounded-full bg-neutral-900 transition-all duration-[360ms] ease-brand-luxury group-hover:w-[42%]" />
             </span>
           </button>
           </div>

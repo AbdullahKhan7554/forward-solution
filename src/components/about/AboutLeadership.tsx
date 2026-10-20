@@ -67,7 +67,7 @@ export function AboutLeadership() {
         &ldquo;
       </span>
 
-      <div className="relative mx-auto w-full max-w-container px-6 py-[20vh] md:px-12 xl:px-20">
+      <div className="relative mx-auto w-full max-w-container px-6 py-16 md:py-24 md:px-12 xl:px-20">
         {/* the editorial quote */}
         <blockquote className="mx-auto max-w-4xl text-center">
           <h2
@@ -92,7 +92,7 @@ export function AboutLeadership() {
 
           <p
             data-lead-fade
-            className="mx-auto mt-10 max-w-[62ch] text-pretty font-sans text-body-lg text-neutral-600"
+            className="mx-auto mt-10 max-w-[62ch] text-pretty font-sans text-body-lg text-neutral-900"
           >
             Our leadership believes that lasting progress in animal health is earned, not
             claimed — through rigorous science, honest partnerships and the humility to keep
@@ -101,7 +101,7 @@ export function AboutLeadership() {
           </p>
           <p
             data-lead-fade
-            className="mx-auto mt-6 max-w-[62ch] text-pretty font-sans text-body text-neutral-500"
+            className="mx-auto mt-6 max-w-[62ch] text-pretty font-sans text-body text-neutral-900"
           >
             Every decision is measured against a single question: does it build trust and
             improve the lives of the animals — and the people — who depend on us?
@@ -116,10 +116,10 @@ export function AboutLeadership() {
             className="mb-7 block h-px w-16 bg-neutral-300"
           />
           <p data-lead-fade className="text-center">
-            <span className="block font-serif text-body-lg italic text-neutral-700">
+            <span className="block font-serif text-body-lg italic text-neutral-900">
               A promise from our team to Pakistan&rsquo;s livestock industry.
             </span>
-            <span className="mt-3 block font-sans text-caption uppercase tracking-[0.28em] text-neutral-500">
+            <span className="mt-3 block font-sans text-caption uppercase tracking-[0.28em] text-neutral-900">
               The Agriprom Pakistan Leadership
             </span>
           </p>

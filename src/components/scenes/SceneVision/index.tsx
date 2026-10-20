@@ -17,13 +17,12 @@ import { useVisionChoreography } from "./useVisionChoreography";
  */
 export function SceneVision() {
   const rootRef = useRef<HTMLElement>(null);
-  const scrollProgress = useRef(0);
-  const { inView } = useVisionChoreography(rootRef, scrollProgress);
+  const { inView } = useVisionChoreography(rootRef);
 
   return (
     <section ref={rootRef} aria-labelledby="vision-heading" className="relative bg-dark">
-      <div className="relative h-[210svh]">
-        <div className="sticky top-0 flex min-h-[100svh] items-center overflow-hidden">
+      <div className="relative">
+        <div className="relative flex items-center overflow-hidden">
           <div data-vision-dissolve className="relative w-full">
             {/* deep-field depth */}
             <div
@@ -60,8 +59,7 @@ export function SceneVision() {
 
             {/* content */}
             <div
-              data-parallax-content
-              className="relative z-raised mx-auto w-full max-w-container px-6 py-[14vh] will-change-transform md:px-12 md:py-0 xl:px-20"
+              className="relative z-raised mx-auto w-full max-w-container px-6 py-16 md:py-24 md:px-12 xl:px-20"
             >
               <div className="grid grid-cols-1 items-start gap-x-10 gap-y-10 md:grid-cols-12">
                 {/* heading - left */}

@@ -85,7 +85,7 @@ export function HeroContent() {
       {/* Eyebrow / tagline - top-left (verbatim source copy) */}
       <div data-hero-fade className="flex items-center gap-4">
         <span className="h-px w-10 bg-accent-500" />
-        <span className="font-sans text-caption uppercase tracking-[0.3em] text-neutral-500">
+        <span className="font-sans text-caption uppercase tracking-[0.3em] text-neutral-900">
           Creative Enhncer From Nature
         </span>
       </div>

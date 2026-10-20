@@ -80,7 +80,7 @@ function ServiceCard({ service }: { service: Service }) {
       <h3 className="relative mt-8 font-display text-h4 font-light tracking-[-0.01em] text-neutral-900 md:text-[26px]">
         {service.title}
       </h3>
-      <p className="relative mt-4 text-pretty font-sans text-body leading-[1.65] text-neutral-600">
+      <p className="relative mt-4 text-pretty font-sans text-body leading-[1.65] text-neutral-900">
         {service.body}
       </p>
     </div>
@@ -135,11 +135,11 @@ export function ServicesOverview() {
         }}
       />
 
-      <div className="relative mx-auto w-full max-w-container px-6 py-[16vh] md:px-12 xl:px-20">
+      <div className="relative mx-auto w-full max-w-container px-6 py-16 md:py-24 md:px-12 xl:px-20">
         <header className="max-w-3xl">
           <div data-services-fade className="mb-7 flex items-center gap-4">
             <span className="h-px w-10 bg-accent-500" />
-            <span className="font-sans text-caption uppercase tracking-[0.32em] text-neutral-500">
+            <span className="font-sans text-caption uppercase tracking-[0.32em] text-neutral-900">
               Core Services
             </span>
           </div>

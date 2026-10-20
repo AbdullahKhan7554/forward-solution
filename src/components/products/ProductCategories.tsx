@@ -94,7 +94,7 @@ function CategoryCard({
           </h3>
           <p
             data-cat-fade
-            className="mt-2 max-w-[38ch] text-pretty font-sans text-body text-neutral-600"
+            className="mt-2 max-w-[38ch] text-pretty font-sans text-body text-neutral-900"
           >
             {category.description}
           </p>
@@ -183,12 +183,12 @@ export function ProductCategories() {
         }}
       />
 
-      <div className="relative mx-auto w-full max-w-container px-6 py-[18vh] md:px-12 xl:px-20">
+      <div className="relative mx-auto w-full max-w-container px-6 py-16 md:py-24 md:px-12 xl:px-20">
         {/* HEADER */}
         <header className="max-w-3xl">
           <div data-cat-header className="mb-7 flex items-center gap-4">
             <span className="h-px w-10 bg-accent-500" />
-            <span className="font-sans text-caption uppercase tracking-[0.32em] text-neutral-500">
+            <span className="font-sans text-caption uppercase tracking-[0.32em] text-neutral-900">
               Product Categories
             </span>
           </div>

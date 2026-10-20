@@ -97,12 +97,12 @@ export function PoultryWhy() {
         }}
       />
 
-      <div className="relative mx-auto grid w-full max-w-container grid-cols-1 items-center gap-x-16 gap-y-14 px-6 py-[20vh] md:grid-cols-12 md:px-12 xl:px-20">
+      <div className="relative mx-auto grid w-full max-w-container grid-cols-1 items-center gap-x-16 gap-y-14 px-6 py-16 md:py-24 md:grid-cols-12 md:px-12 xl:px-20">
         {/* statement — left */}
         <div className="md:col-span-6">
           <div data-pw-fade className="mb-7 flex items-center gap-4">
             <span className="h-px w-10 bg-accent-500" />
-            <span className="font-sans text-caption uppercase tracking-[0.3em] text-neutral-500">
+            <span className="font-sans text-caption uppercase tracking-[0.3em] text-neutral-900">
               Why Choose Agriprom
             </span>
           </div>
@@ -125,7 +125,7 @@ export function PoultryWhy() {
               className="justify-start text-[10vw] text-primary-700 md:text-[5vw] xl:text-[68px]"
             />
           </h2>
-          <p data-pw-fade className="mt-8 max-w-[46ch] text-pretty font-sans text-body-lg text-neutral-600">
+          <p data-pw-fade className="mt-8 max-w-[46ch] text-pretty font-sans text-body-lg text-neutral-900">
             Globally-qualified partners, research-led innovation and a technical team that stays
             beside you — from placement to processing.
           </p>
@@ -158,7 +158,7 @@ export function PoultryWhy() {
                     </span>
                   )}
                 </div>
-                <span className="mt-4 block font-sans text-caption uppercase tracking-[0.22em] text-neutral-500">
+                <span className="mt-4 block font-sans text-caption uppercase tracking-[0.22em] text-neutral-900">
                   {stat.label}
                 </span>
               </div>

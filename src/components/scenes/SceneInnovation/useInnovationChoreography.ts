@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, type MutableRefObject, type RefObject } from "react";
+import { useState, type RefObject } from "react";
 import { useIsomorphicLayoutEffect } from "@/hooks/useIsomorphicLayoutEffect";
 import { gsap, ScrollTrigger } from "@/lib/gsap";
 
@@ -11,17 +11,13 @@ import { gsap, ScrollTrigger } from "@/lib/gsap";
  *   REVEAL   - timed: light comes up -> eyebrow/slate settle -> the mission
  *              statement surfaces clause-by-clause (lit by one sheen) ->
  *              supporting sentences fade up.
- *   PARALLAX - scrubbed, subtle vertical drift on the statement.
- *   DISSOLVE - the tail: statement + atmosphere dissolve into a white bloom.
- *   DEPTH    - almost-imperceptible mouse parallax on the background layers.
  *
  * A reflective "breath" per the Experience Bible - spare, patient, type-led.
- * `scrollProgressRef` feeds the WebGL particles. Returns `inView` to gate the
+ * Plays once on entry. Returns `inView` to gate the
  * statement. Reduced motion: static, fully legible, zero motion.
  */
 export function useInnovationChoreography(
-  rootRef: RefObject<HTMLElement>,
-  scrollProgressRef: MutableRefObject<number>
+  rootRef: RefObject<HTMLElement>
 ) {
   const [inView, setInView] = useState(false);
 
@@ -73,7 +69,7 @@ export function useInnovationChoreography(
       ctx.revert();
       ScrollTrigger.refresh();
     };
-  }, [rootRef, scrollProgressRef]);
+  }, [rootRef]);
 
   return { inView };
 }

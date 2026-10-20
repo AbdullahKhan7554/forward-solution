@@ -69,7 +69,7 @@ function DetailRow({ detail }: { detail: Detail }) {
         {detail.icon}
       </span>
       <div className="min-w-0">
-        <span className="font-sans text-caption uppercase tracking-[0.24em] text-neutral-400">
+        <span className="font-sans text-caption uppercase tracking-[0.24em] text-neutral-900">
           {detail.label}
         </span>
         <div className="mt-2 space-y-0.5">
@@ -189,20 +189,9 @@ export function ContactLocation() {
         }}
       />
 
-      <div className="relative mx-auto w-full max-w-container px-6 py-[16vh] md:px-12 xl:px-20">
+      <div className="relative mx-auto w-full max-w-container px-6 py-16 md:py-24 md:px-12 xl:px-20">
         {/* header */}
         <header className="max-w-3xl">
-          <div data-loc-fade className="mb-8 flex items-center gap-4">
-            <span className="font-sans text-caption tracking-[0.2em] text-neutral-400"></span>
-            <span className="h-px w-10 bg-neutral-300" />
-            <span className="font-serif text-small italic text-neutral-400"></span>
-          </div>
-          <div data-loc-fade className="mb-7 flex items-center gap-4">
-            <span className="h-px w-10 bg-accent-500" />
-            <span className="font-sans text-caption uppercase tracking-[0.32em] text-neutral-500">
-             
-            </span>
-          </div>
           <h2
             id="reach-heading"
             className="font-display font-light leading-[1.04] tracking-[-0.015em] text-neutral-900"
@@ -308,7 +297,7 @@ export function ContactLocation() {
                 <span className="font-sans text-caption uppercase tracking-[0.22em] text-primary-700">
                   Agriprom Pakistan
                 </span>
-                <p className="mt-2 font-sans text-body leading-[1.5] text-neutral-700">
+                <p className="mt-2 font-sans text-body leading-[1.5] text-neutral-900">
                   Rahimabad, Lahore 53700 · Open 24 Hours
                 </p>
                 <a

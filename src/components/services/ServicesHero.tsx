@@ -125,7 +125,7 @@ export function ServicesHero() {
             >
               <div data-hero-fade className="flex items-center gap-4">
                 <span className="h-px w-10 bg-accent-500" />
-                <span className="font-sans text-caption uppercase tracking-[0.3em] text-neutral-500">
+                <span className="font-sans text-caption uppercase tracking-[0.3em] text-neutral-900">
                   Our Services
                 </span>
               </div>
@@ -169,7 +169,7 @@ export function ServicesHero() {
 
                 <p
                   data-hero-cta
-                  className="mt-8 max-w-[60ch] text-pretty font-sans text-body-lg text-neutral-600"
+                  className="mt-8 max-w-[60ch] text-pretty font-sans text-body-lg text-neutral-900"
                 >
                   Agriprom Pakistan provides professional technical support, scientific
                   consultation, product guidance and long-term partnership solutions for

@@ -92,7 +92,7 @@ function TeamCard({ member }: { member: Member }) {
         <p className="mt-1 font-sans text-caption uppercase tracking-[0.18em] text-primary-700">
           {member.role}
         </p>
-        <p className="mt-3 text-pretty font-sans text-small leading-[1.6] text-neutral-600">
+        <p className="mt-3 text-pretty font-sans text-small leading-[1.6] text-neutral-900">
           {member.blurb}
         </p>
       </div>
@@ -151,11 +151,11 @@ export function AboutTeam() {
         }}
       />
 
-      <div className="relative mx-auto w-full max-w-container px-6 py-[16vh] md:px-12 xl:px-20">
+      <div className="relative mx-auto w-full max-w-container px-6 py-16 md:py-24 md:px-12 xl:px-20">
         <header className="max-w-3xl">
           <div data-team-fade className="mb-7 flex items-center gap-4">
             <span className="h-px w-10 bg-accent-500" />
-            <span className="font-sans text-caption uppercase tracking-[0.32em] text-neutral-500">
+            <span className="font-sans text-caption uppercase tracking-[0.32em] text-neutral-900">
               Meet Our Team
             </span>
           </div>
@@ -173,7 +173,7 @@ export function AboutTeam() {
           </h2>
           <p
             data-team-fade
-            className="mt-8 max-w-[64ch] text-pretty font-sans text-body-lg text-neutral-600"
+            className="mt-8 max-w-[64ch] text-pretty font-sans text-body-lg text-neutral-900"
           >
             A multidisciplinary team committed to advancing animal health, scientific
             innovation, customer success and sustainable livestock development across

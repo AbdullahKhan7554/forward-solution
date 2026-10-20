@@ -47,7 +47,7 @@ export function RuminantSolutions() {
         className="pointer-events-none absolute inset-0"
         style={{ background: "radial-gradient(70% 45% at 80% 4%, rgba(219,239,231,0.4) 0%, rgba(255,255,255,0) 58%)" }}
       />
-      <div className="relative mx-auto w-full max-w-container px-6 py-[18vh] md:px-12 xl:px-20">
+      <div className="relative mx-auto w-full max-w-container px-6 py-16 md:py-24 md:px-12 xl:px-20">
         <header className="max-w-3xl">
           <h2 id="ruminant-solutions-heading" className="font-display font-light leading-[1.04] tracking-[-0.015em] text-neutral-900">
             <RevealText text="Seven Pillars of" as="span" trigger="scroll" stagger={0.06} className="justify-start text-[8.5vw] md:text-[4.4vw] xl:text-[58px]" />

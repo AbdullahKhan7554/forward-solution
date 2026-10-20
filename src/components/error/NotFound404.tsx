@@ -126,7 +126,7 @@ export function NotFound404() {
       <div className="relative z-raised mx-auto flex max-w-2xl flex-col items-center text-center">
         <span
           data-404-fade
-          className="mb-8 flex items-center gap-4 font-sans text-caption uppercase tracking-[0.32em] text-neutral-500"
+          className="mb-8 flex items-center gap-4 font-sans text-caption uppercase tracking-[0.32em] text-neutral-900"
         >
           <span className="h-px w-10 bg-accent-500" />
           Error 404
@@ -153,7 +153,7 @@ export function NotFound404() {
 
         <p
           data-404-fade
-          className="mt-5 max-w-[46ch] text-pretty font-sans text-body-lg text-neutral-600"
+          className="mt-5 max-w-[46ch] text-pretty font-sans text-body-lg text-neutral-900"
         >
           The page you&rsquo;re looking for doesn&rsquo;t exist or may have been moved.
           Let&rsquo;s guide you back.

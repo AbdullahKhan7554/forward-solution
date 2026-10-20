@@ -106,7 +106,7 @@ function FeatureRow({ feature, index }: { feature: Feature; index: number }) {
         <h3 className="font-display text-h3 font-medium leading-[1.1] text-neutral-900">
           <RevealText text={feature.title} as="span" trigger="scroll" stagger={0.05} />
         </h3>
-        <p className="mt-4 text-pretty font-sans text-body-lg text-neutral-600">{feature.body}</p>
+        <p className="mt-4 text-pretty font-sans text-body-lg text-neutral-900">{feature.body}</p>
       </GlassCard>
     </div>
   );
@@ -188,12 +188,12 @@ export function AboutWhyChoose() {
         }}
       />
 
-      <div className="relative mx-auto w-full max-w-container px-6 py-[18vh] md:px-12 xl:px-20">
+      <div className="relative mx-auto w-full max-w-container px-6 py-16 md:py-24 md:px-12 xl:px-20">
         {/* HEADER */}
         <header className="max-w-3xl">
           <div data-why-fade className="mb-7 flex items-center gap-4">
             <span className="h-px w-10 bg-accent-500" />
-            <span className="font-sans text-caption uppercase tracking-[0.32em] text-neutral-500">
+            <span className="font-sans text-caption uppercase tracking-[0.32em] text-neutral-900">
               Why Choose Agriprom
             </span>
           </div>
@@ -220,7 +220,7 @@ export function AboutWhyChoose() {
 
           <p
             data-why-fade
-            className="mt-8 max-w-[56ch] text-pretty font-sans text-body-lg text-neutral-600"
+            className="mt-8 max-w-[56ch] text-pretty font-sans text-body-lg text-neutral-900"
           >
             Six commitments that make Agriprom Pakistan the partner veterinarians, producers and
             distributors return to.
