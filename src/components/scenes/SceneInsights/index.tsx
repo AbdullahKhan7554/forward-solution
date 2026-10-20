@@ -1,16 +1,48 @@
 "use client";
 
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
+import Image from "next/image";
 import { RevealText } from "@/components/primitives/RevealText";
-import { BlogCard } from "./BlogCard";
 import { blogPosts } from "./blogs";
 import { useInsightsChoreography } from "./useInsightsChoreography";
+
+/** Cards visible per breakpoint - matches basis-full / md:basis-1/2 / lg:basis-1/3. */
+function useVisibleCount() {
+  const [count, setCount] = useState(3);
+  useEffect(() => {
+    const md = window.matchMedia("(min-width: 768px)");
+    const lg = window.matchMedia("(min-width: 1024px)");
+    const update = () => setCount(lg.matches ? 3 : md.matches ? 2 : 1);
+    update();
+    md.addEventListener("change", update);
+    lg.addEventListener("change", update);
+    return () => {
+      md.removeEventListener("change", update);
+      lg.removeEventListener("change", update);
+    };
+  }, []);
+  return count;
+}
+
+function Arrow({ dir }: { dir: "prev" | "next" }) {
+  return (
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <path d={dir === "prev" ? "M15 5l-7 7 7 7" : "M9 5l7 7-7 7"} />
+    </svg>
+  );
+}
 
 export function SceneInsights() {
   const rootRef = useRef<HTMLElement>(null);
   useInsightsChoreography(rootRef);
 
-  const [featured, ...secondary] = blogPosts;
+  const visible = useVisibleCount();
+  const maxIndex = Math.max(0, blogPosts.length - visible);
+  const [index, setIndex] = useState(0);
+  const current = Math.min(index, maxIndex);
+  const touchX = useRef<number | null>(null);
+
+  const go = (step: number) => setIndex(Math.max(0, Math.min(maxIndex, current + step)));
 
   return (
     <section
@@ -77,16 +109,69 @@ export function SceneInsights() {
           </p>
         </header>
 
-        {/* EDITORIAL CARDS - featured + two secondary */}
-        <div className="mt-[12vh] grid grid-cols-1 gap-x-10 gap-y-14 md:grid-cols-12">
-          <div className="md:col-span-7">
-            <BlogCard post={featured} variant="featured" />
+        {/* ARTICLE SLIDER - one card per step */}
+        <div className="relative mt-[12vh]">
+          <div
+            className="-mx-3 overflow-hidden"
+            onTouchStart={(e) => (touchX.current = e.touches[0].clientX)}
+            onTouchEnd={(e) => {
+              if (touchX.current === null) return;
+              const dx = e.changedTouches[0].clientX - touchX.current;
+              if (Math.abs(dx) > 40) go(dx < 0 ? 1 : -1);
+              touchX.current = null;
+            }}
+          >
+            <ul
+              className="flex transition-transform duration-300 ease-out"
+              style={{ transform: `translateX(-${(current * 100) / visible}%)` }}
+            >
+              {blogPosts.map((post) => (
+                <li key={post.title} className="shrink-0 basis-full list-none px-3 md:basis-1/2 lg:basis-1/3">
+                  <a
+                    href={post.href}
+                    className="flex h-full flex-col overflow-hidden rounded-2xl border border-neutral-200 bg-white shadow-soft outline-none transition-shadow duration-150 hover:shadow-floating focus-visible:ring-2 focus-visible:ring-accent-500"
+                  >
+                    <div className="relative h-56 w-full overflow-hidden bg-neutral-100">
+                      {post.image && (
+                        <Image
+                          src={post.image}
+                          alt=""
+                          fill
+                          sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
+                          className="object-cover"
+                        />
+                      )}
+                    </div>
+                    <div className="flex flex-1 flex-col p-6">
+                      <h3 className="font-display text-h4 font-medium text-neutral-900">{post.title}</h3>
+                      <p className="mt-3 text-pretty font-sans text-body text-neutral-900">{post.excerpt}</p>
+                    </div>
+                  </a>
+                </li>
+              ))}
+            </ul>
           </div>
-          <div className="flex flex-col gap-14 md:col-span-5">
-            {secondary.map((post) => (
-              <BlogCard key={post.title} post={post} variant="secondary" />
-            ))}
-          </div>
+
+          {current > 0 && (
+            <button
+              type="button"
+              onClick={() => go(-1)}
+              aria-label="Previous articles"
+              className="absolute left-0 top-28 z-raised flex h-11 w-11 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-neutral-500 text-white shadow-soft transition-colors hover:bg-neutral-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-500"
+            >
+              <Arrow dir="prev" />
+            </button>
+          )}
+          {current < maxIndex && (
+            <button
+              type="button"
+              onClick={() => go(1)}
+              aria-label="Next articles"
+              className="absolute right-0 top-28 z-raised flex h-11 w-11 -translate-y-1/2 translate-x-1/2 items-center justify-center rounded-full bg-neutral-500 text-white shadow-soft transition-colors hover:bg-neutral-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-500"
+            >
+              <Arrow dir="next" />
+            </button>
+          )}
         </div>
 
         {/* CTA */}

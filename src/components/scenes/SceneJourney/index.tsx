@@ -22,26 +22,26 @@ const CHAPTERS: {
     name: "Poultry",
     description: "Enhancing poultry nutrition, gut health and performance.",
     side: "right",
-    imageSrc: "/poultry.jpg",
+    imageSrc: "/images/home/cat-poultry.webp",
   },
   {
     name: "Ruminants",
     description: "Supporting better health, growth and performance.",
     side: "left",
-    imageSrc: "/reuminant.jpg",
+    imageSrc: "/images/home/cat-ruminants.webp",
   },
   {
     name: "Bio Security",
     description: "Disease prevention and hygiene that keep herds protected.",
     side: "right",
-    imageSrc: "/biosecurity.jpg",
+    imageSrc: "/images/home/cat-biosecurity.webp",
   },
   {
     name: "Nutrition",
     description:
       "Research-driven nutrition that improves feed conversion and productivity.",
     side: "left",
-    imageSrc: "/nutrition.jpg",
+    imageSrc: "/images/home/cat-nutrition.webp",
   },
 ];
 

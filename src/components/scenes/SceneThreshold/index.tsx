@@ -27,7 +27,7 @@ export function SceneThreshold() {
           {/* hero background image + light overlay so the dark headline stays legible */}
           <div ref={atmosphereRef} className="absolute inset-0">
             <Image
-              src="/images/home/home-hero-blur.webp"
+              src="/images/home/home-hero.webp"
               alt=""
               fill
               priority
