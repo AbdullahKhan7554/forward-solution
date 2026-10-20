@@ -27,32 +27,19 @@ export function SceneThreshold() {
           {/* hero background image + light overlay so the dark headline stays legible */}
           <div ref={atmosphereRef} className="absolute inset-0">
             <Image
-              src="/images/home/home-hero.webp"
+              src="/images/home/home-hero.jpg"
               alt=""
               fill
               priority
+              quality={90}
               sizes="100vw"
               className="object-cover"
             />
             <div
               aria-hidden="true"
-              className="absolute inset-0"
-              style={{
-                background:
-                  "linear-gradient(90deg, rgba(250,251,252,0.9) 0%, rgba(250,251,252,0.75) 50%, rgba(250,251,252,0.55) 100%)",
-              }}
+              className="absolute inset-0 bg-gradient-to-r from-white/70 via-white/30 to-transparent"
             />
           </div>
-
-          {/* Asymmetric vignette - seats the mass lower-left, opens the light upper-right */}
-          <div
-            aria-hidden="true"
-            className="pointer-events-none absolute inset-0"
-            style={{
-              background:
-                "radial-gradient(110% 90% at 30% 78%, rgba(250,251,252,0.55) 0%, rgba(255,255,255,0) 45%)",
-            }}
-          />
 
           {/* Foreground composition - fills the stage; HeroContent owns its own rhythm */}
           <div className="relative z-raised h-full">
