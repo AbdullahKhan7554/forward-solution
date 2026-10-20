@@ -59,7 +59,7 @@ export const RUMINANT_CATEGORIES: RuminantCategory[] = [
     description:
       "Comfortable cows eat more, produce more and last longer. Our comfort and welfare solutions address heat stress, resting behaviour and hygiene to protect productivity and herd longevity.",
     products: ["puzzle-comfort-mat", "mammouth-mattress", "eva-horse-stable-mat", "standard-self-locks", "free-stall-systems"],
-    image: "/images/products/ruminants/BaneBe-768x949.jpg",
+    image: "/images/products/ruminants/puzzle-comfort-mat.webp",
   },
   {
     id: "energy-boosters",
