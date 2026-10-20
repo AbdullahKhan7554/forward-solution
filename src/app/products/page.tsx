@@ -3,12 +3,11 @@ import { IntroProvider } from "@/components/providers/IntroProvider";
 import { Preloader } from "@/components/scenes/SceneThreshold/Preloader";
 import { Navbar } from "@/components/navbar/Navbar";
 import { ProductHero } from "@/components/products/ProductHero";
-import { ProductOverview } from "@/components/products/ProductOverview";
-import { ProductCategories } from "@/components/products/ProductCategories";
-import { FeaturedSolutions } from "@/components/products/FeaturedSolutions";
-import { ProductApplications } from "@/components/products/ProductApplications";
-import { ProductBrands } from "@/components/products/ProductBrands";
 import { ProductQuality } from "@/components/products/ProductQuality";
+import { ProductStats } from "@/components/products/ProductStats";
+import { ProductCategoryCards } from "@/components/products/ProductCategoryCards";
+import { ProductApplications } from "@/components/products/ProductApplications";
+import { SceneCTA } from "@/components/scenes/SceneCTA";
 import { Footer } from "@/components/layout/Footer";
 
 export const metadata: Metadata = {
@@ -26,10 +25,9 @@ export const metadata: Metadata = {
  * py-[16vh]–[18vh] breathing cadence as the rest of the film and the backgrounds
  * alternate base → pure so every seam reads as one continuous experience.
  *
- *   01 — The Portfolio (Hero)        05 — Applications
- *   02 — The Ecosystem (Overview)    06 — International Brands
- *   03 — Categories                  07 — Quality Journey
- *   04 — Featured Solutions          08 — Footer (shared, reused)
+ *   01 — The Portfolio (Hero)        04 — Categories
+ *   02 — Quality Journey             05 — Applications
+ *   03 — Stats                       06 — CTA · 07 — Footer (shared)
  */
 export default function ProductsPage() {
   return (
@@ -38,12 +36,11 @@ export default function ProductsPage() {
       <Navbar />
       <main>
         <ProductHero />
-        <ProductOverview />
-        <ProductCategories />
-        <FeaturedSolutions />
-        <ProductApplications />
-        <ProductBrands />
         <ProductQuality />
+        <ProductStats />
+        <ProductCategoryCards />
+        <ProductApplications />
+        <SceneCTA />
       </main>
       <Footer />
     </IntroProvider>

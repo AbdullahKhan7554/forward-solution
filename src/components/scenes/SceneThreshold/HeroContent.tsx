@@ -10,7 +10,7 @@ import { RevealText } from "@/components/primitives/RevealText";
  * SCENE 01 - THE THRESHOLD (existing Hero section, content preserved).
  *
  * Content is verbatim from the client site (Agriprom homepage hero):
- *   - eyebrow:  "Creative Enhncer From Nature"   (typo is in the source;
+ *   - eyebrow:  "Creative Enhancer From Nature"   (typo is in the source;
  *               flagged in audit §9, preserved under the content-freeze)
  *   - H1:       "Empowering Animal Health And Productivity Through
  *               Innovative Feed Additives"       (split into visual lines only
@@ -86,7 +86,7 @@ export function HeroContent() {
       <div data-hero-fade className="flex items-center gap-4">
         <span className="h-px w-10 bg-accent-500" />
         <span className="font-sans text-caption uppercase tracking-[0.3em] text-neutral-900">
-          Creative Enhncer From Nature
+          Creative Enhancer From Nature
         </span>
       </div>
 

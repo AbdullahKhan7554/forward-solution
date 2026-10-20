@@ -5,7 +5,7 @@ import { Navbar } from "@/components/navbar/Navbar";
 import { AboutHero } from "@/components/about/AboutHero";
 import { AboutWhoWeAre } from "@/components/about/AboutWhoWeAre";
 import { AboutTimeline } from "@/components/about/AboutTimeline";
-import { AboutMissionVision } from "@/components/about/AboutMissionVision";
+import { SceneInnovation } from "@/components/scenes/SceneInnovation";
 import { AboutValues } from "@/components/about/AboutValues";
 import { AboutLeadership } from "@/components/about/AboutLeadership";
 import { AboutGlobalPresence } from "@/components/about/AboutGlobalPresence";
@@ -42,7 +42,7 @@ export default function AboutPage() {
         <AboutHero />
         <AboutWhoWeAre />
         <AboutTimeline />
-        <AboutMissionVision />
+        <SceneInnovation />
         <AboutValues />
         <AboutLeadership />
         <AboutGlobalPresence />

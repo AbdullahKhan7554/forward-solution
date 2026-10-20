@@ -3,7 +3,6 @@ import { Preloader } from "@/components/scenes/SceneThreshold/Preloader";
 import { Navbar } from "@/components/navbar/Navbar";
 import { SceneThreshold } from "@/components/scenes/SceneThreshold";
 import { SceneUnfolding } from "@/components/scenes/SceneUnfolding";
-import { SceneInnovation } from "@/components/scenes/SceneInnovation";
 import { SceneEcosystem } from "@/components/scenes/SceneEcosystem";
 import { SceneJourney } from "@/components/scenes/SceneJourney";
 import { ScenePartners } from "@/components/scenes/ScenePartners";
@@ -24,7 +23,6 @@ export default function HomePage() {
       <main>
         <SceneThreshold />
         <SceneUnfolding />
-        <SceneInnovation />
         <SceneEcosystem />
         <SceneJourney />
         <ScenePartners />
