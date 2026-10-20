@@ -56,12 +56,15 @@ export function ProductDetail({ data }: { data: ProductDetailData }) {
             tagline: data.subtitle,
             intro: data.intro,
             image: (
-              <SlotImage
-                media={data.media}
-                label="Hero Product Image"
-                alt={`${data.name} — Agriprom Pakistan ${ruminants ? "ruminant" : "poultry"} solution`}
-                src={data.assets?.hero}
-              />
+              // poultry bag shots: contain so the packaging is never cropped
+              <div className={ruminants ? "h-full w-full" : "h-full w-full [&_img]:!object-contain"}>
+                <SlotImage
+                  media={data.media}
+                  label="Hero Product Image"
+                  alt={`${data.name} — Agriprom Pakistan ${ruminants ? "ruminant" : "poultry"} solution`}
+                  src={data.assets?.hero}
+                />
+              </div>
             ),
             specs: data.specs,
             benefits: data.benefits,

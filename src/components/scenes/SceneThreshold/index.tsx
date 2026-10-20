@@ -1,9 +1,17 @@
 "use client";
 
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { HeroContent } from "./HeroContent";
 import { ScrollCue } from "./ScrollCue";
+
+const SLIDES = [
+  "/images/home/slides/slide-1.webp",
+  "/images/home/slides/slide-2.webp",
+  "/images/home/slides/slide-3.webp",
+  "/images/home/slides/slide-4.webp",
+];
+const SLIDE_INTERVAL_MS = 5000;
 
 /**
  * SCENE 01 - THE THRESHOLD
@@ -15,6 +23,17 @@ export function SceneThreshold() {
   const atmosphereRef = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
   const cueRef = useRef<HTMLDivElement>(null);
+  const [active, setActive] = useState(0);
+
+  // advance the slideshow; stays on slide 1 under prefers-reduced-motion
+  useEffect(() => {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    const id = window.setInterval(
+      () => setActive((i) => (i + 1) % SLIDES.length),
+      SLIDE_INTERVAL_MS
+    );
+    return () => window.clearInterval(id);
+  }, []);
 
   return (
     <section
@@ -24,17 +43,23 @@ export function SceneThreshold() {
       {/* Hero stage */}
       <div ref={outerRef} className="relative">
         <div className="relative h-[100svh] min-h-[620px] w-full overflow-hidden bg-base">
-          {/* hero background image + light overlay so the dark headline stays legible */}
+          {/* hero slideshow (crossfade) + light overlay so the dark headline stays legible */}
           <div ref={atmosphereRef} className="absolute inset-0">
-            <Image
-              src="/images/home/home-hero.jpg"
-              alt=""
-              fill
-              priority
-              quality={90}
-              sizes="100vw"
-              className="object-cover"
-            />
+            {SLIDES.map((src, i) => (
+              <Image
+                key={src}
+                src={src}
+                alt=""
+                fill
+                priority={i === 0}
+                loading={i === 0 ? undefined : "lazy"}
+                quality={90}
+                sizes="100vw"
+                className={`object-cover transition-opacity duration-1000 ${
+                  i === active ? "opacity-100" : "opacity-0"
+                }`}
+              />
+            ))}
             <div
               aria-hidden="true"
               className="absolute inset-0 bg-gradient-to-r from-white/70 via-white/30 to-transparent"

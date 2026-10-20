@@ -49,7 +49,7 @@ export type ProductDetailData = {
 export const PRODUCTS: Record<string, ProductDetailData> = {
   "compound-enzyme-nsp": {
     slug: "compound-enzyme-nsp",
-    assets: { hero: "/images/products/poultry/Compound-Enzyme-NSP.jpg", overview: "/images/products/poultry/Compound-Enzyme-NSP.jpg" },
+    assets: { hero: "/images/products/poultry/new/kemzyme-poultry.webp", overview: "/images/products/poultry/new/kemzyme-poultry.webp" },
     eyebrow: "Poultry · Enzymes",
     name: "KEMZYME® Poultry",
     intro:
@@ -90,7 +90,7 @@ export const PRODUCTS: Record<string, ProductDetailData> = {
 
   "corgest-m-mannanase": {
     slug: "corgest-m-mannanase",
-    assets: { hero: "/images/products/poultry/CorGest-M-Mannanase.jpg", overview: "/images/products/poultry/CorGest-M-Mannanase.jpg" },
+    assets: { hero: "/images/products/poultry/new/mannagest.webp", overview: "/images/products/poultry/new/mannagest.webp" },
     eyebrow: "Poultry · Enzymes",
     name: "MANNAGEST™ (Mannanase)",
     intro:
@@ -138,7 +138,7 @@ export const PRODUCTS: Record<string, ProductDetailData> = {
 
   "corgest-m": {
     slug: "corgest-m",
-    assets: { hero: "/images/products/poultry/CorGest-M-Mannanase.jpg", overview: "/images/products/poultry/CorGest-M-Mannanase.jpg" },
+    assets: { hero: "/images/products/poultry/new/mannagest.webp", overview: "/images/products/poultry/new/mannagest.webp" },
     eyebrow: "Poultry · Enzymes",
     name: "MANNAGEST™ (Mannanase)",
     intro:
@@ -190,7 +190,7 @@ export const PRODUCTS: Record<string, ProductDetailData> = {
 
   xylanase: {
     slug: "xylanase",
-    assets: { hero: "/images/products/poultry/Xylanase.jpeg", overview: "/images/products/poultry/Xylanase.jpeg" },
+    assets: { hero: "/images/products/poultry/new/xygest-htx.webp", overview: "/images/products/poultry/new/xygest-htx.webp" },
     eyebrow: "Poultry · Enzymes",
     name: "XYGEST™ HTX",
     intro:
@@ -240,7 +240,7 @@ export const PRODUCTS: Record<string, ProductDetailData> = {
 
   phytingest: {
     slug: "phytingest",
-    assets: { hero: "/images/products/poultry/Phytase-768x949.jpg", overview: "/images/products/poultry/Phytase-768x949.jpg" },
+    assets: { hero: "/images/products/poultry/new/phytingest-10g.webp", overview: "/images/products/poultry/new/phytingest-10g.webp" },
     eyebrow: "Poultry · Enzymes",
     name: "PHYTINGEST™ 10 G & 20 G (Phytase)",
     intro:
@@ -292,7 +292,7 @@ export const PRODUCTS: Record<string, ProductDetailData> = {
 
   "prophorce-sr130": {
     slug: "prophorce-sr130",
-    assets: { hero: "/images/products/poultry/ProPhorce-SR-130-Esterified-Butyric-Acid-768x949.jpg", overview: "/images/products/poultry/ProPhorce-SR-130-Esterified-Butyric-Acid-768x949.jpg" },
+    assets: { hero: "/images/products/poultry/new/prophorce-sr130.webp", overview: "/images/products/poultry/new/prophorce-sr130.webp" },
     eyebrow: "Poultry · Organic Acids (SCFA)",
     name: "ProPhorce SR 130",
     subtitle:
@@ -378,6 +378,7 @@ export const PRODUCTS: Record<string, ProductDetailData> = {
 
   "anta-mix-me": {
     slug: "anta-mix-me",
+    assets: { hero: "/images/products/poultry/new/anta-mix-me.webp", overview: "/images/products/poultry/new/anta-mix-me.webp" },
     eyebrow: "Poultry · Organic Acids",
     name: "Anta®Mix ME",
     subtitle:
@@ -440,7 +441,7 @@ export const PRODUCTS: Record<string, ProductDetailData> = {
 
   "elencofix-super": {
     slug: "elencofix-super",
-    assets: { hero: "/images/products/poultry/ElencoFix-Super.png", overview: "/images/products/poultry/ElencoFix-Super.png" },
+    assets: { hero: "/images/products/poultry/new/elencofix-super.webp", overview: "/images/products/poultry/new/elencofix-super.webp" },
     eyebrow: "Poultry · Toxin Binders",
     name: "Elenco Fix Super",
     subtitle: "Broad Spectrum Algae-Based Toxin Binder",
@@ -521,7 +522,7 @@ export const PRODUCTS: Record<string, ProductDetailData> = {
 
   probond: {
     slug: "probond",
-    assets: { hero: "/images/products/ruminants/Probond-1-768x949.jpg", overview: "/images/products/ruminants/Probond-1-768x949.jpg" },
+    assets: { hero: "/images/products/poultry/new/probond.webp", overview: "/images/products/poultry/new/probond.webp" },
     eyebrow: "Poultry · Toxin Binders",
     name: "Probond",
     subtitle: "Broad Spectrum Clay-Based Toxin Binder",
@@ -595,6 +596,7 @@ export const PRODUCTS: Record<string, ProductDetailData> = {
 
   "prosid-tb-207": {
     slug: "prosid-tb-207",
+    assets: { hero: "/images/products/poultry/new/prosid-tb-207.webp", overview: "/images/products/poultry/new/prosid-tb-207.webp" },
     eyebrow: "Poultry · Toxin Binders",
     name: "ProSid TB 207",
     subtitle: "Multi-functional mycotoxin binder with phytogenics and calcium propionate",
@@ -707,10 +709,7 @@ export const PRODUCTS: Record<string, ProductDetailData> = {
     media: "placeholder",
     gallery: ["Product Image", "Packaging", "Application Image"],
     overviewImageLabel: "Product Overview",
-    assets: {
-      hero: "/images/products/poultry/Bornsun-Antioxidant-Q1-768x949.jpg",
-      overview: "/images/products/poultry/Bornsun-Antioxidant-Q1-768x949.jpg",
-    },
+    assets: { hero: "/images/products/poultry/new/compound-antioxidant.webp", overview: "/images/products/poultry/new/compound-antioxidant.webp" },
     related: [
       {
         name: "KEMZYME® Poultry",
@@ -740,7 +739,7 @@ export const PRODUCTS: Record<string, ProductDetailData> = {
 
   lysolip: {
     slug: "lysolip",
-    assets: { hero: "/images/products/poultry/LysoLip-768x949.jpg", overview: "/images/products/poultry/LysoLip-768x949.jpg" },
+    assets: { hero: "/images/products/poultry/new/lysolip-bag.webp", overview: "/images/products/poultry/new/lysolip-bag.webp" },
     eyebrow: "Poultry · Emulsifier",
     name: "LysoLip",
     subtitle: "Lysophospholipid-Based Feed Emulsifier for Fat Digestion & Gut Health",
@@ -831,7 +830,7 @@ export const PRODUCTS: Record<string, ProductDetailData> = {
 
   bilepro: {
     slug: "bilepro",
-    assets: { hero: "/images/products/poultry/Bilepro.jpg", overview: "/images/products/poultry/Bilepro.jpg" },
+    assets: { hero: "/images/products/poultry/new/bilepro.webp", overview: "/images/products/poultry/new/bilepro.webp" },
     eyebrow: "Poultry · Bile Acids",
     name: "BilePro",
     subtitle: "Bile acid-based feed additive for fat digestion, liver health & cost efficiency",
@@ -905,7 +904,7 @@ export const PRODUCTS: Record<string, ProductDetailData> = {
 
   "minlex-poultry": {
     slug: "minlex-poultry",
-    assets: { hero: "/images/products/poultry/Minlex-Poultry.jpg", overview: "/images/products/poultry/Minlex-Poultry.jpg" },
+    assets: { hero: "/images/products/poultry/new/minlex-poultry.webp", overview: "/images/products/poultry/new/minlex-poultry.webp" },
     eyebrow: "Poultry · Organic Minerals",
     name: "Minlex Poultry",
     subtitle: "Amino-Acid Chelated Organic Trace Minerals for Health & Productivity",
@@ -996,6 +995,7 @@ export const PRODUCTS: Record<string, ProductDetailData> = {
 
   "alterion-ne": {
     slug: "alterion-ne",
+    assets: { hero: "/images/products/poultry/new/alterion-ne.webp", overview: "/images/products/poultry/new/alterion-ne.webp" },
     eyebrow: "Poultry · Probiotics",
     name: "Alterion NE",
     subtitle:
@@ -1039,6 +1039,7 @@ export const PRODUCTS: Record<string, ProductDetailData> = {
 
   "antifly": {
     slug: "antifly",
+    assets: { hero: "/images/products/poultry/new/antifly.webp", overview: "/images/products/poultry/new/antifly.webp" },
     eyebrow: "Poultry · Fly Control",
     name: "Antifly",
     subtitle:
@@ -1082,6 +1083,7 @@ export const PRODUCTS: Record<string, ProductDetailData> = {
 
   "canthaxanthin-lutein": {
     slug: "canthaxanthin-lutein",
+    assets: { hero: "/images/products/poultry/new/canthaxanthin-lutein.webp", overview: "/images/products/poultry/new/canthaxanthin-lutein.webp" },
     eyebrow: "Poultry · Feed Pigment",
     name: "Canthaxanthin & Lutein Feed Pigment",
     subtitle:
@@ -1124,6 +1126,7 @@ export const PRODUCTS: Record<string, ProductDetailData> = {
 
   "moldcid": {
     slug: "moldcid",
+    assets: { hero: "/images/products/poultry/new/moldcid.webp", overview: "/images/products/poultry/new/moldcid.webp" },
     eyebrow: "Poultry · Feed Hygienizer",
     name: "MoldCid",
     subtitle:
@@ -1165,6 +1168,7 @@ export const PRODUCTS: Record<string, ProductDetailData> = {
 
   "coxield": {
     slug: "coxield",
+    assets: { hero: "/images/products/poultry/new/coxield.webp", overview: "/images/products/poultry/new/coxield.webp" },
     eyebrow: "Poultry · Phytogenic Anticoccidials",
     name: "Coxield",
     subtitle:
