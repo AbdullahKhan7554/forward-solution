@@ -135,7 +135,7 @@ export function PoultryProducts() {
           </h2>
         </header>
 
-        <ul className="mt-[10vh] grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 md:gap-8">
+        <ul className="mt-[10vh] grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 md:gap-8">
           {PRODUCTS.map((product) => (
             <ProductCard key={product.name} product={product} />
           ))}

@@ -37,7 +37,7 @@ function FloatingImage({
           alt=""
           fill
           loading="lazy"
-          sizes="(max-width: 767px) 100vw, 45vw"
+          sizes="(max-width: 767px) 100vw, 50vw"
           className="object-cover"
         />
       </div>
@@ -95,15 +95,11 @@ export function AboutMissionVision() {
           Our Mission and Vision
         </span>
 
-        {/* two panels — editorial asymmetry across a 12-col field */}
-        <div className="grid grid-cols-1 items-start gap-8 md:grid-cols-12 md:gap-10">
+        {/* two panels — each text left, image right */}
+        <div className="flex flex-col gap-16 md:gap-24">
           {/* MISSION — left, anchored */}
-          <div data-mv-card="mission" className="relative md:col-span-6">
-            <FloatingImage
-              src={IMG_MISSION}
-              className="relative mb-8 aspect-[16/10] w-full"
-            />
-            <GlassCard className="h-full p-8 md:p-12">
+          <div data-mv-card="mission" className="relative grid grid-cols-1 items-center gap-12 md:grid-cols-2 md:gap-20">
+            <GlassCard className="min-w-0 p-8 md:p-12">
               <div className="mb-6 flex items-center gap-3">
                 <span className="h-px w-8 bg-accent-500" />
                 <span className="font-sans text-caption uppercase tracking-[0.28em] text-primary-700">
@@ -125,15 +121,17 @@ export function AboutMissionVision() {
                 unwavering support for the people who raise the nation&rsquo;s livestock.
               </p>
             </GlassCard>
+            <div className="flex justify-end">
+              <FloatingImage
+                src={IMG_MISSION}
+                className="relative aspect-[16/10] w-full max-w-[560px]"
+              />
+            </div>
           </div>
 
           {/* VISION — right, dropped for asymmetry */}
-          <div data-mv-card="vision" className="relative md:col-span-5 md:col-start-8 md:mt-[12vh]">
-            <FloatingImage
-              src={IMG_VISION}
-              className="relative mb-8 aspect-[16/10] w-full"
-            />
-            <GlassCard className="h-full p-8 md:p-12">
+          <div data-mv-card="vision" className="relative grid grid-cols-1 items-center gap-12 md:grid-cols-2 md:gap-20">
+            <GlassCard className="min-w-0 p-8 md:p-12">
               <div className="mb-6 flex items-center gap-3">
                 <span className="h-px w-8 bg-accent-500" />
                 <span className="font-sans text-caption uppercase tracking-[0.28em] text-primary-700">
@@ -155,6 +153,12 @@ export function AboutMissionVision() {
                 sustainable and more resilient food chain.
               </p>
             </GlassCard>
+            <div className="flex justify-end">
+              <FloatingImage
+                src={IMG_VISION}
+                className="relative aspect-[16/10] w-full max-w-[560px]"
+              />
+            </div>
           </div>
         </div>
       </div>

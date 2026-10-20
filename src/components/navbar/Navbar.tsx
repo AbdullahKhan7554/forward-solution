@@ -104,13 +104,13 @@ function RollLink({ label, href, active }: { label: string; href: string; active
         <span className="block transition-transform duration-[560ms] ease-brand-luxury group-hover:-translate-y-1/2">
           <span
             className={cn(
-              "flex h-[1.35em] items-center font-sans text-[17px] font-semibold transition-colors duration-[360ms] ease-brand-out",
+              "flex h-[1.35em] items-center font-sans text-[17px] font-medium transition-colors duration-[360ms] ease-brand-out",
               active ? "text-[#008A4B]" : "text-white"
             )}
           >
             {label}
           </span>
-          <span className="flex h-[1.35em] items-center font-sans text-[17px] font-semibold text-[#008A4B]">
+          <span className="flex h-[1.35em] items-center font-sans text-[17px] font-medium text-[#008A4B]">
             {label}
           </span>
         </span>
@@ -240,7 +240,7 @@ function NavDropdown({
   };
 
   const triggerClassName = cn(
-    "group flex items-center gap-1.5 font-sans text-[17px] font-semibold transition-colors duration-[360ms] ease-brand-out",
+    "group flex items-center gap-1.5 font-sans text-[17px] font-medium transition-colors duration-[360ms] ease-brand-out",
     open || active
       ? "text-[#008A4B]"
       : "text-white hover:text-[#008A4B]"

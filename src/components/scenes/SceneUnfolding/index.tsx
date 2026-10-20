@@ -98,9 +98,9 @@ export function SceneUnfolding() {
 
       <div className="relative mx-auto w-full max-w-container px-6 py-16 md:py-24 md:px-12 xl:px-20">
         {/* editorial two-column: story left, collage right */}
-        <div className="grid grid-cols-1 items-center gap-x-12 gap-y-14 lg:grid-cols-2">
+        <div className="grid grid-cols-1 items-center gap-12 md:grid-cols-2 md:gap-20">
           {/* LEFT — text + CTA */}
-          <div className="max-w-xl">
+          <div className="min-w-0 max-w-xl">
             <div data-about-text className="mb-7 flex items-center gap-4">
               <span className="h-px w-10 bg-accent-500" />
               <span className="font-sans text-caption uppercase tracking-[0.3em] text-neutral-900">
@@ -151,12 +151,12 @@ export function SceneUnfolding() {
           </div>
 
           {/* RIGHT — single image, in normal flow */}
-          <div>
+          <div className="flex justify-end">
             {/* the environment */}
             <CollageImage
               src={IMG_LAB}
-              sizes="(max-width: 1024px) 100vw, 50vw"
-              className="relative aspect-[4/3] w-full"
+              sizes="(max-width: 768px) 100vw, 50vw"
+              className="relative aspect-[4/3] w-full max-w-[560px]"
             />
           </div>
         </div>

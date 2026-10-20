@@ -110,9 +110,9 @@ export function AboutWhoWeAre() {
 
       <div className="relative mx-auto w-full max-w-container px-6 py-16 md:py-24 md:px-12 xl:px-20">
         {/* editorial two-column: story left, image right */}
-        <div className="grid grid-cols-1 items-center gap-x-12 gap-y-14 lg:grid-cols-2">
+        <div className="grid grid-cols-1 items-center gap-12 md:grid-cols-2 md:gap-20">
           {/* LEFT — text + CTA */}
-          <div className="max-w-xl">
+          <div className="min-w-0 max-w-xl">
             <div data-about-text className="mb-7 flex items-center gap-4">
               <span className="h-px w-10 bg-accent-500" />
               <span className="font-sans text-caption uppercase tracking-[0.3em] text-neutral-900">
@@ -167,7 +167,8 @@ export function AboutWhoWeAre() {
           </div>
 
           {/* RIGHT — single static image */}
-          <div className="relative aspect-[4/3] w-full overflow-hidden rounded-xl shadow-soft">
+          <div className="flex justify-end">
+          <div className="relative aspect-[4/3] w-full max-w-[560px] overflow-hidden rounded-xl shadow-soft">
             <Image
               src={IMG_LAB}
               alt=""
@@ -175,6 +176,7 @@ export function AboutWhoWeAre() {
               sizes="(max-width: 1024px) 100vw, 50vw"
               className="object-cover"
             />
+          </div>
           </div>
         </div>
 
