@@ -2,7 +2,6 @@
 
 import { useRef } from "react";
 import { RevealText } from "@/components/primitives/RevealText";
-import { PartnerCard } from "./PartnerCard";
 import { WorldMap } from "./WorldMap";
 import { partners } from "./partners";
 import { usePartnersChoreography } from "./usePartnersChoreography";
@@ -65,15 +64,37 @@ export function ScenePartners() {
           />
         </header>
 
-        {/* PARTNER FIELD - editorial masonry, reflows for any count */}
-        <ul
-          data-partners-field
-          className="mt-[12vh] columns-1 gap-8 will-change-transform md:columns-2 xl:columns-3"
-        >
-          {partners.map((partner) => (
-            <PartnerCard key={partner.name} partner={partner} />
-          ))}
-        </ul>
+        {/* PARTNER MARQUEE - infinite auto-scroll; list duplicated for a seamless loop */}
+        <style>{`
+          @keyframes partners-marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+          .partners-track { animation: partners-marquee 40s linear infinite; }
+          .partners-marquee:hover .partners-track { animation-play-state: paused; }
+          @media (prefers-reduced-motion: reduce) { .partners-track { animation: none; } }
+        `}</style>
+        <div data-partners-field className="partners-marquee mt-[12vh] overflow-hidden">
+          <ul className="partners-track flex w-max">
+            {[...partners, ...partners].map((partner, i) => (
+              <li
+                key={`${partner.name}-${i}`}
+                aria-hidden={i >= partners.length || undefined}
+                className="mr-6 flex w-56 shrink-0 list-none flex-col items-center rounded-lg border border-white/70 bg-white/85 p-6 shadow-soft"
+              >
+                <div className="flex h-24 w-full items-center justify-center">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={partner.logo}
+                    alt={`${partner.name} logo`}
+                    decoding="async"
+                    className="h-full w-full object-contain"
+                  />
+                </div>
+                <p className="mt-4 text-center font-display text-body-lg font-medium text-neutral-900">
+                  {partner.name}
+                </p>
+              </li>
+            ))}
+          </ul>
+        </div>
       </div>
     </section>
   );

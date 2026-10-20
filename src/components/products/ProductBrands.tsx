@@ -5,7 +5,6 @@ import { useIsomorphicLayoutEffect } from "@/hooks/useIsomorphicLayoutEffect";
 import { gsap, ScrollTrigger } from "@/lib/gsap";
 import { RevealText } from "@/components/primitives/RevealText";
 import { WorldMap } from "@/components/scenes/ScenePartners/WorldMap";
-import { PartnerCard } from "@/components/scenes/ScenePartners/PartnerCard";
 import { partners } from "@/components/scenes/ScenePartners/partners";
 
 /**
@@ -13,13 +12,8 @@ import { partners } from "@/components/scenes/ScenePartners/partners";
  *
  * Reuses the Partners architecture wholesale — the same WorldMap atmosphere +
  * arc-draw/node-breathe animation, the same partners data and the same
- * glass PartnerCard (mono → colour on hover, lift, glow) — but re-composes it as
- * a floating editorial grid (a diagonal drift, not the homepage masonry) so it
- * never duplicates the homepage Network scene.
+ * — rendered as an infinite auto-scrolling logo marquee in full colour.
  */
-
-// A gentle floating diagonal — offset each column so the field never reads as a grid.
-const OFFSET = ["md:mt-0", "md:mt-[7vh]", "md:mt-[14vh]"];
 
 export function ProductBrands() {
   const rootRef = useRef<HTMLElement>(null);
@@ -42,22 +36,6 @@ export function ProductBrands() {
         ease: "power3.out",
         stagger: 0.14,
         scrollTrigger: { trigger: root, start: "top 72%", toggleActions: "play none none none" },
-      });
-
-      // brand panels — curated sequential reveal (reuses PartnerCard's data-partner)
-      gsap.set("[data-partner]", { autoAlpha: 0, y: 26, scale: 0.985 });
-      ScrollTrigger.batch("[data-partner]", {
-        start: "top 90%",
-        onEnter: (batch) =>
-          gsap.to(batch, {
-            autoAlpha: 1,
-            y: 0,
-            scale: 1,
-            duration: 1.0,
-            ease: "power3.out",
-            stagger: 0.12,
-            overwrite: true,
-          }),
       });
 
       // world map — reuse the draw-then-breathe animation
@@ -130,15 +108,37 @@ export function ProductBrands() {
           </p>
         </header>
 
-        {/* floating brand field — grid with a diagonal drift, not masonry.
-            Only an additive column offset is passed; PartnerCard keeps its own
-            margins (single-property, so nothing compounds). items-start lets the
-            offsets read as a float. */}
-        <ul className="mt-[12vh] grid grid-cols-1 items-start gap-6 sm:grid-cols-2 md:grid-cols-3 md:gap-8">
-          {partners.map((partner, i) => (
-            <PartnerCard key={partner.name} partner={partner} className={OFFSET[i % 3]} />
-          ))}
-        </ul>
+        {/* BRAND MARQUEE - infinite auto-scroll; list duplicated for a seamless loop */}
+        <style>{`
+          @keyframes brands-marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+          .brands-track { animation: brands-marquee 40s linear infinite; }
+          .brands-marquee:hover .brands-track { animation-play-state: paused; }
+          @media (prefers-reduced-motion: reduce) { .brands-track { animation: none; } }
+        `}</style>
+        <div className="brands-marquee mt-[12vh] overflow-hidden">
+          <ul className="brands-track flex w-max">
+            {[...partners, ...partners].map((partner, i) => (
+              <li
+                key={`${partner.name}-${i}`}
+                aria-hidden={i >= partners.length || undefined}
+                className="mr-6 flex w-56 shrink-0 list-none flex-col items-center rounded-lg border border-white/70 bg-white/85 p-6 shadow-soft"
+              >
+                <div className="flex h-24 w-full items-center justify-center">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={partner.logo}
+                    alt={`${partner.name} logo`}
+                    decoding="async"
+                    className="h-full w-full object-contain"
+                  />
+                </div>
+                <p className="mt-4 text-center font-display text-body-lg font-medium text-neutral-900">
+                  {partner.name}
+                </p>
+              </li>
+            ))}
+          </ul>
+        </div>
       </div>
     </section>
   );

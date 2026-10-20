@@ -18,7 +18,7 @@ import { RevealText } from "@/components/primitives/RevealText";
  * transform/opacity only. Reduced motion: static.
  */
 
-const IMG_LAB = "/images/heroabout/h1.jpg"; // large — the environment
+const IMG_LAB = "/images/home/home-caring.webp"; // large — the environment
 
 /** One collage image — reveal target › hover surface. */
 function CollageImage({
