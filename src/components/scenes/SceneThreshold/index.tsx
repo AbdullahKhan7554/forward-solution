@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef } from "react";
+import Image from "next/image";
 import { HeroContent } from "./HeroContent";
 import { ScrollCue } from "./ScrollCue";
 
@@ -23,13 +24,22 @@ export function SceneThreshold() {
       {/* Hero stage */}
       <div ref={outerRef} className="relative">
         <div className="relative h-[100svh] min-h-[620px] w-full overflow-hidden bg-base">
-          {/* static atmosphere gradient */}
-          <div ref={atmosphereRef} className="absolute inset-0 will-change-transform">
+          {/* hero background image + light overlay so the dark headline stays legible */}
+          <div ref={atmosphereRef} className="absolute inset-0">
+            <Image
+              src="/hero0.webp"
+              alt=""
+              fill
+              priority
+              sizes="100vw"
+              className="object-cover"
+            />
             <div
+              aria-hidden="true"
               className="absolute inset-0"
               style={{
                 background:
-                  "radial-gradient(120% 90% at 50% 62%, #FFFFFF 0%, #FAFBFC 45%, #EEF3F6 100%)",
+                  "linear-gradient(90deg, rgba(250,251,252,0.9) 0%, rgba(250,251,252,0.75) 50%, rgba(250,251,252,0.55) 100%)",
               }}
             />
           </div>
