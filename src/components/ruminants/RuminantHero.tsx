@@ -16,7 +16,7 @@ export function RuminantHero() {
       crumb="Ruminants"
       eyebrow="Ruminant Nutrition"
       title="Ruminant"
-      image={{ src: "/reuminant.jpg", alt: "Dairy and beef cattle — Agriprom Pakistan ruminant nutrition" }}
+      image={{ src: "/images/agriprom-images/ruminants/front.jpeg", alt: "Dairy and beef cattle — Agriprom Pakistan ruminant nutrition" }}
       description={
         <>
           Science-driven nutrition, health and comfort for dairy and beef cattle — engineered to

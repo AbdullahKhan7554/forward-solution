@@ -17,19 +17,19 @@ import { CatalogCard } from "@/components/catalog/CatalogCard";
 type Product = { name: string; blurb: string; href: string; image?: string };
 
 const PRODUCTS: Product[] = [
-  { name: "Enzymes", blurb: "Unlock more nutrition from every gram of feed.", href: "/products/poultry/enzymes", image: "/images/products/poultry/new/kemzyme-poultry.webp" },
-  { name: "Organic Acids", blurb: "Lower gut pH to control pathogens naturally.", href: "/products/poultry/organic-acids", image: "/images/products/poultry/new/prophorce-sr130.webp" },
-  { name: "Toxin Binders", blurb: "Neutralise mycotoxins before they cost performance.", href: "/products/poultry/toxin-binders", image: "/images/products/poultry/new/elencofix-super.webp" },
-  { name: "Antioxidants", blurb: "Protect feed and cells from oxidative stress.", href: "/products/poultry/antioxidants", image: "/images/products/poultry/new/compound-antioxidant.webp" },
-  { name: "Emulsifiers", blurb: "Improve fat digestion and energy uptake.", href: "/products/poultry/emulsifier", image: "/images/products/poultry/new/lysolip-bag.webp" },
-  { name: "Bile Acids", blurb: "Enhance lipid absorption and liver function.", href: "/products/poultry/bile-acids", image: "/images/products/poultry/new/bilepro.webp" },
-  { name: "Organic Minerals", blurb: "Highly bioavailable trace minerals for vitality.", href: "/products/poultry/organic-minerals", image: "/images/products/poultry/new/minlex-poultry.webp" },
+  { name: "Enzymes", blurb: "Unlock more nutrition from every gram of feed.", href: "/products/poultry/enzymes", image: "/images/agriprom-images/poultry/enzymes.jpeg" },
+  { name: "Organic Acids", blurb: "Lower gut pH to control pathogens naturally.", href: "/products/poultry/organic-acids", image: "/images/agriprom-images/poultry/organic-acids.jpeg" },
+  { name: "Toxin Binders", blurb: "Neutralise mycotoxins before they cost performance.", href: "/products/poultry/toxin-binders", image: "/images/agriprom-images/poultry/toxin-binders.jpeg" },
+  { name: "Antioxidants", blurb: "Protect feed and cells from oxidative stress.", href: "/products/poultry/antioxidants", image: "/images/agriprom-images/poultry/antioxidants.png" },
+  { name: "Emulsifiers", blurb: "Improve fat digestion and energy uptake.", href: "/products/poultry/emulsifier", image: "/images/agriprom-images/poultry/emulsifiers.jpeg" },
+  { name: "Bile Acids", blurb: "Enhance lipid absorption and liver function.", href: "/products/poultry/bile-acids", image: "/images/agriprom-images/poultry/bile-acids.jpeg" },
+  { name: "Organic Minerals", blurb: "Highly bioavailable trace minerals for vitality.", href: "/products/poultry/organic-minerals", image: "/images/agriprom-images/poultry/organic-minerals.jpeg" },
   { name: "Alternative Protein", blurb: "Sustainable protein without compromising growth.", href: "/products/poultry/alternative-protein", image: "/images/products/poultry/MSG-Single-Cell-Protein.jpg" },
-  { name: "Probiotics", blurb: "Gut health that fuels performance.", href: "/products/poultry/probiotics", image: "/images/products/poultry/new/alterion-ne.webp" },
-  { name: "Fly Control", blurb: "Break the fly cycle at the source.", href: "/products/poultry/fly-control", image: "/images/products/poultry/new/antifly.webp" },
-  { name: "Feed Pigment", blurb: "Consistent color without compromise", href: "/products/poultry/feed-pigment", image: "/images/products/poultry/new/canthaxanthin-lutein.webp" },
-  { name: "Feed Hygienizer", blurb: "Fresher feed, fewer toxin risks", href: "/products/poultry/feed-hygienizer", image: "/images/products/poultry/new/moldcid.webp" },
-  { name: "Phytogenic Anticoccidials", blurb: "Plant-powered protection against coccidiosis.", href: "/products/poultry/phytogenic-anticoccidials", image: "/images/products/poultry/new/coxield.webp" },
+  { name: "Probiotics", blurb: "Gut health that fuels performance.", href: "/products/poultry/probiotics", image: "/images/agriprom-images/poultry/probiotics.jpeg" },
+  { name: "Fly Control", blurb: "Break the fly cycle at the source.", href: "/products/poultry/fly-control", image: "/images/agriprom-images/poultry/fly-control.png" },
+  { name: "Feed Pigment", blurb: "Consistent color without compromise", href: "/products/poultry/feed-pigment", image: "/images/agriprom-images/poultry/pigments.jpg" },
+  { name: "Feed Hygienizer", blurb: "Fresher feed, fewer toxin risks", href: "/products/poultry/feed-hygienizer", image: "/images/agriprom-images/poultry/feed-hygienizer.jpeg" },
+  { name: "Phytogenic Anticoccidials", blurb: "Plant-powered protection against coccidiosis.", href: "/products/poultry/phytogenic-anticoccidials", image: "/images/agriprom-images/poultry/anticoccidials.jpeg" },
 ];
 
 function ProductCard({ product }: { product: Product }) {

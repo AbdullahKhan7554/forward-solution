@@ -91,7 +91,7 @@ export function BlogHero() {
         <div className="relative h-[100svh] min-h-[620px] w-full overflow-hidden bg-base">
           {/* Soft editorial laboratory photography — the graded LabPlate. */}
           <div ref={bgRef} className="absolute inset-0 will-change-transform">
-            <LabPlate src="/images/herohome/1.webp" alt="" />
+            <LabPlate src="/images/agriprom-images/pages/blog-hero.jpg" alt="" />
           </div>
 
           {/* Very subtle scientific gradients — legibility scrim + emerald whisper */}

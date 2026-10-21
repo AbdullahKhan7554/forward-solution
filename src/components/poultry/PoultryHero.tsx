@@ -67,7 +67,7 @@ export function PoultryHero() {
       crumb="Poultry"
       eyebrow="Poultry Nutrition"
       title="Poultry"
-      image={{ src: "/poultry.jpg", alt: "Poultry farm — Agriprom Pakistan nutritional technologies" }}
+      image={{ src: "/images/agriprom-images/poultry/front.jpeg", alt: "Poultry farm — Agriprom Pakistan nutritional technologies" }}
       description={
         <>
           Agriprom Pakistan delivers scientifically proven nutritional technologies that
