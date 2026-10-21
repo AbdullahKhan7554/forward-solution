@@ -24,7 +24,7 @@ const PRODUCTS: Product[] = [
   { name: "Emulsifiers", blurb: "Improve fat digestion and energy uptake.", href: "/products/poultry/emulsifier", image: "/images/agriprom-images/poultry/emulsifiers.jpeg" },
   { name: "Bile Acids", blurb: "Enhance lipid absorption and liver function.", href: "/products/poultry/bile-acids", image: "/images/agriprom-images/poultry/bile-acids.jpeg" },
   { name: "Organic Minerals", blurb: "Highly bioavailable trace minerals for vitality.", href: "/products/poultry/organic-minerals", image: "/images/agriprom-images/poultry/organic-minerals.jpeg" },
-  { name: "Alternative Protein", blurb: "Sustainable protein without compromising growth.", href: "/products/poultry/alternative-protein", image: "/images/products/poultry/MSG-Single-Cell-Protein.jpg" },
+  { name: "Alternative Protein", blurb: "Sustainable protein without compromising growth.", href: "/products/poultry/alternative-protein", image: "/images/client/alternative-protein.webp" },
   { name: "Probiotics", blurb: "Gut health that fuels performance.", href: "/products/poultry/probiotics", image: "/images/agriprom-images/poultry/probiotics.jpeg" },
   { name: "Fly Control", blurb: "Break the fly cycle at the source.", href: "/products/poultry/fly-control", image: "/images/agriprom-images/poultry/fly-control.png" },
   { name: "Feed Pigment", blurb: "Consistent color without compromise", href: "/products/poultry/feed-pigment", image: "/images/agriprom-images/poultry/pigments.jpg" },

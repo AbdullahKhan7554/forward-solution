@@ -26,7 +26,13 @@ export function CatalogCard({
       aria-label={`${title} — ${action.toLowerCase()}`}
       className="group flex h-full flex-col overflow-hidden rounded-lg border border-neutral-200/80 bg-pure shadow-soft outline-none transition-[transform,box-shadow] duration-200 ease-brand-out hover:-translate-y-1 hover:shadow-medium focus-visible:ring-2 focus-visible:ring-accent-500"
     >
-      <div className="h-[220px] w-full overflow-hidden bg-neutral-100 [&_img]:!object-contain">
+      <div
+        className={
+          action === "Details"
+            ? "h-[220px] w-full overflow-hidden bg-neutral-100 [&_img]:!object-contain"
+            : "h-[220px] w-full overflow-hidden [&_img]:!h-full [&_img]:!w-full [&_img]:!object-cover [&_img]:!p-0"
+        }
+      >
         <div className="h-full w-full transition-transform duration-200 ease-brand-out group-hover:scale-[1.03]">
           {image}
         </div>

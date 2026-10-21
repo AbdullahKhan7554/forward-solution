@@ -8,7 +8,7 @@ import { CategoryShowcase, type ShowcaseItem } from "@/components/product-detail
 export const metadata: Metadata = {
   title: "Poultry Toxin Binders — Agriprom Pakistan",
   description:
-    "Agriprom Pakistan's poultry toxin binder range — Elenco Fix Super (algae-based) and Probond (clay-based) — for broad-spectrum mycotoxin management and feed safety.",
+    "Agriprom Pakistan's poultry toxin binder range — ElencoFix-Super (algae-based) and PROBOND (clay-based) — for broad-spectrum mycotoxin management and feed safety.",
 };
 
 const ITEMS: ShowcaseItem[] = [

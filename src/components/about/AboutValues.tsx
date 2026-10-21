@@ -5,15 +5,13 @@ import { useIsomorphicLayoutEffect } from "@/hooks/useIsomorphicLayoutEffect";
 import { gsap, ScrollTrigger } from "@/lib/gsap";
 import { RevealText } from "@/components/primitives/RevealText";
 import { GlassCard } from "@/components/scenes/SceneInnovation/GlassCard";
-import { cn } from "@/lib/utils";
 
 /**
  * ABOUT · SCENE 05 — OUR CORE VALUES.
  *
- * Six values in a floating editorial composition — not an equal grid: the cards
- * step down the field in a gentle diagonal, breathing white space between them.
- * Minimal Lucide-style line icons (stroke 1.5, matching the Footer set). Hover
- * reuses GlassCard's lift + shadow and adds a soft accent glow. Values reveal in
+ * Six values in a clean, even grid (3 / 2 / 1 columns), every card the same
+ * height. Each card: green icon circle, primary-blue title, one short line, on a
+ * light-green/white surface with a green top border. Values reveal in
  * sequence. Reuses GlassCard, RevealText, the GSAP/ScrollTrigger clock, tokens.
  */
 
@@ -73,73 +71,50 @@ const Leaf = () => (
   </Icon>
 );
 
-type Value = { title: string; body: string; icon: ReactNode; offset: string };
+type Value = { title: string; body: string; icon: ReactNode; };
 
-/* The offsets stagger the cards into a floating diagonal — not an equal grid. */
 const VALUES: Value[] = [
   {
     title: "Innovation",
     body: "Research-driven formulations that move animal health forward.",
     icon: <Lightbulb />,
-    offset: "md:mt-0",
   },
   {
     title: "Integrity",
     body: "Honest science and transparent partnerships in every decision.",
     icon: <Shield />,
-    offset: "md:mt-[7vh]",
   },
   {
     title: "Quality",
     body: "Globally-qualified standards, verified at every stage.",
     icon: <Award />,
-    offset: "md:mt-[14vh]",
   },
   {
     title: "Scientific Excellence",
     body: "Rigorous, evidence-led expertise behind every product.",
     icon: <Atom />,
-    offset: "md:mt-0",
   },
   {
     title: "Customer Partnership",
     body: "Long-term relationships, built farm-to-farm, side by side.",
     icon: <Users />,
-    offset: "md:mt-[7vh]",
   },
   {
     title: "Sustainability",
     body: "Solutions that nurture both livestock and the planet.",
     icon: <Leaf />,
-    offset: "md:mt-[14vh]",
   },
 ];
 
-function ValueCard({ value, index }: { value: Value; index: number }) {
+function ValueCard({ value }: { value: Value }) {
   return (
-    <li data-value-card className={cn(value.offset)}>
-      <GlassCard className="relative h-full overflow-hidden">
-        {/* soft accent glow — appears on hover, sits behind the content */}
-        <span
-          aria-hidden="true"
-          className="pointer-events-none absolute -right-10 -top-10 h-40 w-40 rounded-full opacity-0 blur-2xl transition-opacity duration-300 ease-brand-out group-hover:opacity-100"
-          style={{
-            background:
-              "radial-gradient(closest-side, rgba(0,138,75,0.35), rgba(0,138,75,0))",
-          }}
-        />
-        <div className="relative">
-          <div className="mb-6 flex items-center justify-between">
-            <span className="inline-flex h-12 w-12 items-center justify-center rounded-full border border-white/70 bg-white/60 text-primary-700 shadow-soft transition-colors duration-300 ease-brand-out group-hover:text-accent-600">
-              {value.icon}
-            </span>
-            <span className="font-sans text-caption tracking-[0.24em] text-neutral-900">
-              {String(index + 1).padStart(2, "0")}
-            </span>
-          </div>
-          <h3 className="font-display text-h4 font-medium text-neutral-900">{value.title}</h3>
-          <p className="mt-3 text-pretty font-sans text-body text-neutral-900">{value.body}</p>
-        </div>
+    <li data-value-card className="h-full">
+      <GlassCard className="relative flex h-full flex-col overflow-hidden border-t-4 border-t-accent-500 bg-gradient-to-b from-accent-100/60 to-white">
+        <span className="mb-6 inline-flex h-14 w-14 items-center justify-center rounded-full bg-accent-500 text-white shadow-soft">
+          {value.icon}
+        </span>
+        <h3 className="font-display text-h4 font-medium text-primary-700">{value.title}</h3>
+        <p className="mt-3 text-pretty font-sans text-body text-neutral-900">{value.body}</p>
       </GlassCard>
     </li>
   );
@@ -235,10 +210,10 @@ export function AboutValues() {
           </h2>
         </div>
 
-        {/* floating value field */}
-        <ul className="mt-[12vh] grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 md:gap-8">
-          {VALUES.map((value, i) => (
-            <ValueCard key={value.title} value={value} index={i} />
+        {/* value grid — 3 / 2 / 1 columns, equal-height cards */}
+        <ul className="mt-[12vh] grid grid-cols-1 items-stretch gap-6 md:grid-cols-2 md:gap-8 lg:grid-cols-3">
+          {VALUES.map((value) => (
+            <ValueCard key={value.title} value={value} />
           ))}
         </ul>
       </div>

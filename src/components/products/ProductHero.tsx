@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef } from "react";
+import Image from "next/image";
 import { useIsomorphicLayoutEffect } from "@/hooks/useIsomorphicLayoutEffect";
 import { useIntro } from "@/components/providers/IntroProvider";
 import { gsap } from "@/lib/gsap";
@@ -83,16 +84,27 @@ export function ProductHero() {
     >
       <div ref={outerRef} className="relative">
         <div className="relative h-[100svh] min-h-[620px] w-full overflow-hidden bg-base">
-          {/* static atmosphere gradient */}
+          {/* full-bleed background photograph */}
           <div ref={atmosphereRef} className="absolute inset-0 will-change-transform">
-            <div
-              className="absolute inset-0"
-              style={{
-                background:
-                  "radial-gradient(120% 90% at 50% 62%, #FFFFFF 0%, #FAFBFC 45%, #EEF3F6 100%)",
-              }}
+            <Image
+              src="/images/client/products-hero.webp"
+              alt=""
+              fill
+              priority
+              sizes="100vw"
+              className="object-cover"
             />
           </div>
+
+          {/* white overlay behind the text side — headline legibility */}
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute inset-0"
+            style={{
+              background:
+                "linear-gradient(90deg, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0.65) 38%, rgba(255,255,255,0) 72%)",
+            }}
+          />
 
           {/* Asymmetric vignette — seats the mass lower-left, opens the light upper-right */}
           <div

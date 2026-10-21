@@ -92,7 +92,7 @@ export const PRODUCTS: Record<string, ProductDetailData> = {
     slug: "corgest-m-mannanase",
     assets: { hero: "/images/products/poultry/new/mannagest.webp", overview: "/images/products/poultry/new/mannagest.webp" },
     eyebrow: "Poultry · Enzymes",
-    name: "MANNAGEST™ (Mannanase)",
+    name: "MANNAGEST™",
     intro:
       "MANNAGEST™ contains Mannanase, an enzyme that hydrolyzes β-1,4-mannan into manno-oligosaccharides and mannose, improving nutrient utilization, feed efficiency, and poultry performance.",
     overviewLead:
@@ -115,7 +115,7 @@ export const PRODUCTS: Record<string, ProductDetailData> = {
     flow: [
       "Plant Cell Wall",
       "Mannan",
-      "MANNAGEST™ (Mannanase)",
+      "MANNAGEST™",
       "Breaks Mannan",
       "More Nutrients Released",
       "Better Growth Performance",
@@ -131,7 +131,7 @@ export const PRODUCTS: Record<string, ProductDetailData> = {
         values: ["Improved Nutrient Release", "Better Feed Efficiency", "Enhanced Growth"],
       },
     ],
-    metaTitle: "MANNAGEST™ (Mannanase) — Agriprom Pakistan | Poultry Enzymes",
+    metaTitle: "MANNAGEST™ — Agriprom Pakistan | Poultry Enzymes",
     metaDescription:
       "MANNAGEST™ contains Mannanase, hydrolyzing β-1,4-mannan into manno-oligosaccharides and mannose to improve nutrient utilization, feed efficiency and poultry performance.",
   },
@@ -140,7 +140,7 @@ export const PRODUCTS: Record<string, ProductDetailData> = {
     slug: "corgest-m",
     assets: { hero: "/images/products/poultry/new/mannagest.webp", overview: "/images/products/poultry/new/mannagest.webp" },
     eyebrow: "Poultry · Enzymes",
-    name: "MANNAGEST™ (Mannanase)",
+    name: "MANNAGEST™",
     intro:
       "MANNAGEST™ is a premium Mannanase enzyme designed to improve nutrient digestibility by hydrolyzing β-mannan, enhancing feed efficiency and overall poultry performance.",
     overviewLead:
@@ -163,7 +163,7 @@ export const PRODUCTS: Record<string, ProductDetailData> = {
     flow: [
       "Plant Feed",
       "β-Mannan",
-      "MANNAGEST™ (Mannanase)",
+      "MANNAGEST™",
       "Hydrolysis",
       "Mannan Oligosaccharides",
       "Improved Nutrient Absorption",
@@ -183,7 +183,7 @@ export const PRODUCTS: Record<string, ProductDetailData> = {
     ],
     media: "placeholder",
     gallery: ["Product Image", "Packaging", "Laboratory", "Application"],
-    metaTitle: "MANNAGEST™ (Mannanase) — Agriprom Pakistan | Poultry Enzyme",
+    metaTitle: "MANNAGEST™ — Agriprom Pakistan | Poultry Enzyme",
     metaDescription:
       "MANNAGEST™ is a premium Mannanase enzyme that hydrolyzes β-mannan to improve nutrient digestibility, feed conversion and overall poultry performance.",
   },
@@ -294,13 +294,13 @@ export const PRODUCTS: Record<string, ProductDetailData> = {
     slug: "prophorce-sr130",
     assets: { hero: "/images/products/poultry/new/prophorce-sr130.webp", overview: "/images/products/poultry/new/prophorce-sr130.webp" },
     eyebrow: "Poultry · Organic Acids (SCFA)",
-    name: "ProPhorce SR 130",
+    name: "ProPhorce™ SR 130",
     subtitle:
       "Advanced Esterified Butyric Acid Feed Premix for Improved Gut Health and Feed Efficiency",
     intro:
-      "ProPhorce SR 130 is an advanced feed premix containing tri and diglycerides of butyric acid, designed to enhance gut integrity, nutrient utilization, immune response and overall poultry performance.",
+      "ProPhorce™ SR 130 is an advanced feed premix containing tri and diglycerides of butyric acid, designed to enhance gut integrity, nutrient utilization, immune response and overall poultry performance.",
     overviewLead:
-      "Butyric acid is the preferred energy source of the cells lining the intestine — but conventional butyrate is pungent and released too early to reach the gut. ProPhorce SR 130 esterifies butyric acid onto a glycerol backbone (tri and diglycerides), so it is odourless, stable and released gradually along the intestinal tract exactly where it is needed.",
+      "Butyric acid is the preferred energy source of the cells lining the intestine — but conventional butyrate is pungent and released too early to reach the gut. ProPhorce™ SR 130 esterifies butyric acid onto a glycerol backbone (tri and diglycerides), so it is odourless, stable and released gradually along the intestinal tract exactly where it is needed.",
     overviewPoints: [
       "Esterified butyric acid — butyrate bound to glycerol.",
       "Odourless and stable through feed processing.",
@@ -371,9 +371,9 @@ export const PRODUCTS: Record<string, ProductDetailData> = {
       bottom: "Poultry Performance?",
       body: "Talk with our technical experts to discover how ProPhorce SR130 can improve gut health, feed efficiency and poultry productivity.",
     },
-    metaTitle: "ProPhorce SR 130 (Esterified Butyric Acid) — Agriprom Pakistan | Poultry SCFA",
+    metaTitle: "ProPhorce™ SR 130 (Esterified Butyric Acid) — Agriprom Pakistan | Poultry SCFA",
     metaDescription:
-      "ProPhorce SR 130 is an advanced esterified butyric acid (tri & diglycerides) feed premix that enhances gut integrity, nutrient utilization, immunity and poultry performance.",
+      "ProPhorce™ SR 130 is an advanced esterified butyric acid (tri & diglycerides) feed premix that enhances gut integrity, nutrient utilization, immunity and poultry performance.",
   },
 
   "anta-mix-me": {
@@ -419,7 +419,7 @@ export const PRODUCTS: Record<string, ProductDetailData> = {
     overviewImageLabel: "Product Overview",
     related: [
       {
-        name: "ProPhorce SR 130",
+        name: "ProPhorce™ SR 130",
         blurb: "Esterified butyric acid premix for gut integrity, immunity and feed efficiency.",
         href: "/products/poultry/organic-acids-scfa/prophorce-sr130",
       },
@@ -443,12 +443,12 @@ export const PRODUCTS: Record<string, ProductDetailData> = {
     slug: "elencofix-super",
     assets: { hero: "/images/products/poultry/new/elencofix-super.webp", overview: "/images/products/poultry/new/elencofix-super.webp" },
     eyebrow: "Poultry · Toxin Binders",
-    name: "Elenco Fix Super",
+    name: "ElencoFix-Super",
     subtitle: "Broad Spectrum Algae-Based Toxin Binder",
     intro:
-      "Elenco Fix Super is an advanced broad-spectrum toxin binder formulated to protect poultry against multiple mycotoxins while supporting liver health, gut integrity, and overall production performance. Its algae-based formulation combines mineral binders with yeast cell wall technology and herbal extracts for comprehensive toxin management.",
+      "ElencoFix-Super is an advanced broad-spectrum toxin binder formulated to protect poultry against multiple mycotoxins while supporting liver health, gut integrity, and overall production performance. Its algae-based formulation combines mineral binders with yeast cell wall technology and herbal extracts for comprehensive toxin management.",
     overviewLead:
-      "Mycotoxins rarely appear alone — contaminated feed carries a mix that mineral binders alone cannot fully control. Elenco Fix Super pairs purified mineral adsorbents with yeast cell-wall technology and herbal extracts, delivering broad-spectrum binding alongside active liver protection, mould inhibition and feed-quality support.",
+      "Mycotoxins rarely appear alone — contaminated feed carries a mix that mineral binders alone cannot fully control. ElencoFix-Super pairs purified mineral adsorbents with yeast cell-wall technology and herbal extracts, delivering broad-spectrum binding alongside active liver protection, mould inhibition and feed-quality support.",
     overviewPoints: [
       "Broad-spectrum protection across multiple mycotoxins.",
       "Liver protection that sustains metabolic performance.",
@@ -467,7 +467,7 @@ export const PRODUCTS: Record<string, ProductDetailData> = {
     flow: [
       "Contaminated Feed",
       "Mycotoxins",
-      "Elenco Fix Super",
+      "ElencoFix-Super",
       "Toxin Binding",
       "Liver Protection",
       "Healthy Birds",
@@ -495,12 +495,12 @@ export const PRODUCTS: Record<string, ProductDetailData> = {
     overviewImageLabel: "Product Overview",
     related: [
       {
-        name: "Probond",
+        name: "PROBOND",
         blurb: "Clay-based toxin binder with high cation exchange capacity for effective adsorption.",
         href: "/products/poultry/probond",
       },
       {
-        name: "ProPhorce SR 130",
+        name: "ProPhorce™ SR 130",
         blurb: "Esterified butyric acid premix for gut integrity, immunity and feed efficiency.",
         href: "/products/poultry/organic-acids-scfa/prophorce-sr130",
       },
@@ -513,23 +513,23 @@ export const PRODUCTS: Record<string, ProductDetailData> = {
     cta: {
       top: "Talk To Our",
       bottom: "Technical Experts",
-      body: "Discover how Elenco Fix Super can protect your flock against mycotoxins while supporting liver health, gut integrity and performance.",
+      body: "Discover how ElencoFix-Super can protect your flock against mycotoxins while supporting liver health, gut integrity and performance.",
     },
-    metaTitle: "Elenco Fix Super — Agriprom Pakistan | Broad-Spectrum Poultry Toxin Binder",
+    metaTitle: "ElencoFix-Super — Agriprom Pakistan | Broad-Spectrum Poultry Toxin Binder",
     metaDescription:
-      "Elenco Fix Super is a broad-spectrum algae-based toxin binder combining mineral binders, yeast cell walls and herbal extracts to protect poultry and support liver and gut health.",
+      "ElencoFix-Super is a broad-spectrum algae-based toxin binder combining mineral binders, yeast cell walls and herbal extracts to protect poultry and support liver and gut health.",
   },
 
   probond: {
     slug: "probond",
     assets: { hero: "/images/products/poultry/new/probond.webp", overview: "/images/products/poultry/new/probond.webp" },
     eyebrow: "Poultry · Toxin Binders",
-    name: "Probond",
+    name: "PROBOND",
     subtitle: "Broad Spectrum Clay-Based Toxin Binder",
     intro:
-      "Probond is a premium clay-based toxin binder formulated with high-purity Bentonite Montmorillonite. Its exceptional cation exchange capacity provides highly effective mycotoxin adsorption, helping poultry producers improve feed safety and animal performance.",
+      "PROBOND is a premium clay-based toxin binder formulated with high-purity Bentonite Montmorillonite. Its exceptional cation exchange capacity provides highly effective mycotoxin adsorption, helping poultry producers improve feed safety and animal performance.",
     overviewLead:
-      "The binding power of a clay depends on the purity of its montmorillonite and its cation exchange capacity. Probond is built on high-purity Bentonite Montmorillonite selected for an exceptional exchange capacity, giving reliable, high-efficiency adsorption of mycotoxins for safer feed and stronger flock performance.",
+      "The binding power of a clay depends on the purity of its montmorillonite and its cation exchange capacity. PROBOND is built on high-purity Bentonite Montmorillonite selected for an exceptional exchange capacity, giving reliable, high-efficiency adsorption of mycotoxins for safer feed and stronger flock performance.",
     overviewPoints: [
       "Clay-based toxin management from high-purity montmorillonite.",
       "Feed protection that reduces mycotoxin exposure.",
@@ -548,7 +548,7 @@ export const PRODUCTS: Record<string, ProductDetailData> = {
     flow: [
       "Feed",
       "Mycotoxins",
-      "Probond",
+      "PROBOND",
       "Adsorption",
       "Reduced Toxin Exposure",
       "Healthy Poultry",
@@ -569,12 +569,12 @@ export const PRODUCTS: Record<string, ProductDetailData> = {
     overviewImageLabel: "Product Overview",
     related: [
       {
-        name: "Elenco Fix Super",
+        name: "ElencoFix-Super",
         blurb: "Algae-based broad-spectrum toxin binder with liver protection and herbal support.",
         href: "/products/poultry/elencofix-super",
       },
       {
-        name: "ProPhorce SR 130",
+        name: "ProPhorce™ SR 130",
         blurb: "Esterified butyric acid premix for gut integrity, immunity and feed efficiency.",
         href: "/products/poultry/organic-acids-scfa/prophorce-sr130",
       },
@@ -587,23 +587,23 @@ export const PRODUCTS: Record<string, ProductDetailData> = {
     cta: {
       top: "Talk To Our",
       bottom: "Technical Experts",
-      body: "Discover how Probond's high-purity clay chemistry can improve feed safety, toxin control and poultry productivity on your farm.",
+      body: "Discover how PROBOND's high-purity clay chemistry can improve feed safety, toxin control and poultry productivity on your farm.",
     },
-    metaTitle: "Probond — Agriprom Pakistan | Clay-Based Poultry Toxin Binder",
+    metaTitle: "PROBOND — Agriprom Pakistan | Clay-Based Poultry Toxin Binder",
     metaDescription:
-      "Probond is a premium clay-based toxin binder made with high-purity Bentonite Montmorillonite, delivering high cation exchange capacity for effective mycotoxin adsorption.",
+      "PROBOND is a premium clay-based toxin binder made with high-purity Bentonite Montmorillonite, delivering high cation exchange capacity for effective mycotoxin adsorption.",
   },
 
   "prosid-tb-207": {
     slug: "prosid-tb-207",
     assets: { hero: "/images/products/poultry/new/prosid-tb-207.webp", overview: "/images/products/poultry/new/prosid-tb-207.webp" },
     eyebrow: "Poultry · Toxin Binders",
-    name: "ProSid TB 207",
+    name: "ProSid™ TB 207",
     subtitle: "Multi-functional mycotoxin binder with phytogenics and calcium propionate",
     intro:
-      "ProSid TB 207 is a toxin binder that adsorbs polar and non-polar mycotoxins. It also acts as a prebiotic, supports gut health and reduces oxidative stress and immunosuppression. It contains phytogenic compounds (carob, milk thistle, rosemary and licorice root) and calcium propionate.",
+      "ProSid™ TB 207 is a toxin binder that adsorbs polar and non-polar mycotoxins. It also acts as a prebiotic, supports gut health and reduces oxidative stress and immunosuppression. It contains phytogenic compounds (carob, milk thistle, rosemary and licorice root) and calcium propionate.",
     overviewLead:
-      "ProSid TB 207 is a toxin binder that adsorbs polar and non-polar mycotoxins. It also acts as a prebiotic, supports gut health and reduces oxidative stress and immunosuppression. It contains phytogenic compounds (carob, milk thistle, rosemary and licorice root) and calcium propionate.",
+      "ProSid™ TB 207 is a toxin binder that adsorbs polar and non-polar mycotoxins. It also acts as a prebiotic, supports gut health and reduces oxidative stress and immunosuppression. It contains phytogenic compounds (carob, milk thistle, rosemary and licorice root) and calcium propionate.",
     overviewPoints: [
       "Adsorbs polar and non-polar mycotoxins.",
       "Prebiotic action supports a healthy gut microbiota.",
@@ -622,7 +622,7 @@ export const PRODUCTS: Record<string, ProductDetailData> = {
     flow: [],
     applications: ["Broilers", "Layers", "Breeders", "Commercial Poultry Farms", "Feed Manufacturers"],
     specs: [
-      { label: "Product", values: ["ProSid TB 207"] },
+      { label: "Product", values: ["ProSid™ TB 207"] },
       { label: "Category", values: ["Toxin binder"] },
       {
         label: "Active ingredients",
@@ -640,22 +640,22 @@ export const PRODUCTS: Record<string, ProductDetailData> = {
     overviewImageLabel: "Product Overview",
     related: [
       {
-        name: "Elenco Fix Super",
+        name: "ElencoFix-Super",
         blurb: "Algae-based broad-spectrum toxin binder with liver protection and herbal support.",
         href: "/products/poultry/elencofix-super",
       },
       {
-        name: "Probond",
+        name: "PROBOND",
         blurb: "Clay-based toxin binder with high cation exchange capacity for effective adsorption.",
         href: "/products/poultry/probond",
       },
       {
-        name: "ProPhorce SR 130",
+        name: "ProPhorce™ SR 130",
         blurb: "Esterified butyric acid premix for gut integrity, immunity and feed efficiency.",
         href: "/products/poultry/organic-acids-scfa/prophorce-sr130",
       },
     ],
-    metaTitle: "ProSid TB 207 — Agriprom Pakistan | Poultry Toxin Binder",
+    metaTitle: "ProSid™ TB 207 — Agriprom Pakistan | Poultry Toxin Binder",
     metaDescription:
       "Multi-functional mycotoxin binder with phytogenics and calcium propionate.",
   },
@@ -717,12 +717,12 @@ export const PRODUCTS: Record<string, ProductDetailData> = {
         href: "/products/poultry/compound-enzyme-nsp",
       },
       {
-        name: "ProPhorce SR 130",
+        name: "ProPhorce™ SR 130",
         blurb: "Esterified butyric acid premix for gut integrity, immunity and feed efficiency.",
         href: "/products/poultry/organic-acids-scfa/prophorce-sr130",
       },
       {
-        name: "Elenco Fix Super",
+        name: "ElencoFix-Super",
         blurb: "Algae-based broad-spectrum toxin binder with liver protection and herbal support.",
         href: "/products/poultry/elencofix-super",
       },
@@ -805,7 +805,7 @@ export const PRODUCTS: Record<string, ProductDetailData> = {
         href: "/products/poultry/compound-enzyme-nsp",
       },
       {
-        name: "ProPhorce SR 130",
+        name: "ProPhorce™ SR 130",
         blurb: "Esterified butyric acid premix for gut integrity, immunity and feed efficiency.",
         href: "/products/poultry/organic-acids-scfa/prophorce-sr130",
       },
@@ -967,7 +967,7 @@ export const PRODUCTS: Record<string, ProductDetailData> = {
         href: "/products/poultry/compound-enzyme-nsp",
       },
       {
-        name: "MANNAGEST™ (Mannanase)",
+        name: "MANNAGEST™",
         blurb: "Mannanase that hydrolyzes β-mannan to improve digestibility and feed conversion.",
         href: "/products/poultry/corgest-m",
       },
@@ -997,13 +997,13 @@ export const PRODUCTS: Record<string, ProductDetailData> = {
     slug: "alterion-ne",
     assets: { hero: "/images/products/poultry/new/alterion-ne.webp", overview: "/images/products/poultry/new/alterion-ne.webp" },
     eyebrow: "Poultry · Probiotics",
-    name: "Alterion NE",
+    name: "Alterion® NE",
     subtitle:
       "Bacillus subtilis probiotic for gut health and poultry performance",
     intro:
-      "Alterion NE is a direct-fed microbial based on Bacillus subtilis. It strengthens gut health in three layers: the microbiota, the gut epithelium (barrier) and the immune response. This makes the gut less favourable to opportunistic pathogens such as C. perfringens.",
+      "Alterion® NE is a direct-fed microbial based on Bacillus subtilis. It strengthens gut health in three layers: the microbiota, the gut epithelium (barrier) and the immune response. This makes the gut less favourable to opportunistic pathogens such as C. perfringens.",
     overviewLead:
-      "Alterion NE is a direct-fed microbial based on Bacillus subtilis. It strengthens gut health in three layers: the microbiota, the gut epithelium (barrier) and the immune response. This makes the gut less favourable to opportunistic pathogens such as C. perfringens.",
+      "Alterion® NE is a direct-fed microbial based on Bacillus subtilis. It strengthens gut health in three layers: the microbiota, the gut epithelium (barrier) and the immune response. This makes the gut less favourable to opportunistic pathogens such as C. perfringens.",
     overviewPoints: [
       "Proven germination in the gut",
       "Heat stable",
@@ -1022,7 +1022,7 @@ export const PRODUCTS: Record<string, ProductDetailData> = {
     flow: [],
     applications: ["Broilers", "Layers", "Breeders", "Commercial Poultry Farms", "Feed Manufacturers"],
     specs: [
-      { label: "Product", values: ["Alterion NE"] },
+      { label: "Product", values: ["Alterion® NE"] },
       { label: "Category", values: ["Probiotic"] },
       { label: "Active ingredient", values: ["Bacillus subtilis (1 × 10¹⁰ CFU/g)"] },
       { label: "Application", values: ["Poultry feed"] },
@@ -1032,7 +1032,7 @@ export const PRODUCTS: Record<string, ProductDetailData> = {
     media: "placeholder",
     gallery: ["Product Image", "Packaging Image", "Application Image"],
     overviewImageLabel: "Product Overview",
-    metaTitle: "Alterion NE — Agriprom Pakistan | Poultry Probiotics",
+    metaTitle: "Alterion® NE — Agriprom Pakistan | Poultry Probiotics",
     metaDescription:
       "Bacillus subtilis probiotic for gut health and poultry performance.",
   },
@@ -1170,13 +1170,13 @@ export const PRODUCTS: Record<string, ProductDetailData> = {
     slug: "coxield",
     assets: { hero: "/images/products/poultry/new/coxield.webp", overview: "/images/products/poultry/new/coxield.webp" },
     eyebrow: "Poultry · Phytogenic Anticoccidials",
-    name: "Coxield",
+    name: "COXIELD",
     subtitle:
       "Phytogenic anticoccidial with three modes of action",
     intro:
-      "Coxield is a natural alternative to anticoccidial drugs, made from a blend of two phytogenics. It acts on the early phase of the Eimeria life cycle in three ways. It kills sporozoites directly, blocks their invasion of gut cells and slows merozoite multiplication inside the cells. This supports broiler growth and reduces oocyst discharge and lesion score.",
+      "COXIELD is a natural alternative to anticoccidial drugs, made from a blend of two phytogenics. It acts on the early phase of the Eimeria life cycle in three ways. It kills sporozoites directly, blocks their invasion of gut cells and slows merozoite multiplication inside the cells. This supports broiler growth and reduces oocyst discharge and lesion score.",
     overviewLead:
-      "Coxield is a natural alternative to anticoccidial drugs, made from a blend of two phytogenics. It acts on the early phase of the Eimeria life cycle in three ways. It kills sporozoites directly, blocks their invasion of gut cells and slows merozoite multiplication inside the cells. This supports broiler growth and reduces oocyst discharge and lesion score.",
+      "COXIELD is a natural alternative to anticoccidial drugs, made from a blend of two phytogenics. It acts on the early phase of the Eimeria life cycle in three ways. It kills sporozoites directly, blocks their invasion of gut cells and slows merozoite multiplication inside the cells. This supports broiler growth and reduces oocyst discharge and lesion score.",
     overviewPoints: [
       "Kills sporozoites, inhibits cell invasion and suppresses merozoite proliferation.",
       "No withdrawal period and no residue issues.",
@@ -1195,7 +1195,7 @@ export const PRODUCTS: Record<string, ProductDetailData> = {
     flow: [],
     applications: ["Broilers", "Layers", "Breeders", "Commercial Poultry Farms", "Feed Manufacturers"],
     specs: [
-      { label: "Product", values: ["Coxield"] },
+      { label: "Product", values: ["COXIELD"] },
       { label: "Category", values: ["Phytogenic anticoccidial"] },
       { label: "Active ingredients", values: ["Blend of two phytogenics"] },
       { label: "Application", values: ["Poultry feed"] },
@@ -1205,7 +1205,7 @@ export const PRODUCTS: Record<string, ProductDetailData> = {
     media: "placeholder",
     gallery: ["Product Image", "Packaging Image", "Application Image"],
     overviewImageLabel: "Product Overview",
-    metaTitle: "Coxield — Agriprom Pakistan | Poultry Phytogenic Anticoccidials",
+    metaTitle: "COXIELD — Agriprom Pakistan | Poultry Phytogenic Anticoccidials",
     metaDescription:
       "Phytogenic anticoccidial with three modes of action.",
   },
@@ -1308,7 +1308,7 @@ export const PRODUCTS: Record<string, ProductDetailData> = {
     media: "placeholder",
     assets: { hero: "/images/products/ruminants/ElencoFix-Super-768x949.jpg" },
     eyebrow: "Ruminants · Toxin Binders",
-    name: "ELENCOFIX SUPER",
+    name: "ElencoFix-Super",
     subtitle: "Toxin Binder",
     intro:
       "Premium broad-spectrum mycotoxin binder developed to protect livestock against multiple toxin challenges while maintaining animal performance and feed safety.",
@@ -1330,7 +1330,7 @@ export const PRODUCTS: Record<string, ProductDetailData> = {
       { label: "Packaging", values: ["25 KG"] },
       { label: "Manufacturer", values: ["Elanco"] },
     ],
-    metaTitle: "ELENCOFIX SUPER — Agriprom Pakistan | Ruminant Toxin Binders",
+    metaTitle: "ElencoFix-Super — Agriprom Pakistan | Ruminant Toxin Binders",
     metaDescription:
       "Premium broad-spectrum mycotoxin binder developed to protect livestock against multiple toxin challenges while maintaining animal performance and feed safety.",
   },
@@ -1340,10 +1340,10 @@ export const PRODUCTS: Record<string, ProductDetailData> = {
     media: "placeholder",
     assets: { hero: "/images/products/ruminants/Minlex-Cattle-768x949.jpg" },
     eyebrow: "Ruminants · Organic Minerals",
-    name: "MINLEX CATTLE",
+    name: "Minlex Cattle",
     subtitle: "Organic Trace Minerals",
     intro:
-      "MINLEX CATTLE is a premium organic trace mineral solution formulated to improve mineral bioavailability, strengthen immunity, support reproductive performance, and enhance overall productivity in dairy and beef cattle. Its highly bioavailable organic mineral complexes ensure superior absorption and optimal animal performance.",
+      "Minlex Cattle is a premium organic trace mineral solution formulated to improve mineral bioavailability, strengthen immunity, support reproductive performance, and enhance overall productivity in dairy and beef cattle. Its highly bioavailable organic mineral complexes ensure superior absorption and optimal animal performance.",
     overviewLead: "",
     overviewPoints: [],
     benefits: [
@@ -1361,20 +1361,20 @@ export const PRODUCTS: Record<string, ProductDetailData> = {
       { label: "Category", values: ["Organic Trace Minerals"] },
       { label: "Species", values: ["Dairy & Beef Cattle"] },
     ],
-    metaTitle: "MINLEX CATTLE — Agriprom Pakistan | Ruminant Organic Minerals",
+    metaTitle: "Minlex Cattle — Agriprom Pakistan | Ruminant Organic Minerals",
     metaDescription:
-      "MINLEX CATTLE is a premium organic trace mineral solution formulated to improve mineral bioavailability, strengthen immunity, support reproductive performance, and enhance overall productivity in dairy and beef cattle. Its highly bioavailable organic mineral complexes ensure superior absorption and optimal animal performance.",
+      "Minlex Cattle is a premium organic trace mineral solution formulated to improve mineral bioavailability, strengthen immunity, support reproductive performance, and enhance overall productivity in dairy and beef cattle. Its highly bioavailable organic mineral complexes ensure superior absorption and optimal animal performance.",
   },
   "ruminants/biosecurity/cleanex": {
     slug: "cleanex",
     catalog: "ruminants",
     media: "placeholder",
-    assets: { hero: "/images/products/ruminants/CleanEx-768x949.jpg" },
+    assets: { hero: "/images/products/ruminants/CLEANEX-768x949.jpg" },
     eyebrow: "Ruminants · Biosecurity Solutions",
-    name: "CleanEx",
+    name: "CLEANEX",
     subtitle: "Biosecurity Solution",
     intro:
-      "CleanEx is an advanced cleaning solution designed for livestock facilities and Clean-In-Place (CIP) systems. It removes organic residues and prepares equipment and housing areas for effective disinfection, supporting optimal farm biosecurity.",
+      "CLEANEX is an advanced cleaning solution designed for livestock facilities and Clean-In-Place (CIP) systems. It removes organic residues and prepares equipment and housing areas for effective disinfection, supporting optimal farm biosecurity.",
     overviewLead: "",
     overviewPoints: [],
     benefits: [
@@ -1391,9 +1391,9 @@ export const PRODUCTS: Record<string, ProductDetailData> = {
       { label: "Species", values: ["Poultry, Dairy Cattle, Sheep & Goats"] },
       { label: "Form", values: ["Liquid Cleaner"] },
     ],
-    metaTitle: "CleanEx — Agriprom Pakistan | Ruminant Biosecurity Solutions",
+    metaTitle: "CLEANEX — Agriprom Pakistan | Ruminant Biosecurity Solutions",
     metaDescription:
-      "CleanEx is an advanced cleaning solution designed for livestock facilities and Clean-In-Place (CIP) systems. It removes organic residues and prepares equipment and housing areas for effective disinfection, supporting optimal farm biosecurity.",
+      "CLEANEX is an advanced cleaning solution designed for livestock facilities and Clean-In-Place (CIP) systems. It removes organic residues and prepares equipment and housing areas for effective disinfection, supporting optimal farm biosecurity.",
   },
   "ruminants/biosecurity/germex": {
     slug: "germex",
@@ -1401,16 +1401,16 @@ export const PRODUCTS: Record<string, ProductDetailData> = {
     media: "placeholder",
     assets: { hero: "/images/products/ruminants/GremEx.jpg" },
     eyebrow: "Ruminants · Biosecurity Solutions",
-    name: "GermEx",
+    name: "GERMEX",
     subtitle: "Biosecurity Solution",
     intro:
-      "GermEx is a broad-spectrum disinfectant that eliminates bacteria, viruses, fungi and harmful pathogens across livestock facilities and equipment — the disinfection step that follows cleaning for complete farm biosecurity.",
+      "GERMEX is a broad-spectrum disinfectant that eliminates bacteria, viruses, fungi and harmful pathogens across livestock facilities and equipment — the disinfection step that follows cleaning for complete farm biosecurity.",
     overviewLead: "",
     overviewPoints: [],
     benefits: [
       "Broad-spectrum pathogen control",
       "Eliminates bacteria, viruses & fungi",
-      "Most effective after CleanEx cleaning",
+      "Most effective after CLEANEX cleaning",
       "Reduces disease pressure on the farm",
       "Supports complete biosecurity protocols",
     ],
@@ -1421,9 +1421,9 @@ export const PRODUCTS: Record<string, ProductDetailData> = {
       { label: "Species", values: ["Poultry, Dairy Cattle, Sheep & Goats"] },
       { label: "Form", values: ["Liquid Disinfectant"] },
     ],
-    metaTitle: "GermEx — Agriprom Pakistan | Ruminant Biosecurity Solutions",
+    metaTitle: "GERMEX — Agriprom Pakistan | Ruminant Biosecurity Solutions",
     metaDescription:
-      "GermEx is a broad-spectrum disinfectant that eliminates bacteria, viruses, fungi and harmful pathogens across livestock facilities and equipment — the disinfection step that follows cleaning for complete farm biosecurity.",
+      "GERMEX is a broad-spectrum disinfectant that eliminates bacteria, viruses, fungi and harmful pathogens across livestock facilities and equipment — the disinfection step that follows cleaning for complete farm biosecurity.",
   },
   "ruminants/comfort/puzzle-comfort-mat": {
     slug: "puzzle-comfort-mat",
@@ -1590,7 +1590,7 @@ export const PRODUCTS: Record<string, ProductDetailData> = {
     catalog: "ruminants",
     media: "placeholder",
     eyebrow: "Ruminants · Energy Boosters",
-    name: "Energy Booster",
+    name: "ENERGY BOOSTER",
     subtitle: "FRESH COW ENERGY",
     intro:
       "Oral energy drench of propylene glycol and glycerin, fortified with vitamins A, D3, E, and niacin. Developed for fresh cows around calving, it boosts energy levels, stimulates appetite and activity, and helps prevent nutritional problems such as ketosis.",
@@ -1610,7 +1610,7 @@ export const PRODUCTS: Record<string, ProductDetailData> = {
       { label: "Form", values: ["Liquid"] },
       { label: "Packaging", values: ["5 Litre / Can (5 KG)"] },
     ],
-    metaTitle: "Energy Booster — Agriprom Pakistan | Ruminant Energy Boosters",
+    metaTitle: "ENERGY BOOSTER — Agriprom Pakistan | Ruminant Energy Boosters",
     metaDescription:
       "Oral energy drench of propylene glycol and glycerin, fortified with vitamins A, D3, E, and niacin. Developed for fresh cows around calving, it boosts energy levels, stimulates appetite and activity, and helps prevent nutritional problems such as ketosis.",
   },
@@ -1619,7 +1619,7 @@ export const PRODUCTS: Record<string, ProductDetailData> = {
     catalog: "ruminants",
     media: "placeholder",
     eyebrow: "Ruminants · Energy Boosters",
-    name: "Lactomin Boost",
+    name: "LACTOMIN BOOST",
     subtitle: "ONE PREMIX - FOR LACTATION, FATTENING & GROWTH",
     intro:
       "Comprehensive vitamin and mineral premix formulated for dairy cows, lactation, fattening, and growth to meet daily nutritional requirements, regulate microflora, and enhance performance.",
@@ -1642,7 +1642,7 @@ export const PRODUCTS: Record<string, ProductDetailData> = {
       { label: "Form", values: ["Powder Premix"] },
       { label: "Packaging", values: ["25 Kg Per Bag"] },
     ],
-    metaTitle: "Lactomin Boost — Agriprom Pakistan | Ruminant Energy Boosters",
+    metaTitle: "LACTOMIN BOOST — Agriprom Pakistan | Ruminant Energy Boosters",
     metaDescription:
       "Comprehensive vitamin and mineral premix formulated for dairy cows, lactation, fattening, and growth to meet daily nutritional requirements, regulate microflora, and enhance performance.",
   },

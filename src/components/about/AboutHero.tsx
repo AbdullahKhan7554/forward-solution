@@ -13,6 +13,7 @@ import { cn } from "@/lib/utils";
 // Slideshow set — light-toned scenes so the dark navbar/headline stays legible.
 // Local assets only, no placeholders.
 const SLIDES = [
+  "/images/client/about-hero.webp",
   "/images/heroabout/h1.jpg", // the laboratory
   "/images/heroabout/ChatGPT Image Jul 2, 2026, 06_50_41 PM.png", // the team
   "/images/heroabout/h4.png", // the science (cells)
@@ -207,6 +208,16 @@ export function AboutHero() {
           </svg>
 
           {/* Foreground composition */}
+          {/* stronger white overlay behind the text side — headline legibility */}
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute inset-0"
+            style={{
+              background:
+                "linear-gradient(90deg, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0.65) 38%, rgba(255,255,255,0) 72%)",
+            }}
+          />
+
           <div className="relative z-raised h-full">
             <div
               ref={contentRef}
@@ -223,7 +234,7 @@ export function AboutHero() {
               {/* Lower-left mass: slate + headline + paragraph + CTA */}
               <div className="max-w-2xl">
                 {/* H1 — surfacing line-by-line, lit by one sheen */}
-                <h1 className="relative overflow-hidden pb-[0.08em] font-display font-light text-neutral-900">
+                <h1 className="relative overflow-hidden pb-[0.08em] font-display font-semibold text-neutral-900">
                   <span
                     data-sheen
                     aria-hidden="true"

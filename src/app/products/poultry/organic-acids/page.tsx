@@ -8,7 +8,7 @@ import { CategoryShowcase, type ShowcaseItem } from "@/components/product-detail
 export const metadata: Metadata = {
   title: "Poultry Organic Acids (SCFA) — Agriprom Pakistan",
   description:
-    "Agriprom Pakistan's poultry organic acid (SCFA) range — including ProPhorce SR 130 esterified butyric acid — for gut integrity, immunity and feed efficiency.",
+    "Agriprom Pakistan's poultry organic acid (SCFA) range — including ProPhorce™ SR 130 esterified butyric acid — for gut integrity, immunity and feed efficiency.",
 };
 
 const ITEMS: ShowcaseItem[] = [

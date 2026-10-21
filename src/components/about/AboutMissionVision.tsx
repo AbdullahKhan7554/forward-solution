@@ -1,7 +1,6 @@
 "use client";
 
 import { useRef } from "react";
-import Image from "next/image";
 import { useIsomorphicLayoutEffect } from "@/hooks/useIsomorphicLayoutEffect";
 import { gsap } from "@/lib/gsap";
 import { RevealText } from "@/components/primitives/RevealText";
@@ -28,9 +27,19 @@ function PanelIcon({ src }: { src: string }) {
       aria-hidden="true"
       className="flex h-36 w-36 items-center justify-center rounded-[28px] border border-secondary-500/20 bg-white shadow-soft md:h-44 md:w-44"
     >
-      <div className="relative h-20 w-20 md:h-24 md:w-24">
-        <Image src={src} alt="" fill loading="lazy" sizes="96px" className="object-contain" />
-      </div>
+      <div
+        className="h-[120px] w-[120px] bg-accent-500 md:h-36 md:w-36"
+        style={{
+          WebkitMaskImage: `url(${src})`,
+          maskImage: `url(${src})`,
+          WebkitMaskRepeat: "no-repeat",
+          maskRepeat: "no-repeat",
+          WebkitMaskPosition: "center",
+          maskPosition: "center",
+          WebkitMaskSize: "contain",
+          maskSize: "contain",
+        }}
+      />
     </div>
   );
 }
@@ -111,7 +120,7 @@ export function AboutMissionVision() {
                 unwavering support for the people who raise the nation&rsquo;s livestock.
               </p>
             </GlassCard>
-            <div className="flex justify-center">
+            <div className="order-first flex justify-center md:order-none">
               <PanelIcon src={ICON_MISSION} />
             </div>
           </div>
@@ -140,7 +149,7 @@ export function AboutMissionVision() {
                 sustainable and more resilient food chain.
               </p>
             </GlassCard>
-            <div className="flex justify-center">
+            <div className="order-first flex justify-center md:order-none">
               <PanelIcon src={ICON_VISION} />
             </div>
           </div>

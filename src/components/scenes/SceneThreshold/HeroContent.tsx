@@ -93,7 +93,7 @@ export function HeroContent() {
       {/* Lower-left mass: slate + headline + CTA */}
       <div className="max-w-2xl">
         {/* H1 - same words, split into visual lines, lit by one sheen */}
-        <h1 className="relative overflow-hidden pb-[0.08em] font-display font-light text-neutral-900">
+        <h1 className="relative overflow-hidden pb-[0.08em] font-display font-semibold text-neutral-900">
           <span
             data-sheen
             aria-hidden="true"

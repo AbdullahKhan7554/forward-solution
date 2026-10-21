@@ -15,7 +15,7 @@ import { GlassCard } from "@/components/scenes/SceneInnovation/GlassCard";
  * reveal. Reuses every design/motion token — nothing new invented.
  */
 
-const IMG_LAB = "/images/heroabout/h1.jpg";
+const IMG_LAB = "/images/client/about-who-we-are.webp";
 
 type Pillar = { label: string; title: string; body: string };
 

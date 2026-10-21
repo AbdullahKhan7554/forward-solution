@@ -211,6 +211,12 @@ export function AboutGlobalPresence() {
         ))}
       </div>
 
+      {/* white overlay behind the text side — fades map + labels under the copy */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 bg-gradient-to-b from-white/90 via-white/70 to-white/40 md:bg-gradient-to-r md:from-white/95 md:via-white/75 md:to-transparent"
+      />
+
       <div className="relative mx-auto w-full max-w-container px-6 py-16 md:py-24 md:px-12 xl:px-20">
         {/* HEADER */}
         <header className="max-w-3xl">
@@ -223,7 +229,7 @@ export function AboutGlobalPresence() {
 
           <h2
             id="about-global-heading"
-            className="font-display font-light leading-[1.04] tracking-[-0.015em] text-neutral-900"
+            className="font-display font-semibold leading-[1.04] tracking-[-0.015em] text-neutral-900"
           >
             <RevealText
               text="Connecting Pakistan to"

@@ -61,7 +61,7 @@ export function SceneThreshold() {
             ))}
             <div
               aria-hidden="true"
-              className="absolute inset-0 bg-gradient-to-r from-white/70 via-white/30 to-transparent"
+              className="absolute inset-0 bg-gradient-to-r from-white/90 via-white/60 to-transparent"
             />
           </div>
 

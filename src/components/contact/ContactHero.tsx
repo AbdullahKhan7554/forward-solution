@@ -132,6 +132,16 @@ export function ContactHero() {
           />
 
           {/* Foreground composition — editorial lower-left mass */}
+          {/* stronger white overlay behind the text side — headline legibility */}
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute inset-0"
+            style={{
+              background:
+                "linear-gradient(90deg, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0.65) 38%, rgba(255,255,255,0) 72%)",
+            }}
+          />
+
           <div className="relative z-raised h-full">
             <div
               ref={contentRef}
@@ -146,7 +156,7 @@ export function ContactHero() {
 
               <div className="max-w-3xl">
 
-                <h1 className="relative overflow-hidden pb-[0.08em] font-display font-light text-neutral-900">
+                <h1 className="relative overflow-hidden pb-[0.08em] font-display font-semibold text-neutral-900">
                   <span
                     data-sheen
                     aria-hidden="true"

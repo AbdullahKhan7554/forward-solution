@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import Image from "next/image";
 import { useIsomorphicLayoutEffect } from "@/hooks/useIsomorphicLayoutEffect";
 import { gsap, ScrollTrigger } from "@/lib/gsap";
@@ -12,29 +12,29 @@ import { RevealText } from "@/components/primitives/RevealText";
  * A responsive premium team grid (4 / 2 / 1). Cards use the white glass-inspired
  * surface, lift on hover, and reveal on scroll with a luxury fade + rise stagger.
  *
- * PORTRAITS: each member has a `photo` field. It is intentionally left undefined
- * so a clearly-branded monogram placeholder renders (no broken images / CLS). To
- * drop in a real portrait later, set `photo: "/images/team/<slug>.jpg"`.
+ * PORTRAITS: each card reads /images/team/<first-name>.webp (e.g. asim.webp).
+ * Until that file exists, a clean initials placeholder shows (no broken images
+ * / CLS); drop the photo in and it simply appears.
  */
 
 type Member = {
   name: string;
   role: string;
   blurb: string;
-  /** set to "/images/team/<slug>.jpg" to replace the monogram placeholder */
-  photo?: string;
 };
 
 const TEAM: Member[] = [
-  { name: "Dr. Ahmed Khan", role: "Managing Director", blurb: "Leading Agriprom's strategic vision and long-term growth." },
-  { name: "Sana Malik", role: "Chief Operating Officer", blurb: "Orchestrating day-to-day operations with precision and care." },
-  { name: "Bilal Raza", role: "Sales Director", blurb: "Building lasting partnerships across Pakistan's animal-health market." },
-  { name: "Dr. Ayesha Siddiqui", role: "Veterinary Consultant", blurb: "Translating veterinary science into practical field guidance." },
-  { name: "Usman Tariq", role: "Technical Manager", blurb: "Ensuring every solution performs reliably on the farm." },
-  { name: "Fatima Noor", role: "Product Specialist", blurb: "Matching the right products to each production challenge." },
-  { name: "Hamza Sheikh", role: "Marketing Manager", blurb: "Telling Agriprom's science-led story with clarity." },
-  { name: "Zainab Ali", role: "Customer Success Executive", blurb: "Making sure every client feels supported, always." },
+  { name: "Dr. Asim Mahmood Khan", role: "CEO", blurb: "Leading vision and strategic growth" },
+  { name: "Moiz Khan", role: "Director", blurb: "Building partnerships and long-term value" },
+  { name: "Dr. Najam Us Sahar", role: "General Manager", blurb: "Driving operational excellence and efficiency" },
+  { name: "Faizan Razzak", role: "National Sales Manager", blurb: "Expanding reach and strengthening relationships" },
 ];
+
+/** Photo path from the first name (drops the "Dr." honorific): /images/team/asim.webp */
+function photoSrc(name: string) {
+  const first = name.replace(/^Dr\.?\s+/i, "").split(/\s+/)[0].toLowerCase();
+  return `/images/team/${first}.webp`;
+}
 
 /** Initials from the name (drops the "Dr." honorific). */
 function initials(name: string) {
@@ -48,31 +48,38 @@ function initials(name: string) {
 }
 
 function TeamPortrait({ member }: { member: Member }) {
-  if (member.photo) {
-    return (
-      <Image
-        src={member.photo}
-        alt={`${member.name} — ${member.role}`}
-        fill
-        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
-        className="object-cover"
-      />
-    );
-  }
-  // Branded monogram placeholder — replace by setting `photo` on the member.
+  const [loaded, setLoaded] = useState(false);
+  const [failed, setFailed] = useState(false);
+
   return (
-    <div
-      aria-label={`Portrait placeholder for ${member.name}`}
-      role="img"
-      className="flex h-full w-full items-center justify-center"
-      style={{
-        background: "linear-gradient(155deg, #EDF2F5 0%, #FFFFFF 52%, #E7F1EC 100%)",
-      }}
-    >
-      <span className="font-display text-[2.4rem] font-light tracking-[0.02em] text-primary-700/60">
-        {initials(member.name)}
-      </span>
-    </div>
+    <>
+      {/* initials placeholder — shown until the photo loads (or if it is missing) */}
+      {!loaded && (
+        <div
+          aria-label={`Portrait placeholder for ${member.name}`}
+          role="img"
+          className="flex h-full w-full items-center justify-center"
+          style={{
+            background: "linear-gradient(155deg, #EDF2F5 0%, #FFFFFF 52%, #E7F1EC 100%)",
+          }}
+        >
+          <span className="font-display text-[2.4rem] font-light tracking-[0.02em] text-primary-700/60">
+            {initials(member.name)}
+          </span>
+        </div>
+      )}
+      {!failed && (
+        <Image
+          src={photoSrc(member.name)}
+          alt={`${member.name} — ${member.role}`}
+          fill
+          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+          className="object-cover"
+          onLoad={() => setLoaded(true)}
+          onError={() => setFailed(true)}
+        />
+      )}
+    </>
   );
 }
 

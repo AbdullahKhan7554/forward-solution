@@ -105,7 +105,7 @@ export function CatalogHero({ id, crumb, eyebrow, title, image, description, fea
               </span>
             </div>
 
-            <h1 id={headingId} className="font-display font-light leading-[1.0] tracking-[-0.02em] text-neutral-50">
+            <h1 id={headingId} className="font-display font-semibold leading-[1.0] tracking-[-0.02em] text-neutral-50">
               <RevealText text={title} as="span" play={revealing} delay={0.5} stagger={0.06} className="justify-start text-[17vw] md:text-[8vw] xl:text-[104px]" />
               <RevealText text="Solutions" as="span" play={revealing} delay={0.85} stagger={0.06} className="justify-start text-[17vw] text-accent-300 md:text-[8vw] xl:text-[104px]" />
             </h1>
