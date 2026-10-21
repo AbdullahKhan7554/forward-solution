@@ -85,7 +85,6 @@ const STATS = [
 
 /* Floating indicators drifting over the map atmosphere. */
 const INDICATORS = [
-  { label: "Europe", top: "24%", left: "20%" },
   { label: "South Asia", top: "52%", left: "58%" },
   { label: "East Asia", top: "34%", left: "82%" },
 ];
