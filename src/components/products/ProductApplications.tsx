@@ -4,7 +4,6 @@ import { useRef, type ReactNode } from "react";
 import { useIsomorphicLayoutEffect } from "@/hooks/useIsomorphicLayoutEffect";
 import { gsap, ScrollTrigger } from "@/lib/gsap";
 import { RevealText } from "@/components/primitives/RevealText";
-import { GlassCard } from "@/components/scenes/SceneInnovation/GlassCard";
 import { cn } from "@/lib/utils";
 
 /**
@@ -65,14 +64,14 @@ const Mill = () => (
   </Icon>
 );
 
-type Application = { title: string; body: string; icon: ReactNode };
+type Application = { title: string; body: string; icon: ReactNode; tone: string };
 
 const APPLICATIONS: Application[] = [
-  { title: "Poultry Farms", body: "Broiler and layer operations of every scale.", icon: <Barn /> },
-  { title: "Dairy Farms", body: "Herd health, milk yield and productivity.", icon: <Milk /> },
-  { title: "Livestock", body: "Beef cattle, sheep and goat production.", icon: <Livestock /> },
-  { title: "Veterinary Clinics", body: "Trusted pharmaceuticals for animal care.", icon: <Clinic /> },
-  { title: "Feed Mills", body: "Additives and premixes for feed production.", icon: <Mill /> },
+  { title: "Poultry Farms", body: "Broiler and layer operations of every scale.", icon: <Barn />, tone: "bg-primary-600 text-white" },
+  { title: "Dairy Farms", body: "Herd health, milk yield and productivity.", icon: <Milk />, tone: "bg-primary-900 text-white" },
+  { title: "Livestock", body: "Beef cattle, sheep and goat production.", icon: <Livestock />, tone: "bg-[#0E7C86] text-white" },
+  { title: "Veterinary Clinics", body: "Trusted pharmaceuticals for animal care.", icon: <Clinic />, tone: "bg-[#F2B33D] text-neutral-900" },
+  { title: "Feed Mills", body: "Additives and premixes for feed production.", icon: <Mill />, tone: "bg-[#B8432A] text-white" },
 ];
 
 function ApplicationCard({ app, index }: { app: Application; index: number }) {
@@ -86,38 +85,19 @@ function ApplicationCard({ app, index }: { app: Application; index: number }) {
         index === 4 && "sm:col-span-2 md:col-span-2"
       )}
     >
-      <GlassCard className="relative h-full overflow-hidden">
-        <span
-          aria-hidden="true"
-          className="pointer-events-none absolute -right-10 -top-10 h-40 w-40 rounded-full opacity-0 blur-2xl transition-opacity duration-300 ease-brand-out group-hover:opacity-100"
-          style={{
-            background: "radial-gradient(closest-side, rgba(0,138,75,0.35), rgba(0,138,75,0))",
-          }}
-        />
-        <div className="relative flex h-full flex-col">
-          <div className="mb-6 flex items-center justify-between">
-            <span className="inline-flex h-12 w-12 items-center justify-center rounded-full border border-white/70 bg-white/60 text-primary-700 shadow-soft transition-colors duration-300 ease-brand-out group-hover:text-accent-600">
-              {app.icon}
-            </span>
-            <span className="font-sans text-caption tracking-[0.24em] text-neutral-900">
-              {String(index + 1).padStart(2, "0")}
-            </span>
-          </div>
-          <h3 className="font-display text-h4 font-medium text-neutral-900">{app.title}</h3>
-          <p className="mt-3 text-pretty font-sans text-body text-neutral-900">{app.body}</p>
-
-          {/* quiet interactive affordance */}
-          <span className="mt-6 inline-flex items-center gap-2 font-sans text-caption uppercase tracking-[0.2em] text-primary-700 opacity-0 transition-opacity duration-300 ease-brand-out group-hover:opacity-100">
-            Learn more
-            <span
-              aria-hidden="true"
-              className="inline-block transition-transform duration-300 ease-brand-out group-hover:translate-x-1"
-            >
-              &rarr;
-            </span>
-          </span>
-        </div>
-      </GlassCard>
+      {/* solid colour circle — icon, title and text centred inside */}
+      <div
+        className={cn(
+          "group mx-auto flex aspect-square w-full max-w-[280px] flex-col items-center justify-center rounded-full p-8 text-center shadow-medium transition-[transform,box-shadow] duration-300 ease-brand-out hover:scale-105 hover:shadow-floating md:max-w-[230px] md:p-6 lg:max-w-[300px] lg:p-10",
+          app.tone
+        )}
+      >
+        <span className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-full bg-white/15 md:mb-3 md:h-10 md:w-10 lg:mb-4 lg:h-12 lg:w-12">
+          {app.icon}
+        </span>
+        <h3 className="font-display text-h4 font-medium md:text-lg lg:text-h4">{app.title}</h3>
+        <p className="mt-2 max-w-[22ch] text-pretty font-sans text-body opacity-90 md:text-sm lg:text-body">{app.body}</p>
+      </div>
     </li>
   );
 }
