@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useRef } from "react";
 import Image from "next/image";
 import { useIsomorphicLayoutEffect } from "@/hooks/useIsomorphicLayoutEffect";
 import { gsap, ScrollTrigger } from "@/lib/gsap";
@@ -12,74 +12,33 @@ import { RevealText } from "@/components/primitives/RevealText";
  * A responsive premium team grid (4 / 2 / 1). Cards use the white glass-inspired
  * surface, lift on hover, and reveal on scroll with a luxury fade + rise stagger.
  *
- * PORTRAITS: each card reads /images/team/<first-name>.webp (e.g. asim.webp).
- * Until that file exists, a clean initials placeholder shows (no broken images
- * / CLS); drop the photo in and it simply appears.
+ * PORTRAITS: each member's photo lives at /images/team/<first-name>.webp,
+ * shown 4:5, object-cover, anchored to the top so faces are never cut.
  */
 
 type Member = {
   name: string;
   role: string;
   blurb: string;
+  photo: string;
 };
 
 const TEAM: Member[] = [
-  { name: "Dr. Asim Mahmood Khan", role: "CEO", blurb: "Leading vision and strategic growth" },
-  { name: "Moiz Khan", role: "Director", blurb: "Building partnerships and long-term value" },
-  { name: "Dr. Najam Us Sahar", role: "General Manager", blurb: "Driving operational excellence and efficiency" },
-  { name: "Faizan Razzak", role: "National Sales Manager", blurb: "Expanding reach and strengthening relationships" },
+  { name: "Dr. Asim Mahmood Khan", role: "CEO", blurb: "Leading vision and strategic growth", photo: "/images/team/asim.webp" },
+  { name: "Moiz Khan", role: "Director", blurb: "Building partnerships and long-term value", photo: "/images/team/moiz.webp" },
+  { name: "Dr. Najam Us Sahar", role: "General Manager", blurb: "Driving operational excellence and efficiency", photo: "/images/team/najam.webp" },
+  { name: "Faizan Razzak", role: "National Sales Manager", blurb: "Expanding reach and strengthening relationships", photo: "/images/team/faizan.webp" },
 ];
 
-/** Photo path from the first name (drops the "Dr." honorific): /images/team/asim.webp */
-function photoSrc(name: string) {
-  const first = name.replace(/^Dr\.?\s+/i, "").split(/\s+/)[0].toLowerCase();
-  return `/images/team/${first}.webp`;
-}
-
-/** Initials from the name (drops the "Dr." honorific). */
-function initials(name: string) {
-  return name
-    .replace(/^Dr\.?\s+/i, "")
-    .split(/\s+/)
-    .map((w) => w[0])
-    .slice(0, 2)
-    .join("")
-    .toUpperCase();
-}
-
 function TeamPortrait({ member }: { member: Member }) {
-  const [loaded, setLoaded] = useState(false);
-  const [failed, setFailed] = useState(false);
-
   return (
-    <>
-      {/* initials placeholder — shown until the photo loads (or if it is missing) */}
-      {!loaded && (
-        <div
-          aria-label={`Portrait placeholder for ${member.name}`}
-          role="img"
-          className="flex h-full w-full items-center justify-center"
-          style={{
-            background: "linear-gradient(155deg, #EDF2F5 0%, #FFFFFF 52%, #E7F1EC 100%)",
-          }}
-        >
-          <span className="font-display text-[2.4rem] font-light tracking-[0.02em] text-primary-700/60">
-            {initials(member.name)}
-          </span>
-        </div>
-      )}
-      {!failed && (
-        <Image
-          src={photoSrc(member.name)}
-          alt={`${member.name} — ${member.role}`}
-          fill
-          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
-          className="object-cover"
-          onLoad={() => setLoaded(true)}
-          onError={() => setFailed(true)}
-        />
-      )}
-    </>
+    <Image
+      src={member.photo}
+      alt={`${member.name} — ${member.role}`}
+      fill
+      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+      className="object-cover object-top"
+    />
   );
 }
 
