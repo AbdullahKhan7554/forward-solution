@@ -128,7 +128,7 @@ export function ServicesBenefits() {
 
             <div data-benefit-fade className="mt-10 overflow-hidden rounded-2xl shadow-soft">
               <MaskedReveal className="aspect-[4/5] w-full">
-                <LabPlate src="/00.jpg" alt="Why clients choose Agriprom Pakistan" />
+                <LabPlate src="/images/agriprom-images/pages/we-listen-to-customers.jpg" alt="Why clients choose Agriprom Pakistan" />
               </MaskedReveal>
             </div>
           </div>
