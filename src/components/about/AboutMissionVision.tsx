@@ -18,28 +18,18 @@ import { GlassCard } from "@/components/scenes/SceneInnovation/GlassCard";
  * Reuses GlassCard, RevealText (one per heading), the GSAP clock and every token.
  */
 
-const IMG_MISSION = "/mission.jpg";
-const IMG_VISION = "/images/heroabout/h4.png";
+const ICON_MISSION = "/images/agriprom-images/pages/mission-icon.png";
+const ICON_VISION = "/images/agriprom-images/pages/vision-icon.png";
 
-/** Editorial image — aspect-ratio wrapper (zero CLS) + glass. */
-function FloatingImage({
-  src,
-  className,
-}: {
-  src: string;
-  className: string;
-}) {
+/** Line icon in a soft rounded box — replaces the former editorial photo. */
+function PanelIcon({ src }: { src: string }) {
   return (
-    <div aria-hidden="true" className={className}>
-      <div className="relative h-full w-full overflow-hidden rounded-[32px] border border-secondary-500/20 shadow-floating">
-        <Image
-          src={src}
-          alt=""
-          fill
-          loading="lazy"
-          sizes="(max-width: 767px) 100vw, 50vw"
-          className="object-cover"
-        />
+    <div
+      aria-hidden="true"
+      className="flex h-36 w-36 items-center justify-center rounded-[28px] border border-secondary-500/20 bg-white shadow-soft md:h-44 md:w-44"
+    >
+      <div className="relative h-20 w-20 md:h-24 md:w-24">
+        <Image src={src} alt="" fill loading="lazy" sizes="96px" className="object-contain" />
       </div>
     </div>
   );
@@ -121,11 +111,8 @@ export function AboutMissionVision() {
                 unwavering support for the people who raise the nation&rsquo;s livestock.
               </p>
             </GlassCard>
-            <div className="flex justify-end">
-              <FloatingImage
-                src={IMG_MISSION}
-                className="relative aspect-[16/10] w-full max-w-[560px]"
-              />
+            <div className="flex justify-center">
+              <PanelIcon src={ICON_MISSION} />
             </div>
           </div>
 
@@ -153,11 +140,8 @@ export function AboutMissionVision() {
                 sustainable and more resilient food chain.
               </p>
             </GlassCard>
-            <div className="flex justify-end">
-              <FloatingImage
-                src={IMG_VISION}
-                className="relative aspect-[16/10] w-full max-w-[560px]"
-              />
+            <div className="flex justify-center">
+              <PanelIcon src={ICON_VISION} />
             </div>
           </div>
         </div>
