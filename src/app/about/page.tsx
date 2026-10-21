@@ -5,11 +5,9 @@ import { Navbar } from "@/components/navbar/Navbar";
 import { AboutHero } from "@/components/about/AboutHero";
 import { AboutWhoWeAre } from "@/components/about/AboutWhoWeAre";
 import { AboutTimeline } from "@/components/about/AboutTimeline";
-import { SceneInnovation } from "@/components/scenes/SceneInnovation";
+import { AboutMissionVision } from "@/components/about/AboutMissionVision";
 import { AboutValues } from "@/components/about/AboutValues";
-import { AboutLeadership } from "@/components/about/AboutLeadership";
 import { AboutGlobalPresence } from "@/components/about/AboutGlobalPresence";
-import { AboutWhyChoose } from "@/components/about/AboutWhyChoose";
 import { AboutTeam } from "@/components/about/AboutTeam";
 import { AboutCTA } from "@/components/about/AboutCTA";
 import { Footer } from "@/components/layout/Footer";
@@ -41,12 +39,10 @@ export default function AboutPage() {
       <main>
         <AboutHero />
         <AboutWhoWeAre />
-        <AboutTimeline />
-        <SceneInnovation />
+        <AboutMissionVision />
         <AboutValues />
-        <AboutLeadership />
+        <AboutTimeline />
         <AboutGlobalPresence />
-        <AboutWhyChoose />
         <AboutTeam />
         <AboutCTA />
       </main>
