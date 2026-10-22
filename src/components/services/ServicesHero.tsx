@@ -83,7 +83,7 @@ export function ServicesHero() {
       className="relative"
     >
       <div ref={outerRef} className="relative">
-        <div className="relative h-[100svh] min-h-[620px] w-full overflow-hidden bg-base">
+        <div className="relative min-h-[max(100svh,620px)] w-full bg-base">
           {/* bright scientific daylight — graded LabPlate */}
           <div ref={bgRef} className="absolute inset-0 will-change-transform">
             <LabPlate src="/images/herohome/5.png" alt="" />
@@ -128,10 +128,10 @@ export function ServicesHero() {
             }}
           />
 
-          <div className="relative z-raised h-full">
+          <div className="relative z-raised">
             <div
               ref={contentRef}
-              className="flex h-full w-full flex-col justify-between px-6 pb-[9vh] pt-[17vh] will-change-transform md:px-12 md:pb-[10vh] xl:px-20"
+              className="flex min-h-[max(100svh,620px)] w-full flex-col justify-between px-6 pb-[9vh] pt-[17vh] will-change-transform md:px-12 md:pb-[10vh] xl:px-20"
             >
               <div data-hero-fade className="flex items-center gap-4">
                 <span className="h-px w-10 bg-accent-500" />
@@ -186,7 +186,7 @@ export function ServicesHero() {
                   veterinarians, distributors and livestock producers.
                 </p>
 
-                <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:items-center">
+                <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:items-center">
                   <a
                     data-hero-cta
                     href="/contact-us/"

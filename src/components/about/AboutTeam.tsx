@@ -52,7 +52,7 @@ function TeamCard({ member }: { member: Member }) {
         <TeamPortrait member={member} />
       </div>
       <div className="p-6">
-        <h3 className="font-display text-h4 font-medium tracking-[-0.01em] text-neutral-900">
+        <h3 className="whitespace-nowrap font-display text-[18px] font-medium leading-[26px] tracking-[-0.01em] text-neutral-900 lg:text-[15px] xl:text-[17px]">
           {member.name}
         </h3>
         <p className="mt-1 font-sans text-caption uppercase tracking-[0.18em] text-primary-700">

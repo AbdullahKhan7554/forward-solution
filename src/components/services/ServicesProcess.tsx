@@ -132,12 +132,12 @@ export function ServicesProcess() {
                 className="relative flex items-start gap-5 lg:flex-col lg:items-stretch lg:gap-0"
               >
                 {/* node */}
-                <span className="relative z-raised flex h-[52px] w-[52px] shrink-0 items-center justify-center rounded-full border border-primary-600/20 bg-base font-sans text-body font-medium text-primary-700 shadow-soft">
+                <span className="relative z-raised flex h-[52px] w-[52px] shrink-0 items-center justify-center rounded-full border border-primary-600/40 bg-primary-50 font-sans text-body font-medium text-primary-700 shadow-soft">
                   {String(i + 1).padStart(2, "0")}
                 </span>
 
                 {/* glass process card */}
-                <div className="flex-1 rounded-2xl border border-white/70 bg-white/85 p-6 shadow-glass lg:mt-7">
+                <div className="flex-1 rounded-2xl border border-primary-600/25 border-t-4 border-t-primary-600 bg-primary-50/80 p-6 shadow-glass lg:mt-7">
                   <h3 className="font-display text-h4 font-light tracking-[-0.01em] text-neutral-900">
                     {step.title}
                   </h3>

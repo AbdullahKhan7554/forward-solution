@@ -4,15 +4,13 @@ import { useRef } from "react";
 import { useIsomorphicLayoutEffect } from "@/hooks/useIsomorphicLayoutEffect";
 import { gsap, ScrollTrigger } from "@/lib/gsap";
 import { RevealText } from "@/components/primitives/RevealText";
-import { MaskedReveal } from "@/components/primitives/MaskedReveal";
-import { LabPlate } from "@/components/scenes/SceneUnfolding/LabPlate";
 
 /**
  * POULTRY · SECTION 02 — SCIENTIFIC OVERVIEW.
  *
- * Editorial split: image left, the science right. Five outcomes reveal in
- * sequence as hairline-separated editorial rows. Reuses MaskedReveal, LabPlate,
- * RevealText and the GSAP/ScrollTrigger clock. Tokens throughout.
+ * Full-width editorial text: five outcomes reveal in sequence as
+ * hairline-separated rows. Reuses RevealText and the GSAP/ScrollTrigger clock.
+ * Tokens throughout.
  */
 
 const OUTCOMES: { title: string; body: string }[] = [
@@ -99,18 +97,8 @@ export function PoultryScience() {
       />
 
       <div className="relative mx-auto grid w-full max-w-container grid-cols-1 items-center gap-x-16 gap-y-14 px-6 py-16 md:py-24 md:grid-cols-12 md:px-12 xl:px-20">
-        {/* IMAGE — left */}
-        <div className="md:col-span-6">
-          <MaskedReveal
-            direction="up"
-            className="aspect-[4/5] w-full rounded-lg shadow-medium ring-1 ring-white/60 md:aspect-[5/6]"
-          >
-            <LabPlate src="/feed.jpg" alt="Scientific poultry nutrition research — Agriprom Pakistan" />
-          </MaskedReveal>
-        </div>
-
-        {/* CONTENT — right */}
-        <div className="md:col-span-6">
+        {/* CONTENT — full width */}
+        <div className="md:col-span-12">
           <div data-ps-fade className="mb-7 flex items-center gap-4">
             <span className="h-px w-10 bg-accent-500" />
             <span className="font-sans text-caption uppercase tracking-[0.3em] text-neutral-900">

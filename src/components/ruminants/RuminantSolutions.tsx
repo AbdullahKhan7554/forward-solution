@@ -6,7 +6,7 @@ import { gsap, ScrollTrigger } from "@/lib/gsap";
 import { RevealText } from "@/components/primitives/RevealText";
 import { ProductMedia } from "@/components/product-detail/ProductMedia";
 import { CatalogCard } from "@/components/catalog/CatalogCard";
-import { RUMINANT_CATEGORIES } from "./categories";
+import { RUMINANT_CATEGORIES, containRuminantImage } from "./categories";
 
 /**
  * RUMINANTS · SCENE 03 — SOLUTIONS OVERVIEW.
@@ -63,7 +63,7 @@ export function RuminantSolutions() {
                 title={c.name}
                 line={c.tagline}
                 action="Explore"
-                image={<ProductMedia label={c.name} alt={`${c.name} for ruminants — Agriprom Pakistan`} src={c.image} className="h-full w-full" />}
+                image={<ProductMedia label={c.name} alt={`${c.name} for ruminants — Agriprom Pakistan`} src={c.image} className={containRuminantImage(c.image) ? "h-full w-full [&_img]:!object-contain" : "h-full w-full"} />}
               />
             </li>
           ))}

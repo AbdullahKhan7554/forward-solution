@@ -59,7 +59,7 @@ export const RUMINANT_CATEGORIES: RuminantCategory[] = [
     description:
       "Comfortable cows eat more, produce more and last longer. Our comfort and welfare solutions address heat stress, resting behaviour and hygiene to protect productivity and herd longevity.",
     products: ["puzzle-comfort-mat", "mammouth-mattress", "eva-horse-stable-mat", "standard-self-locks", "free-stall-systems"],
-    image: "/images/agriprom-images/ruminants/comfort.jpeg",
+    image: "/images/products/ruminants/puzzle-comfort-mat.webp",
   },
   {
     id: "energy-boosters",
@@ -67,7 +67,7 @@ export const RUMINANT_CATEGORIES: RuminantCategory[] = [
     tagline: "Rapid energy & metabolic support for transition cows.",
     description: "Rapid energy & metabolic support for transition cows.",
     products: ["energy-booster", "lactomin-boost"],
-    image: "/images/agriprom-images/ruminants/booster.jpeg",
+    image: "/images/products/ruminants/energy-booster.webp",
   },
   {
     id: "yeast-culture",
@@ -78,3 +78,7 @@ export const RUMINANT_CATEGORIES: RuminantCategory[] = [
     image: "/images/agriprom-images/ruminants/yeast.jpeg",
   },
 ];
+
+/** The .webp ruminant shots (comfort, energy) are shown whole — object-contain, never cropped. */
+export const containRuminantImage = (src?: string) =>
+  !!src && src.startsWith("/images/products/ruminants/") && src.endsWith(".webp");

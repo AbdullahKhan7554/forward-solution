@@ -8,6 +8,7 @@ import { Footer } from "@/components/layout/Footer";
 import { ProductMedia } from "./ProductMedia";
 import { ProductCompact } from "./ProductCompact";
 import type { ProductDetailData } from "./products";
+import { containRuminantImage } from "@/components/ruminants/categories";
 
 /** Image slot — LabPlate procedural art, or a drop-in placeholder when the
  *  product opts into `media: "placeholder"`. Same size/mask either way. */
@@ -57,7 +58,7 @@ export function ProductDetail({ data }: { data: ProductDetailData }) {
             intro: data.intro,
             image: (
               // poultry bag shots: contain so the packaging is never cropped
-              <div className={ruminants ? "h-full w-full" : "h-full w-full [&_img]:!object-contain"}>
+              <div className={ruminants && !containRuminantImage(data.assets?.hero) ? "h-full w-full" : "h-full w-full [&_img]:!object-contain"}>
                 <SlotImage
                   media={data.media}
                   label="Hero Product Image"

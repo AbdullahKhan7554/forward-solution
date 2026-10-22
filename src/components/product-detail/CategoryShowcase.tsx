@@ -7,6 +7,7 @@ import { RevealText } from "@/components/primitives/RevealText";
 import { CatalogCard } from "@/components/catalog/CatalogCard";
 import { ProductMedia } from "./ProductMedia";
 import { PRODUCTS } from "./products";
+import { containRuminantImage } from "@/components/ruminants/categories";
 
 /**
  * CategoryShowcase — a category page: header, then a grid of shared
@@ -106,7 +107,7 @@ export function CategoryShowcase({
                   title={p.data.name}
                   line={p.data.subtitle}
                   action="Details"
-                  image={<ProductMedia label={p.data.name} alt={`${p.data.name} — Agriprom Pakistan`} src={p.data.assets?.hero} className="h-full w-full" />}
+                  image={<ProductMedia label={p.data.name} alt={`${p.data.name} — Agriprom Pakistan`} src={p.data.assets?.hero} className={containRuminantImage(p.data.assets?.hero) ? "h-full w-full [&_img]:!object-contain" : "h-full w-full"} />}
                 />
               </li>
             ))}
