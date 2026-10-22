@@ -7,10 +7,8 @@ import { RevealText } from "@/components/primitives/RevealText";
 import { MapPinIcon, PhoneIcon, ClockIcon, MailIcon, ArrowUpRightIcon } from "./icons";
 
 const MAPS_QUERY =
-  "Agriprom Pakistan, 1st Floor Plot 19B, Off Abdul Sattar Edhi Road, Rahimabad, Lahore 53700";
-const MAPS_EMBED = `https://maps.google.com/maps?q=${encodeURIComponent(
-  MAPS_QUERY
-)}&t=&z=15&ie=UTF8&iwloc=&output=embed`;
+  "1st Floor, Plot 19B, off Abdul Sattar Edhi Road, near Qazalbash Chowk, Rahimabad, Lahore, 53700";
+const MAPS_EMBED = `https://www.google.com/maps?q=${encodeURIComponent(MAPS_QUERY)}&output=embed`;
 const MAPS_URL = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(MAPS_QUERY)}`;
 
 /**

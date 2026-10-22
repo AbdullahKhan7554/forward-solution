@@ -1369,7 +1369,7 @@ export const PRODUCTS: Record<string, ProductDetailData> = {
     slug: "cleanex",
     catalog: "ruminants",
     media: "placeholder",
-    assets: { hero: "/images/products/ruminants/CLEANEX-768x949.jpg" },
+    assets: { hero: "/images/products/ruminants/cleanex.webp" },
     eyebrow: "Ruminants · Biosecurity Solutions",
     name: "CLEANEX",
     subtitle: "Biosecurity Solution",

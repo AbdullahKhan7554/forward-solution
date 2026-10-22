@@ -267,7 +267,14 @@ export function Footer() {
             <ul className="flex flex-col gap-5">
               <li className="flex items-start gap-3 font-sans text-body text-white/75">
                 <span className="mt-0.5 text-[#0064C1]"><MapPin /></span>
-                <span>Pakistan</span>
+                <a
+                  href="https://www.google.com/maps/search/?api=1&query=1st%20Floor%2C%20Plot%2019B%2C%20off%20Abdul%20Sattar%20Edhi%20Road%2C%20near%20Qazalbash%20Chowk%2C%20Rahimabad%2C%20Lahore%2C%2053700"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="outline-none transition-colors hover:text-[#008A4B] focus-visible:text-[#008A4B]"
+                >
+                  1st Floor, Plot 19B, off Abdul Sattar Edhi Road, near Qazalbash Chowk, Rahimabad, Lahore, 53700
+                </a>
               </li>
               <li className="flex items-start gap-3 font-sans text-body text-white/75">
                 <span className="mt-0.5 text-[#0064C1]"><Phone /></span>

@@ -118,7 +118,7 @@ export function AboutHero() {
       <div ref={outerRef} className="relative">
         <div
           ref={stageRef}
-          className="relative h-[100svh] min-h-[620px] w-full overflow-hidden bg-base"
+          className="relative min-h-[max(100svh,620px)] w-full bg-base"
         >
           {/* ── SLIDESHOW ── */}
           <div className="absolute inset-0">
@@ -218,10 +218,10 @@ export function AboutHero() {
             }}
           />
 
-          <div className="relative z-raised h-full">
+          <div className="relative z-raised">
             <div
               ref={contentRef}
-              className="flex h-full w-full flex-col justify-between px-6 pb-[9vh] pt-[17vh] will-change-transform md:px-12 md:pb-[10vh] xl:px-20"
+              className="flex min-h-[max(100svh,620px)] w-full flex-col justify-between px-6 pb-[9vh] pt-32 will-change-transform md:pt-40 md:px-12 md:pb-[10vh] xl:px-20"
             >
               {/* Eyebrow — top-left */}
               <div data-hero-fade className="flex items-center gap-4">
