@@ -27,7 +27,8 @@ type CatalogHeroProps = {
  * Shared cinematic hero for the species catalogues (ruminants, poultry): a
  * full-bleed image revealed by MaskedReveal, a glass breadcrumb, an oversized
  * "<Title> Solutions" headline surfacing off the shared intro clock, and an
- * optional right-side feature list. Light type sits on a soft cinematic scrim.
+ * optional right-side feature list. Bold light type with a soft text-shadow
+ * sits directly on the photo (no scrim).
  */
 export function CatalogHero({ id, crumb, eyebrow, title, image, description, features }: CatalogHeroProps) {
   const { phase } = useIntro();
@@ -63,6 +64,8 @@ export function CatalogHero({ id, crumb, eyebrow, title, image, description, fea
   }, [revealing]);
 
   const headingId = `${id}-hero-heading`;
+  // no scrim over the photo, so a soft shadow keeps the light type readable
+  const textShadow = { textShadow: "0 2px 14px rgba(0,0,0,0.55), 0 1px 3px rgba(0,0,0,0.45)" };
 
   return (
     <section ref={rootRef} aria-labelledby={headingId} className="relative h-[100svh] min-h-[620px] overflow-hidden bg-dark">
@@ -72,16 +75,6 @@ export function CatalogHero({ id, crumb, eyebrow, title, image, description, fea
           <LabPlate src={image.src} alt={image.alt} />
         </div>
       </MaskedReveal>
-
-      {/* cinematic scrim for legibility */}
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-0"
-        style={{
-          background:
-            "linear-gradient(180deg, rgba(11,17,22,0.45) 0%, rgba(11,17,22,0.1) 32%, rgba(11,17,22,0.2) 62%, rgba(11,17,22,0.72) 100%)",
-        }}
-      />
 
       {/* content */}
       <div className="relative z-raised flex h-full w-full flex-col justify-between px-6 pb-[10vh] pt-[16vh] md:px-12 md:pb-[9vh] xl:px-20">
@@ -100,17 +93,17 @@ export function CatalogHero({ id, crumb, eyebrow, title, image, description, fea
           <div className="min-w-0 max-w-3xl flex-1">
             <div data-ch-fade className="mb-6 flex items-center gap-4">
               <span className="h-px w-10 bg-accent-300" />
-              <span className="font-sans text-caption uppercase tracking-[0.3em] text-white/80">
+              <span style={textShadow} className="font-sans text-caption font-bold uppercase tracking-[0.3em] text-white">
                 {eyebrow}
               </span>
             </div>
 
-            <h1 id={headingId} className="font-display font-semibold leading-[1.0] tracking-[-0.02em] text-neutral-50">
+            <h1 id={headingId} style={textShadow} className="font-display font-bold leading-[1.0] tracking-[-0.02em] text-white">
               <RevealText text={title} as="span" play={revealing} delay={0.5} stagger={0.06} className="justify-start text-[17vw] md:text-[8vw] xl:text-[104px]" />
               <RevealText text="Solutions" as="span" play={revealing} delay={0.85} stagger={0.06} className="justify-start text-[17vw] text-accent-300 md:text-[8vw] xl:text-[104px]" />
             </h1>
 
-            <p data-ch-fade className="mt-8 max-w-[54ch] text-pretty font-sans text-body-lg text-neutral-200">
+            <p data-ch-fade style={textShadow} className="mt-8 max-w-[54ch] text-pretty font-sans text-body-lg font-bold text-white">
               {description}
             </p>
           </div>

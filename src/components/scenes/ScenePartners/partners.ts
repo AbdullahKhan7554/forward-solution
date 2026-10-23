@@ -22,4 +22,5 @@ export const partners: Partner[] = [
   { name: "Morningbio", logo: "/partners/morningbio.jpeg", description: "Feed Additives", weight: "standard" },
   { name: "Wellgreen", logo: "/partners/Gemini_Generated_Image_u7945ou7945ou794.jpg.jpeg", description: "Feed Additives", weight: "feature" },
   { name: "Solinkon", logo: "/partners/Picture4.png", description: "Animal Nutrition", weight: "standard" },
+  { name: "Vegamax", logo: "/images/agriprom-images/pages/vegamax-logo.png", description: "Feed Additives", weight: "offset" },
 ];

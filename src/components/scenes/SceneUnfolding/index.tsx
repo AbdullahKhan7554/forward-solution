@@ -113,14 +113,14 @@ export function SceneUnfolding() {
               className="font-display font-light leading-[1.04] tracking-[-0.015em] text-neutral-900"
             >
               <RevealText
-                text="Caring for animals,"
+                text="Caring for Animals,"
                 as="span"
                 trigger="scroll"
                 stagger={0.06}
                 className="justify-start text-[9vw] md:text-[4.6vw] xl:text-[60px]"
               />
               <RevealText
-                text="caring for you"
+                text="Caring for You"
                 as="span"
                 trigger="scroll"
                 stagger={0.06}
@@ -140,7 +140,7 @@ export function SceneUnfolding() {
               href="/about"
               className="group mt-10 inline-flex items-center gap-3 rounded-sm bg-primary-600 px-8 py-4 font-sans text-body font-medium text-pure shadow-soft transition-colors duration-200 ease-brand-out hover:bg-primary-700"
             >
-              More about us
+              More About Us
               <span
                 aria-hidden="true"
                 className="inline-block transition-transform duration-300 ease-brand-out group-hover:translate-x-1"

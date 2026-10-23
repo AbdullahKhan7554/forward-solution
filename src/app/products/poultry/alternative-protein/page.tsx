@@ -3,13 +3,17 @@ import { IntroProvider } from "@/components/providers/IntroProvider";
 import { Preloader } from "@/components/scenes/SceneThreshold/Preloader";
 import { Navbar } from "@/components/navbar/Navbar";
 import { Footer } from "@/components/layout/Footer";
-import { CategoryShowcase } from "@/components/product-detail/CategoryShowcase";
+import { CategoryShowcase, type ShowcaseItem } from "@/components/product-detail/CategoryShowcase";
 
 export const metadata: Metadata = {
   title: "Poultry Alternative Protein — Agriprom Pakistan",
   description:
     "Agriprom Pakistan's poultry alternative protein range — sustainable, highly digestible protein sources that reduce reliance on conventional feed proteins.",
 };
+
+const ITEMS: ShowcaseItem[] = [
+  { slug: "msg-single-cell-protein", href: "/products/poultry/alternative-protein/msg-single-cell-protein" },
+];
 
 export default function PoultryAlternativeProteinPage() {
   return (
@@ -22,7 +26,7 @@ export default function PoultryAlternativeProteinPage() {
           titleTop="Alternative"
           titleBottom="Protein"
           intro="Sustainable, highly digestible protein sources that support growth performance and reduce reliance on conventional feed proteins."
-          items={[]}
+          items={ITEMS}
         />
       </main>
       <Footer />

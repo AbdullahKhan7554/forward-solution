@@ -73,8 +73,8 @@ const MILESTONES: Milestone[] = [
   },
 ];
 
-/** The editorial image tile — a milestone photograph with a ghost numeral. */
-function Plate({ index, name, imageSrc }: { index: number; name: string; imageSrc: string }) {
+/** The editorial image tile — a milestone photograph. */
+function Plate({ name, imageSrc }: { name: string; imageSrc: string }) {
   return (
     <MaskedReveal
       direction="up"
@@ -82,24 +82,6 @@ function Plate({ index, name, imageSrc }: { index: number; name: string; imageSr
     >
       <div className="relative h-full w-full overflow-hidden">
         <LabPlate src={imageSrc} alt={`${name} — Agriprom Pakistan`} />
-        {/* scrim so the overlay reads over any photograph */}
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute inset-0"
-          style={{
-            background:
-              "linear-gradient(180deg, rgba(11,17,22,0.28) 0%, rgba(11,17,22,0) 34%, rgba(11,17,22,0.42) 100%)",
-          }}
-        />
-        {/* ghost numeral + label */}
-        <div className="absolute inset-0 flex flex-col justify-between p-6 md:p-7">
-          <span className="font-display text-[19vw] font-light leading-none text-white/70 md:text-[7vw] xl:text-[92px]">
-            {String(index + 1).padStart(2, "0")}
-          </span>
-          <span className="font-sans text-caption uppercase tracking-[0.28em] text-white/90">
-            {name}
-          </span>
-        </div>
       </div>
     </MaskedReveal>
   );
@@ -127,7 +109,7 @@ function Row({ milestone, index }: { milestone: Milestone; index: number }) {
 
   const plate = (
     <div data-tl-card className={cn(cardLeft ? "md:mr-auto" : "md:ml-auto", "w-full md:max-w-[440px]")}>
-      <Plate index={index} name={milestone.name} imageSrc={milestone.imageSrc} />
+      <Plate name={milestone.name} imageSrc={milestone.imageSrc} />
     </div>
   );
 

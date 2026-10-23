@@ -59,21 +59,21 @@ export const articles: Article[] = [
       "Mycotoxins are among the most persistent and costly threats in modern poultry production. Produced by moulds that colonise grain in the field and in storage, they silently erode performance long before clinical signs appear. Understanding how they act — and how to neutralise them — is central to protecting flock health and margin.",
     sections: [
       {
-        heading: "What mycotoxins do to the bird",
+        heading: "What Mycotoxins Do to the Bird",
         paragraphs: [
           "Mycotoxins are secondary metabolites of fungi such as Aspergillus, Fusarium and Penicillium. Even at concentrations invisible to the eye, they compromise the intestinal lining, suppress immune response and burden the liver — the organ tasked with detoxifying them.",
           "The result is a cascade of subclinical losses: poorer feed conversion, uneven flock uniformity, reduced weight gain and heightened susceptibility to secondary disease. Because the damage is gradual, it is frequently mistaken for a management or nutrition problem.",
         ],
       },
       {
-        heading: "Why prevention starts before the feed mill",
+        heading: "Why Prevention Starts Before the Feed Mill",
         paragraphs: [
           "Contamination begins in the field and accelerates wherever moisture, temperature and time allow moulds to grow. Sound storage discipline — controlled humidity, clean silos and rapid throughput — remains the first line of defence.",
           "Yet field prevention alone cannot guarantee a clean ration. Grain quality varies batch to batch, and multiple mycotoxins commonly occur together. A dependable in-feed strategy is therefore essential, not optional.",
         ],
       },
       {
-        heading: "How effective binders work",
+        heading: "How Effective Binders Work",
         paragraphs: [
           "A modern toxin binder adsorbs mycotoxins in the gut, forming a stable complex that passes through the bird without being absorbed. The best binders combine a broad adsorptive surface with selectivity — capturing harmful toxins while sparing vitamins and trace minerals.",
           "Broad-spectrum solutions extend protection to the more polar mycotoxins that simple clays miss, pairing mineral adsorbents with biological components that target the toxins conventional binders leave behind.",
@@ -103,21 +103,21 @@ export const articles: Article[] = [
       "Butyric acid is the preferred energy source of the cells that line the intestine. Delivering it intact to where it is needed, however, is a formulation challenge. ProPhorce SR130 answers that challenge through an esterified tributyrin technology built for precise, sustained release.",
     sections: [
       {
-        heading: "The role of butyric acid in the gut",
+        heading: "The Role of Butyric Acid in the Gut",
         paragraphs: [
           "The enterocytes of the intestinal wall depend on butyrate as their primary fuel. A well-supplied gut lining is a stronger barrier, better able to absorb nutrients and resist the pathogens that undermine performance.",
           "Free butyric acid, however, is largely absorbed high in the digestive tract and carries a strong odour that complicates handling. Much of its benefit is lost before it reaches the lower intestine where it matters most.",
         ],
       },
       {
-        heading: "Why esterified tributyrin is different",
+        heading: "Why Esterified Tributyrin Is Different",
         paragraphs: [
           "ProPhorce SR130 binds three butyric acid molecules to a glycerol backbone. This ester is stable through the upper tract and is cleaved gradually by intestinal lipases, releasing butyrate steadily along the full length of the gut.",
           "The outcome is targeted delivery without the odour and handling problems of free acids — more of the active reaching the tissue that uses it, at a consistent rate.",
         ],
       },
       {
-        heading: "What it means for performance",
+        heading: "What It Means for Performance",
         paragraphs: [
           "A reinforced intestinal barrier translates into measurable gains: improved feed conversion, stronger nutrient uptake and greater resilience under challenge. Because the effect is structural rather than merely reactive, benefits compound across the production cycle.",
           "For producers seeking a science-led alternative to routine antibiotic support, sustained-release tributyrin is a proven cornerstone of a modern gut-health programme.",
@@ -146,21 +146,21 @@ export const articles: Article[] = [
       "Cereal grains carry more nutrition than birds can naturally access. Non-starch polysaccharides (NSPs) lock away energy and protein and thicken the gut environment. Targeted enzymes release that hidden value — turning the same ration into better growth.",
     sections: [
       {
-        heading: "The anti-nutritional cost of NSPs",
+        heading: "The Anti-Nutritional Cost of NSPs",
         paragraphs: [
           "NSPs such as arabinoxylans and beta-glucans form the structural fibre of wheat, barley and other cereals. Poultry lack the native enzymes to break them down, so a portion of every ration passes through undigested.",
           "Beyond the lost nutrients, soluble NSPs raise the viscosity of the gut contents. Thicker digesta slows the movement of nutrients to the intestinal wall and creates conditions that favour undesirable microbes.",
         ],
       },
       {
-        heading: "How the enzymes unlock value",
+        heading: "How the Enzymes Unlock Value",
         paragraphs: [
           "NSP enzymes — xylanases, glucanases and related activities — cleave these fibres into smaller fragments. This dismantles the cell-wall cages that trap starch and protein, and lowers digesta viscosity so nutrients reach the absorptive surface freely.",
           "The released sugars also serve as a substrate for beneficial gut bacteria, reinforcing a healthier microbial balance alongside the direct nutritional gain.",
         ],
       },
       {
-        heading: "The bottom-line effect",
+        heading: "The Bottom-Line Effect",
         paragraphs: [
           "By recovering energy and protein that would otherwise be excreted, NSP enzymes improve feed conversion and support more uniform growth. They also give the nutritionist room to formulate more flexibly across variable raw materials.",
           "In a market where feed is the dominant cost, unlocking the nutrition already present in the ration is among the most reliable levers a producer has.",
@@ -189,21 +189,21 @@ export const articles: Article[] = [
       "In the high-yielding dairy cow, the rumen is both an asset and a bottleneck. Much of the protein a cow eats is degraded by rumen microbes before it can be used for milk. Bypass — or rumen-protected — protein is formulated to survive that first chamber and deliver amino acids where they are absorbed.",
     sections: [
       {
-        heading: "The limit of rumen-degradable protein",
+        heading: "The Limit of Rumen-Degradable Protein",
         paragraphs: [
           "Rumen microbes break down a large share of dietary protein into ammonia, using only part of it to build microbial protein. For a cow producing thirty or more litres a day, microbial protein alone cannot meet demand.",
           "The shortfall shows up as a plateau in milk yield and, often, poorer reproductive performance — the cow mobilising body reserves to fill the gap.",
         ],
       },
       {
-        heading: "How bypass protein closes the gap",
+        heading: "How Bypass Protein Closes the Gap",
         paragraphs: [
           "Rumen-protected sources resist microbial breakdown and pass through to the small intestine, where their amino acids are absorbed directly. This raises the supply of metabolisable protein without overloading the rumen.",
           "Balancing the profile of these amino acids — particularly methionine and lysine — lets the nutritionist target milk protein and yield precisely, rather than simply feeding more crude protein.",
         ],
       },
       {
-        heading: "The production payoff",
+        heading: "The Production Payoff",
         paragraphs: [
           "Correctly formulated bypass protein supports higher and more persistent milk yield, better milk-protein percentage and improved feed efficiency — more output from the same intake.",
           "It also reduces nitrogen excretion, aligning productivity with the environmental expectations now shaping modern dairy.",
@@ -232,21 +232,21 @@ export const articles: Article[] = [
       "Sub-acute ruminal acidosis (SARA) is one of the most under-diagnosed conditions in intensive dairy and beef systems. It rarely causes obvious illness, yet it steadily undermines rumen function, intake and profitability across the herd.",
     sections: [
       {
-        heading: "What drives SARA",
+        heading: "What Drives SARA",
         paragraphs: [
           "Rations rich in rapidly fermentable carbohydrate — needed to fuel high yields — can push rumen pH below the healthy range for hours each day. Fibre that is too finely chopped, or sorting at the feed bunk, makes it worse.",
           "The low-pH environment damages the rumen wall and disturbs the microbial population that a cow depends on to digest her feed.",
         ],
       },
       {
-        heading: "The signs to watch",
+        heading: "The Signs to Watch",
         paragraphs: [
           "SARA is defined by its subtlety: fluctuating intake, loose manure, reduced milk-fat percentage and a rise in lameness and displaced abomasum some weeks later.",
           "Because no single cow looks acutely sick, the cost is best read at herd level — in the gap between expected and actual performance.",
         ],
       },
       {
-        heading: "A prevention-first strategy",
+        heading: "A Prevention-First Strategy",
         paragraphs: [
           "Consistent ration formulation, adequate effective fibre and careful transition-cow management form the foundation. Buffers and rumen modifiers help stabilise pH through the day.",
           "The goal is a steady rumen environment — the single most important asset a high-yielding ruminant has.",
@@ -275,21 +275,21 @@ export const articles: Article[] = [
       "Biosecurity is the most cost-effective animal health measure available, yet it is often the first to slip under production pressure. A disciplined programme keeps pathogens out, contains those already present and protects the investment in every animal on the farm.",
     sections: [
       {
-        heading: "Keeping disease out",
+        heading: "Keeping Disease Out",
         paragraphs: [
           "External biosecurity governs everything that crosses the farm boundary: incoming animals, vehicles, equipment, feed and people. Controlled entry, quarantine of new stock and disciplined visitor protocols close the commonest routes of introduction.",
           "Most costly outbreaks trace back to a single lapse at the perimeter — which is exactly where the highest return on prevention sits.",
         ],
       },
       {
-        heading: "Containing spread within",
+        heading: "Containing Spread Within",
         paragraphs: [
           "Internal biosecurity limits movement of disease between groups: separating age classes, cleaning and disinfecting between batches, and managing the flow of staff and equipment from healthy to at-risk animals.",
           "All-in, all-out management and reliable cleaning routines break the cycle that lets pathogens persist on site.",
         ],
       },
       {
-        heading: "Making it routine",
+        heading: "Making It Routine",
         paragraphs: [
           "A programme only works if it is written down, understood and audited. Clear standard procedures, staff training and regular review turn good intentions into consistent daily practice.",
           "Backed by veterinary guidance, biosecurity shifts a farm from reacting to disease toward preventing it.",
@@ -318,21 +318,21 @@ export const articles: Article[] = [
       "Trace minerals such as zinc, copper and manganese are essential to immunity, fertility and skeletal health. But the form in which they are fed determines how much the animal can truly use — and how much simply passes through.",
     sections: [
       {
-        heading: "The inorganic limitation",
+        heading: "The Inorganic Limitation",
         paragraphs: [
           "Conventional inorganic minerals — oxides and sulphates — dissociate in the gut and can bind to other dietary components before absorption, lowering their real availability.",
           "The result is variable uptake and higher excretion, which raises both cost and environmental load.",
         ],
       },
       {
-        heading: "How organic minerals differ",
+        heading: "How Organic Minerals Differ",
         paragraphs: [
           "In organic (chelated) minerals, the metal is bound to an amino acid or peptide. This protects it through the gut and presents it to the intestinal wall in a form the animal absorbs efficiently.",
           "Greater bioavailability means the same performance can be achieved at lower inclusion — or better performance at the same level.",
         ],
       },
       {
-        heading: "Performance and sustainability",
+        heading: "Performance and Sustainability",
         paragraphs: [
           "Improved mineral status supports stronger immunity, better reproduction and sounder feet and legs across species.",
           "Because less mineral is excreted, organic sources also reduce the footprint of production — a benefit that matters more each year.",
@@ -361,21 +361,21 @@ export const articles: Article[] = [
       "Across every major market, animal production is moving decisively away from the routine use of antibiotics. Driven by regulation, retailer demand and the global fight against resistance, the shift is redefining how healthy animals are raised.",
     sections: [
       {
-        heading: "The forces behind the change",
+        heading: "The Forces Behind the Change",
         paragraphs: [
           "Antimicrobial resistance is now recognised as one of the defining health challenges of the century, and agriculture is a central part of the response. Regulators are restricting growth-promoting and preventive antibiotic use, while retailers and consumers increasingly demand antibiotic-free supply.",
           "For producers, the direction of travel is clear: routine antibiotics are being designed out of the system.",
         ],
       },
       {
-        heading: "What takes their place",
+        heading: "What Takes Their Place",
         paragraphs: [
           "The alternative is not a single product but a strategy — building animal resilience so antibiotics are rarely needed. Gut-health additives, organic acids, phytogenics, precise nutrition and rigorous biosecurity each play a part.",
           "Together they support a strong immune system and a stable digestive tract, the true foundations of performance without routine medication.",
         ],
       },
       {
-        heading: "A competitive advantage",
+        heading: "A Competitive Advantage",
         paragraphs: [
           "Far from a constraint, antibiotic-free production is becoming a mark of quality that opens premium markets and builds consumer trust.",
           "Producers who invest early in the science of prevention are positioning themselves for where the whole industry is heading.",

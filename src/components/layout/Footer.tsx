@@ -256,8 +256,6 @@ export function Footer() {
             <ul className="flex flex-col gap-1">
               <li><FooterLink href="/products/poultry">Poultry</FooterLink></li>
               <li><FooterLink href="/ruminants/">Ruminants</FooterLink></li>
-              <li><FooterLink href="/products/poultry">Feed Additives</FooterLink></li>
-              <li><FooterLink href="/ruminants/">Veterinary Solutions</FooterLink></li>
             </ul>
           </nav>
 
@@ -278,8 +276,8 @@ export function Footer() {
               </li>
               <li className="flex items-start gap-3 font-sans text-body text-white/75">
                 <span className="mt-0.5 text-[#0064C1]"><Phone /></span>
-                <a href="tel:03000801249" className="outline-none transition-colors hover:text-[#008A4B] focus-visible:text-[#008A4B]">
-                  0300 0801249
+                <a href="tel:+923000801249" className="outline-none transition-colors hover:text-[#008A4B] focus-visible:text-[#008A4B]">
+                  +92 300 0801249
                 </a>
               </li>
               <li className="flex items-start gap-3 font-sans text-body text-white/75">

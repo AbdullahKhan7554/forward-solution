@@ -107,7 +107,7 @@ export function AboutMissionVision() {
               </div>
               <h3 className="font-display font-light leading-[1.06] tracking-[-0.01em] text-neutral-900">
                 <RevealText
-                  text="Advancing health, farm by farm"
+                  text="Advancing Health, Farm by Farm"
                   as="span"
                   trigger="scroll"
                   stagger={0.05}
@@ -136,7 +136,7 @@ export function AboutMissionVision() {
               </div>
               <h3 className="font-display font-light leading-[1.06] tracking-[-0.01em] text-neutral-900">
                 <RevealText
-                  text="Pakistan's most trusted partner"
+                  text="Pakistan's Most Trusted Partner"
                   as="span"
                   trigger="scroll"
                   stagger={0.05}

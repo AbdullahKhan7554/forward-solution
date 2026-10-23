@@ -406,11 +406,11 @@ export const PRODUCTS: Record<string, ProductDetailData> = {
     specs: [
       { label: "Product", values: ["Anta®Mix ME"] },
       { label: "Category", values: ["Organic acids"] },
-      { label: "Active ingredients", values: ["Formic, lactic and phosphoric acid, microencapsulated essential oils"] },
+      { label: "Active Ingredients", values: ["Formic, lactic and phosphoric acid, microencapsulated essential oils"] },
       { label: "Application", values: ["Poultry feed (broilers, layers)"] },
       { label: "Technology", values: ["Fat-encapsulated actives, released gradually by lipase in the intestine"] },
       {
-        label: "Primary benefits",
+        label: "Primary Benefits",
         values: ["Gut health", "nutrient digestibility", "antibacterial action", "feed efficiency"],
       },
     ],
@@ -625,13 +625,13 @@ export const PRODUCTS: Record<string, ProductDetailData> = {
       { label: "Product", values: ["ProSid™ TB 207"] },
       { label: "Category", values: ["Toxin binder"] },
       {
-        label: "Active ingredients",
+        label: "Active Ingredients",
         values: ["Toxin binder, phytogenics (carob, milk thistle, rosemary, licorice root), calcium propionate"],
       },
       { label: "Application", values: ["Poultry feed"] },
       { label: "Technology", values: ["Multi-functional adsorption and protection"] },
       {
-        label: "Primary benefits",
+        label: "Primary Benefits",
         values: ["Mycotoxin binding", "gut health", "liver protection", "antioxidant support", "feed efficiency"],
       },
     ],
@@ -1024,10 +1024,10 @@ export const PRODUCTS: Record<string, ProductDetailData> = {
     specs: [
       { label: "Product", values: ["Alterion® NE"] },
       { label: "Category", values: ["Probiotic"] },
-      { label: "Active ingredient", values: ["Bacillus subtilis (1 × 10¹⁰ CFU/g)"] },
+      { label: "Active Ingredient", values: ["Bacillus subtilis (1 × 10¹⁰ CFU/g)"] },
       { label: "Application", values: ["Poultry feed"] },
       { label: "Technology", values: ["Heat-stable spores, germinating in the gut"] },
-      { label: "Primary benefits", values: ["Gut health", "intestinal integrity", "pathogen resilience", "performance"] },
+      { label: "Primary Benefits", values: ["Gut health", "intestinal integrity", "pathogen resilience", "performance"] },
     ],
     media: "placeholder",
     gallery: ["Product Image", "Packaging Image", "Application Image"],
@@ -1068,10 +1068,10 @@ export const PRODUCTS: Record<string, ProductDetailData> = {
     specs: [
       { label: "Product", values: ["Antifly"] },
       { label: "Category", values: ["Insect growth regulator (larvicide) premix"] },
-      { label: "Active ingredient", values: ["Cyromazine (triazine class)"] },
+      { label: "Active Ingredient", values: ["Cyromazine (triazine class)"] },
       { label: "Application", values: ["Poultry feed"] },
       { label: "Technology", values: ["Cellulose-coated, passes through the bird and acts in the manure"] },
-      { label: "Primary benefits", values: ["Fly control", "disease prevention", "ammonia and odour reduction"] },
+      { label: "Primary Benefits", values: ["Fly control", "disease prevention", "ammonia and odour reduction"] },
     ],
     media: "placeholder",
     gallery: ["Product Image", "Packaging Image", "Application Image"],
@@ -1111,10 +1111,10 @@ export const PRODUCTS: Record<string, ProductDetailData> = {
     specs: [
       { label: "Product", values: ["Canthaxanthin & Lutein (Red and Yellow)"] },
       { label: "Category", values: ["Feed pigments"] },
-      { label: "Active ingredients", values: ["Red: canthaxanthin 10%", "Yellow: lutein 2%"] },
+      { label: "Active Ingredients", values: ["Red: canthaxanthin 10%", "Yellow: lutein 2%"] },
       { label: "Application", values: ["Poultry feed (layers, broilers)"] },
       { label: "Technology", values: ["Free-flowing powder (yellow) and granule (red), premixed before the mixer"] },
-      { label: "Primary benefits", values: ["Yolk colour", "skin and shank colour", "consistent product appearance"] },
+      { label: "Primary Benefits", values: ["Yolk colour", "skin and shank colour", "consistent product appearance"] },
     ],
     media: "placeholder",
     gallery: ["Product Image", "Packaging Image", "Application Image"],
@@ -1153,10 +1153,10 @@ export const PRODUCTS: Record<string, ProductDetailData> = {
     specs: [
       { label: "Product", values: ["MoldCid"] },
       { label: "Category", values: ["Feed Hygienizer"] },
-      { label: "Active ingredients", values: ["Propionic acid, ammonium propionate, calcium propionate"] },
+      { label: "Active Ingredients", values: ["Propionic acid, ammonium propionate, calcium propionate"] },
       { label: "Application", values: ["Compound feed and grain"] },
       { label: "Technology", values: ["Free acids plus salts on a mineral carrier, with steady release into the feed"] },
-      { label: "Primary benefits", values: ["Antifungal protection", "feed hygiene", "reduced nutrient and dry matter losses"] },
+      { label: "Primary Benefits", values: ["Antifungal protection", "feed hygiene", "reduced nutrient and dry matter losses"] },
     ],
     media: "placeholder",
     gallery: ["Product Image", "Packaging Image", "Application Image"],
@@ -1197,10 +1197,10 @@ export const PRODUCTS: Record<string, ProductDetailData> = {
     specs: [
       { label: "Product", values: ["COXIELD"] },
       { label: "Category", values: ["Phytogenic anticoccidial"] },
-      { label: "Active ingredients", values: ["Blend of two phytogenics"] },
+      { label: "Active Ingredients", values: ["Blend of two phytogenics"] },
       { label: "Application", values: ["Poultry feed"] },
       { label: "Technology", values: ["Triple mode of action against Eimeria"] },
-      { label: "Primary benefits", values: ["Coccidiosis control", "gut protection", "growth performance"] },
+      { label: "Primary Benefits", values: ["Coccidiosis control", "gut protection", "growth performance"] },
     ],
     media: "placeholder",
     gallery: ["Product Image", "Packaging Image", "Application Image"],
@@ -1208,6 +1208,50 @@ export const PRODUCTS: Record<string, ProductDetailData> = {
     metaTitle: "COXIELD — Agriprom Pakistan | Poultry Phytogenic Anticoccidials",
     metaDescription:
       "Phytogenic anticoccidial with three modes of action.",
+  },
+
+  "msg-single-cell-protein": {
+    slug: "msg-single-cell-protein",
+    eyebrow: "Poultry · Alternative Protein",
+    name: "MSG- Single Cell Protein®",
+    subtitle:
+      "HIGH-PROTEIN MICROBIAL FEED INGREDIENT & POWERFUL SUBSTITUTE FOR SOYBEAN MEAL",
+    intro:
+      "MSG Protein (Single Cell Protein) is an advanced microbial protein feed ingredient designed to enhance gut health, boost immune response, improve palatability, and significantly lower overall feed costs by replacing traditional protein sources.",
+    overviewLead:
+      "MSG Protein (Single Cell Protein) is an advanced microbial protein feed ingredient designed to enhance gut health, boost immune response, improve palatability, and significantly lower overall feed costs by replacing traditional protein sources.",
+    overviewPoints: [
+      "Rich in microbial protein and small peptides that enhance digestion and nutrient absorption.",
+      "Serves as a powerful substitute for Soybean Meal, Fish Meal, and Corn Gluten Meal.",
+      "Supports gut structure and immune response.",
+      "Natural glutamic acid boosts feed taste and increases feed intake in animals.",
+      "Processed using a specialized procedure to guarantee batch-to-batch nutrient stability.",
+      "Contains fat-soluble vitamins, essential amino acids, and balanced mineral profiles.",
+    ],
+    benefits: [
+      "High Protein & Digestibility",
+      "Cost-Effective Alternative",
+      "Intestinal Health & Immunity",
+      "Enhanced Palatability",
+      "Consistent Quality",
+      "Nutrient Rich",
+    ],
+    flow: [],
+    applications: ["Commercial Poultry Farms", "Aqua Feed", "Ruminant & Livestock Farmers", "Feed Mills & Manufacturers"],
+    specs: [
+      { label: "Product", values: ["MSG- Single Cell Protein"] },
+      { label: "Category", values: ["Alternative Protein"] },
+      { label: "Active Ingredient", values: ["Fermented Microbial Protein & Glutamic Acid"] },
+      { label: "Application", values: ["Broilers", "Layers", "Aquatic", "Cattle"] },
+      { label: "Technology", values: ["Controlled Micro-Fermentation, Drying & Fine Crushing Process"] },
+      { label: "Primary Benefits", values: ["High Protein Content", "Immune Enhancement", "Cost Reduction", "Superior Digestibility"] },
+    ],
+    media: "placeholder",
+    gallery: ["Product Image", "Packaging Image", "Application Image"],
+    overviewImageLabel: "Product Overview",
+    metaTitle: "MSG- Single Cell Protein® — Agriprom Pakistan | Poultry Alternative Protein",
+    metaDescription:
+      "High-protein microbial feed ingredient and powerful substitute for soybean meal.",
   },
 
   // ─── Ruminants ─────────────────────────────────────────────────────────

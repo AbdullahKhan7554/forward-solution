@@ -48,6 +48,7 @@ const STATIC_ROUTES = [
   "/products/poultry/feed-pigment/canthaxanthin-lutein",
   "/products/poultry/feed-hygienizer/moldcid",
   "/products/poultry/phytogenic-anticoccidials/coxield",
+  "/products/poultry/alternative-protein/msg-single-cell-protein",
   // ruminant categories + products
   "/products/ruminants/rumen-protected-amino-acids",
   "/products/ruminants/rumen-protected-amino-acids/matrixin",
