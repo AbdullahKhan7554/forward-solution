@@ -132,7 +132,7 @@ export function ProductHero() {
 
               {/* Lower-left mass */}
               <div className="max-w-3xl">
-                <h1 className="relative overflow-hidden pb-[0.08em] font-display font-light text-neutral-900">
+                <h1 className="relative overflow-hidden pb-[0.08em] font-display font-semibold text-neutral-900">
                   <span
                     data-sheen
                     aria-hidden="true"

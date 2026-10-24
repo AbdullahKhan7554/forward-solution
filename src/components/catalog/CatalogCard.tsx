@@ -4,7 +4,7 @@ import type { ReactNode } from "react";
  * CatalogCard — the ONE shared card for poultry and ruminant catalogues.
  * Category cards: image, title, one line, "Explore →".
  * Product cards:  image, name, tagline, "Details →".
- * Clean white card, brand tokens only; hover is a small lift + slight image
+ * Clean white card (product cards: navy text panel), brand tokens only; hover is a small lift + slight image
  * zoom over 200ms.
  */
 export function CatalogCard({
@@ -20,6 +20,8 @@ export function CatalogCard({
   image: ReactNode;
   action: "Explore" | "Details";
 }) {
+  // Product cards get a solid navy text panel so name + tagline stand out.
+  const isProduct = action === "Details";
   return (
     <a
       href={href}
@@ -37,10 +39,10 @@ export function CatalogCard({
           {image}
         </div>
       </div>
-      <div className="flex flex-1 flex-col p-6">
-        <h3 className="font-display text-[19px] font-medium leading-[1.15] tracking-[-0.01em] text-neutral-900">{title}</h3>
-        {line && <p className="mt-1.5 text-pretty font-sans text-small text-neutral-900">{line}</p>}
-        <span className="mt-auto inline-flex items-center gap-2 pt-5 font-sans text-caption uppercase tracking-[0.2em] text-primary-700">
+      <div className={`flex flex-1 flex-col p-6 ${isProduct ? "bg-primary-900" : ""}`}>
+        <h3 className={`font-display text-[19px] font-medium leading-[1.15] tracking-[-0.01em] ${isProduct ? "text-pure" : "text-neutral-900"}`}>{title}</h3>
+        {line && <p className={`mt-1.5 text-pretty font-sans text-small ${isProduct ? "font-semibold text-pure" : "text-neutral-900"}`}>{line}</p>}
+        <span className={`mt-auto inline-flex items-center gap-2 pt-5 font-sans text-caption uppercase tracking-[0.2em] ${isProduct ? "text-accent-300" : "text-primary-700"}`}>
           {action}
           <span aria-hidden="true" className="inline-block transition-transform duration-200 ease-brand-out group-hover:translate-x-1">&rarr;</span>
         </span>

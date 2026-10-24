@@ -86,7 +86,7 @@ export function ServicesHero() {
         <div className="relative min-h-[max(100svh,620px)] w-full bg-base">
           {/* bright scientific daylight — graded LabPlate */}
           <div ref={bgRef} className="absolute inset-0 will-change-transform">
-            <LabPlate src="/images/herohome/5.png" alt="" />
+            <LabPlate src="/images/agriprom-images/pages/feedmill-services.jpg" alt="" />
           </div>
 
           {/* very soft particles */}

@@ -20,14 +20,14 @@ import { GlassCard } from "@/components/scenes/SceneInnovation/GlassCard";
  * No photography exists in the project, so the image is an on-brand soft-daylight
  * gradient plate — drop-in ready for real laboratory/livestock photography.
  *
- * Statistics: Product Categories (5) and Global Brands (9) are the real counts
+ * Statistics: Product Categories (5) and Global Brands (10) are the real counts
  * from the established taxonomy and partners list; Solutions (50+) is a rounded
  * illustrative figure; Technical Support is shown as 24/7. Swap in one place.
  */
 
 const STATS = [
   { target: 5, suffix: "", label: "Product Categories" },
-  { target: 9, suffix: "", label: "Global Brands" },
+  { target: 10, suffix: "", label: "Global Brands" },
   { target: 50, suffix: "+", label: "Solutions" },
   { text: "24/7", label: "Technical Support" },
 ] as const;

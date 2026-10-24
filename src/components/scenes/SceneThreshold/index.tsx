@@ -10,6 +10,7 @@ const SLIDES = [
   "/images/home/slides/slide-2.webp",
   "/images/home/slides/slide-3.webp",
   "/images/home/slides/slide-4.webp",
+  "/images/agriprom-images/pages/feedmill-home.jpg",
 ];
 const SLIDE_INTERVAL_MS = 5000;
 

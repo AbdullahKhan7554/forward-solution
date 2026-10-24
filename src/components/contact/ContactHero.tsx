@@ -97,48 +97,20 @@ export function ContactHero() {
     >
       <div ref={outerRef} className="relative">
         <div className="relative h-[100svh] min-h-[620px] w-full overflow-hidden bg-base">
-          {/* Bright scientific architecture — the graded premium laboratory. */}
+          {/* Contact backdrop — slightly blurred photo (scaled to hide blur edges). */}
           <div ref={bgRef} className="absolute inset-0 will-change-transform">
-            <LabPlate src="/images/heroabout/h1.jpg" alt="" />
+            <div className="h-full w-full scale-105 blur-[3px]">
+              <LabPlate src="/images/agriprom-images/pages/contact-bg.jpg" alt="" />
+            </div>
           </div>
 
-          {/* Very soft particles drifting through the daylight. */}
-          <div aria-hidden="true" className="pointer-events-none absolute inset-0 opacity-40">
-            <div
-              className="absolute inset-0"
-              style={{
-                background:
-                  "radial-gradient(70% 60% at 50% 45%, rgba(89,140,158,0.22) 0%, rgba(89,140,158,0) 72%)",
-              }}
-            />
-          </div>
-
-          {/* Very subtle scientific gradients — legibility + emerald whisper */}
+          {/* Dark overlay — text legibility, a touch deeper behind the text side */}
           <div
             aria-hidden="true"
             className="pointer-events-none absolute inset-0"
             style={{
               background:
-                "radial-gradient(120% 100% at 28% 82%, rgba(250,251,252,0.80) 0%, rgba(255,255,255,0.28) 40%, rgba(255,255,255,0) 66%)",
-            }}
-          />
-          <div
-            aria-hidden="true"
-            className="pointer-events-none absolute inset-0"
-            style={{
-              background:
-                "radial-gradient(58% 44% at 82% 12%, rgba(219,239,231,0.32) 0%, rgba(255,255,255,0) 60%)",
-            }}
-          />
-
-          {/* Foreground composition — editorial lower-left mass */}
-          {/* stronger white overlay behind the text side — headline legibility */}
-          <div
-            aria-hidden="true"
-            className="pointer-events-none absolute inset-0"
-            style={{
-              background:
-                "linear-gradient(90deg, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0.65) 38%, rgba(255,255,255,0) 72%)",
+                "linear-gradient(90deg, rgba(22,22,63,0.82) 0%, rgba(22,22,63,0.66) 45%, rgba(22,22,63,0.5) 100%)",
             }}
           />
 
@@ -149,14 +121,14 @@ export function ContactHero() {
             >
               <div data-hero-fade className="flex items-center gap-4">
                 <span className="h-px w-10 bg-accent-500" />
-                <span className="font-sans text-caption uppercase tracking-[0.3em] text-neutral-900">
+                <span className="font-sans text-caption uppercase tracking-[0.3em] text-pure">
                  
                 </span>
               </div>
 
               <div className="max-w-3xl">
 
-                <h1 className="relative overflow-hidden pb-[0.08em] font-display font-semibold text-neutral-900">
+                <h1 className="relative overflow-hidden pb-[0.08em] font-display font-semibold text-pure">
                   <span
                     data-sheen
                     aria-hidden="true"
@@ -180,13 +152,13 @@ export function ContactHero() {
                     play={revealing}
                     delay={1.15}
                     stagger={0.06}
-                    className="mt-2 justify-start text-[9vw] leading-[1.03] tracking-[-0.015em] text-primary-700 md:text-[5.1vw] xl:text-[60px]"
+                    className="mt-2 justify-start text-[9vw] leading-[1.03] tracking-[-0.015em] text-accent-300 md:text-[5.1vw] xl:text-[60px]"
                   />
                 </h1>
 
                 <p
                   data-hero-cta
-                  className="mt-8 max-w-[56ch] text-pretty font-sans text-body-lg text-neutral-900"
+                  className="mt-8 max-w-[56ch] text-pretty font-sans text-body-lg text-pure/90"
                 >
                   Whether you&rsquo;re a veterinarian, producer or distributor, our team across
                   Pakistan is ready to help — available around the clock.
@@ -211,7 +183,7 @@ export function ContactHero() {
             </div>
           </div>
 
-          <div ref={cueRef} className="absolute bottom-8 right-6 z-raised md:right-12 xl:right-20">
+          <div ref={cueRef} className="absolute bottom-8 right-6 z-raised md:right-12 xl:right-20 [&_.italic]:!text-pure">
             <ScrollCue />
           </div>
         </div>

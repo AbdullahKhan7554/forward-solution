@@ -17,6 +17,7 @@ const SLIDES = [
   "/images/heroabout/h1.jpg", // the laboratory
   "/images/heroabout/ChatGPT Image Jul 2, 2026, 06_50_41 PM.png", // the team
   "/images/heroabout/h4.png", // the science (cells)
+  "/images/agriprom-images/pages/feedmill-about.jpg", // the feed mill
 ];
 
 // Timing — one slide at a time: fade out, swap, fade in.

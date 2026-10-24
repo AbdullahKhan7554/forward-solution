@@ -16,9 +16,8 @@ import { WorldMap } from "@/components/scenes/ScenePartners/WorldMap";
  * homepage Network scene: Global Reach, International Supply Network and
  * Scientific Collaboration, anchored by live-counting statistics.
  *
- * Statistics: Global Partners is the real count (9, from the partners list);
- * Countries / Solutions are rounded illustrative figures — confirm official
- * numbers and swap in one place.
+ * Statistics: Customers Served / Global Partners / Solutions are client-supplied
+ * rounded figures — swap in one place.
  */
 
 /* Minimal Lucide-style line icons (stroke 1.5). */
@@ -78,8 +77,8 @@ const FOCUS = [
 ];
 
 const STATS = [
-  { target: 8, suffix: "+", label: "Countries" },
-  { target: 9, suffix: "", label: "Global Partners" },
+  { target: 200, suffix: "+", label: "Customers Served" },
+  { target: 15, suffix: "+", label: "Global Partners" },
   { target: 50, suffix: "+", label: "Solutions" },
 ];
 
