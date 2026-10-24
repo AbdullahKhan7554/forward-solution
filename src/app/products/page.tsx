@@ -1,14 +1,18 @@
 import type { Metadata } from "next";
+import dynamic from "next/dynamic";
 import { IntroProvider } from "@/components/providers/IntroProvider";
 import { Preloader } from "@/components/scenes/SceneThreshold/Preloader";
 import { Navbar } from "@/components/navbar/Navbar";
 import { ProductHero } from "@/components/products/ProductHero";
-import { ProductQuality } from "@/components/products/ProductQuality";
-import { ProductStats } from "@/components/products/ProductStats";
-import { ProductCategoryCards } from "@/components/products/ProductCategoryCards";
-import { ProductApplications } from "@/components/products/ProductApplications";
-import { SceneCTA } from "@/components/scenes/SceneCTA";
 import { Footer } from "@/components/layout/Footer";
+
+// Below-the-fold scenes are split into their own chunks (still server-rendered,
+// so the markup is identical) to keep the first-screen bundle lean.
+const ProductQuality = dynamic(() => import("@/components/products/ProductQuality").then((m) => m.ProductQuality));
+const ProductStats = dynamic(() => import("@/components/products/ProductStats").then((m) => m.ProductStats));
+const ProductCategoryCards = dynamic(() => import("@/components/products/ProductCategoryCards").then((m) => m.ProductCategoryCards));
+const ProductApplications = dynamic(() => import("@/components/products/ProductApplications").then((m) => m.ProductApplications));
+const SceneCTA = dynamic(() => import("@/components/scenes/SceneCTA").then((m) => m.SceneCTA));
 
 export const metadata: Metadata = {
   title: "Products — Agriprom Pakistan | Scientific Solutions for Animal Health",

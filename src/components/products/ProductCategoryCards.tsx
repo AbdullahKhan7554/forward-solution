@@ -66,7 +66,6 @@ export function ProductCategoryCards() {
           <a
             key={name}
             href={href}
-            aria-label={`${name} — explore`}
             className="group flex min-w-0 flex-col rounded-md border border-neutral-200 bg-pure p-8 shadow-soft transition-[transform,box-shadow] duration-200 ease-brand-out hover:-translate-y-1 hover:shadow-floating focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-600/40 md:p-10"
           >
             <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-primary-600/10 text-primary-700">

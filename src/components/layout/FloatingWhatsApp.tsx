@@ -6,9 +6,8 @@ import { gsap } from "@/lib/gsap";
 
 // Client WhatsApp number (E.164, no symbols).
 const WHATSAPP_URL = "https://wa.me/923000801213";
-// TODO: replace with the client's real profile URLs.
-const FACEBOOK_URL = "FB_LINK";
-const LINKEDIN_URL = "LINKEDIN_LINK";
+const FACEBOOK_URL = "https://www.facebook.com/AgripromPakistan";
+const LINKEDIN_URL = "https://pk.linkedin.com/company/agriprompakistan";
 
 const LINKS = [
   {

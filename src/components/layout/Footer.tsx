@@ -282,8 +282,8 @@ export function Footer() {
               </li>
               <li className="flex items-start gap-3 font-sans text-body text-white/75">
                 <span className="mt-0.5 text-[#0064C1]"><Mail /></span>
-                <a href="mailto:Info@agriprompakistan.com" className="break-all outline-none transition-colors hover:text-neutral-50 focus-visible:text-neutral-50">
-                  Info@agriprompakistan.com
+                <a href="mailto:info@agriprompakistan.com" className="break-all outline-none transition-colors hover:text-neutral-50 focus-visible:text-neutral-50">
+                  info@agriprompakistan.com
                 </a>
               </li>
               <li className="flex items-start gap-3 font-sans text-body text-white/75">
@@ -307,7 +307,7 @@ export function Footer() {
           <p>© 2026 Agriprom Pakistan. All Rights Reserved.</p>
           <p className="font-serif italic text-neutral-400">Designed with Precision.</p>
           <nav aria-label="Legal" className="flex items-center gap-6">
-            <FooterLink href="#">Sitemap</FooterLink>
+            <FooterLink href="/sitemap.xml">Sitemap</FooterLink>
           </nav>
         </div>
       </div>

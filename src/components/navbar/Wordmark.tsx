@@ -9,7 +9,7 @@ export function Wordmark({ className }: { className?: string }) {
   return (
     <span className={cn("flex items-center", className)}>
       {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img src="/logo.svg" alt="Agriprom Pakistan" className="h-11 w-auto object-contain md:h-12" />
+      <img src="/logo.svg" alt="Agriprom Pakistan" width={576} height={324} className="h-11 w-auto object-contain md:h-12" />
     </span>
   );
 }

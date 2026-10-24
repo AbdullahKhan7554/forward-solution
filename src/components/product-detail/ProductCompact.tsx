@@ -108,7 +108,7 @@ export function ProductCompact({
               {eyebrow}
             </div>
           )}
-          <Heading className="font-display text-h1 font-light leading-[1.05] tracking-[-0.01em] text-neutral-900">{product.name}</Heading>
+          <Heading className="break-words font-display text-h1 font-light leading-[1.05] tracking-[-0.01em] text-neutral-900">{product.name}</Heading>
           {product.tagline && (
             <p className="mt-4 font-sans text-caption uppercase tracking-[0.16em] text-primary-700">{product.tagline}</p>
           )}

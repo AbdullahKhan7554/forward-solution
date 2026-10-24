@@ -79,6 +79,8 @@ export function Preloader({
         ref={logoRef}
         src="/logo.svg"
         alt="Agriprom Pakistan"
+        width={576}
+        height={324}
         className="relative z-raised h-20 w-auto object-contain md:h-28"
       />
     </div>
