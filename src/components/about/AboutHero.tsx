@@ -14,9 +14,9 @@ import { cn } from "@/lib/utils";
 // Local assets only, no placeholders.
 const SLIDES = [
   "/images/client/about-hero.webp",
-  "/images/agriprom-images/ruminants/comfort.jpeg", // the dairy barn
-  "/images/agriprom-images/poultry/front.jpeg", // the poultry house
-  "/images/agriprom-images/pages/feedmill-about.jpg", // the feed mill
+  "/images/agriprom-images/ruminants/comfort.webp", // the dairy barn
+  "/images/agriprom-images/poultry/front.webp", // the poultry house
+  "/images/agriprom-images/pages/feedmill-about.webp", // the feed mill
 ];
 
 // Timing — one slide at a time: fade out, swap, fade in.

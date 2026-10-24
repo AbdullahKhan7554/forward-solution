@@ -61,7 +61,7 @@ const SOLUTIONS: Solution[] = [
     ],
     application: "In-feed, across every growth stage.",
     href: "/products/poultry",
-    imageSrc: "/12.jpg",
+    imageSrc: "/12.webp",
     speed: "0.06",
   },
   {
@@ -74,7 +74,7 @@ const SOLUTIONS: Solution[] = [
     ],
     application: "Feed and drinking-water programmes.",
     href: "/products/poultry",
-    imageSrc: "/13.jpg",
+    imageSrc: "/13.webp",
     speed: "0.1",
   },
   {
@@ -87,7 +87,7 @@ const SOLUTIONS: Solution[] = [
     ],
     application: "Housing, equipment and routine protocols.",
     href: "/ruminants",
-    imageSrc: "/14.jpg",
+    imageSrc: "/14.webp",
     speed: "0.08",
   },
 ];

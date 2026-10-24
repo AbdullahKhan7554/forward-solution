@@ -100,7 +100,7 @@ export function ContactHero() {
           {/* Contact backdrop — slightly blurred photo (scaled to hide blur edges). */}
           <div ref={bgRef} className="absolute inset-0 will-change-transform">
             <div className="h-full w-full scale-105 blur-[3px]">
-              <LabPlate src="/images/agriprom-images/pages/contact-bg.jpg" alt="" />
+              <LabPlate src="/images/agriprom-images/pages/contact-bg.webp" alt="" priority />
             </div>
           </div>
 

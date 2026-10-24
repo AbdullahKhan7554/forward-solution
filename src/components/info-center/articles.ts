@@ -54,7 +54,7 @@ export const articles: Article[] = [
     excerpt:
       "How mycotoxins undermine flock performance — and the binders that keep feed safe.",
     href: "/blog/mycotoxins-in-poultry-feed",
-    image: "/1.jpg",
+    image: "/1.webp",
     intro:
       "Mycotoxins are among the most persistent and costly threats in modern poultry production. Produced by moulds that colonise grain in the field and in storage, they silently erode performance long before clinical signs appear. Understanding how they act — and how to neutralise them — is central to protecting flock health and margin.",
     sections: [
@@ -98,7 +98,7 @@ export const articles: Article[] = [
     excerpt:
       "Why esterified butyric acid supports gut integrity and long-term bird performance.",
     href: "/blog/prophorce-sr130-tributyrin-gut-health",
-    image: "/2.jpg",
+    image: "/2.webp",
     intro:
       "Butyric acid is the preferred energy source of the cells that line the intestine. Delivering it intact to where it is needed, however, is a formulation challenge. ProPhorce SR130 answers that challenge through an esterified tributyrin technology built for precise, sustained release.",
     sections: [
@@ -141,7 +141,7 @@ export const articles: Article[] = [
     excerpt:
       "How NSP enzymes unlock trapped nutrients and raise feed efficiency in poultry.",
     href: "/blog/nsp-enzymes-poultry-feed-efficiency",
-    image: "/3.jpg",
+    image: "/3.webp",
     intro:
       "Cereal grains carry more nutrition than birds can naturally access. Non-starch polysaccharides (NSPs) lock away energy and protein and thicken the gut environment. Targeted enzymes release that hidden value — turning the same ration into better growth.",
     sections: [
@@ -184,7 +184,7 @@ export const articles: Article[] = [
     excerpt:
       "Why rumen-protected protein reaches the cow's intestine intact — and lifts production.",
     href: "/blog/bypass-protein-dairy-milk-yield",
-    image: "/4.jpg",
+    image: "/4.webp",
     intro:
       "In the high-yielding dairy cow, the rumen is both an asset and a bottleneck. Much of the protein a cow eats is degraded by rumen microbes before it can be used for milk. Bypass — or rumen-protected — protein is formulated to survive that first chamber and deliver amino acids where they are absorbed.",
     sections: [
@@ -227,7 +227,7 @@ export const articles: Article[] = [
     excerpt:
       "The silent condition that quietly erodes rumen health, intake and margin.",
     href: "/blog/managing-sara-high-yielding-herds",
-    image: "/5.jpg",
+    image: "/5.webp",
     intro:
       "Sub-acute ruminal acidosis (SARA) is one of the most under-diagnosed conditions in intensive dairy and beef systems. It rarely causes obvious illness, yet it steadily undermines rumen function, intake and profitability across the herd.",
     sections: [
@@ -270,7 +270,7 @@ export const articles: Article[] = [
     excerpt:
       "The structured, everyday practices that keep disease off the farm — before it costs you.",
     href: "/blog/farm-biosecurity-disease-prevention",
-    image: "/1.jpg",
+    image: "/1.webp",
     intro:
       "Biosecurity is the most cost-effective animal health measure available, yet it is often the first to slip under production pressure. A disciplined programme keeps pathogens out, contains those already present and protects the investment in every animal on the farm.",
     sections: [
@@ -313,7 +313,7 @@ export const articles: Article[] = [
     excerpt:
       "How mineral form decides what the animal actually absorbs — and what it wastes.",
     href: "/blog/organic-trace-minerals-bioavailability",
-    image: "/2.jpg",
+    image: "/2.webp",
     intro:
       "Trace minerals such as zinc, copper and manganese are essential to immunity, fertility and skeletal health. But the form in which they are fed determines how much the animal can truly use — and how much simply passes through.",
     sections: [
@@ -356,7 +356,7 @@ export const articles: Article[] = [
     excerpt:
       "Why the industry is moving beyond routine antibiotics — and what replaces them.",
     href: "/blog/shift-toward-antibiotic-free-production",
-    image: "/3.jpg",
+    image: "/3.webp",
     intro:
       "Across every major market, animal production is moving decisively away from the routine use of antibiotics. Driven by regulation, retailer demand and the global fight against resistance, the shift is redefining how healthy animals are raised.",
     sections: [

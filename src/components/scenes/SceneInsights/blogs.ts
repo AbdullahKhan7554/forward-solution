@@ -21,7 +21,7 @@ export const blogPosts: BlogPost[] = [
     excerpt:
       "How mycotoxins undermine flock performance — and the binders that keep feed safe.",
     href: "/blog/mycotoxins-in-poultry-feed",
-    image: "/1.jpg",
+    image: "/1.webp",
   },
   {
     title:
@@ -32,7 +32,7 @@ export const blogPosts: BlogPost[] = [
     excerpt:
       "Why esterified butyric acid supports gut integrity and long-term bird performance.",
     href: "/blog/prophorce-sr130-tributyrin-gut-health",
-    image: "/2.jpg",
+    image: "/2.webp",
   },
   {
     title: "How NSP Enzymes in Poultry Feed Improve Growth and Feed Efficiency",
@@ -42,6 +42,6 @@ export const blogPosts: BlogPost[] = [
     excerpt:
       "How NSP enzymes unlock trapped nutrients and raise feed efficiency in poultry.",
     href: "/blog/nsp-enzymes-poultry-feed-efficiency",
-    image: "/3.jpg",
+    image: "/3.webp",
   },
 ];

@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef } from "react";
+import Image from "next/image";
 import { RevealText } from "@/components/primitives/RevealText";
 import { WorldMap } from "./WorldMap";
 import { partners } from "./partners";
@@ -80,11 +81,12 @@ export function ScenePartners() {
                 className="mr-6 flex w-56 shrink-0 list-none flex-col items-center rounded-lg border border-white/70 bg-white/85 p-6 shadow-soft"
               >
                 <div className="flex h-24 w-full items-center justify-center">
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
+                  <Image
                     src={partner.logo}
                     alt={`${partner.name} logo`}
-                    decoding="async"
+                    width={176}
+                    height={96}
+                    sizes="176px"
                     className="h-full w-full object-contain"
                   />
                 </div>

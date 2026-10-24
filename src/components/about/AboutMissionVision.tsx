@@ -17,8 +17,8 @@ import { GlassCard } from "@/components/scenes/SceneInnovation/GlassCard";
  * Reuses GlassCard, RevealText (one per heading), the GSAP clock and every token.
  */
 
-const ICON_MISSION = "/images/agriprom-images/pages/mission-icon.png";
-const ICON_VISION = "/images/agriprom-images/pages/vision-icon.png";
+const ICON_MISSION = "/images/agriprom-images/pages/mission-icon.webp";
+const ICON_VISION = "/images/agriprom-images/pages/vision-icon.webp";
 
 /** Line icon in a soft rounded box — replaces the former editorial photo. */
 function PanelIcon({ src }: { src: string }) {

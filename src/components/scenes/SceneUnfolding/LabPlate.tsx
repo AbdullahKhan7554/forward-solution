@@ -16,11 +16,14 @@ export function LabPlate({
   src,
   alt = "",
   fit = "cover",
+  priority = false,
 }: {
   src?: string;
   alt?: string;
   /** "cover" fills+crops the frame; "contain" shows the whole image (letterboxed). */
   fit?: "cover" | "contain";
+  /** Above-the-fold hero plates load eagerly with high priority. */
+  priority?: boolean;
 }) {
   return (
     <div className="relative h-full w-full overflow-hidden bg-neutral-100">
@@ -31,7 +34,8 @@ export function LabPlate({
           fill
           sizes="(max-width: 768px) 100vw, 50vw"
           className={fit === "contain" ? "object-contain" : "object-cover"}
-          loading="lazy"
+          priority={priority}
+          loading={priority ? undefined : "lazy"}
         />
       ) : (
         <div aria-hidden="true" className="absolute inset-0">

@@ -117,7 +117,7 @@ export function ArticleView({
         <div className="relative mx-auto w-full max-w-[1120px] px-6 pb-[2vh] md:px-8">
           <div className="overflow-hidden rounded-xl shadow-soft">
             <MaskedReveal className="aspect-[16/9] w-full">
-              <LabPlate src={article.image} alt={article.title} />
+              <LabPlate src={article.image} alt={article.title} priority />
             </MaskedReveal>
           </div>
         </div>
