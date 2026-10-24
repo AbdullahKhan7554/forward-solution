@@ -49,17 +49,6 @@ export function ChapterLayer({
               <LabPlate src={imageSrc} alt={`${name} — Agriprom Pakistan`} />
             </MaskedReveal>
           </div>
-
-          {/* scientific overlay - museum wall label */}
-          <div
-            aria-hidden="true"
-            className="pointer-events-none absolute bottom-6 left-6 flex items-center gap-3 md:bottom-8 md:left-8"
-          >
-            <span className="h-px w-8 bg-white/60" />
-            <span className="font-sans text-caption uppercase tracking-[0.24em] text-white/70">
-              Fig. {num}
-            </span>
-          </div>
         </div>
 
         {/* TYPE */}

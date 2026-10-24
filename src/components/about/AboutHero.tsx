@@ -14,9 +14,8 @@ import { cn } from "@/lib/utils";
 // Local assets only, no placeholders.
 const SLIDES = [
   "/images/client/about-hero.webp",
-  "/images/heroabout/h1.jpg", // the laboratory
-  "/images/heroabout/ChatGPT Image Jul 2, 2026, 06_50_41 PM.png", // the team
-  "/images/heroabout/h4.png", // the science (cells)
+  "/images/agriprom-images/ruminants/comfort.jpeg", // the dairy barn
+  "/images/agriprom-images/poultry/front.jpeg", // the poultry house
   "/images/agriprom-images/pages/feedmill-about.jpg", // the feed mill
 ];
 

@@ -26,8 +26,8 @@ type Member = {
 const TEAM: Member[] = [
   { name: "Dr. Asim Mahmood Khan", role: "Chairman", blurb: "Leading vision and strategic growth", photo: "/images/team/asim.webp" },
   { name: "Moiz Khan", role: "Director", blurb: "Building partnerships and long-term value", photo: "/images/team/moiz.webp" },
-  { name: "Dr. Najam Us Sahar", role: "General Manager", blurb: "Driving operational excellence and efficiency", photo: "/images/team/najam.webp" },
-  { name: "Faizan Razzaq", role: "National Sales Manager", blurb: "Expanding reach and strengthening relationships", photo: "/images/team/faizan.webp" },
+  { name: "Dr. Najam Us Sahar", role: "General Manager", blurb: "Driving operational excellence and efficiency", photo: "/images/team/najam.png" },
+  { name: "Faizan Razzaq", role: "National Sales Manager", blurb: "Expanding reach and strengthening relationships", photo: "/images/team/faizan.png" },
 ];
 
 function TeamPortrait({ member }: { member: Member }) {
