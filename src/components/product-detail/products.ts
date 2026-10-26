@@ -1212,6 +1212,7 @@ export const PRODUCTS: Record<string, ProductDetailData> = {
 
   "msg-single-cell-protein": {
     slug: "msg-single-cell-protein",
+    assets: { hero: "/images/agriprom-images/products/msg-single-cell-protein.webp", overview: "/images/agriprom-images/products/msg-single-cell-protein.webp" },
     eyebrow: "Poultry · Alternative Protein",
     name: "MSG- Single Cell Protein®",
     subtitle:
@@ -1663,6 +1664,7 @@ export const PRODUCTS: Record<string, ProductDetailData> = {
     slug: "lactomin-boost",
     catalog: "ruminants",
     media: "placeholder",
+    assets: { hero: "/images/agriprom-images/products/lactomin-boost.webp" },
     eyebrow: "Ruminants · Energy Boosters",
     name: "LACTOMIN BOOST",
     subtitle: "ONE PREMIX - FOR LACTATION, FATTENING & GROWTH",

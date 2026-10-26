@@ -9,7 +9,7 @@ import { GlassCard } from "@/components/scenes/SceneInnovation/GlassCard";
 
 const STATS = [
   { value: "5", suffix: "", label: "Product Categories" },
-  { value: "10", suffix: "", label: "Global Brands" },
+  { value: "15", suffix: "+", label: "Global Brands" },
   { value: "50", suffix: "+", label: "Solutions" },
   { value: "24/7", suffix: "", label: "Technical Support" },
 ] as const;

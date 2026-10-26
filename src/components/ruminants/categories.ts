@@ -81,4 +81,6 @@ export const RUMINANT_CATEGORIES: RuminantCategory[] = [
 
 /** The .webp ruminant shots (comfort, energy) are shown whole — object-contain, never cropped. */
 export const containRuminantImage = (src?: string) =>
-  !!src && src.startsWith("/images/products/ruminants/") && src.endsWith(".webp");
+  !!src &&
+  (src.startsWith("/images/products/ruminants/") || src.startsWith("/images/agriprom-images/products/")) &&
+  src.endsWith(".webp");
