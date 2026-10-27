@@ -5,6 +5,7 @@ import { useIsomorphicLayoutEffect } from "@/hooks/useIsomorphicLayoutEffect";
 import { gsap, ScrollTrigger } from "@/lib/gsap";
 import { RevealText } from "@/components/primitives/RevealText";
 import { MapPinIcon, PhoneIcon, ClockIcon, MailIcon, ArrowUpRightIcon } from "./icons";
+import { ContactForm } from "./ContactForm";
 
 const MAPS_QUERY =
   "1st Floor, Plot 19B, off Abdul Sattar Edhi Road, near Qazalbash Chowk, Rahimabad, Lahore, 53700";
@@ -236,6 +237,12 @@ export function ContactLocation() {
             </div>
           </div>
 
+          {/* enquiry form above the integrated map */}
+          <div className="flex flex-col gap-10">
+          <div data-loc-fade>
+            <ContactForm />
+          </div>
+
           {/* integrated, brand-graded map */}
           <div
             ref={frameRef}
@@ -314,6 +321,7 @@ export function ContactLocation() {
                 </a>
               </div>
             </div>
+          </div>
           </div>
         </div>
       </div>

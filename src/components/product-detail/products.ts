@@ -1697,6 +1697,7 @@ export const PRODUCTS: Record<string, ProductDetailData> = {
     slug: "yeastics-r",
     catalog: "ruminants",
     media: "placeholder",
+    assets: { hero: "/images/agriprom-images/products/yeastics-r.webp" },
     eyebrow: "Ruminants · Yeast Culture",
     name: "Yeastics-R",
     subtitle: "HIGH POLYSACCHARIDE TRADITIONAL CHINESE MEDICINE YEAST CULTURE",

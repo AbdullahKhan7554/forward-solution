@@ -91,7 +91,7 @@ function ColHeading({ children }: { children: ReactNode }) {
 const SOCIALS = [
   { label: "LinkedIn", icon: <LinkedIn />, href: "https://pk.linkedin.com/company/agriprompakistan" },
   { label: "Facebook", icon: <Facebook />, href: "https://www.facebook.com/AgripromPakistan" },
-  { label: "WhatsApp", icon: <WhatsApp />, href: "https://wa.me/923000801213" },
+  { label: "WhatsApp", icon: <WhatsApp />, href: "https://wa.me/923000729638" },
 ];
 
 export function Footer() {
@@ -276,8 +276,8 @@ export function Footer() {
               </li>
               <li className="flex items-start gap-3 font-sans text-body text-white/75">
                 <span className="mt-0.5 text-[#0064C1]"><Phone /></span>
-                <a href="tel:+923000801249" className="outline-none transition-colors hover:text-[#008A4B] focus-visible:text-[#008A4B]">
-                  +92 300 0801249
+                <a href="tel:+923000801213" className="outline-none transition-colors hover:text-[#008A4B] focus-visible:text-[#008A4B]">
+                  +92 300 0801213
                 </a>
               </li>
               <li className="flex items-start gap-3 font-sans text-body text-white/75">
