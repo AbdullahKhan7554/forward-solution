@@ -3,7 +3,7 @@
 import { useRef } from "react";
 import Image from "next/image";
 import { useIsomorphicLayoutEffect } from "@/hooks/useIsomorphicLayoutEffect";
-import { gsap, ScrollTrigger } from "@/lib/gsap";
+import { gsap, ScrollTrigger } from "@/lib/scroll-trigger";
 import { RevealText } from "@/components/primitives/RevealText";
 
 /**

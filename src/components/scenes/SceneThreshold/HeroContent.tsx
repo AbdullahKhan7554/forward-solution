@@ -48,29 +48,27 @@ export function HeroContent() {
       gsap.to(root.querySelectorAll("[data-hero-fade]"), {
         autoAlpha: 1,
         y: 0,
-        duration: 0.7,
+        duration: 0.5,
         ease: "power3.out",
-        delay: 0.3,
-        stagger: 0.12,
+        stagger: 0.1,
       });
 
       // one sheen of light sweeps the headline as the second line resolves
       gsap.to(root.querySelectorAll("[data-sheen]"), {
         keyframes: [
-          { autoAlpha: 0.5, duration: 0.2 },
-          { xPercent: 140, duration: 1.1, ease: "power2.inOut" },
-          { autoAlpha: 0, duration: 0.3 },
+          { autoAlpha: 0.5, duration: 0.1 },
+          { xPercent: 140, duration: 0.4, ease: "power2.inOut" },
+          { autoAlpha: 0, duration: 0.1 },
         ],
-        delay: 1.35,
       });
 
       // the CTA settles last, once the statement has landed
       gsap.to(root.querySelectorAll("[data-hero-cta]"), {
         autoAlpha: 1,
         y: 0,
-        duration: 0.8,
+        duration: 0.5,
         ease: "power3.out",
-        delay: 1.9,
+        delay: 0.1,
       });
     }, root);
 
@@ -107,7 +105,8 @@ export function HeroContent() {
             text="Empowering Animal Health And Productivity"
             as="span"
             play={revealing}
-            delay={0.5}
+            delay={0}
+            duration={0.5}
             stagger={0.06}
             className="justify-start text-[9.5vw] leading-[1.02] tracking-[-0.015em] md:text-[5.4vw] xl:text-[64px]"
           />
@@ -115,7 +114,8 @@ export function HeroContent() {
             text="Through Innovative Feed Additives"
             as="span"
             play={revealing}
-            delay={1.15}
+            delay={0.1}
+            duration={0.5}
             stagger={0.06}
             className="mt-2 justify-start text-[9.5vw] leading-[1.02] tracking-[-0.015em] text-primary-700 md:text-[5.4vw] xl:text-[64px]"
           />

@@ -2,7 +2,7 @@
 
 import { useState, type RefObject } from "react";
 import { useIsomorphicLayoutEffect } from "@/hooks/useIsomorphicLayoutEffect";
-import { gsap, ScrollTrigger } from "@/lib/gsap";
+import { gsap, ScrollTrigger } from "@/lib/scroll-trigger";
 
 /**
  * useInnovationChoreography - motion for Scene 03 (the Mission statement),

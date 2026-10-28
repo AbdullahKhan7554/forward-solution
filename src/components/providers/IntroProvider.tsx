@@ -34,6 +34,9 @@ type IntroValue = {
 
 const IntroContext = createContext<IntroValue | null>(null);
 
+/** Pages rendered without an IntroProvider (the homepage) start fully revealed. */
+const NO_INTRO: IntroValue = { phase: "revealing", preloader: "skip", complete: () => {} };
+
 export function IntroProvider({ children }: { children: ReactNode }) {
   const [phase, setPhase] = useState<Phase>("loading");
   const [preloader, setPreloader] = useState<PreloaderMode>("pending");
@@ -69,7 +72,5 @@ export function IntroProvider({ children }: { children: ReactNode }) {
 }
 
 export function useIntro(): IntroValue {
-  const ctx = useContext(IntroContext);
-  if (!ctx) throw new Error("useIntro must be used within IntroProvider");
-  return ctx;
+  return useContext(IntroContext) ?? NO_INTRO;
 }

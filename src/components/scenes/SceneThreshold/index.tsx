@@ -53,7 +53,7 @@ export function SceneThreshold() {
                 fill
                 priority={i === 0}
                 loading={i === 0 ? undefined : "lazy"}
-                quality={90}
+                quality={75}
                 sizes="100vw"
                 className={`object-cover transition-opacity duration-1000 ${
                   i === active ? "opacity-100" : "opacity-0"

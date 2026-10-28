@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState, type ReactNode } from "react";
 import { useIsomorphicLayoutEffect } from "@/hooks/useIsomorphicLayoutEffect";
-import { gsap, ScrollTrigger } from "@/lib/gsap";
+import { gsap, ScrollTrigger } from "@/lib/scroll-trigger";
 import { RevealText } from "@/components/primitives/RevealText";
 import { MapPinIcon, PhoneIcon, ClockIcon, MailIcon, ArrowUpRightIcon } from "./icons";
 import { ContactForm } from "./ContactForm";

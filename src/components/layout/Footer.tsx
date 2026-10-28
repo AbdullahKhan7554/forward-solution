@@ -3,7 +3,7 @@
 import { useRef, type ReactNode } from "react";
 import { usePathname } from "next/navigation";
 import { useIsomorphicLayoutEffect } from "@/hooks/useIsomorphicLayoutEffect";
-import { gsap } from "@/lib/gsap";
+import { gsap } from "@/lib/scroll-trigger";
 import { RevealText } from "@/components/primitives/RevealText";
 import { Wordmark } from "@/components/navbar/Wordmark";
 import { cn } from "@/lib/utils";

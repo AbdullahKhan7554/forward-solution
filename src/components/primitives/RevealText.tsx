@@ -3,7 +3,7 @@
 import { useRef, type ElementType } from "react";
 import { useIsomorphicLayoutEffect } from "@/hooks/useIsomorphicLayoutEffect";
 import { usePrefersReducedMotion } from "@/hooks/usePrefersReducedMotion";
-import { gsap } from "@/lib/gsap";
+import { gsap } from "@/lib/scroll-trigger";
 import { EASE } from "@/lib/motion";
 import { cn } from "@/lib/utils";
 
@@ -29,6 +29,8 @@ type RevealTextProps = {
   delay?: number;
   trigger?: "mount" | "scroll";
   stagger?: number;
+  /** tween length in seconds (default 0.9) */
+  duration?: number;
   /** controlled gate - when provided, reveal waits until this is true */
   play?: boolean;
 };
@@ -39,6 +41,7 @@ export function RevealText({
   className,
   delay = 0,
   trigger = "mount",
+  duration = 0.9,
   play,
 }: RevealTextProps) {
   const ref = useRef<HTMLElement>(null);
@@ -53,7 +56,7 @@ export function RevealText({
 
     const ctx = gsap.context(() => {
       gsap.set(line, { opacity: 0, y: 16 });
-      const to = { opacity: 1, y: 0, duration: 0.9, ease: EASE.luxury, delay };
+      const to = { opacity: 1, y: 0, duration, ease: EASE.luxury, delay };
 
       if (controlled) {
         if (play) gsap.to(line, to);
@@ -68,7 +71,7 @@ export function RevealText({
     }, ref);
 
     return () => ctx.revert();
-  }, [reducedMotion, play, controlled, delay, trigger]);
+  }, [reducedMotion, play, controlled, delay, duration, trigger]);
 
   if (reducedMotion) {
     // Same block-level flex container as the animated path so consecutive

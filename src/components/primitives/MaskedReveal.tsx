@@ -3,7 +3,7 @@
 import { useRef, type ReactNode } from "react";
 import { useIsomorphicLayoutEffect } from "@/hooks/useIsomorphicLayoutEffect";
 import { usePrefersReducedMotion } from "@/hooks/usePrefersReducedMotion";
-import { gsap } from "@/lib/gsap";
+import { gsap } from "@/lib/scroll-trigger";
 import { DURATION, EASE } from "@/lib/motion";
 import { cn } from "@/lib/utils";
 

@@ -2,7 +2,7 @@
 
 import { useRef } from "react";
 import { useIsomorphicLayoutEffect } from "@/hooks/useIsomorphicLayoutEffect";
-import { gsap, ScrollTrigger } from "@/lib/gsap";
+import { gsap, ScrollTrigger } from "@/lib/scroll-trigger";
 import { RevealText } from "@/components/primitives/RevealText";
 import { ProductMedia } from "@/components/product-detail/ProductMedia";
 import { CatalogCard } from "@/components/catalog/CatalogCard";

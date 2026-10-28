@@ -1,6 +1,4 @@
 import dynamic from "next/dynamic";
-import { IntroProvider } from "@/components/providers/IntroProvider";
-import { Preloader } from "@/components/scenes/SceneThreshold/Preloader";
 import { Navbar } from "@/components/navbar/Navbar";
 import { SceneThreshold } from "@/components/scenes/SceneThreshold";
 import { Footer } from "@/components/layout/Footer";
@@ -16,13 +14,12 @@ const SceneCTA = dynamic(() => import("@/components/scenes/SceneCTA").then((m) =
 
 /**
  * Scene 01 - The Threshold. Perfected in isolation.
- * IntroProvider is the shared clock; Preloader gates the reveal; Navbar and the
- * hero scene key their choreography off the same phase.
+ * No preloader or IntroProvider here: the hero paints immediately and Navbar /
+ * hero choreography start on mount (useIntro falls back to "revealing").
  */
 export default function HomePage() {
   return (
-    <IntroProvider>
-      <Preloader />
+    <>
       <Navbar />
       <main>
         <SceneThreshold />
@@ -34,6 +31,6 @@ export default function HomePage() {
         <SceneCTA />
       </main>
       <Footer />
-    </IntroProvider>
+    </>
   );
 }

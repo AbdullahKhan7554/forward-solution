@@ -2,7 +2,7 @@
 
 import { type RefObject } from "react";
 import { useIsomorphicLayoutEffect } from "@/hooks/useIsomorphicLayoutEffect";
-import { gsap } from "@/lib/gsap";
+import { gsap } from "@/lib/scroll-trigger";
 
 /**
  * useCTAChoreography - closing CTA reveal. No new utilities. RevealText handles

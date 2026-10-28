@@ -2,7 +2,7 @@
 
 import { useMemo, useRef, useState } from "react";
 import { useIsomorphicLayoutEffect } from "@/hooks/useIsomorphicLayoutEffect";
-import { gsap, ScrollTrigger } from "@/lib/gsap";
+import { gsap, ScrollTrigger } from "@/lib/scroll-trigger";
 import { RevealText } from "@/components/primitives/RevealText";
 import { BlogCard } from "@/components/scenes/SceneInsights/BlogCard";
 import { articles, ARTICLE_FILTERS } from "@/components/info-center/articles";
