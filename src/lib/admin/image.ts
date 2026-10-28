@@ -3,14 +3,14 @@ import { createClient } from "@/lib/supabase/client";
 const MAX_SIZE = 1000;
 const BUCKET = "media";
 
-/** Browser-only: re-encodes an image file as WebP, longest side capped at 1000px. */
-export async function toWebp(file: File): Promise<Blob> {
+/** Browser-only: re-encodes an image file as WebP, longest side capped at maxSize (default 1000px). */
+export async function toWebp(file: File, maxSize = MAX_SIZE): Promise<Blob> {
   if (!file.type.startsWith("image/")) throw new Error("Please choose an image file.");
 
   const bitmap = await createImageBitmap(file).catch(() => {
     throw new Error("This image couldn't be read. Try a JPG, PNG or WebP file.");
   });
-  const scale = Math.min(1, MAX_SIZE / Math.max(bitmap.width, bitmap.height));
+  const scale = Math.min(1, maxSize / Math.max(bitmap.width, bitmap.height));
   const canvas = document.createElement("canvas");
   canvas.width = Math.round(bitmap.width * scale);
   canvas.height = Math.round(bitmap.height * scale);
