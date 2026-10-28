@@ -513,6 +513,9 @@ export function Navbar() {
     setOpenAccordion(null);
   };
 
+  // Admin pages have their own chrome — no public navbar.
+  if (pathname.startsWith("/admin")) return null;
+
   return (
     <>
       <header

@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef, type ReactNode } from "react";
+import { usePathname } from "next/navigation";
 import { useIsomorphicLayoutEffect } from "@/hooks/useIsomorphicLayoutEffect";
 import { gsap } from "@/lib/gsap";
 import { RevealText } from "@/components/primitives/RevealText";
@@ -96,6 +97,7 @@ const SOCIALS = [
 
 export function Footer() {
   const ref = useRef<HTMLElement>(null);
+  const pathname = usePathname();
 
   useIsomorphicLayoutEffect(() => {
     const root = ref.current;
@@ -126,6 +128,9 @@ export function Footer() {
 
     return () => ctx.revert();
   }, []);
+
+  // Admin pages have their own chrome — no public footer.
+  if (pathname?.startsWith("/admin")) return null;
 
   return (
     <footer

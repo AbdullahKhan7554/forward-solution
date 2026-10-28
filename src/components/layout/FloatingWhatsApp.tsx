@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef } from "react";
+import { usePathname } from "next/navigation";
 import { useIsomorphicLayoutEffect } from "@/hooks/useIsomorphicLayoutEffect";
 import { gsap } from "@/lib/gsap";
 
@@ -39,6 +40,7 @@ const LINKS = [
  */
 export function FloatingWhatsApp() {
   const ref = useRef<HTMLElement>(null);
+  const pathname = usePathname();
 
   useIsomorphicLayoutEffect(() => {
     const el = ref.current;
@@ -60,6 +62,9 @@ export function FloatingWhatsApp() {
     });
     return () => ctx.revert();
   }, []);
+
+  // Admin pages have their own chrome — no public social bar.
+  if (pathname?.startsWith("/admin")) return null;
 
   return (
     <nav

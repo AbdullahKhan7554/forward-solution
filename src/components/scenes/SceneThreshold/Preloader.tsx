@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef, useState } from "react";
+import { usePathname } from "next/navigation";
 import { useIsomorphicLayoutEffect } from "@/hooks/useIsomorphicLayoutEffect";
 import { useIntro } from "@/components/providers/IntroProvider";
 import { gsap } from "@/lib/gsap";
@@ -27,9 +28,10 @@ export function Preloader({
   const rootRef = useRef<HTMLDivElement>(null);
   const logoRef = useRef<HTMLImageElement>(null);
   const [gone, setGone] = useState(false);
+  const isAdmin = usePathname()?.startsWith("/admin") ?? false;
 
   useIsomorphicLayoutEffect(() => {
-    if (preloader !== "play") return;
+    if (preloader !== "play" || isAdmin) return;
 
     const reduced =
       typeof window !== "undefined" &&
@@ -62,9 +64,10 @@ export function Preloader({
     }, rootRef);
 
     return () => ctx.revert();
-  }, [complete, preloader]);
+  }, [complete, preloader, isAdmin]);
 
-  if (gone || preloader === "skip") return null;
+  // Admin pages have their own chrome — no public preloader.
+  if (gone || preloader === "skip" || isAdmin) return null;
 
   return (
     <div
