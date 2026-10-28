@@ -2,7 +2,8 @@ import Link from "next/link";
 import { redirect } from "next/navigation";
 import { getAdminSession } from "@/lib/admin/session";
 import type { ActivityAction } from "@/lib/admin/team";
-import { ACTION_LABEL, ActivityLine, LiveRefresh, toEntry } from "@/components/admin/Activity";
+import { ActivityLine, LiveRefresh } from "@/components/admin/Activity";
+import { ACTION_LABEL, toEntry } from "@/lib/admin/activity";
 
 export const dynamic = "force-dynamic";
 

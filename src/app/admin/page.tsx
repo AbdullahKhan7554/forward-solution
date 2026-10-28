@@ -3,7 +3,8 @@ import { redirect } from "next/navigation";
 import { getAdminSession } from "@/lib/admin/session";
 import { sectionLabel, updatedLabel } from "@/lib/admin/products";
 import { isRole } from "@/lib/admin/team";
-import { ActivityFeed, toEntry } from "@/components/admin/Activity";
+import { ActivityFeed } from "@/components/admin/Activity";
+import { toEntry } from "@/lib/admin/activity";
 import { OnlineNow, TeamCard, type TeamCardMember } from "@/components/admin/DashboardLive";
 
 export const dynamic = "force-dynamic";
