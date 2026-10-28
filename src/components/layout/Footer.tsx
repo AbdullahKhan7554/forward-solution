@@ -310,9 +310,18 @@ export function Footer() {
           className="flex flex-col items-center justify-between gap-4 py-8 text-center font-sans text-small text-neutral-500 md:flex-row md:text-left"
         >
           <p>© 2026 Agriprom Pakistan. All Rights Reserved.</p>
-          <p className="font-serif italic text-neutral-400">Designed with Precision.</p>
+          <p className="font-serif italic text-neutral-400">
+            Designed by{" "}
+            <a
+              href="https://avenixstudios.com"
+              target="_blank"
+              rel="noopener"
+              className="underline-offset-4 transition-colors duration-200 ease-brand-out hover:text-neutral-200 hover:underline focus-visible:text-neutral-200 focus-visible:underline"
+            >
+              Avenix Studio
+            </a>
+          </p>
           <nav aria-label="Legal" className="flex items-center gap-6">
-            <FooterLink href="/sitemap.xml">Sitemap</FooterLink>
             <FooterLink href="/admin">Admin</FooterLink>
           </nav>
         </div>
