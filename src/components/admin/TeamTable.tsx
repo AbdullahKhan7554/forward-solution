@@ -5,6 +5,7 @@ import { useEffect, useState, useTransition, type FormEvent } from "react";
 import { changeRole, inviteUser, removeUser } from "@/app/admin/team/actions";
 import { useAdmin } from "@/components/admin/AdminShell";
 import { useToast } from "@/components/admin/Toast";
+import { Pending } from "@/components/admin/Spinner";
 import { createClient } from "@/lib/supabase/client";
 import { ROLES, initials, timeAgo, type Role } from "@/lib/admin/team";
 
@@ -122,9 +123,9 @@ export function TeamTable({ members, meId }: { members: TeamMember[]; meId: stri
         <button
           type="submit"
           disabled={inviting}
-          className="rounded-lg border-none bg-[#008848] px-5 py-[11px] text-[14px] font-semibold text-white [font-family:inherit] disabled:opacity-60"
+          className="rounded-lg border-none bg-[#008848] px-5 py-[11px] text-[14px] font-semibold text-white [font-family:inherit] hover:bg-[#007A40] disabled:opacity-60"
         >
-          {inviting ? "Sending…" : "Send invite"}
+          <Pending pending={inviting} label="Sending…">Send invite</Pending>
         </button>
       </form>
 
@@ -151,7 +152,7 @@ export function TeamTable({ members, meId }: { members: TeamMember[]; meId: stri
           const isOnline = onlineIds.has(m.id);
           const busy = busyId === m.id;
           return (
-            <div key={m.id} className={`${GRID} items-center border-b border-[#EEF1F6] py-3 text-[14px]`}>
+            <div key={m.id} className={`${GRID} items-center border-b border-[#EEF1F6] py-3 text-[14px] transition-colors hover:bg-[#F8F9FC]`}>
               <div className="flex min-w-0 items-center gap-[10px]">
                 <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#DCE8F7] text-[13px] font-semibold text-[#16194A]">
                   {initials(m.name)}
@@ -202,9 +203,9 @@ export function TeamTable({ members, meId }: { members: TeamMember[]; meId: stri
                     onClick={() => run(m.id, () => removeUser(m.id), `${m.name} removed`)}
                     className="text-[#B42318] disabled:opacity-60"
                   >
-                    {busy ? "Removing…" : "Confirm"}
+                    <Pending pending={busy} label="Removing…">Confirm</Pending>
                   </button>
-                  <button type="button" disabled={busy} onClick={() => setConfirming(null)} className="text-[#5B6178]">
+                  <button type="button" disabled={busy} onClick={() => setConfirming(null)} className="text-[#5B6178] hover:text-[#1B1F3B]">
                     Cancel
                   </button>
                 </div>
@@ -212,7 +213,7 @@ export function TeamTable({ members, meId }: { members: TeamMember[]; meId: stri
                 <button
                   type="button"
                   onClick={() => setConfirming(m.id)}
-                  className="justify-self-start text-[13px] font-semibold text-[#B42318]"
+                  className="justify-self-start text-[13px] font-semibold text-[#B42318] hover:text-[#8A1A12] hover:underline"
                 >
                   Remove
                 </button>

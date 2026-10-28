@@ -34,7 +34,7 @@ export default async function AdminBlogsPage() {
         </div>
         <Link
           href="/admin/blogs/new"
-          className="rounded-lg bg-[#008848] px-5 py-3 text-[14px] font-semibold text-white no-underline hover:text-white"
+          className="rounded-lg bg-[#008848] px-5 py-3 text-[14px] font-semibold text-white no-underline hover:bg-[#007A40] hover:text-white active:bg-[#006A38]"
         >
           + New blog
         </Link>

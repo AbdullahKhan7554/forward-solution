@@ -3,6 +3,7 @@
 import { useEffect, useState, type FormEvent } from "react";
 import { useRouter } from "next/navigation";
 import { createClient } from "@/lib/supabase/client";
+import { Pending } from "@/components/admin/Spinner";
 import { logLogin } from "@/app/admin/actions";
 
 const display = "[font-family:var(--font-admin-display),sans-serif]";
@@ -152,9 +153,11 @@ export default function AdminLoginPage() {
           <button
             type="submit"
             disabled={busy}
-            className="rounded-[10px] bg-[#008848] p-[18px] text-center text-[18px] font-bold text-white disabled:opacity-70"
+            className="rounded-[10px] bg-[#008848] p-[18px] text-center text-[18px] font-bold text-white hover:bg-[#007A40] disabled:opacity-70"
           >
-            {settingPassword ? "Save password" : "Sign in"}
+            <Pending pending={busy} label={settingPassword ? "Saving…" : "Signing in…"}>
+              {settingPassword ? "Save password" : "Sign in"}
+            </Pending>
           </button>
           {!settingPassword && (
             <button

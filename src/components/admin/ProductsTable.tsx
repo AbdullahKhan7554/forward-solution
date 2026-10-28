@@ -7,6 +7,7 @@ import { deleteProduct } from "@/app/admin/products/actions";
 import { useAdmin } from "@/components/admin/AdminShell";
 import { useToast } from "@/components/admin/Toast";
 import type { Section } from "@/lib/admin/products";
+import { Pending } from "@/components/admin/Spinner";
 
 export type ProductListItem = {
   id: string;
@@ -30,12 +31,12 @@ type Props = {
 
 const GRID = "grid grid-cols-[64px_2fr_1.1fr_1.4fr_0.7fr_0.7fr_0.9fr] gap-4 px-5";
 const tab = "rounded-[20px] px-4 py-[9px] text-[14px] [font-family:inherit]";
-const tabOn = `${tab} border-none bg-[#16194A] font-semibold text-white`;
-const tabOff = `${tab} border border-[#D5DAE6] bg-white text-[#1B1F3B]`;
+const tabOn = `${tab} border-none bg-[#16194A] font-semibold text-white hover:bg-[#232766]`;
+const tabOff = `${tab} border border-[#D5DAE6] bg-white text-[#1B1F3B] hover:border-[#B8C0D4] hover:bg-[#F8F9FC]`;
 const control =
   "rounded-lg border border-[#D5DAE6] bg-white px-3 py-[9px] text-[14px] text-[#1B1F3B] [font-family:inherit]";
 const pagerBtn =
-  "rounded-md border border-[#D5DAE6] bg-white px-3 py-[7px] text-[13px] text-[#1B1F3B] [font-family:inherit] disabled:opacity-50";
+  "rounded-md border border-[#D5DAE6] bg-white px-3 py-[7px] text-[13px] text-[#1B1F3B] [font-family:inherit] hover:border-[#B8C0D4] hover:bg-[#F8F9FC] disabled:opacity-50";
 const THUMBS = ["bg-[#DCE8F7]", "bg-[#DDF0E4]", "bg-[#F7EBD9]"];
 
 export function ProductsTable({ rows, counts, categories, filters, page, pageSize, total }: Props) {
@@ -147,7 +148,7 @@ export function ProductsTable({ rows, counts, categories, filters, page, pageSiz
         )}
 
         {rows.map((p, i) => (
-          <div key={p.id} className={`${GRID} items-center border-b border-[#EEF1F6] py-[10px] text-[14px]`}>
+          <div key={p.id} className={`${GRID} items-center border-b border-[#EEF1F6] py-[10px] text-[14px] transition-colors hover:bg-[#F8F9FC]`}>
             {p.imageUrl ? (
               // eslint-disable-next-line @next/next/no-img-element
               <img src={p.imageUrl} alt="" className="h-12 w-12 rounded-lg bg-[#F4F6FA] object-contain" />
@@ -173,13 +174,13 @@ export function ProductsTable({ rows, counts, categories, filters, page, pageSiz
                   onClick={() => remove(p.id)}
                   className="text-[#B42318] disabled:opacity-60"
                 >
-                  {deleting ? "Deleting…" : "Confirm"}
+                  <Pending pending={deleting} label="Deleting…">Confirm</Pending>
                 </button>
                 <button
                   type="button"
                   disabled={deleting}
                   onClick={() => setConfirming(null)}
-                  className="text-[#5B6178]"
+                  className="text-[#5B6178] hover:text-[#1B1F3B]"
                 >
                   Cancel
                 </button>
@@ -190,7 +191,7 @@ export function ProductsTable({ rows, counts, categories, filters, page, pageSiz
                   Edit
                 </Link>
                 {canDelete && (
-                  <button type="button" onClick={() => setConfirming(p.id)} className="text-[#B42318]">
+                  <button type="button" onClick={() => setConfirming(p.id)} className="text-[#B42318] hover:text-[#8A1A12] hover:underline">
                     Delete
                   </button>
                 )}

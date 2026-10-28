@@ -6,6 +6,7 @@ import { useState, useTransition } from "react";
 import { deleteBlog } from "@/app/admin/blogs/actions";
 import { useAdmin } from "@/components/admin/AdminShell";
 import { useToast } from "@/components/admin/Toast";
+import { Pending } from "@/components/admin/Spinner";
 
 export type BlogListItem = {
   id: string;
@@ -59,7 +60,7 @@ export function BlogsTable({ rows }: { rows: BlogListItem[] }) {
       )}
 
       {rows.map((p, i) => (
-        <div key={p.id} className={`${GRID} items-center border-b border-[#EEF1F6] py-3 text-[14px]`}>
+        <div key={p.id} className={`${GRID} items-center border-b border-[#EEF1F6] py-3 text-[14px] transition-colors hover:bg-[#F8F9FC]`}>
           {p.coverUrl ? (
             // eslint-disable-next-line @next/next/no-img-element
             <img src={p.coverUrl} alt="" className="h-14 w-24 rounded-md bg-[#F4F6FA] object-cover" />
@@ -84,9 +85,9 @@ export function BlogsTable({ rows }: { rows: BlogListItem[] }) {
                 onClick={() => remove(p.id)}
                 className="text-[#B42318] disabled:opacity-60"
               >
-                {deleting ? "Deleting…" : "Confirm"}
+                <Pending pending={deleting} label="Deleting…">Confirm</Pending>
               </button>
-              <button type="button" disabled={deleting} onClick={() => setConfirming(null)} className="text-[#5B6178]">
+              <button type="button" disabled={deleting} onClick={() => setConfirming(null)} className="text-[#5B6178] hover:text-[#1B1F3B]">
                 Cancel
               </button>
             </div>
@@ -96,7 +97,7 @@ export function BlogsTable({ rows }: { rows: BlogListItem[] }) {
                 Edit
               </Link>
               {canDelete && (
-                <button type="button" onClick={() => setConfirming(p.id)} className="text-[#B42318]">
+                <button type="button" onClick={() => setConfirming(p.id)} className="text-[#B42318] hover:text-[#8A1A12] hover:underline">
                   Delete
                 </button>
               )}

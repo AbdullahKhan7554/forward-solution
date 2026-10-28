@@ -7,6 +7,7 @@ import { deleteProduct, saveProduct } from "@/app/admin/products/actions";
 import { useAdmin } from "@/components/admin/AdminShell";
 import { useToast } from "@/components/admin/Toast";
 import { toWebp, uploadWebp } from "@/lib/admin/image";
+import { Pending, ProgressBar } from "@/components/admin/Spinner";
 import { SECTIONS, type ProductFormValues, type Section } from "@/lib/admin/products";
 
 type Props = {
@@ -28,7 +29,7 @@ const rowVal =
 const rowGrid = "mb-2 grid grid-cols-[200px_1fr_32px] items-center gap-[10px]";
 const removeBtn = "h-8 w-8 border-none bg-transparent text-[18px] text-[#8A90A6] hover:text-[#B42318]";
 const addBtn =
-  "rounded-md border border-[#D5DAE6] bg-white px-3 py-[6px] text-[13px] font-semibold text-[#0D4FA0] [font-family:inherit]";
+  "rounded-md border border-[#D5DAE6] bg-white px-3 py-[6px] text-[13px] font-semibold text-[#0D4FA0] [font-family:inherit] hover:border-[#B8C0D4] hover:bg-[#F8F9FC]";
 const btn = "rounded-lg px-[18px] py-[11px] text-[14px] font-semibold [font-family:inherit] disabled:opacity-60";
 
 export function ProductForm({ id, initial, categories }: Props) {
@@ -39,6 +40,7 @@ export function ProductForm({ id, initial, categories }: Props) {
   const [image, setImage] = useState<{ blob: Blob; preview: string } | null>(null);
   const [converting, setConverting] = useState(false);
   const [saving, setSaving] = useState(false);
+  const [progress, setProgress] = useState<number | null>(null);
   const [deleting, setDeleting] = useState(false);
   const [confirmDelete, setConfirmDelete] = useState(false);
   const [appDraft, setAppDraft] = useState<string | null>(null);
@@ -101,7 +103,11 @@ export function ProductForm({ id, initial, categories }: Props) {
     setSaving(true);
     try {
       let imageUrl = form.imageUrl;
-      if (image) imageUrl = await uploadWebp(image.blob, "products");
+      if (image) {
+        setProgress(0);
+        imageUrl = await uploadWebp(image.blob, "products", setProgress);
+        setProgress(null);
+      }
       const res = await saveProduct(id, { ...form, imageUrl });
       if (!res.ok) return toast.error(res.error);
       setForm((f) => ({ ...f, imageUrl }));
@@ -113,6 +119,7 @@ export function ProductForm({ id, initial, categories }: Props) {
       toast.error(e instanceof Error ? e.message : "Couldn't save. Please try again.");
     } finally {
       setSaving(false);
+      setProgress(null);
     }
   }
 
@@ -151,12 +158,12 @@ export function ProductForm({ id, initial, categories }: Props) {
                 type="button"
                 disabled={busy}
                 onClick={() => setConfirmDelete(false)}
-                className={`${btn} border border-[#D5DAE6] bg-white text-[#1B1F3B]`}
+                className={`${btn} border border-[#D5DAE6] bg-white text-[#1B1F3B] hover:border-[#B8C0D4]`}
               >
                 Cancel
               </button>
               <button type="button" disabled={busy} onClick={remove} className={`${btn} border-none bg-[#B42318] text-white`}>
-                {deleting ? "Deleting…" : "Yes, delete"}
+                <Pending pending={deleting} label="Deleting…">Yes, delete</Pending>
               </button>
             </div>
           ) : (
@@ -166,14 +173,16 @@ export function ProductForm({ id, initial, categories }: Props) {
                 type="button"
                 disabled={busy}
                 onClick={() => setConfirmDelete(true)}
-                className={`${btn} border border-[#F1C5C0] bg-white text-[#B42318]`}
+                className={`${btn} border border-[#F1C5C0] bg-white text-[#B42318] hover:bg-[#FEF3F2]`}
               >
                 Delete product
               </button>
             )
           )}
           <button type="button" disabled={busy} onClick={save} className={`${btn} border-none bg-[#008848] text-white`}>
-            {saving ? "Saving…" : id ? "Save changes" : "Save product"}
+            <Pending pending={saving} label={progress !== null ? `Uploading ${Math.round(progress)}%…` : "Saving…"}>
+              {id ? "Save changes" : "Save product"}
+            </Pending>
           </button>
         </div>
       </div>
@@ -305,10 +314,13 @@ export function ProductForm({ id, initial, categories }: Props) {
               type="button"
               disabled={busy}
               onClick={() => fileInput.current?.click()}
-              className="rounded-lg border border-dashed border-[#B8C0D4] bg-white p-[9px] text-[13px] font-semibold text-[#0D4FA0] [font-family:inherit] disabled:opacity-60"
+              className="rounded-lg border border-dashed border-[#B8C0D4] bg-white p-[9px] text-[13px] font-semibold text-[#0D4FA0] [font-family:inherit] hover:border-[#0D4FA0] hover:bg-[#F8F9FC] disabled:opacity-60"
             >
-              {converting ? "Converting…" : preview ? "Change image" : "Upload image"}
+              <Pending pending={converting} label="Converting…">
+                {preview ? "Change image" : "Upload image"}
+              </Pending>
             </button>
+            {progress !== null && <ProgressBar value={progress} />}
           </div>
 
           <div className={`${card} flex flex-col gap-3`}>

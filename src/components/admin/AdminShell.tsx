@@ -2,15 +2,17 @@
 
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
-import { createContext, useContext, useEffect, useState } from "react";
+import { Suspense, createContext, useContext, useEffect, useState } from "react";
 import { createClient } from "@/lib/supabase/client";
 import { touchLastSeen } from "@/app/admin/actions";
 import { initials, type AdminUser } from "@/lib/admin/team";
+import { RouteProgress } from "@/components/admin/RouteProgress";
 
 const NAV = [
   { label: "Dashboard", href: "/admin" },
   { label: "Products", href: "/admin/products" },
   { label: "Blogs", href: "/admin/blogs" },
+  { label: "Activity", href: "/admin/activity" },
   { label: "Team", href: "/admin/team", adminOnly: true },
 ];
 
@@ -70,6 +72,9 @@ export function AdminShell({ me, children }: { me: AdminUser | null; children: R
 
   return (
     <div className="flex min-h-screen bg-[#F4F6FA]">
+      <Suspense fallback={null}>
+        <RouteProgress />
+      </Suspense>
       <nav
         aria-label="Admin menu"
         className="sticky top-0 box-border flex h-screen w-[240px] shrink-0 flex-col gap-[6px] bg-[#16194A] px-4 py-7 text-white"
@@ -88,7 +93,7 @@ export function AdminShell({ me, children }: { me: AdminUser | null; children: R
               key={item.href}
               href={item.href}
               aria-current="page"
-              className="rounded-lg bg-[#008848] p-3 text-[14px] font-semibold text-white no-underline"
+              className="rounded-lg bg-[#008848] p-3 text-[14px] font-semibold text-white no-underline hover:bg-[#007A40] hover:text-white"
             >
               {item.label}
             </Link>
@@ -96,7 +101,7 @@ export function AdminShell({ me, children }: { me: AdminUser | null; children: R
             <Link
               key={item.href}
               href={item.href}
-              className="rounded-lg p-3 text-[14px] text-[#E4E7F5] no-underline"
+              className="rounded-lg p-3 text-[14px] text-[#E4E7F5] no-underline hover:bg-[#232766] hover:text-white active:bg-[#2A2F6B]"
             >
               {item.label}
             </Link>
@@ -134,7 +139,7 @@ export function AdminShell({ me, children }: { me: AdminUser | null; children: R
         <button
           type="button"
           onClick={logOut}
-          className="p-3 text-left text-[14px] text-[#E4E7F5]"
+          className="rounded-lg p-3 text-left text-[14px] text-[#E4E7F5] hover:bg-[#232766] hover:text-white"
         >
           Log out
         </button>

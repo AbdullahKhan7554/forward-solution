@@ -9,6 +9,7 @@ import Image from "@tiptap/extension-image";
 import { saveBlog } from "@/app/admin/blogs/actions";
 import { useToast } from "@/components/admin/Toast";
 import { toWebp, uploadWebp } from "@/lib/admin/image";
+import { Pending, ProgressBar, Spinner } from "@/components/admin/Spinner";
 import { slugify, type BlogFormValues, type BlogStatus } from "@/lib/admin/blogs";
 
 type Props = {
@@ -31,7 +32,7 @@ const toolOn = "bg-[#E3E7EF]";
 const prose =
   "h-full p-[18px] text-[15px] font-normal leading-[1.7] text-[#1B1F3B] outline-none [&_a]:text-[#0D4FA0] [&_a]:underline [&_h2]:mb-[10px] [&_h2]:mt-4 [&_h2]:text-[19px] [&_h2]:font-bold [&_h2:first-child]:mt-0 [&_img]:my-3 [&_img]:max-w-full [&_img]:rounded-lg [&_img.ProseMirror-selectednode]:outline [&_img.ProseMirror-selectednode]:outline-2 [&_img.ProseMirror-selectednode]:outline-[#008848] [&_li]:mb-1 [&_ol]:mb-3 [&_ol]:list-decimal [&_ol]:pl-6 [&_p]:mb-3 [&_p]:mt-0 [&_ul]:mb-3 [&_ul]:list-disc [&_ul]:pl-6";
 
-function Toolbar({ editor, onImage, uploading }: { editor: Editor | null; onImage: () => void; uploading: boolean }) {
+function Toolbar({ editor, onImage, uploading }: { editor: Editor | null; onImage: () => void; uploading: number | null }) {
   const active = useEditorState({
     editor,
     selector: ({ editor: e }) => ({
@@ -103,8 +104,10 @@ function Toolbar({ editor, onImage, uploading }: { editor: Editor | null; onImag
       >
         Link
       </button>
-      <button type="button" disabled={uploading} onClick={onImage} className={`${tool} bg-transparent`}>
-        {uploading ? "Uploading…" : "+ Image"}
+      <button type="button" disabled={uploading !== null} onClick={onImage} className={`${tool} bg-transparent`}>
+        <Pending pending={uploading !== null} label={`Uploading ${Math.round(uploading ?? 0)}%…`}>
+          + Image
+        </Pending>
       </button>
     </div>
   );
@@ -117,7 +120,8 @@ export function BlogForm({ id, initial, categories }: Props) {
   const [slugTouched, setSlugTouched] = useState(Boolean(id));
   const [cover, setCover] = useState<{ blob: Blob; preview: string } | null>(null);
   const [converting, setConverting] = useState(false);
-  const [uploadingImage, setUploadingImage] = useState(false);
+  const [uploadingImage, setUploadingImage] = useState<number | null>(null);
+  const [coverProgress, setCoverProgress] = useState<number | null>(null);
   const [dragOver, setDragOver] = useState(false);
   const [saving, setSaving] = useState<BlogStatus | null>(null);
   const coverInput = useRef<HTMLInputElement>(null);
@@ -175,14 +179,14 @@ export function BlogForm({ id, initial, categories }: Props) {
 
   async function insertImage(file: File | undefined) {
     if (!file || !editor) return;
-    setUploadingImage(true);
+    setUploadingImage(0);
     try {
-      const src = await uploadWebp(await toWebp(file, MAX_IMAGE), "blogs");
+      const src = await uploadWebp(await toWebp(file, MAX_IMAGE), "blogs", setUploadingImage);
       editor.chain().focus().setImage({ src, alt: "" }).run();
     } catch (e) {
       toast.error(e instanceof Error ? e.message : "Couldn't add that image.");
     } finally {
-      setUploadingImage(false);
+      setUploadingImage(null);
       if (imageInput.current) imageInput.current.value = "";
     }
   }
@@ -195,7 +199,11 @@ export function BlogForm({ id, initial, categories }: Props) {
     setSaving(status);
     try {
       let coverUrl = form.coverUrl;
-      if (cover) coverUrl = await uploadWebp(cover.blob, "blogs");
+      if (cover) {
+        setCoverProgress(0);
+        coverUrl = await uploadWebp(cover.blob, "blogs", setCoverProgress);
+        setCoverProgress(null);
+      }
       const res = await saveBlog(id, { ...form, coverUrl }, status);
       if (!res.ok) return toast.error(res.error);
       setForm((f) => ({ ...f, coverUrl, slug: res.slug }));
@@ -207,10 +215,12 @@ export function BlogForm({ id, initial, categories }: Props) {
       toast.error(e instanceof Error ? e.message : "Couldn't save. Please try again.");
     } finally {
       setSaving(null);
+      setCoverProgress(null);
     }
   }
 
-  const busy = saving !== null || converting || uploadingImage;
+  const busy = saving !== null || converting || uploadingImage !== null;
+  const uploadLabel = coverProgress !== null ? `Uploading ${Math.round(coverProgress)}%…` : null;
   const preview = cover?.preview ?? form.coverUrl;
 
   return (
@@ -227,9 +237,11 @@ export function BlogForm({ id, initial, categories }: Props) {
             type="button"
             disabled={busy}
             onClick={() => save("draft")}
-            className={`${btn} border border-[#D5DAE6] bg-white text-[#1B1F3B]`}
+            className={`${btn} border border-[#D5DAE6] bg-white text-[#1B1F3B] hover:border-[#B8C0D4]`}
           >
-            {saving === "draft" ? "Saving…" : "Save draft"}
+            <Pending pending={saving === "draft"} label={uploadLabel ?? "Saving…"}>
+              Save draft
+            </Pending>
           </button>
           <button
             type="button"
@@ -237,7 +249,9 @@ export function BlogForm({ id, initial, categories }: Props) {
             onClick={() => save("published")}
             className={`${btn} border-none bg-[#008848] text-white`}
           >
-            {saving === "published" ? "Publishing…" : "Publish"}
+            <Pending pending={saving === "published"} label={uploadLabel ?? "Publishing…"}>
+              Publish
+            </Pending>
           </button>
         </div>
       </div>
@@ -314,7 +328,7 @@ export function BlogForm({ id, initial, categories }: Props) {
               onDragLeave={() => setDragOver(false)}
               onDrop={dropCover}
               className={`relative flex h-[150px] cursor-pointer flex-col items-center justify-center gap-[6px] overflow-hidden rounded-lg border-2 border-dashed text-[13px] text-[#5B6178] ${
-                dragOver ? "border-[#008848] bg-[#E6F4EC]" : "border-[#B8C0D4]"
+                dragOver ? "border-[#008848] bg-[#E6F4EC]" : "border-[#B8C0D4] hover:border-[#0D4FA0] hover:bg-[#F8F9FC]"
               }`}
             >
               {preview ? (
@@ -322,11 +336,16 @@ export function BlogForm({ id, initial, categories }: Props) {
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img src={preview} alt="Cover" className="absolute inset-0 h-full w-full object-cover" />
                   <span className="absolute bottom-2 right-2 rounded-md bg-white/90 px-2 py-1 text-[12px] font-semibold text-[#0D4FA0]">
-                    {converting ? "Converting…" : "Change"}
+                    <Pending pending={converting} label="Converting…">
+                      Change
+                    </Pending>
                   </span>
                 </>
               ) : converting ? (
-                "Converting…"
+                <span className="inline-flex items-center gap-2">
+                  <Spinner />
+                  Converting…
+                </span>
               ) : (
                 <>
                   <svg
@@ -357,6 +376,7 @@ export function BlogForm({ id, initial, categories }: Props) {
               className="hidden"
               onChange={(e) => pickCover(e.target.files?.[0])}
             />
+            {coverProgress !== null && <ProgressBar value={coverProgress} />}
           </div>
 
           <div className={`${card} flex flex-col gap-[14px]`}>
