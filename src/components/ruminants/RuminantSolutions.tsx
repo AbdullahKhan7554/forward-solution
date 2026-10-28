@@ -7,6 +7,7 @@ import { RevealText } from "@/components/primitives/RevealText";
 import { ProductMedia } from "@/components/product-detail/ProductMedia";
 import { CatalogCard } from "@/components/catalog/CatalogCard";
 import { RUMINANT_CATEGORIES, containRuminantImage } from "./categories";
+import type { CategoryCard } from "@/lib/catalog";
 
 /**
  * RUMINANTS · SCENE 03 — SOLUTIONS OVERVIEW.
@@ -15,7 +16,8 @@ import { RUMINANT_CATEGORIES, containRuminantImage } from "./categories";
  * image, title, one line, "Explore →". Each card links to its category page.
  */
 
-export function RuminantSolutions() {
+/** `extra` — categories added in the admin, appended after the built-in ones. */
+export function RuminantSolutions({ extra = [] }: { extra?: CategoryCard[] }) {
   const rootRef = useRef<HTMLElement>(null);
 
   useIsomorphicLayoutEffect(() => {
@@ -62,6 +64,17 @@ export function RuminantSolutions() {
                 href={`/products/ruminants/${c.id}`}
                 title={c.name}
                 line={c.tagline}
+                action="Explore"
+                image={<ProductMedia label={c.name} alt={`${c.name} for ruminants — Agriprom Pakistan`} src={c.image} className={containRuminantImage(c.image) ? "h-full w-full [&_img]:!object-contain" : "h-full w-full"} />}
+              />
+            </li>
+          ))}
+          {extra.map((c) => (
+            <li key={c.href} data-rs-card>
+              <CatalogCard
+                href={c.href}
+                title={c.name}
+                line={c.blurb}
                 action="Explore"
                 image={<ProductMedia label={c.name} alt={`${c.name} for ruminants — Agriprom Pakistan`} src={c.image} className={containRuminantImage(c.image) ? "h-full w-full [&_img]:!object-contain" : "h-full w-full"} />}
               />

@@ -2,7 +2,7 @@
 
 import { revalidatePath } from "next/cache";
 import { createClient } from "@/lib/supabase/server";
-import type { FilterCategory } from "@/components/info-center/articles";
+import type { FilterCategory } from "@/components/info-center/types";
 import { FILTERS, formToBlogData, slugify, type BlogFormValues, type BlogStatus } from "@/lib/admin/blogs";
 
 type Result<T = object> = ({ ok: true } & T) | { ok: false; error: string };
@@ -18,10 +18,12 @@ async function signedInClient() {
 const SIGNED_OUT = "Your session has expired. Please log in again.";
 const ISO_DAY = /^\d{4}-\d{2}-\d{2}$/;
 
-/** Public pages that render a post: home (latest posts), blog listing and the post page. */
+/** Public pages that render a post: home (latest posts), blog listing, the post page, search and sitemap. */
 function revalidateBlog(...slugs: string[]) {
   revalidatePath("/");
   revalidatePath("/blog");
+  revalidatePath("/search");
+  revalidatePath("/sitemap.xml");
   new Set(slugs).forEach((s) => revalidatePath(`/blog/${s}`));
   revalidatePath("/admin/blogs", "layout");
 }

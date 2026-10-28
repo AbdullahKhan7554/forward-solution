@@ -7,6 +7,7 @@ import { RuminantHero } from "@/components/ruminants/RuminantHero";
 import { RuminantIntro } from "@/components/ruminants/RuminantIntro";
 import { RuminantSolutions } from "@/components/ruminants/RuminantSolutions";
 import { RuminantCTA } from "@/components/ruminants/RuminantCTA";
+import { getExtraCategoryCards } from "@/lib/catalog";
 
 export const metadata: Metadata = {
   title: "Ruminant Solutions — Agriprom Pakistan | Dairy & Beef Cattle Nutrition",
@@ -20,7 +21,8 @@ export const metadata: Metadata = {
  * Shell: IntroProvider + Preloader + Navbar + Footer.
  *   01 Hero · 02 Introduction · 03 Category grid (→ /products/ruminants/<category>) · 04 CTA
  */
-export default function RuminantsPage() {
+export default async function RuminantsPage() {
+  const extra = await getExtraCategoryCards("ruminants");
   return (
     <IntroProvider>
       <Preloader caption="N°01 — Ruminant Solutions" ariaLabel="Entering Agriprom Pakistan — Ruminants" />
@@ -28,7 +30,7 @@ export default function RuminantsPage() {
       <main>
         <RuminantHero />
         <RuminantIntro />
-        <RuminantSolutions />
+        <RuminantSolutions extra={extra} />
         <RuminantCTA />
       </main>
       <Footer />

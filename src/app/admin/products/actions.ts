@@ -2,7 +2,7 @@
 
 import { revalidatePath } from "next/cache";
 import { createClient } from "@/lib/supabase/server";
-import { RUMINANT_CATEGORIES } from "@/components/ruminants/categories";
+import { categoryPath, productPath } from "@/lib/catalog";
 import {
   SECTIONS,
   formToData,
@@ -24,21 +24,16 @@ async function signedInClient() {
 
 const SIGNED_OUT = "Your session has expired. Please log in again.";
 
-/** Public pages that render a product: catalogue, section, category and product page. */
+/** Public pages that render a product: catalogue, section, category and product page, search and sitemap. */
 function publicPaths(section: Section, category: string, slug: string) {
-  const base = `/products/${section}`;
-  const categoryId =
-    section === "ruminants"
-      ? RUMINANT_CATEGORIES.find((c) => c.name === category)?.id ?? slugify(category)
-      : slugify(category);
-  // the seed suffixes a slug shared across catalogues with "-ruminants"; the URL keeps the bare slug
-  const urlSlug = section === "ruminants" ? slug.replace(/-ruminants$/, "") : slug;
   return [
     "/products",
-    base,
-    `${base}/${categoryId}`,
-    `${base}/${categoryId}/${urlSlug}`,
-    `${base}/${urlSlug}`,
+    `/products/${section}`,
+    ...(section === "ruminants" ? ["/ruminants"] : []),
+    categoryPath(section, category),
+    productPath(section, category, slug),
+    "/search",
+    "/sitemap.xml",
   ];
 }
 

@@ -2,24 +2,13 @@ import Link from "next/link";
 import { redirect } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
 import { ProductsTable, type ProductListItem } from "@/components/admin/ProductsTable";
-import { sectionLabel, type Section } from "@/lib/admin/products";
+import { sectionLabel, updatedLabel, type Section } from "@/lib/admin/products";
 
 export const dynamic = "force-dynamic";
 
 const PAGE_SIZE = 8;
 
 type SearchParams = { section?: string; cat?: string; q?: string; page?: string };
-
-const TZ = "Asia/Karachi";
-const dayKey = (d: Date) => d.toLocaleDateString("en-CA", { timeZone: TZ });
-
-function updatedLabel(iso: string) {
-  const d = new Date(iso);
-  const now = new Date();
-  if (dayKey(d) === dayKey(now)) return "Today";
-  if (dayKey(d) === dayKey(new Date(now.getTime() - 86_400_000))) return "Yesterday";
-  return d.toLocaleDateString("en-GB", { day: "numeric", month: "short", timeZone: TZ });
-}
 
 export default async function AdminProductsPage({ searchParams }: { searchParams: SearchParams }) {
   const supabase = createClient();

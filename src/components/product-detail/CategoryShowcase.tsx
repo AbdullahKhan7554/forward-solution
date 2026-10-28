@@ -6,7 +6,7 @@ import { gsap } from "@/lib/scroll-trigger";
 import { RevealText } from "@/components/primitives/RevealText";
 import { CatalogCard } from "@/components/catalog/CatalogCard";
 import { ProductMedia } from "./ProductMedia";
-import { PRODUCTS } from "./products";
+import type { ProductDetailData } from "./types";
 import { containRuminantImage } from "@/components/ruminants/categories";
 
 /**
@@ -14,7 +14,7 @@ import { containRuminantImage } from "@/components/ruminants/categories";
  * CatalogCard product cards (image, name, tagline, "Details →") linking to each
  * product page. Empty categories show a graceful state.
  */
-export type ShowcaseItem = { slug: string; href: string };
+export type ShowcaseItem = { href: string; data: ProductDetailData };
 
 export function CategoryShowcase({
   eyebrow,
@@ -54,9 +54,7 @@ export function CategoryShowcase({
     return () => ctx.revert();
   }, []);
 
-  const products = items
-    .map((it) => ({ data: PRODUCTS[it.slug], href: it.href }))
-    .filter((p) => Boolean(p.data));
+  const products = items;
 
   return (
     <>

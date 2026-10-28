@@ -6,7 +6,7 @@ import { gsap, ScrollTrigger } from "@/lib/scroll-trigger";
 import { RevealText } from "@/components/primitives/RevealText";
 import { MaskedReveal } from "@/components/primitives/MaskedReveal";
 import { LabPlate } from "@/components/scenes/SceneUnfolding/LabPlate";
-import { articles, type Article } from "@/components/info-center/articles";
+import type { Article } from "@/components/info-center/types";
 
 /**
  * BLOG · SCENE 02 — THE FEATURED ARTICLE.
@@ -17,11 +17,7 @@ import { articles, type Article } from "@/components/info-center/articles";
  * scaled up into a full-bleed editorial split. Text staggers in on scroll; the
  * image reveal is owned by MaskedReveal. Reduced motion: everything static.
  */
-export function FeaturedArticle({
-  article = articles[0],
-}: {
-  article?: Article;
-}) {
+export function FeaturedArticle({ article }: { article: Article }) {
   const rootRef = useRef<HTMLElement>(null);
 
   useIsomorphicLayoutEffect(() => {

@@ -1,26 +1,25 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { ProductDetail } from "@/components/product-detail/ProductDetail";
-import { PRODUCTS } from "@/components/product-detail/products";
-import { RUMINANT_CATEGORIES, ruminantProductKey } from "@/components/ruminants/categories";
+import { ProductPage } from "@/components/product-detail/ProductPage";
+import { findProduct, getSectionProducts, productMetadata } from "@/lib/catalog";
 
 type Params = { params: { category: string; product: string } };
 
-export const dynamicParams = false;
-
-export function generateStaticParams() {
-  return RUMINANT_CATEGORIES.flatMap((c) => c.products.map((product) => ({ category: c.id, product })));
+export async function generateStaticParams() {
+  return (await getSectionProducts("ruminants")).map((p) => {
+    const [category, product] = p.href.split("/").slice(3);
+    return { category, product };
+  });
 }
 
-export function generateMetadata({ params }: Params): Metadata {
-  const data = PRODUCTS[ruminantProductKey(params.category, params.product)];
-  if (!data) return {};
-  return { title: data.metaTitle, description: data.metaDescription };
+export async function generateMetadata({ params }: Params): Promise<Metadata> {
+  const product = await findProduct(`/products/ruminants/${params.category}/${params.product}`);
+  return product ? productMetadata(product) : {};
 }
 
 /** Ruminant product page — same ProductCompact template as poultry products. */
-export default function RuminantProductPage({ params }: Params) {
-  const data = PRODUCTS[ruminantProductKey(params.category, params.product)];
-  if (!data) notFound();
-  return <ProductDetail data={data} />;
+export default async function RuminantProductPage({ params }: Params) {
+  const product = await findProduct(`/products/ruminants/${params.category}/${params.product}`);
+  if (!product) notFound();
+  return <ProductPage product={product} />;
 }

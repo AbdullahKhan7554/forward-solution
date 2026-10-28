@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { RevealText } from "@/components/primitives/RevealText";
-import { blogPosts } from "./blogs";
+import type { BlogPost } from "@/components/info-center/types";
 import { useInsightsChoreography } from "./useInsightsChoreography";
 
 /** Cards visible per breakpoint - matches basis-full / md:basis-1/2 / lg:basis-1/3. */
@@ -32,7 +32,8 @@ function Arrow({ dir }: { dir: "prev" | "next" }) {
   );
 }
 
-export function SceneInsights() {
+/** `blogPosts` — the latest published posts (newest first). */
+export function SceneInsights({ blogPosts }: { blogPosts: BlogPost[] }) {
   const rootRef = useRef<HTMLElement>(null);
   useInsightsChoreography(rootRef);
 

@@ -7,6 +7,7 @@ import { FeaturedArticle } from "@/components/blog/FeaturedArticle";
 import { ArticlesGrid } from "@/components/blog/ArticlesGrid";
 import { NewsletterCTA } from "@/components/blog/NewsletterCTA";
 import { Footer } from "@/components/layout/Footer";
+import { getArticles } from "@/lib/blog";
 
 export const metadata: Metadata = {
   title: "Knowledge Center — Agriprom Pakistan | Animal Health Insights & Research",
@@ -26,15 +27,16 @@ export const metadata: Metadata = {
  *
  *   01 — Hero   02 — Featured Article   03/04 — Filters + All Articles   05 — Newsletter
  */
-export default function BlogPage() {
+export default async function BlogPage() {
+  const articles = await getArticles();
   return (
     <IntroProvider>
       <Preloader caption="N°01 — The Knowledge" ariaLabel="Entering Agriprom Pakistan — Knowledge Center" />
       <Navbar />
       <main>
         <BlogHero />
-        <FeaturedArticle />
-        <ArticlesGrid />
+        {articles[0] && <FeaturedArticle article={articles[0]} />}
+        <ArticlesGrid articles={articles} />
         <NewsletterCTA />
       </main>
       <Footer />

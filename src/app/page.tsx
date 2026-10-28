@@ -2,6 +2,7 @@ import dynamic from "next/dynamic";
 import { Navbar } from "@/components/navbar/Navbar";
 import { SceneThreshold } from "@/components/scenes/SceneThreshold";
 import { Footer } from "@/components/layout/Footer";
+import { getArticles } from "@/lib/blog";
 
 // Below-the-fold scenes are split into their own chunks (still server-rendered,
 // so the markup is identical) to keep the first-screen bundle lean.
@@ -17,7 +18,10 @@ const SceneCTA = dynamic(() => import("@/components/scenes/SceneCTA").then((m) =
  * No preloader or IntroProvider here: the hero paints immediately and Navbar /
  * hero choreography start on mount (useIntro falls back to "revealing").
  */
-export default function HomePage() {
+export default async function HomePage() {
+  const latest = (await getArticles())
+    .slice(0, 3)
+    .map(({ title, category, date, readingTime, excerpt, href, image }) => ({ title, category, date, readingTime, excerpt, href, image }));
   return (
     <>
       <Navbar />
@@ -27,7 +31,7 @@ export default function HomePage() {
         <SceneEcosystem />
         <SceneJourney />
         <ScenePartners />
-        <SceneInsights />
+        <SceneInsights blogPosts={latest} />
         <SceneCTA />
       </main>
       <Footer />

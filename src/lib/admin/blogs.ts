@@ -5,7 +5,7 @@
  * row unchanged. Fields the form doesn't edit (author, takeaways) are preserved.
  */
 import type { JSONContent } from "@tiptap/react";
-import type { Article, FilterCategory } from "@/components/info-center/articles";
+import type { Article, FilterCategory } from "@/components/info-center/types";
 
 export type BlogStatus = "draft" | "published";
 

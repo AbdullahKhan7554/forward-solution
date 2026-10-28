@@ -5,7 +5,7 @@ import { useIsomorphicLayoutEffect } from "@/hooks/useIsomorphicLayoutEffect";
 import { gsap, ScrollTrigger } from "@/lib/scroll-trigger";
 import { RevealText } from "@/components/primitives/RevealText";
 import { BlogCard } from "@/components/scenes/SceneInsights/BlogCard";
-import { articles, ARTICLE_FILTERS } from "@/components/info-center/articles";
+import { ARTICLE_FILTERS, type Article } from "@/components/info-center/types";
 import { BlogFilters } from "./BlogFilters";
 
 const PAGE_SIZE = 6;
@@ -21,7 +21,7 @@ const PAGE_SIZE = 6;
  * cards fade+rise exactly once (marked [data-shown]); Load More reveals the next
  * page. Reduced motion: everything visible and static.
  */
-export function ArticlesGrid() {
+export function ArticlesGrid({ articles }: { articles: Article[] }) {
   const rootRef = useRef<HTMLElement>(null);
   const gridRef = useRef<HTMLDivElement>(null);
   const inViewRef = useRef(false);
@@ -32,7 +32,7 @@ export function ArticlesGrid() {
 
   const filtered = useMemo(
     () => (active === "All" ? articles : articles.filter((a) => a.filter === active)),
-    [active]
+    [active, articles]
   );
   const shown = filtered.slice(0, visible);
   const hasMore = visible < filtered.length;

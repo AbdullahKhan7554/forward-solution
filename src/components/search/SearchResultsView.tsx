@@ -99,7 +99,7 @@ function EmptyState({ query }: { query: string }) {
   );
 }
 
-export function SearchResultsView() {
+export function SearchResultsView({ index }: { index: SearchItem[] }) {
   const router = useRouter();
   const params = useSearchParams();
   const initialQ = params.get("q") ?? "";
@@ -121,7 +121,7 @@ export function SearchResultsView() {
     return () => clearTimeout(id);
   }, [query, router]);
 
-  const all = useMemo(() => searchAll(debounced), [debounced]);
+  const all = useMemo(() => searchAll(index, debounced), [index, debounced]);
   const filtered = useMemo(
     () => (filter === "All" ? all : all.filter((i) => i.group === filter)),
     [all, filter]

@@ -7,7 +7,7 @@ import { Preloader } from "@/components/scenes/SceneThreshold/Preloader";
 import { Footer } from "@/components/layout/Footer";
 import { ProductMedia } from "./ProductMedia";
 import { ProductCompact } from "./ProductCompact";
-import type { ProductDetailData } from "./products";
+import type { ProductDetailData } from "./types";
 import { containRuminantImage } from "@/components/ruminants/categories";
 
 /** Image slot — LabPlate procedural art, or a drop-in placeholder when the

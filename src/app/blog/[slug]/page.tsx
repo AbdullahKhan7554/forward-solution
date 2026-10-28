@@ -6,16 +6,17 @@ import { Navbar } from "@/components/navbar/Navbar";
 import { NewsletterCTA } from "@/components/blog/NewsletterCTA";
 import { Footer } from "@/components/layout/Footer";
 import { ArticleView } from "@/components/blog/ArticleView";
-import { articles, getArticle, type Article } from "@/components/info-center/articles";
+import { getArticle, getArticles } from "@/lib/blog";
+import type { Article } from "@/components/info-center/types";
 
 type Params = { slug: string };
 
-export function generateStaticParams(): Params[] {
-  return articles.map((a) => ({ slug: a.slug }));
+export async function generateStaticParams(): Promise<Params[]> {
+  return (await getArticles()).map((a) => ({ slug: a.slug }));
 }
 
-export function generateMetadata({ params }: { params: Params }): Metadata {
-  const article = getArticle(params.slug);
+export async function generateMetadata({ params }: { params: Params }): Promise<Metadata> {
+  const article = await getArticle(params.slug);
   if (!article) return { title: "Article Not Found — Agriprom Pakistan" };
   return {
     title: `${article.title} — Agriprom Pakistan`,
@@ -30,7 +31,7 @@ export function generateMetadata({ params }: { params: Params }): Metadata {
 }
 
 /** Up to three related articles: same category first, then the newest others. */
-function relatedFor(article: Article): Article[] {
+function relatedFor(article: Article, articles: Article[]): Article[] {
   const others = articles.filter((a) => a.slug !== article.slug);
   const sameCategory = others.filter((a) => a.filter === article.filter);
   const rest = others.filter((a) => a.filter !== article.filter);
@@ -44,8 +45,8 @@ function relatedFor(article: Article): Article[] {
  * Light" Preloader, the floating Navbar and the shared Footer — and closes on
  * the Newsletter CTA, exactly like the listing page.
  */
-export default function ArticlePage({ params }: { params: Params }) {
-  const article = getArticle(params.slug);
+export default async function ArticlePage({ params }: { params: Params }) {
+  const article = await getArticle(params.slug);
   if (!article) notFound();
 
   return (
@@ -53,7 +54,7 @@ export default function ArticlePage({ params }: { params: Params }) {
       <Preloader caption="N°01 — The Knowledge" ariaLabel={`Reading — ${article.title}`} />
       <Navbar />
       <main>
-        <ArticleView article={article} related={relatedFor(article)} />
+        <ArticleView article={article} related={relatedFor(article, await getArticles())} />
         <NewsletterCTA />
       </main>
       <Footer />

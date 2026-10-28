@@ -1,7 +1,7 @@
 import { MaskedReveal } from "@/components/primitives/MaskedReveal";
 import { LabPlate } from "@/components/scenes/SceneUnfolding/LabPlate";
 import { cn } from "@/lib/utils";
-import type { BlogPost } from "./blogs";
+import type { BlogPost } from "@/components/info-center/types";
 
 /**
  * BlogCard - Apple News-style editorial card. Reuses MaskedReveal (image) and

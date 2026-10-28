@@ -7,7 +7,7 @@ import { RevealText } from "@/components/primitives/RevealText";
 import { MaskedReveal } from "@/components/primitives/MaskedReveal";
 import { LabPlate } from "@/components/scenes/SceneUnfolding/LabPlate";
 import { BlogCard } from "@/components/scenes/SceneInsights/BlogCard";
-import type { Article } from "@/components/info-center/articles";
+import type { Article } from "@/components/info-center/types";
 
 /**
  * BLOG · ARTICLE DETAIL — the reading experience.
@@ -126,16 +126,40 @@ export function ArticleView({
       {/* ── BODY ─────────────────────────────────────────────── */}
       <div className="relative overflow-hidden bg-pure">
         <div className="relative mx-auto w-full max-w-[720px] px-6 py-[12vh] md:px-8">
-          {/* lead / intro */}
-          <p
-            data-article-fade
-            className="text-pretty font-serif text-[1.5rem] font-light leading-[1.5] text-neutral-800 md:text-[1.7rem]"
-          >
-            {article.intro}
-          </p>
+          {article.html ? (
+            /* body written in the admin editor (sanitized HTML), styled like the lead + sections below */
+            <div
+              data-article-fade
+              className={[
+                "[&>*:first-child]:mt-0",
+                "[&>p:first-child]:font-serif [&>p:first-child]:text-[1.5rem] [&>p:first-child]:font-light [&>p:first-child]:leading-[1.5] [&>p:first-child]:text-neutral-800 md:[&>p:first-child]:text-[1.7rem]",
+                "[&_p]:mt-5 [&_p]:text-pretty [&_p]:font-sans [&_p]:text-body-lg [&_p]:leading-[1.75] [&_p]:text-neutral-900",
+                "[&_h2]:mb-6 [&_h2]:mt-14 [&_h2]:font-display [&_h2]:text-h4 [&_h2]:font-light [&_h2]:tracking-[-0.01em] [&_h2]:text-neutral-900 md:[&_h2]:text-[30px]",
+                "[&_h3]:mb-4 [&_h3]:mt-10 [&_h3]:font-display [&_h3]:text-[22px] [&_h3]:font-light [&_h3]:text-neutral-900",
+                "[&_h4]:mb-3 [&_h4]:mt-8 [&_h4]:font-sans [&_h4]:text-body-lg [&_h4]:font-medium [&_h4]:text-neutral-900",
+                "[&_ul]:mt-5 [&_ul]:list-disc [&_ul]:pl-6 [&_ol]:mt-5 [&_ol]:list-decimal [&_ol]:pl-6",
+                "[&_li]:mt-2 [&_li]:font-sans [&_li]:text-body-lg [&_li]:leading-[1.75] [&_li]:text-neutral-900 [&_li>p]:mt-0",
+                "[&_a]:text-primary-700 [&_a]:underline [&_a]:underline-offset-4 hover:[&_a]:text-primary-800",
+                "[&_blockquote]:mt-8 [&_blockquote]:border-l-2 [&_blockquote]:border-accent-500 [&_blockquote]:pl-6 [&_blockquote_p]:font-serif [&_blockquote_p]:italic",
+                "[&_img]:mt-10 [&_img]:w-full [&_img]:rounded-xl [&_img]:shadow-soft",
+                "[&_hr]:my-12 [&_hr]:border-neutral-200 [&_strong]:font-semibold",
+                "[&_code]:rounded [&_code]:bg-neutral-100 [&_code]:px-1.5 [&_code]:py-0.5 [&_code]:text-[0.9em]",
+                "[&_pre]:mt-6 [&_pre]:overflow-x-auto [&_pre]:rounded-lg [&_pre]:bg-neutral-100 [&_pre]:p-5",
+              ].join(" ")}
+              dangerouslySetInnerHTML={{ __html: article.html }}
+            />
+          ) : (
+            /* lead / intro */
+            <p
+              data-article-fade
+              className="text-pretty font-serif text-[1.5rem] font-light leading-[1.5] text-neutral-800 md:text-[1.7rem]"
+            >
+              {article.intro}
+            </p>
+          )}
 
           {/* sections */}
-          {article.sections.map((section, i) => (
+          {!article.html && article.sections.map((section, i) => (
             <section key={i} className="mt-14">
               {section.heading && (
                 <h2

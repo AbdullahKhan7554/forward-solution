@@ -3,7 +3,7 @@
  * ProductDetailData; everything else already in products.data is preserved
  * so the public product page can render the row unchanged.
  */
-import type { ProductDetailData } from "@/components/product-detail/products";
+import type { ProductDetailData } from "@/components/product-detail/types";
 
 export type Section = "poultry" | "ruminants";
 
@@ -135,6 +135,18 @@ export function formToData(form: ProductFormValues, existing: Partial<ProductDat
     applications,
     ...(assets ? { assets } : {}),
   };
+}
+
+const TZ = "Asia/Karachi";
+const dayKey = (d: Date) => d.toLocaleDateString("en-CA", { timeZone: TZ });
+
+/** "Today" / "Yesterday" / "26 Oct" — the admin lists' Updated column. */
+export function updatedLabel(iso: string) {
+  const d = new Date(iso);
+  const now = new Date();
+  if (dayKey(d) === dayKey(now)) return "Today";
+  if (dayKey(d) === dayKey(new Date(now.getTime() - 86_400_000))) return "Yesterday";
+  return d.toLocaleDateString("en-GB", { day: "numeric", month: "short", timeZone: TZ });
 }
 
 export function slugify(s: string) {

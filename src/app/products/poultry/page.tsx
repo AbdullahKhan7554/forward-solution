@@ -8,6 +8,7 @@ import { PoultryProducts } from "@/components/poultry/PoultryProducts";
 import { PoultryWhy } from "@/components/poultry/PoultryWhy";
 import { PoultryCTA } from "@/components/poultry/PoultryCTA";
 import { Footer } from "@/components/layout/Footer";
+import { getExtraCategoryCards } from "@/lib/catalog";
 
 export const metadata: Metadata = {
   title: "Poultry Solutions — Agriprom Pakistan | Scientific Feed Technologies",
@@ -25,7 +26,8 @@ export const metadata: Metadata = {
  *   01 — Hero            03 — Product Categories   05 — CTA
  *   02 — Scientific      04 — Why Choose Agriprom   ·  Footer (shared)
  */
-export default function PoultryPage() {
+export default async function PoultryPage() {
+  const extra = await getExtraCategoryCards("poultry");
   return (
     <IntroProvider>
       <Preloader caption="N°01 — Poultry Solutions" ariaLabel="Entering Agriprom Pakistan — Poultry" />
@@ -33,7 +35,7 @@ export default function PoultryPage() {
       <main>
         <PoultryHero />
         <PoultryScience />
-        <PoultryProducts />
+        <PoultryProducts extra={extra} />
         <PoultryWhy />
         <PoultryCTA />
       </main>

@@ -6,6 +6,7 @@ import { gsap, ScrollTrigger } from "@/lib/scroll-trigger";
 import { RevealText } from "@/components/primitives/RevealText";
 import { ProductMedia } from "@/components/product-detail/ProductMedia";
 import { CatalogCard } from "@/components/catalog/CatalogCard";
+import type { CategoryCard } from "@/lib/catalog";
 
 /**
  * POULTRY · SECTION 03 — PRODUCT CATEGORIES.
@@ -46,7 +47,8 @@ function ProductCard({ product }: { product: Product }) {
   );
 }
 
-export function PoultryProducts() {
+/** `extra` — categories added in the admin, appended after the built-in ones. */
+export function PoultryProducts({ extra = [] }: { extra?: CategoryCard[] }) {
   const rootRef = useRef<HTMLElement>(null);
 
   useIsomorphicLayoutEffect(() => {
@@ -136,7 +138,7 @@ export function PoultryProducts() {
         </header>
 
         <ul className="mt-[10vh] grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 md:gap-8">
-          {PRODUCTS.map((product) => (
+          {[...PRODUCTS, ...extra].map((product) => (
             <ProductCard key={product.name} product={product} />
           ))}
         </ul>
