@@ -1,22 +1,22 @@
 import type { Metadata } from "next";
-import { Inter, Manrope } from "next/font/google";
+import localFont from "next/font/local";
 import { AdminShell } from "@/components/admin/AdminShell";
 import { getAdminSession } from "@/lib/admin/session";
 import "./admin.css";
 
 // Admin type: Inter body + Manrope display, at the weights the admin design uses.
-const inter = Inter({
-  subsets: ["latin"],
+const inter = localFont({
+  src: "../../fonts/inter-latin-var.woff2",
   variable: "--font-admin-sans",
   display: "swap",
-  weight: ["400", "500", "600", "700"],
+  weight: "400 700",
 });
 
-const manrope = Manrope({
-  subsets: ["latin"],
+const manrope = localFont({
+  src: "../../fonts/manrope-latin-var.woff2",
   variable: "--font-admin-display",
   display: "swap",
-  weight: ["700", "800"],
+  weight: "700 800",
 });
 
 export const metadata: Metadata = {

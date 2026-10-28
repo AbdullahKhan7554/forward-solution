@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Inter, Manrope, Newsreader } from "next/font/google";
+import localFont from "next/font/local";
 import { SmoothScrollProvider } from "@/components/providers/SmoothScrollProvider";
 import { FloatingWhatsApp } from "@/components/layout/FloatingWhatsApp";
 import "./globals.css";
@@ -11,28 +11,29 @@ import "./globals.css";
  * - body:    Inter     (quiet humanist sans)
  * - serif:   Newsreader (surgical editorial accent only)
  */
-const manrope = Manrope({
-  subsets: ["latin"],
+// Self-hosted latin variable files (src/fonts) so builds never fetch Google Fonts.
+const manrope = localFont({
+  src: "../fonts/manrope-latin-var.woff2",
   variable: "--font-display",
   display: "swap",
-  weight: ["300", "400", "500", "600"],
+  weight: "300 600",
 });
 
-const inter = Inter({
-  subsets: ["latin"],
+const inter = localFont({
+  src: "../fonts/inter-latin-var.woff2",
   variable: "--font-sans",
   display: "swap",
-  weight: ["400", "500"],
+  weight: "400 500",
 });
 
-const newsreader = Newsreader({
-  subsets: ["latin"],
+const newsreader = localFont({
+  src: [
+    { path: "../fonts/newsreader-latin-var.woff2", weight: "300 400", style: "normal" },
+    { path: "../fonts/newsreader-italic-latin-var.woff2", weight: "300 400", style: "italic" },
+  ],
   variable: "--font-serif",
   display: "swap",
-  style: ["italic", "normal"],
-  weight: ["300", "400"],
-  // serif is a surgical accent only; skip the auto fallback-metric override
-  // (its values aren't published, which emits a harmless build warning).
+  // serif is a surgical accent only; no fallback-metric override.
   adjustFontFallback: false,
 });
 
