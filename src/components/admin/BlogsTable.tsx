@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState, useTransition } from "react";
 import { deleteBlog } from "@/app/admin/blogs/actions";
+import { useAdmin } from "@/components/admin/AdminShell";
 import { useToast } from "@/components/admin/Toast";
 
 export type BlogListItem = {
@@ -21,6 +22,7 @@ const COVERS = ["bg-[#C9DDF5]", "bg-[#CDEBD8]", "bg-[#F5E3C9]"];
 export function BlogsTable({ rows }: { rows: BlogListItem[] }) {
   const router = useRouter();
   const toast = useToast();
+  const canDelete = useAdmin().me?.role === "admin";
   const [confirming, setConfirming] = useState<string | null>(null);
   const [deleting, startDelete] = useTransition();
 
@@ -93,9 +95,11 @@ export function BlogsTable({ rows }: { rows: BlogListItem[] }) {
               <Link href={`/admin/blogs/${p.id}`} className="text-[#0D4FA0] hover:text-[#008848]">
                 Edit
               </Link>
-              <button type="button" onClick={() => setConfirming(p.id)} className="text-[#B42318]">
-                Delete
-              </button>
+              {canDelete && (
+                <button type="button" onClick={() => setConfirming(p.id)} className="text-[#B42318]">
+                  Delete
+                </button>
+              )}
             </div>
           )}
         </div>

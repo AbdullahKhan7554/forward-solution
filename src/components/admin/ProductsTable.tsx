@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { useEffect, useState, useTransition } from "react";
 import { deleteProduct } from "@/app/admin/products/actions";
+import { useAdmin } from "@/components/admin/AdminShell";
 import { useToast } from "@/components/admin/Toast";
 import type { Section } from "@/lib/admin/products";
 
@@ -41,6 +42,7 @@ export function ProductsTable({ rows, counts, categories, filters, page, pageSiz
   const router = useRouter();
   const pathname = usePathname();
   const toast = useToast();
+  const canDelete = useAdmin().me?.role === "admin";
   const [q, setQ] = useState(filters.q);
   const [confirming, setConfirming] = useState<string | null>(null);
   const [deleting, startDelete] = useTransition();
@@ -187,9 +189,11 @@ export function ProductsTable({ rows, counts, categories, filters, page, pageSiz
                 <Link href={`/admin/products/${p.id}`} className="text-[#0D4FA0] hover:text-[#008848]">
                   Edit
                 </Link>
-                <button type="button" onClick={() => setConfirming(p.id)} className="text-[#B42318]">
-                  Delete
-                </button>
+                {canDelete && (
+                  <button type="button" onClick={() => setConfirming(p.id)} className="text-[#B42318]">
+                    Delete
+                  </button>
+                )}
               </div>
             )}
           </div>

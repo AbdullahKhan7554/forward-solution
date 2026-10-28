@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect, useRef, useState, type KeyboardEvent } from "react";
 import { deleteProduct, saveProduct } from "@/app/admin/products/actions";
+import { useAdmin } from "@/components/admin/AdminShell";
 import { useToast } from "@/components/admin/Toast";
 import { toWebp, uploadWebp } from "@/lib/admin/image";
 import { SECTIONS, type ProductFormValues, type Section } from "@/lib/admin/products";
@@ -33,6 +34,7 @@ const btn = "rounded-lg px-[18px] py-[11px] text-[14px] font-semibold [font-fami
 export function ProductForm({ id, initial, categories }: Props) {
   const router = useRouter();
   const toast = useToast();
+  const canDelete = useAdmin().me?.role === "admin";
   const [form, setForm] = useState(initial);
   const [image, setImage] = useState<{ blob: Blob; preview: string } | null>(null);
   const [converting, setConverting] = useState(false);
@@ -158,7 +160,8 @@ export function ProductForm({ id, initial, categories }: Props) {
               </button>
             </div>
           ) : (
-            id && (
+            id &&
+            canDelete && (
               <button
                 type="button"
                 disabled={busy}

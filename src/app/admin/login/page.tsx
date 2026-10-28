@@ -1,8 +1,9 @@
 "use client";
 
-import { useState, type FormEvent } from "react";
+import { useEffect, useState, type FormEvent } from "react";
 import { useRouter } from "next/navigation";
 import { createClient } from "@/lib/supabase/client";
+import { logLogin } from "@/app/admin/actions";
 
 const display = "[font-family:var(--font-admin-display),sans-serif]";
 const label = "flex flex-col gap-[10px] text-[17px] font-semibold text-[#171842]";
@@ -16,6 +17,29 @@ export default function AdminLoginPage() {
   const [error, setError] = useState<string | null>(null);
   const [notice, setNotice] = useState<string | null>(null);
   const [busy, setBusy] = useState(false);
+  // invite and password-reset links land here with a session in the URL hash; they set a password first
+  const [settingPassword, setSettingPassword] = useState(false);
+
+  useEffect(() => {
+    const hash = new URLSearchParams(window.location.hash.slice(1));
+    const access_token = hash.get("access_token");
+    const refresh_token = hash.get("refresh_token");
+    if (!access_token || !refresh_token) return;
+    window.history.replaceState(null, "", window.location.pathname);
+    createClient()
+      .auth.setSession({ access_token, refresh_token })
+      .then(({ data, error }) => {
+        if (error) return setError("This link has expired. Ask an admin to invite you again.");
+        setEmail(data.user?.email ?? "");
+        setSettingPassword(true);
+      });
+  }, []);
+
+  async function enterAdmin() {
+    await logLogin().catch(() => {});
+    router.replace("/admin");
+    router.refresh();
+  }
 
   async function signIn(e: FormEvent) {
     e.preventDefault();
@@ -28,8 +52,21 @@ export default function AdminLoginPage() {
       setBusy(false);
       return;
     }
-    router.replace("/admin");
-    router.refresh();
+    await enterAdmin();
+  }
+
+  async function setNewPassword(e: FormEvent) {
+    e.preventDefault();
+    setError(null);
+    if (password.length < 8) return setError("Use at least 8 characters.");
+    setBusy(true);
+    const { error } = await createClient().auth.updateUser({ password });
+    if (error) {
+      setError(error.message);
+      setBusy(false);
+      return;
+    }
+    await enterAdmin();
   }
 
   async function forgotPassword() {
@@ -67,30 +104,36 @@ export default function AdminLoginPage() {
       </div>
       <div className="flex grow items-center justify-center bg-[#F5F6FA]">
         <form
-          onSubmit={signIn}
+          onSubmit={settingPassword ? setNewPassword : signIn}
           className="box-border flex w-[600px] flex-col gap-[22px] rounded-[20px] border border-[#E3E7EF] bg-white px-[52px] py-14"
         >
           <div>
-            <h2 className={`${display} m-0 text-[34px] font-bold text-[#171842]`}>Sign in</h2>
-            <p className="mb-0 mt-2 text-[18px] text-[#5B6178]">Use your admin email and password.</p>
+            <h2 className={`${display} m-0 text-[34px] font-bold text-[#171842]`}>
+              {settingPassword ? "Set your password" : "Sign in"}
+            </h2>
+            <p className="mb-0 mt-2 text-[18px] text-[#5B6178]">
+              {settingPassword ? `Choose a password for ${email}.` : "Use your admin email and password."}
+            </p>
           </div>
+          {!settingPassword && (
+            <label className={label}>
+              Email
+              <input
+                type="email"
+                required
+                autoComplete="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                className={input}
+              />
+            </label>
+          )}
           <label className={label}>
-            Email
-            <input
-              type="email"
-              required
-              autoComplete="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              className={input}
-            />
-          </label>
-          <label className={label}>
-            Password
+            {settingPassword ? "New password" : "Password"}
             <input
               type="password"
               required
-              autoComplete="current-password"
+              autoComplete={settingPassword ? "new-password" : "current-password"}
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               className={input}
@@ -111,15 +154,17 @@ export default function AdminLoginPage() {
             disabled={busy}
             className="rounded-[10px] bg-[#008848] p-[18px] text-center text-[18px] font-bold text-white disabled:opacity-70"
           >
-            Sign in
+            {settingPassword ? "Save password" : "Sign in"}
           </button>
-          <button
-            type="button"
-            onClick={forgotPassword}
-            className="text-center text-[17px] text-[#00733C] hover:text-[#16194A]"
-          >
-            Forgot password?
-          </button>
+          {!settingPassword && (
+            <button
+              type="button"
+              onClick={forgotPassword}
+              className="text-center text-[17px] text-[#00733C] hover:text-[#16194A]"
+            >
+              Forgot password?
+            </button>
+          )}
         </form>
       </div>
     </div>

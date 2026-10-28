@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter, Manrope } from "next/font/google";
 import { AdminShell } from "@/components/admin/AdminShell";
+import { getAdminSession } from "@/lib/admin/session";
 
 // Admin type: Inter body + Manrope display, at the weights the admin design uses.
 const inter = Inter({
@@ -22,12 +23,13 @@ export const metadata: Metadata = {
   robots: { index: false, follow: false, nocache: true, googleBot: { index: false, follow: false } },
 };
 
-export default function AdminLayout({ children }: { children: React.ReactNode }) {
+export default async function AdminLayout({ children }: { children: React.ReactNode }) {
+  const session = await getAdminSession();
   return (
     <div
       className={`${inter.variable} ${manrope.variable} min-h-screen text-[#1B1F3B] [font-family:var(--font-admin-sans),sans-serif]`}
     >
-      <AdminShell>{children}</AdminShell>
+      <AdminShell me={session?.me ?? null}>{children}</AdminShell>
     </div>
   );
 }

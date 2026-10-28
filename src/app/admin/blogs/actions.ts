@@ -1,21 +1,14 @@
 "use server";
 
 import { revalidatePath } from "next/cache";
-import { createClient } from "@/lib/supabase/server";
+import { getAdminSession, logActivity } from "@/lib/admin/session";
 import type { FilterCategory } from "@/components/info-center/types";
 import { FILTERS, formToBlogData, slugify, type BlogFormValues, type BlogStatus } from "@/lib/admin/blogs";
 
 type Result<T = object> = ({ ok: true } & T) | { ok: false; error: string };
 
-async function signedInClient() {
-  const supabase = createClient();
-  const {
-    data: { user },
-  } = await supabase.auth.getUser();
-  return user ? supabase : null;
-}
-
 const SIGNED_OUT = "Your session has expired. Please log in again.";
+const ADMINS_ONLY = "Only admins can delete blogs.";
 const ISO_DAY = /^\d{4}-\d{2}-\d{2}$/;
 
 /** Public pages that render a post: home (latest posts), blog listing, the post page, search and sitemap. */
@@ -33,8 +26,9 @@ export async function saveBlog(
   form: BlogFormValues,
   status: BlogStatus,
 ): Promise<Result<{ id: string; slug: string }>> {
-  const supabase = await signedInClient();
-  if (!supabase) return { ok: false, error: SIGNED_OUT };
+  const session = await getAdminSession();
+  if (!session) return { ok: false, error: SIGNED_OUT };
+  const { supabase, me } = session;
 
   const title = form.title.trim();
   const category = form.category.trim();
@@ -80,7 +74,7 @@ export async function saveBlog(
   if (id) {
     const { data: existing, error: readError } = await supabase
       .from("blogs")
-      .select("slug, data")
+      .select("slug, status, data")
       .eq("id", id)
       .maybeSingle();
     if (readError) return { ok: false, error: `Couldn't load the blog: ${readError.message}` };
@@ -94,6 +88,8 @@ export async function saveBlog(
     if (error) return { ok: false, error: `Couldn't save: ${error.message}` };
 
     revalidateBlog(existing.slug, slug);
+    const action = existing.status === status ? "updated" : status === "published" ? "published" : "hidden";
+    await logActivity(me.id, action, { type: "blog", id, name: title });
     return { ok: true, id, slug };
   }
 
@@ -105,17 +101,21 @@ export async function saveBlog(
   if (error) return { ok: false, error: `Couldn't save: ${error.message}` };
 
   revalidateBlog(slug);
+  await logActivity(me.id, status === "published" ? "published" : "created", { type: "blog", id: created.id, name: title });
   return { ok: true, id: created.id, slug };
 }
 
 export async function deleteBlog(id: string): Promise<Result> {
-  const supabase = await signedInClient();
-  if (!supabase) return { ok: false, error: SIGNED_OUT };
+  const session = await getAdminSession();
+  if (!session) return { ok: false, error: SIGNED_OUT };
+  if (session.me.role !== "admin") return { ok: false, error: ADMINS_ONLY };
+  const { supabase, me } = session;
 
-  const { data: deleted, error } = await supabase.from("blogs").delete().eq("id", id).select("slug");
+  const { data: deleted, error } = await supabase.from("blogs").delete().eq("id", id).select("slug, title");
   if (error) return { ok: false, error: `Couldn't delete: ${error.message}` };
   if (!deleted?.length) return { ok: false, error: "This blog was already deleted." };
 
   revalidateBlog(...deleted.map((d) => d.slug));
+  await logActivity(me.id, "deleted", { type: "blog", id, name: deleted[0].title });
   return { ok: true };
 }
