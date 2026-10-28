@@ -2,7 +2,8 @@ import Link from "next/link";
 import { redirect } from "next/navigation";
 import { getAdminSession } from "@/lib/admin/session";
 import type { ActivityAction } from "@/lib/admin/team";
-import { ActivityLine, LiveRefresh } from "@/components/admin/Activity";
+import { LiveRefresh } from "@/components/admin/Activity";
+import { ActivityLog } from "@/components/admin/ActivityLog";
 import { ACTION_LABEL, toEntry } from "@/lib/admin/activity";
 
 export const dynamic = "force-dynamic";
@@ -128,33 +129,13 @@ export default async function AdminActivityPage({ searchParams }: { searchParams
           Couldn&apos;t load activity: {error.message}
         </p>
       ) : (
-        <div className="rounded-xl border border-[#E3E7EF] bg-white px-2 py-2 md:px-3">
-          {entries.length === 0 ? (
-            <div className="py-8 text-center text-[14px] text-[#5B6178]">
-              {filtered ? "No activity matches these filters." : "No activity yet."}
-            </div>
-          ) : (
-            entries.map((e) => (
-              <div key={e.id} className="flex flex-col border-b border-[#EEF1F6] last:border-b-0 md:flex-row md:items-center md:gap-3">
-                <div className="min-w-0 grow">
-                  <ActivityLine entry={e} names={names} now={now} />
-                </div>
-                <time
-                  dateTime={e.createdAt}
-                  className="shrink-0 pb-2 pl-[52px] text-[12px] tabular-nums text-[#5B6178] md:pb-0 md:pl-0 md:pr-2"
-                >
-                  {new Date(e.createdAt).toLocaleString("en-GB", {
-                    day: "numeric",
-                    month: "short",
-                    year: "numeric",
-                    hour: "2-digit",
-                    minute: "2-digit",
-                    timeZone: "Asia/Karachi",
-                  })}
-                </time>
-              </div>
-            ))
-          )}
+        <ActivityLog
+          entries={entries}
+          names={names}
+          now={now}
+          isAdmin={session.me.role === "admin"}
+          emptyText={filtered ? "No activity matches these filters." : "No activity yet."}
+        >
           <div className="flex flex-wrap items-center justify-between gap-2 border-t border-[#EEF1F6] px-2 pb-1 pt-3 text-[13px] text-[#5B6178]">
             <span>
               Showing {first}–{last} of {total}
@@ -172,7 +153,7 @@ export default async function AdminActivityPage({ searchParams }: { searchParams
               )}
             </div>
           </div>
-        </div>
+        </ActivityLog>
       )}
     </div>
   );

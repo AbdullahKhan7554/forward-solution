@@ -1,5 +1,5 @@
 export type Role = "admin" | "editor";
-export type ActivityAction = "created" | "updated" | "deleted" | "published" | "hidden" | "logged_in";
+export type ActivityAction = "created" | "updated" | "deleted" | "published" | "hidden" | "logged_in" | "cleared";
 export type EntityType = "product" | "blog" | "user";
 
 /** The signed-in admin user, as the admin chrome sees it. */

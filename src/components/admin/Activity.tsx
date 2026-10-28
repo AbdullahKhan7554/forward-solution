@@ -17,6 +17,7 @@ const ICON: Record<ActivityAction, { tone: string; path: React.ReactNode }> = {
     path: <path d="M3 3l18 18M10.6 6.1A10 10 0 0 1 12 6c5 0 9 6 9 6a17 17 0 0 1-3 3.4M6.6 6.6C4.3 8.2 3 12 3 12s4 6 9 6c1.5 0 2.9-.4 4.1-1" />,
   },
   logged_in: { tone: "bg-[#ECEDF7] text-[#16194A]", path: <path d="M10 17l5-5-5-5M15 12H3M14 4h5a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1h-5" /> },
+  cleared: { tone: "bg-[#FFF4E5] text-[#8A5A00]", path: <path d="M4 7h16M10 11v6M14 11v6M6 7l1 13h10l1-13M9 7V4h6v3" /> },
 };
 
 export function ActionIcon({ action }: { action: ActivityAction }) {
@@ -59,7 +60,8 @@ export function ActivityLine({ entry, names, now }: { entry: ActivityEntry; name
       <ActionIcon action={entry.action} />
       <div className="min-w-0 grow text-[14px] leading-[1.4]">
         <span className="font-semibold">{who}</span> {ACTION_LABEL[entry.action] ?? entry.action}
-        {entry.action !== "logged_in" && thing && (
+        {entry.action === "cleared" && thing && <span className="text-[#5B6178]"> ({thing})</span>}
+        {entry.action !== "logged_in" && entry.action !== "cleared" && thing && (
           <>
             {" "}
             {href ? (

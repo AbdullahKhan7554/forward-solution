@@ -39,6 +39,7 @@ export const ACTION_LABEL: Record<ActivityAction, string> = {
   published: "published",
   hidden: "hid",
   logged_in: "logged in",
+  cleared: "cleared the activity log",
 };
 
 /** Where an activity entry points; deleted items and logins have nowhere to go. */

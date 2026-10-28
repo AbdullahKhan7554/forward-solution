@@ -53,7 +53,7 @@ update public.profiles set role = 'admin' where lower(email) = 'info@agriprompak
 create table if not exists public.activity_log (
   id           uuid primary key default gen_random_uuid(),
   user_id      uuid references public.profiles (id) on delete set null,
-  action       text not null check (action in ('created', 'updated', 'deleted', 'published', 'hidden', 'logged_in')),
+  action       text not null check (action in ('created', 'updated', 'deleted', 'published', 'hidden', 'logged_in', 'cleared')),
   entity_type  text check (entity_type in ('product', 'blog', 'user')),
   entity_id    uuid,
   entity_name  text,
@@ -94,6 +94,15 @@ create policy "products_auth_delete" on public.products
 
 drop policy if exists "blogs_auth_delete" on public.blogs;
 create policy "blogs_auth_delete" on public.blogs
+  for delete to authenticated using (public.is_admin());
+
+-- Activity log: admins may delete entries; "cleared" records a bulk clear (existing databases need the check widened).
+alter table public.activity_log drop constraint if exists activity_log_action_check;
+alter table public.activity_log add constraint activity_log_action_check
+  check (action in ('created', 'updated', 'deleted', 'published', 'hidden', 'logged_in', 'cleared'));
+
+drop policy if exists "activity_log_admin_delete" on public.activity_log;
+create policy "activity_log_admin_delete" on public.activity_log
   for delete to authenticated using (public.is_admin());
 
 -- ---------------------------------------------------------------------------

@@ -31,7 +31,7 @@ export async function getAdminSession() {
 export async function logActivity(
   userId: string,
   action: ActivityAction,
-  entity?: { type: EntityType; id?: string | null; name?: string | null },
+  entity?: { type?: EntityType; id?: string | null; name?: string | null },
 ) {
   try {
     const { error } = await createAdminClient()
