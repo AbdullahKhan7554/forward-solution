@@ -8,7 +8,7 @@ import { useAdmin } from "@/components/admin/AdminShell";
 import { useToast } from "@/components/admin/Toast";
 import { toWebp, uploadWebp } from "@/lib/admin/image";
 import { Pending, ProgressBar } from "@/components/admin/Spinner";
-import { SECTIONS, type ProductFormValues, type Section } from "@/lib/admin/products";
+import { SECTIONS, type CtaForm, type ProductFormValues, type Section } from "@/lib/admin/products";
 
 type Props = {
   id: string | null;
@@ -33,6 +33,17 @@ const removeCell = "col-start-2 row-span-2 row-start-1 md:col-auto md:row-auto m
 const removeBtn = "h-11 w-11 border-none md:h-8 md:w-8 bg-transparent text-[18px] text-[#8A90A6] hover:text-[#B42318]";
 const addBtn =
   "rounded-md border border-[#D5DAE6] bg-white px-3 py-[6px] text-[13px] font-semibold text-[#0D4FA0] [font-family:inherit] hover:border-[#B8C0D4] hover:bg-[#F8F9FC]";
+const hint = "text-[12px] font-normal text-[#5B6178]";
+const benefitGrid = "mb-3 grid grid-cols-[1fr_44px] items-center gap-[10px] md:mb-2 md:grid-cols-[1fr_32px]";
+// what the public page shows when a CTA field is left blank (ProductDetail)
+const CTA_FIELDS: { key: keyof CtaForm; label: string; placeholder: string; wide?: boolean; long?: boolean }[] = [
+  { key: "top", label: "Heading — first part", placeholder: "Talk To Our" },
+  { key: "bottom", label: "Heading — second part", placeholder: "Experts" },
+  { key: "body", label: "Text", placeholder: "Get tailored recommendations for this product…", wide: true, long: true },
+  { key: "primaryLabel", label: "Main button", placeholder: "Talk To Our Experts" },
+  { key: "secondaryLabel", label: "Second button (optional)", placeholder: "None" },
+  { key: "secondaryHref", label: "Second button link", placeholder: "/products/poultry", wide: true },
+];
 const btn = "rounded-lg px-[18px] py-[11px] text-[14px] font-semibold [font-family:inherit] disabled:opacity-60";
 
 export function ProductForm({ id, initial, categories }: Props) {
@@ -198,13 +209,15 @@ export function ProductForm({ id, initial, categories }: Props) {
               <input type="text" value={form.name} onChange={(e) => set("name", e.target.value)} className={field} />
             </label>
             <label className={label}>
-              Subheading
+              Subtitle
               <input type="text" value={form.subtitle} onChange={(e) => set("subtitle", e.target.value)} className={field} />
+              <span className={hint}>Small line under the name. Leave empty to hide.</span>
             </label>
             <label className={`${label} col-span-full`}>
-              Description
+              Intro
+              <span className={hint}>The paragraph under the product name at the top of the page.</span>
               <textarea
-                rows={3}
+                rows={4}
                 value={form.description}
                 onChange={(e) => set("description", e.target.value)}
                 className={`${field} resize-none text-[14px] leading-[1.5]`}
@@ -256,42 +269,83 @@ export function ProductForm({ id, initial, categories }: Props) {
               <div className="text-[15px] font-semibold">Key benefits</div>
               <button
                 type="button"
-                onClick={() => set("benefits", [...form.benefits, { title: "", text: "" }])}
+                onClick={() => set("benefits", [...form.benefits, ""])}
                 className={addBtn}
               >
                 + Add benefit
               </button>
             </div>
             {form.benefits.map((b, i) => (
-              <div key={i} className={rowGrid}>
+              <div key={i} className={benefitGrid}>
                 <input
                   type="text"
-                  aria-label="Benefit title"
-                  value={b.title}
-                  onChange={(e) =>
-                    set("benefits", form.benefits.map((x, j) => (j === i ? { ...x, title: e.target.value } : x)))
-                  }
-                  className={rowKey}
-                />
-                <input
-                  type="text"
-                  aria-label="Benefit text"
-                  value={b.text}
-                  onChange={(e) =>
-                    set("benefits", form.benefits.map((x, j) => (j === i ? { ...x, text: e.target.value } : x)))
-                  }
-                  className={`${rowVal} ${rowValCell}`}
+                  aria-label={`Benefit ${i + 1}`}
+                  value={b}
+                  onChange={(e) => set("benefits", form.benefits.map((x, j) => (j === i ? e.target.value : x)))}
+                  className={rowVal}
                 />
                 <button
                   type="button"
                   aria-label="Remove benefit"
                   onClick={() => set("benefits", form.benefits.filter((_, j) => j !== i))}
-                  className={`${removeBtn} ${removeCell}`}
+                  className={removeBtn}
                 >
                   ×
                 </button>
               </div>
             ))}
+          </div>
+
+          {form.section === "poultry" && (
+            <div className={card}>
+              <div className="text-[15px] font-semibold">Call to action</div>
+              <p className={`${hint} mb-3 mt-1`}>The closing block at the bottom of the page. Empty fields use the text shown in grey.</p>
+              <div className="grid grid-cols-1 gap-[14px] md:grid-cols-2">
+                {CTA_FIELDS.map((f) => (
+                  <label key={f.key} className={`${label} ${f.wide ? "col-span-full" : ""}`}>
+                    {f.label}
+                    {f.long ? (
+                      <textarea
+                        rows={2}
+                        placeholder={f.placeholder}
+                        value={form.cta[f.key]}
+                        onChange={(e) => set("cta", { ...form.cta, [f.key]: e.target.value })}
+                        className={`${field} resize-none text-[14px] leading-[1.5]`}
+                      />
+                    ) : (
+                      <input
+                        type="text"
+                        placeholder={f.placeholder}
+                        value={form.cta[f.key]}
+                        onChange={(e) => set("cta", { ...form.cta, [f.key]: e.target.value })}
+                        className={field}
+                      />
+                    )}
+                  </label>
+                ))}
+              </div>
+            </div>
+          )}
+
+          <div className={card}>
+            <div className="text-[15px] font-semibold">Search engines (SEO)</div>
+            <p className={`${hint} mb-3 mt-1`}>The title and description Google shows for this page.</p>
+            <div className="flex flex-col gap-[14px]">
+              <label className={label}>
+                Meta title
+                <input type="text" value={form.metaTitle} onChange={(e) => set("metaTitle", e.target.value)} className={field} />
+              </label>
+              <label className={label}>
+                Meta description
+                <textarea
+                  rows={3}
+                  value={form.metaDescription}
+                  onChange={(e) => set("metaDescription", e.target.value)}
+                  className={`${field} resize-none text-[14px] leading-[1.5]`}
+                />
+                <span className={hint}>{form.metaDescription.trim().length} characters · about 150–160 is ideal</span>
+              </label>
+            </div>
           </div>
         </div>
 
@@ -324,6 +378,13 @@ export function ProductForm({ id, initial, categories }: Props) {
               </Pending>
             </button>
             {progress !== null && <ProgressBar value={progress} />}
+            <label className={label}>
+              Image style
+              <select value={form.media} onChange={(e) => set("media", e.target.value as ProductFormValues["media"])} className={select}>
+                <option value="placeholder">Plain photo</option>
+                <option value="plate">Lab plate frame</option>
+              </select>
+            </label>
           </div>
 
           <div className={`${card} flex flex-col gap-3`}>

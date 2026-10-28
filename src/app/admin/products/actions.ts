@@ -62,7 +62,7 @@ export async function saveProduct(
   if (id) {
     const { data: existing, error: readError } = await supabase
       .from("products")
-      .select("slug, section, category, is_live, data")
+      .select("slug, section, category, is_live, image_url, data")
       .eq("id", id)
       .maybeSingle();
     if (readError) return { ok: false, error: `Couldn't load the product: ${readError.message}` };
@@ -70,7 +70,7 @@ export async function saveProduct(
 
     const { error } = await supabase
       .from("products")
-      .update({ ...fields, data: formToData(form, existing.data ?? {}) })
+      .update({ ...fields, data: formToData(form, existing.data ?? {}, existing.image_url ?? existing.data?.assets?.hero ?? null) })
       .eq("id", id);
     if (error) return { ok: false, error: `Couldn't save: ${error.message}` };
 
