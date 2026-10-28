@@ -16,6 +16,9 @@ import type { CategoryCard } from "@/lib/catalog";
  * image, title, one line, "Explore →". Each card links to its category page.
  */
 
+const COUNT_WORDS = ["Zero", "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten", "Eleven", "Twelve"];
+const countWord = (n: number) => COUNT_WORDS[n] ?? String(n);
+
 /** `extra` — categories added in the admin, appended after the built-in ones. */
 export function RuminantSolutions({ extra = [] }: { extra?: CategoryCard[] }) {
   const rootRef = useRef<HTMLElement>(null);
@@ -52,7 +55,7 @@ export function RuminantSolutions({ extra = [] }: { extra?: CategoryCard[] }) {
       <div className="relative mx-auto w-full max-w-container px-6 py-16 md:py-24 md:px-12 xl:px-20">
         <header className="max-w-3xl">
           <h2 id="ruminant-solutions-heading" className="font-display font-light leading-[1.04] tracking-[-0.015em] text-neutral-900">
-            <RevealText text="Seven Pillars of" as="span" trigger="scroll" stagger={0.06} className="justify-start text-[8.5vw] md:text-[4.4vw] xl:text-[58px]" />
+            <RevealText text={`${countWord(RUMINANT_CATEGORIES.length + extra.length)} Pillars of`} as="span" trigger="scroll" stagger={0.06} className="justify-start text-[8.5vw] md:text-[4.4vw] xl:text-[58px]" />
             <RevealText text="Ruminant Performance" as="span" trigger="scroll" stagger={0.06} className="justify-start text-[8.5vw] text-primary-700 md:text-[4.4vw] xl:text-[58px]" />
           </h2>
         </header>
