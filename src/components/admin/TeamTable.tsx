@@ -18,7 +18,12 @@ export type TeamMember = {
   changes: number;
 };
 
-const GRID = "grid grid-cols-[2fr_2fr_1fr_1.2fr_0.8fr_0.9fr] gap-4 px-5";
+// md+: the 6-column table (scrolls sideways on tablet). Phone: each member is a card.
+const COLS = "md:grid-cols-[2fr_2fr_1fr_1.2fr_0.8fr_0.9fr]";
+const HEAD = `hidden ${COLS} gap-4 px-5 md:grid`;
+const ROW = `grid grid-cols-2 gap-x-3 gap-y-2 px-4 py-4 ${COLS} md:gap-4 md:px-5 md:py-3`;
+const actBtn =
+  "flex min-h-[44px] flex-1 items-center justify-center rounded-lg border border-[#D5DAE6] bg-white md:block md:min-h-0 md:flex-none md:rounded-none md:border-0 md:bg-transparent";
 const card = "rounded-xl border border-[#E3E7EF] bg-white px-5 py-[18px]";
 const label = "flex flex-col gap-[6px] text-[13px] font-semibold";
 const field =
@@ -82,8 +87,8 @@ export function TeamTable({ members, meId }: { members: TeamMember[]; meId: stri
 
   return (
     <>
-      <form onSubmit={sendInvite} className={`${card} flex items-end gap-[14px]`}>
-        <div className="mr-2 self-center">
+      <form onSubmit={sendInvite} className={`${card} flex flex-col items-stretch gap-[14px] md:flex-row md:flex-wrap md:items-end lg:flex-nowrap`}>
+        <div className="md:mr-2 md:basis-full md:self-center lg:basis-auto">
           <div className="text-[15px] font-semibold">Invite user</div>
           <div className="mt-[2px] text-[12px] text-[#5B6178]">They&apos;ll get an email to set a password.</div>
         </div>
@@ -130,8 +135,10 @@ export function TeamTable({ members, meId }: { members: TeamMember[]; meId: stri
       </form>
 
       <div className="overflow-hidden rounded-xl border border-[#E3E7EF] bg-white">
+        <div className="overflow-x-auto">
+        <div className="md:min-w-[860px] lg:min-w-0">
         <div
-          className={`${GRID} border-b border-[#E3E7EF] bg-[#F8F9FC] py-3 text-[12px] font-semibold tracking-[0.5px] text-[#5B6178]`}
+          className={`${HEAD} border-b border-[#E3E7EF] bg-[#F8F9FC] py-3 text-[12px] font-semibold tracking-[0.5px] text-[#5B6178]`}
         >
           <span>NAME</span>
           <span>EMAIL</span>
@@ -152,8 +159,8 @@ export function TeamTable({ members, meId }: { members: TeamMember[]; meId: stri
           const isOnline = onlineIds.has(m.id);
           const busy = busyId === m.id;
           return (
-            <div key={m.id} className={`${GRID} items-center border-b border-[#EEF1F6] py-3 text-[14px] transition-colors hover:bg-[#F8F9FC]`}>
-              <div className="flex min-w-0 items-center gap-[10px]">
+            <div key={m.id} className={`${ROW} items-center border-b border-[#EEF1F6] py-3 text-[14px] transition-colors hover:bg-[#F8F9FC]`}>
+              <div className="col-span-2 flex min-w-0 items-center gap-[10px] md:col-span-1">
                 <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#DCE8F7] text-[13px] font-semibold text-[#16194A]">
                   {initials(m.name)}
                 </span>
@@ -162,7 +169,7 @@ export function TeamTable({ members, meId }: { members: TeamMember[]; meId: stri
                   {isMe && <span className="ml-[6px] text-[12px] font-normal text-[#5B6178]">(you)</span>}
                 </span>
               </div>
-              <span className="truncate text-[#5B6178]">{m.email}</span>
+              <span className="col-span-2 truncate text-[#5B6178] md:col-span-1">{m.email}</span>
               {isMe ? (
                 <span className="text-[#5B6178]">{m.role === "admin" ? "Admin" : "Editor"}</span>
               ) : (
@@ -192,20 +199,20 @@ export function TeamTable({ members, meId }: { members: TeamMember[]; meId: stri
                   {m.lastSeen ? `Last seen ${timeAgo(m.lastSeen, now)}` : "Never signed in"}
                 </span>
               )}
-              <span className="text-[#5B6178]">{m.changes}</span>
+              <span className="hidden text-[#5B6178] md:block">{m.changes}</span>
               {isMe ? (
-                <span />
+                <span className="hidden md:block" />
               ) : confirming === m.id ? (
-                <div role="group" aria-label={`Remove ${m.name}?`} className="flex items-center gap-[10px] text-[13px] font-semibold">
+                <div role="group" aria-label={`Remove ${m.name}?`} className="col-span-2 flex items-center gap-[10px] text-[13px] font-semibold md:col-span-1">
                   <button
                     type="button"
                     disabled={busy}
                     onClick={() => run(m.id, () => removeUser(m.id), `${m.name} removed`)}
-                    className="text-[#B42318] disabled:opacity-60"
+                    className={`${actBtn} text-[#B42318] disabled:opacity-60`}
                   >
                     <Pending pending={busy} label="Removing…">Confirm</Pending>
                   </button>
-                  <button type="button" disabled={busy} onClick={() => setConfirming(null)} className="text-[#5B6178] hover:text-[#1B1F3B]">
+                  <button type="button" disabled={busy} onClick={() => setConfirming(null)} className={`${actBtn} text-[#5B6178] hover:text-[#1B1F3B]`}>
                     Cancel
                   </button>
                 </div>
@@ -213,7 +220,7 @@ export function TeamTable({ members, meId }: { members: TeamMember[]; meId: stri
                 <button
                   type="button"
                   onClick={() => setConfirming(m.id)}
-                  className="justify-self-start text-[13px] font-semibold text-[#B42318] hover:text-[#8A1A12] hover:underline"
+                  className={`${actBtn} col-span-2 text-[13px] font-semibold text-[#B42318] hover:text-[#8A1A12] hover:underline md:col-span-1 md:justify-self-start`}
                 >
                   Remove
                 </button>
@@ -221,6 +228,8 @@ export function TeamTable({ members, meId }: { members: TeamMember[]; meId: stri
             </div>
           );
         })}
+        </div>
+        </div>
       </div>
     </>
   );

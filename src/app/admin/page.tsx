@@ -9,12 +9,12 @@ import { OnlineNow, TeamCard, type TeamCardMember } from "@/components/admin/Das
 
 export const dynamic = "force-dynamic";
 
-const card = "rounded-xl border border-[#E3E7EF] bg-white p-5";
+const card = "min-w-0 rounded-xl border border-[#E3E7EF] bg-white p-4 md:p-5";
 const cardTitle = "text-[15px] font-semibold";
-const link = "text-[13px] font-semibold text-[#0D4FA0] no-underline hover:text-[#008848] hover:underline";
+const link = "admin-tap text-[13px] font-semibold text-[#0D4FA0] no-underline hover:text-[#008848] hover:underline";
 const row = "flex items-center gap-[14px] border-b border-[#EEF1F6] py-[11px] last:border-b-0";
 const btnBase =
-  "inline-flex items-center rounded-lg px-[18px] py-[11px] text-[14px] font-semibold no-underline transition-colors duration-150";
+  "inline-flex min-h-[44px] items-center rounded-lg px-[18px] py-[11px] lg:min-h-0 text-[14px] font-semibold no-underline transition-colors duration-150";
 const btnPrimary = `${btnBase} bg-[#008848] text-white hover:bg-[#007A40] hover:text-white active:bg-[#006A38]`;
 const btnSecondary = `${btnBase} border border-[#D5DAE6] bg-white text-[#16194A] hover:border-[#B8C0D4] hover:bg-[#F8F9FC] hover:text-[#16194A] active:bg-[#EEF1F6]`;
 const THUMBS = ["bg-[#DCE8F7]", "bg-[#DDF0E4]", "bg-[#F7EBD9]"];
@@ -153,14 +153,14 @@ export default async function AdminDashboardPage() {
 
   return (
     <>
-      <div className="flex items-center justify-between gap-4">
+      <div className="flex flex-wrap items-center justify-between gap-4 lg:flex-nowrap">
         <div>
           <h1 className="m-0 text-[26px] font-bold">Welcome back, {firstName}</h1>
           <div className="mt-1 text-[13px] text-[#5B6178]">
             Manage your products and blogs. Changes go live on agriprompakistan.com right away.
           </div>
         </div>
-        <div className="flex shrink-0 gap-[10px]">
+        <div className="flex flex-wrap gap-[10px] lg:shrink-0 lg:flex-nowrap">
           <Link href="/admin/products/new" className={btnSecondary}>
             + Add product
           </Link>
@@ -179,7 +179,7 @@ export default async function AdminDashboardPage() {
         </p>
       )}
 
-      <div className="grid grid-cols-4 gap-[18px]">
+      <div className="grid grid-cols-1 gap-[18px] md:grid-cols-2 lg:grid-cols-4">
         {kpis.map((k) => (
           <Link
             key={k.label}
@@ -198,8 +198,8 @@ export default async function AdminDashboardPage() {
         ))}
       </div>
 
-      <div className="grid grid-cols-3 gap-[18px]">
-        <section className={`${card} col-span-2`}>
+      <div className="grid grid-cols-1 gap-[18px] lg:grid-cols-3">
+        <section className={`${card} min-w-0 lg:col-span-2`}>
           <CardHeader title="Recent activity" href="/admin/activity" />
           <ActivityFeed initial={(activityRes.data ?? []).map(toEntry)} names={names} />
         </section>
@@ -215,10 +215,10 @@ export default async function AdminDashboardPage() {
         </div>
       </div>
 
-      <div className="grid grid-cols-2 gap-[18px]">
+      <div className="grid grid-cols-1 gap-[18px] md:grid-cols-2">
         <section className={card}>
           <CardHeader title="Products by category" href="/admin/products" />
-          <div className="mb-3 flex gap-4 text-[12px] text-[#5B6178]">
+          <div className="mb-3 flex flex-wrap gap-4 text-[12px] text-[#5B6178]">
             {Object.entries(SECTION_COLOR).map(([s, color]) => (
               <span key={s} className="inline-flex items-center gap-[6px]">
                 <span className="h-[10px] w-[10px] rounded-[3px]" style={{ background: color }} />
@@ -235,7 +235,7 @@ export default async function AdminDashboardPage() {
                   <Link
                     href={`/admin/products?section=${c.section}&cat=${encodeURIComponent(c.category)}`}
                     title={`${sectionLabel(c.section)} › ${c.category}: ${count(c.n, "product", "products")}`}
-                    className="grid grid-cols-[150px_1fr_28px] items-center gap-3 rounded-md px-1 py-[5px] text-[13px] text-[#1B1F3B] no-underline transition-colors duration-150 hover:bg-[#F8F9FC] hover:text-[#1B1F3B]"
+                    className="grid grid-cols-[minmax(0,110px)_1fr_28px] items-center md:grid-cols-[150px_1fr_28px] gap-3 rounded-md px-1 py-[5px] text-[13px] text-[#1B1F3B] no-underline transition-colors duration-150 hover:bg-[#F8F9FC] hover:text-[#1B1F3B]"
                   >
                     <span className="truncate text-[#3D4360]">{c.category}</span>
                     <span className="h-[10px] rounded-r-[4px] bg-transparent">
@@ -292,7 +292,7 @@ export default async function AdminDashboardPage() {
         </section>
       </div>
 
-      <div className="grid grid-cols-2 gap-[18px]">
+      <div className="grid grid-cols-1 gap-[18px] md:grid-cols-2">
         <section className={card}>
           <CardHeader title="Recently updated products" href="/admin/products" />
           {(recentRes.data ?? []).length === 0 && (

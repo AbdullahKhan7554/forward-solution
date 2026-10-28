@@ -14,9 +14,9 @@ const DATE = /^\d{4}-\d{2}-\d{2}$/;
 
 const control =
   "rounded-lg border border-[#D5DAE6] bg-white px-3 py-[9px] text-[14px] text-[#1B1F3B] [font-family:inherit]";
-const labelCls = "flex flex-col gap-[6px] text-[12px] font-semibold text-[#5B6178]";
+const labelCls = "flex w-[calc(50%-7px)] flex-col gap-[6px] text-[12px] font-semibold text-[#5B6178] md:w-auto";
 const pagerBtn =
-  "rounded-md border border-[#D5DAE6] bg-white px-3 py-[7px] text-[13px] text-[#1B1F3B] no-underline hover:border-[#B8C0D4] hover:bg-[#F8F9FC] hover:text-[#1B1F3B]";
+  "admin-tap rounded-md border border-[#D5DAE6] bg-white px-3 py-[7px] text-[13px] text-[#1B1F3B] no-underline hover:border-[#B8C0D4] hover:bg-[#F8F9FC] hover:text-[#1B1F3B]";
 
 type SearchParams = { user?: string; action?: string; from?: string; to?: string; page?: string };
 
@@ -79,7 +79,7 @@ export default async function AdminActivityPage({ searchParams }: { searchParams
         <div className="mt-1 text-[13px] text-[#5B6178]">Everything the team has changed in the admin, newest first.</div>
       </div>
 
-      <form method="get" className="flex flex-wrap items-end gap-[14px] rounded-xl border border-[#E3E7EF] bg-white px-5 py-4">
+      <form method="get" className="flex flex-wrap items-end gap-[14px] rounded-xl border border-[#E3E7EF] bg-white px-4 py-4 md:px-5">
         <label className={labelCls}>
           User
           <select name="user" defaultValue={user} className={control}>
@@ -112,12 +112,12 @@ export default async function AdminActivityPage({ searchParams }: { searchParams
         </label>
         <button
           type="submit"
-          className="rounded-lg border-none bg-[#16194A] px-[18px] py-[10px] text-[14px] font-semibold text-white [font-family:inherit] hover:bg-[#232766]"
+          className="w-full rounded-lg border-none bg-[#16194A] px-[18px] py-[10px] text-[14px] md:w-auto font-semibold text-white [font-family:inherit] hover:bg-[#232766]"
         >
           Apply
         </button>
         {filtered && (
-          <Link href="/admin/activity" className="py-[10px] text-[13px] font-semibold text-[#0D4FA0] hover:text-[#008848]">
+          <Link href="/admin/activity" className="admin-tap py-[10px] text-[13px] font-semibold text-[#0D4FA0] hover:text-[#008848]">
             Clear filters
           </Link>
         )}
@@ -128,20 +128,20 @@ export default async function AdminActivityPage({ searchParams }: { searchParams
           Couldn&apos;t load activity: {error.message}
         </p>
       ) : (
-        <div className="rounded-xl border border-[#E3E7EF] bg-white px-3 py-2">
+        <div className="rounded-xl border border-[#E3E7EF] bg-white px-2 py-2 md:px-3">
           {entries.length === 0 ? (
             <div className="py-8 text-center text-[14px] text-[#5B6178]">
               {filtered ? "No activity matches these filters." : "No activity yet."}
             </div>
           ) : (
             entries.map((e) => (
-              <div key={e.id} className="flex items-center gap-3 border-b border-[#EEF1F6] last:border-b-0">
+              <div key={e.id} className="flex flex-col border-b border-[#EEF1F6] last:border-b-0 md:flex-row md:items-center md:gap-3">
                 <div className="min-w-0 grow">
                   <ActivityLine entry={e} names={names} now={now} />
                 </div>
                 <time
                   dateTime={e.createdAt}
-                  className="shrink-0 pr-2 text-[12px] tabular-nums text-[#5B6178]"
+                  className="shrink-0 pb-2 pl-[52px] text-[12px] tabular-nums text-[#5B6178] md:pb-0 md:pl-0 md:pr-2"
                 >
                   {new Date(e.createdAt).toLocaleString("en-GB", {
                     day: "numeric",
@@ -155,7 +155,7 @@ export default async function AdminActivityPage({ searchParams }: { searchParams
               </div>
             ))
           )}
-          <div className="flex items-center justify-between border-t border-[#EEF1F6] px-2 pb-1 pt-3 text-[13px] text-[#5B6178]">
+          <div className="flex flex-wrap items-center justify-between gap-2 border-t border-[#EEF1F6] px-2 pb-1 pt-3 text-[13px] text-[#5B6178]">
             <span>
               Showing {first}–{last} of {total}
             </span>

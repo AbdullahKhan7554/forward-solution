@@ -26,8 +26,11 @@ const rowKey =
   "rounded-md border border-[#D5DAE6] px-[10px] py-2 text-[13px] font-semibold text-[#1B1F3B] [font-family:inherit]";
 const rowVal =
   "rounded-md border border-[#D5DAE6] px-[10px] py-2 text-[13px] text-[#1B1F3B] [font-family:inherit]";
-const rowGrid = "mb-2 grid grid-cols-[200px_1fr_32px] items-center gap-[10px]";
-const removeBtn = "h-8 w-8 border-none bg-transparent text-[18px] text-[#8A90A6] hover:text-[#B42318]";
+// phone: field on top, details below, remove on the right; md+: one line
+const rowGrid = "mb-3 grid grid-cols-[1fr_44px] items-center gap-x-[10px] gap-y-2 md:mb-2 md:grid-cols-[200px_1fr_32px] md:gap-y-[10px]";
+const rowValCell = "col-start-1 row-start-2 md:col-auto md:row-auto";
+const removeCell = "col-start-2 row-span-2 row-start-1 md:col-auto md:row-auto md:row-span-1";
+const removeBtn = "h-11 w-11 border-none md:h-8 md:w-8 bg-transparent text-[18px] text-[#8A90A6] hover:text-[#B42318]";
 const addBtn =
   "rounded-md border border-[#D5DAE6] bg-white px-3 py-[6px] text-[13px] font-semibold text-[#0D4FA0] [font-family:inherit] hover:border-[#B8C0D4] hover:bg-[#F8F9FC]";
 const btn = "rounded-lg px-[18px] py-[11px] text-[14px] font-semibold [font-family:inherit] disabled:opacity-60";
@@ -143,17 +146,17 @@ export function ProductForm({ id, initial, categories }: Props) {
 
   return (
     <div className="flex flex-col gap-4">
-      <div className="flex items-center justify-between">
+      <div className="contents lg:flex lg:items-center lg:justify-between">
         <div>
           <Link href="/admin/products" className="text-[13px] font-semibold text-[#0D4FA0] no-underline hover:text-[#008848]">
             ← All products
           </Link>
           <h1 className="mb-0 mt-[6px] text-[24px] font-bold">{id ? "Edit product" : "Add product"}</h1>
         </div>
-        <div className="flex items-center gap-[10px]">
+        <div className="order-last flex flex-col gap-[10px] lg:order-none lg:flex-row lg:items-center">
           {id && confirmDelete ? (
-            <div role="group" aria-label="Confirm delete" className="flex items-center gap-[10px]">
-              <span className="text-[14px] font-semibold text-[#B42318]">Delete this product?</span>
+            <div role="group" aria-label="Confirm delete" className="flex flex-col gap-[10px] lg:flex-row lg:items-center">
+              <span className="text-center text-[14px] font-semibold text-[#B42318] lg:text-left">Delete this product?</span>
               <button
                 type="button"
                 disabled={busy}
@@ -187,9 +190,9 @@ export function ProductForm({ id, initial, categories }: Props) {
         </div>
       </div>
 
-      <div className="flex min-h-0 grow gap-[18px]">
+      <div className="flex min-h-0 grow flex-col gap-[18px] lg:flex-row">
         <div className="flex min-w-0 grow flex-col gap-[14px]">
-          <div className={`${card} grid grid-cols-2 gap-[14px]`}>
+          <div className={`${card} grid grid-cols-1 gap-[14px] md:grid-cols-2`}>
             <label className={label}>
               Product name
               <input type="text" value={form.name} onChange={(e) => set("name", e.target.value)} className={field} />
@@ -234,13 +237,13 @@ export function ProductForm({ id, initial, categories }: Props) {
                   aria-label="Details"
                   value={s.value}
                   onChange={(e) => set("specs", form.specs.map((x, j) => (j === i ? { ...x, value: e.target.value } : x)))}
-                  className={rowVal}
+                  className={`${rowVal} ${rowValCell}`}
                 />
                 <button
                   type="button"
                   aria-label="Remove row"
                   onClick={() => set("specs", form.specs.filter((_, j) => j !== i))}
-                  className={removeBtn}
+                  className={`${removeBtn} ${removeCell}`}
                 >
                   ×
                 </button>
@@ -277,13 +280,13 @@ export function ProductForm({ id, initial, categories }: Props) {
                   onChange={(e) =>
                     set("benefits", form.benefits.map((x, j) => (j === i ? { ...x, text: e.target.value } : x)))
                   }
-                  className={rowVal}
+                  className={`${rowVal} ${rowValCell}`}
                 />
                 <button
                   type="button"
                   aria-label="Remove benefit"
                   onClick={() => set("benefits", form.benefits.filter((_, j) => j !== i))}
-                  className={removeBtn}
+                  className={`${removeBtn} ${removeCell}`}
                 >
                   ×
                 </button>
@@ -292,7 +295,7 @@ export function ProductForm({ id, initial, categories }: Props) {
           </div>
         </div>
 
-        <div className="flex w-[320px] shrink-0 flex-col gap-[14px]">
+        <div className="flex w-full shrink-0 flex-col gap-[14px] lg:w-[320px]">
           <div className={`${card} flex flex-col gap-[10px]`}>
             <div className="text-[15px] font-semibold">Product image</div>
             {preview ? (

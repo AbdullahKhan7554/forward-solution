@@ -20,13 +20,13 @@ type Props = {
 
 const MAX_IMAGE = 1600;
 
-const card = "rounded-xl border border-[#E3E7EF] bg-white p-5";
+const card = "rounded-xl border border-[#E3E7EF] bg-white p-4 md:p-5";
 const label = "flex flex-col gap-[6px] text-[13px] font-semibold";
 const field =
   "rounded-lg border border-[#D5DAE6] bg-white p-[10px] text-[14px] font-normal text-[#1B1F3B] [font-family:inherit]";
 const btn = "rounded-lg px-[18px] py-[11px] text-[14px] font-semibold [font-family:inherit] disabled:opacity-60";
 const tool =
-  "h-9 rounded-md border-none px-[10px] text-[13px] font-semibold text-[#1B1F3B] [font-family:inherit] hover:bg-[#EEF1F6] disabled:opacity-50";
+  "h-9 min-w-[44px] rounded-md border-none px-[10px] lg:min-w-0 text-[13px] font-semibold text-[#1B1F3B] [font-family:inherit] hover:bg-[#EEF1F6] disabled:opacity-50";
 const toolOn = "bg-[#E3E7EF]";
 // content styling inside the editor (the admin has no typography plugin)
 const prose =
@@ -61,7 +61,7 @@ function Toolbar({ editor, onImage, uploading }: { editor: Editor | null; onImag
   }
 
   return (
-    <div className="flex gap-1 border-b border-[#E3E7EF] bg-[#F8F9FC] p-2">
+    <div className="flex flex-wrap gap-1 border-b border-[#E3E7EF] bg-[#F8F9FC] p-2">
       <button
         type="button"
         aria-label="Bold"
@@ -225,14 +225,14 @@ export function BlogForm({ id, initial, categories }: Props) {
 
   return (
     <div className="flex flex-col gap-[18px]">
-      <div className="flex items-center justify-between">
+      <div className="contents lg:flex lg:items-center lg:justify-between">
         <div>
           <Link href="/admin/blogs" className="text-[13px] font-semibold text-[#0D4FA0] no-underline hover:text-[#008848]">
             ← All blogs
           </Link>
           <h1 className="mb-0 mt-[6px] text-[26px] font-bold">{id ? "Edit blog" : "New blog"}</h1>
         </div>
-        <div className="flex gap-[10px]">
+        <div className="order-last flex flex-col gap-[10px] lg:order-none lg:flex-row">
           <button
             type="button"
             disabled={busy}
@@ -256,8 +256,8 @@ export function BlogForm({ id, initial, categories }: Props) {
         </div>
       </div>
 
-      <div className="flex grow gap-[18px]">
-        <div className="flex min-w-0 grow flex-col gap-4 rounded-xl border border-[#E3E7EF] bg-white p-6">
+      <div className="flex grow flex-col gap-[18px] lg:flex-row">
+        <div className="flex min-w-0 grow flex-col gap-4 rounded-xl border border-[#E3E7EF] bg-white p-4 md:p-6">
           <div className="flex flex-col gap-[6px]">
             <label className={label}>
               Title
@@ -307,7 +307,7 @@ export function BlogForm({ id, initial, categories }: Props) {
           </div>
         </div>
 
-        <div className="flex w-[340px] shrink-0 flex-col gap-[18px]">
+        <div className="flex w-full shrink-0 flex-col gap-[18px] lg:w-[340px]">
           <div className={`${card} flex flex-col gap-3`}>
             <div className="text-[15px] font-semibold">Cover image</div>
             <div

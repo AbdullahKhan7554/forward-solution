@@ -29,7 +29,12 @@ type Props = {
   total: number;
 };
 
-const GRID = "grid grid-cols-[64px_2fr_1.1fr_1.4fr_0.7fr_0.7fr_0.9fr] gap-4 px-5";
+// md+: the 7-column table (scrolls sideways on tablet). Phone: each row is a card — image left, details right, actions below.
+const COLS = "md:grid-cols-[64px_2fr_1.1fr_1.4fr_0.7fr_0.7fr_0.9fr]";
+const HEAD = `hidden ${COLS} gap-4 px-5 md:grid`;
+const ROW = `grid grid-cols-[48px_1fr] gap-x-3 gap-y-1 px-4 py-4 ${COLS} md:gap-4 md:px-5 md:py-[10px]`;
+const actBtn =
+  "flex min-h-[44px] flex-1 items-center justify-center rounded-lg border border-[#D5DAE6] bg-white md:block md:min-h-0 md:flex-none md:rounded-none md:border-0 md:bg-transparent";
 const tab = "rounded-[20px] px-4 py-[9px] text-[14px] [font-family:inherit]";
 const tabOn = `${tab} border-none bg-[#16194A] font-semibold text-white hover:bg-[#232766]`;
 const tabOff = `${tab} border border-[#D5DAE6] bg-white text-[#1B1F3B] hover:border-[#B8C0D4] hover:bg-[#F8F9FC]`;
@@ -85,7 +90,7 @@ export function ProductsTable({ rows, counts, categories, filters, page, pageSiz
 
   return (
     <>
-      <div className="flex items-center gap-[10px]">
+      <div className="flex flex-wrap items-center gap-[10px]">
         <button type="button" onClick={() => go({ section: null, cat: "" })} className={filters.section ? tabOff : tabOn}>
           All ({counts.all})
         </button>
@@ -103,11 +108,12 @@ export function ProductsTable({ rows, counts, categories, filters, page, pageSiz
         >
           Ruminants ({counts.ruminants})
         </button>
-        <div className="grow" />
+        <div className="hidden grow md:block" />
+        <div className="flex w-full items-center gap-[10px] md:w-auto">
         <label htmlFor="cat" className="text-[13px] text-[#5B6178]">
           Category
         </label>
-        <select id="cat" value={filters.cat} onChange={(e) => go({ cat: e.target.value })} className={control}>
+        <select id="cat" value={filters.cat} onChange={(e) => go({ cat: e.target.value })} className={`${control} min-w-0 grow md:grow-0`}>
           <option value="">All categories</option>
           {categories.map((c) => (
             <option key={c} value={c}>
@@ -115,6 +121,8 @@ export function ProductsTable({ rows, counts, categories, filters, page, pageSiz
             </option>
           ))}
         </select>
+        </div>
+        <div className="flex w-full items-center gap-[10px] md:w-auto">
         <label htmlFor="q" className="text-[13px] text-[#5B6178]">
           Search
         </label>
@@ -124,13 +132,16 @@ export function ProductsTable({ rows, counts, categories, filters, page, pageSiz
           placeholder="Product name…"
           value={q}
           onChange={(e) => setQ(e.target.value)}
-          className={`${control} w-[220px]`}
+          className={`${control} min-w-0 grow md:w-[220px] md:grow-0`}
         />
+        </div>
       </div>
 
       <div className="overflow-hidden rounded-xl border border-[#E3E7EF] bg-white">
+        <div className="overflow-x-auto">
+        <div className="md:min-w-[860px] lg:min-w-0">
         <div
-          className={`${GRID} border-b border-[#E3E7EF] bg-[#F8F9FC] py-3 text-[12px] font-semibold tracking-[0.5px] text-[#5B6178]`}
+          className={`${HEAD} border-b border-[#E3E7EF] bg-[#F8F9FC] py-3 text-[12px] font-semibold tracking-[0.5px] text-[#5B6178]`}
         >
           <span>IMAGE</span>
           <span>PRODUCT</span>
@@ -148,15 +159,15 @@ export function ProductsTable({ rows, counts, categories, filters, page, pageSiz
         )}
 
         {rows.map((p, i) => (
-          <div key={p.id} className={`${GRID} items-center border-b border-[#EEF1F6] py-[10px] text-[14px] transition-colors hover:bg-[#F8F9FC]`}>
+          <div key={p.id} className={`${ROW} items-center border-b border-[#EEF1F6] py-[10px] text-[14px] transition-colors hover:bg-[#F8F9FC]`}>
             {p.imageUrl ? (
               // eslint-disable-next-line @next/next/no-img-element
-              <img src={p.imageUrl} alt="" className="h-12 w-12 rounded-lg bg-[#F4F6FA] object-contain" />
+              <img src={p.imageUrl} alt="" className="row-span-3 h-12 w-12 self-start rounded-lg bg-[#F4F6FA] object-contain md:row-span-1 md:self-auto" />
             ) : (
-              <div className={`h-12 w-12 rounded-lg ${THUMBS[i % 3]}`} />
+              <div className={`row-span-3 h-12 w-12 self-start rounded-lg md:row-span-1 md:self-auto ${THUMBS[i % 3]}`} />
             )}
             <span className="font-semibold">{p.name}</span>
-            <span className="text-[#5B6178]">{p.section}</span>
+            <span className="hidden text-[#5B6178] md:block">{p.section}</span>
             <span className="text-[#5B6178]">{p.category}</span>
             <span
               className={`justify-self-start rounded-md px-2 py-[3px] text-[12px] font-semibold ${
@@ -165,14 +176,14 @@ export function ProductsTable({ rows, counts, categories, filters, page, pageSiz
             >
               {p.isLive ? "Live" : "Hidden"}
             </span>
-            <span className="text-[#5B6178]">{p.updated}</span>
+            <span className="hidden text-[#5B6178] md:block">{p.updated}</span>
             {confirming === p.id ? (
-              <div role="group" aria-label={`Delete ${p.name}?`} className="flex items-center gap-[10px] text-[13px] font-semibold">
+              <div role="group" aria-label={`Delete ${p.name}?`} className="col-span-2 mt-2 flex items-center gap-[10px] text-[13px] font-semibold md:col-span-1 md:mt-0">
                 <button
                   type="button"
                   disabled={deleting}
                   onClick={() => remove(p.id)}
-                  className="text-[#B42318] disabled:opacity-60"
+                  className={`${actBtn} text-[#B42318] disabled:opacity-60`}
                 >
                   <Pending pending={deleting} label="Deleting…">Confirm</Pending>
                 </button>
@@ -180,18 +191,18 @@ export function ProductsTable({ rows, counts, categories, filters, page, pageSiz
                   type="button"
                   disabled={deleting}
                   onClick={() => setConfirming(null)}
-                  className="text-[#5B6178] hover:text-[#1B1F3B]"
+                  className={`${actBtn} text-[#5B6178] hover:text-[#1B1F3B]`}
                 >
                   Cancel
                 </button>
               </div>
             ) : (
-              <div className="flex gap-[14px] text-[13px] font-semibold">
-                <Link href={`/admin/products/${p.id}`} className="text-[#0D4FA0] hover:text-[#008848]">
+              <div className="col-span-2 mt-2 flex gap-[10px] text-[13px] font-semibold md:col-span-1 md:mt-0 md:gap-[14px]">
+                <Link href={`/admin/products/${p.id}`} className={`${actBtn} text-[#0D4FA0] hover:text-[#008848]`}>
                   Edit
                 </Link>
                 {canDelete && (
-                  <button type="button" onClick={() => setConfirming(p.id)} className="text-[#B42318] hover:text-[#8A1A12] hover:underline">
+                  <button type="button" onClick={() => setConfirming(p.id)} className={`${actBtn} text-[#B42318] hover:text-[#8A1A12] hover:underline`}>
                     Delete
                   </button>
                 )}
@@ -199,8 +210,10 @@ export function ProductsTable({ rows, counts, categories, filters, page, pageSiz
             )}
           </div>
         ))}
+        </div>
+        </div>
 
-        <div className="flex items-center justify-between px-5 py-3 text-[13px] text-[#5B6178]">
+        <div className="flex flex-wrap items-center justify-between gap-2 px-4 py-3 md:px-5 text-[13px] text-[#5B6178]">
           <span>
             Showing {first}–{last} of {total}
           </span>

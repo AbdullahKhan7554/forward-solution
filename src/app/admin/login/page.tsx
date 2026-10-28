@@ -86,7 +86,7 @@ export default function AdminLoginPage() {
 
   return (
     <div className="flex min-h-screen text-[#1B1F3B]">
-      <div className="box-border flex w-[690px] shrink-0 flex-col bg-[#171842] px-[72px] py-8 text-white">
+      <div className="box-border hidden w-[48%] max-w-[690px] shrink-0 flex-col bg-[#171842] px-12 py-8 text-white lg:flex xl:w-[690px] xl:px-[72px]">
         <div className={`${display} text-[36px] font-extrabold leading-[1.05]`}>
           <span className="text-[#4FC3F7]">AGRIPROM</span>
           <br />
@@ -94,22 +94,26 @@ export default function AdminLoginPage() {
         </div>
         <div className="flex grow flex-col justify-center gap-[18px]">
           <div className="text-[16px] font-bold tracking-[4px] text-[#4ADE80]">ADMIN PANEL</div>
-          <h1 className={`${display} m-0 text-[60px] font-bold leading-[1.12] tracking-[-1px]`}>
+          <h1 className={`${display} m-0 text-[44px] font-bold xl:text-[60px] leading-[1.12] tracking-[-1px]`}>
             Manage your products and blogs in a few clicks.
           </h1>
-          <p className="m-0 text-[22px] leading-[1.6] text-[#D3D6EE]">
+          <p className="m-0 text-[19px] leading-[1.6] text-[#D3D6EE] xl:text-[22px]">
             Add or edit products, write blogs and publish. Changes go live on agriprompakistan.com
             instantly.
           </p>
         </div>
       </div>
-      <div className="flex grow items-center justify-center bg-[#F5F6FA]">
+      <div className="box-border flex min-w-0 grow flex-col items-center justify-center gap-6 bg-[#F5F6FA] px-4 py-8 lg:px-6">
+        <div className={`${display} text-center text-[28px] font-extrabold leading-[1.05] lg:hidden`}>
+          <span className="text-[#0D4FA0]">AGRIPROM</span> <span className="text-[#008848]">PAKISTAN</span>
+          <div className="mt-2 text-[12px] font-bold tracking-[3px] text-[#5B6178]">ADMIN PANEL</div>
+        </div>
         <form
           onSubmit={settingPassword ? setNewPassword : signIn}
-          className="box-border flex w-[600px] flex-col gap-[22px] rounded-[20px] border border-[#E3E7EF] bg-white px-[52px] py-14"
+          className="box-border flex w-full max-w-[600px] flex-col gap-[22px] rounded-[20px] border border-[#E3E7EF] bg-white px-5 py-8 md:px-[52px] md:py-14"
         >
           <div>
-            <h2 className={`${display} m-0 text-[34px] font-bold text-[#171842]`}>
+            <h2 className={`${display} m-0 text-[28px] font-bold md:text-[34px] text-[#171842]`}>
               {settingPassword ? "Set your password" : "Sign in"}
             </h2>
             <p className="mb-0 mt-2 text-[18px] text-[#5B6178]">

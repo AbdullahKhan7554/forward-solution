@@ -25,7 +25,7 @@ export default async function AdminBlogsPage() {
 
   return (
     <div className="flex flex-col gap-5">
-      <div className="flex items-center justify-between">
+      <div className="flex flex-wrap items-center justify-between gap-3 lg:flex-nowrap">
         <div>
           <h1 className="m-0 text-[26px] font-bold">Blogs</h1>
           <div className="mt-1 text-[13px] text-[#5B6178]">
@@ -34,7 +34,7 @@ export default async function AdminBlogsPage() {
         </div>
         <Link
           href="/admin/blogs/new"
-          className="rounded-lg bg-[#008848] px-5 py-3 text-[14px] font-semibold text-white no-underline hover:bg-[#007A40] hover:text-white active:bg-[#006A38]"
+          className="admin-tap shrink-0 rounded-lg bg-[#008848] px-5 py-3 text-[14px] font-semibold text-white no-underline hover:bg-[#007A40] hover:text-white active:bg-[#006A38]"
         >
           + New blog
         </Link>

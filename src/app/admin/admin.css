@@ -80,3 +80,19 @@
     animation-duration: 2.4s;
   }
 }
+
+/* Touch layouts (< lg): 44px tap targets, and 16px inputs so iOS doesn't zoom on focus. */
+@media (max-width: 1023.98px) {
+  .admin-ui :is(button, select, [role="button"], input:not([type="checkbox"], [type="radio"], [type="file"])) {
+    min-height: 44px;
+  }
+  .admin-ui :is(input, select, textarea):not([class*="text-[16px]"], [class*="text-[17px]"], [class*="text-[18px]"], [class*="text-[19px]"], [class*="text-[2"]),
+  .admin-ui .ProseMirror {
+    font-size: 16px;
+  }
+  .admin-ui .admin-tap {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+  }
+}

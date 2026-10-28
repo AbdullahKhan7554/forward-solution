@@ -58,6 +58,25 @@ export function AdminShell({ me, children }: { me: AdminUser | null; children: R
   const pathname = usePathname();
   const router = useRouter();
   const online = usePresence(pathname === "/admin/login" ? null : (me?.id ?? null), me?.name ?? "");
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  // Mobile drawer: close on navigation, Esc, or growing past lg; lock page scroll while open.
+  useEffect(() => setMenuOpen(false), [pathname]);
+  useEffect(() => {
+    if (!menuOpen) return;
+    const onKey = (e: KeyboardEvent) => e.key === "Escape" && setMenuOpen(false);
+    const wide = window.matchMedia("(min-width: 1024px)");
+    const onWide = () => wide.matches && setMenuOpen(false);
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    window.addEventListener("keydown", onKey);
+    wide.addEventListener("change", onWide);
+    return () => {
+      document.body.style.overflow = prev;
+      window.removeEventListener("keydown", onKey);
+      wide.removeEventListener("change", onWide);
+    };
+  }, [menuOpen]);
 
   if (pathname === "/admin/login") return <>{children}</>;
 
@@ -71,13 +90,36 @@ export function AdminShell({ me, children }: { me: AdminUser | null; children: R
   }
 
   return (
-    <div className="flex min-h-screen bg-[#F4F6FA]">
+    <div className="flex min-h-screen flex-col bg-[#F4F6FA] lg:flex-row">
       <Suspense fallback={null}>
         <RouteProgress />
       </Suspense>
+      <header className="sticky top-0 z-30 flex h-14 items-center justify-between bg-[#16194A] pl-4 pr-1 text-white lg:hidden">
+        <div className="text-[15px] font-bold tracking-[0.5px]">
+          AGRIPROM <span className="text-[#4ADE80]">PAKISTAN</span>
+        </div>
+        <button
+          type="button"
+          aria-label="Open menu"
+          aria-expanded={menuOpen}
+          aria-controls="admin-menu"
+          onClick={() => setMenuOpen(true)}
+          className="flex h-11 w-11 items-center justify-center rounded-lg hover:bg-[#232766]"
+        >
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" aria-hidden="true">
+            <path d="M4 7h16M4 12h16M4 17h16" />
+          </svg>
+        </button>
+      </header>
+      {menuOpen && (
+        <div aria-hidden="true" onClick={() => setMenuOpen(false)} className="fixed inset-0 z-40 bg-[#0B0D26]/60 lg:hidden" />
+      )}
       <nav
+        id="admin-menu"
         aria-label="Admin menu"
-        className="sticky top-0 box-border flex h-screen w-[240px] shrink-0 flex-col gap-[6px] bg-[#16194A] px-4 py-7 text-white"
+        className={`fixed left-0 top-0 z-50 box-border flex h-[100dvh] w-[260px] max-w-[85vw] shrink-0 flex-col gap-[6px] overflow-y-auto bg-[#16194A] px-4 py-7 text-white transition-transform duration-200 lg:sticky lg:z-auto lg:h-screen lg:w-[240px] lg:max-w-none lg:translate-x-0 lg:overflow-visible lg:transition-none ${
+          menuOpen ? "translate-x-0" : "-translate-x-full"
+        }`}
       >
         <div className="px-3 pb-7 text-[18px] font-bold leading-[1.1] tracking-[0.5px]">
           AGRIPROM
@@ -93,6 +135,7 @@ export function AdminShell({ me, children }: { me: AdminUser | null; children: R
               key={item.href}
               href={item.href}
               aria-current="page"
+              onClick={() => setMenuOpen(false)}
               className="rounded-lg bg-[#008848] p-3 text-[14px] font-semibold text-white no-underline hover:bg-[#007A40] hover:text-white"
             >
               {item.label}
@@ -101,6 +144,7 @@ export function AdminShell({ me, children }: { me: AdminUser | null; children: R
             <Link
               key={item.href}
               href={item.href}
+              onClick={() => setMenuOpen(false)}
               className="rounded-lg p-3 text-[14px] text-[#E4E7F5] no-underline hover:bg-[#232766] hover:text-white active:bg-[#2A2F6B]"
             >
               {item.label}
@@ -144,7 +188,7 @@ export function AdminShell({ me, children }: { me: AdminUser | null; children: R
           Log out
         </button>
       </nav>
-      <main className="box-border flex min-w-0 grow flex-col gap-[22px] px-9 py-7">
+      <main className="box-border flex min-w-0 grow flex-col gap-[22px] px-4 py-5 md:px-6 lg:px-9 lg:py-7">
         <AdminContext.Provider value={{ me, online }}>{children}</AdminContext.Provider>
       </main>
     </div>
