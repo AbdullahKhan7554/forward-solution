@@ -313,6 +313,7 @@ export function Footer() {
           <p className="font-serif italic text-neutral-400">Designed with Precision.</p>
           <nav aria-label="Legal" className="flex items-center gap-6">
             <FooterLink href="/sitemap.xml">Sitemap</FooterLink>
+            <FooterLink href="/admin">Admin</FooterLink>
           </nav>
         </div>
       </div>

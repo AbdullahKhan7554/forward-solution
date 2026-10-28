@@ -8,6 +8,7 @@ import { gsap } from "@/lib/gsap";
 import { cn } from "@/lib/utils";
 import { Wordmark } from "./Wordmark";
 import { GlobalSearch } from "@/components/search/GlobalSearch";
+import { useHasSession } from "./useHasSession";
 
 type DropdownItem = {
   title: string;
@@ -486,6 +487,8 @@ export function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   // Which mobile accordion is expanded (by label); null = all collapsed.
   const [openAccordion, setOpenAccordion] = useState<string | null>(null);
+  // Signed-in admins get a shortcut back to the panel; checked client-side only.
+  const hasSession = useHasSession();
 
   useIsomorphicLayoutEffect(() => {
     reducedRef.current =
@@ -551,6 +554,26 @@ export function Navbar() {
 
           <div className="flex items-center gap-3 lg:gap-5">
             <GlobalSearch />
+
+            {hasSession && (
+              <div className="hidden lg:block">
+                <a
+                  href="/admin"
+                  className="group block rounded-sm border border-transparent bg-white px-8 py-3.5 shadow-soft transition-colors duration-[360ms] ease-brand-out hover:bg-white/90"
+                >
+                  <span className="block h-[1.2em] overflow-hidden">
+                    <span className="block transition-transform duration-[560ms] ease-brand-luxury group-hover:-translate-y-1/2">
+                      <span className="flex h-[1.2em] items-center font-sans text-small font-medium text-dark-rich">
+                        Admin
+                      </span>
+                      <span className="flex h-[1.2em] items-center font-sans text-small font-medium text-[#008A4B]">
+                        Admin
+                      </span>
+                    </span>
+                  </span>
+                </a>
+              </div>
+            )}
 
             <div className="hidden lg:block">
             <span className="block overflow-hidden">
@@ -648,6 +671,15 @@ export function Navbar() {
           >
             Contact
           </a>
+          {hasSession && (
+            <a
+              href="/admin"
+              onClick={closeMobile}
+              className="mt-3 inline-flex w-fit items-center rounded-sm bg-primary-600 px-7 py-3 font-sans text-body font-medium text-pure"
+            >
+              Admin
+            </a>
+          )}
         </nav>
       </div>
     </>
