@@ -8,7 +8,8 @@
     "start": "next start",
     "lint": "next lint",
     "typecheck": "tsc --noEmit",
-    "check:products": "node scripts/check-product-roundtrip.mts"
+    "check:products": "node scripts/check-product-roundtrip.mts",
+    "check:blogs": "node scripts/check-blog-roundtrip.mts"
   },
   "dependencies": {
     "@supabase/ssr": "^0.12.7",

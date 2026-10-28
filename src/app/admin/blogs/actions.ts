@@ -3,7 +3,7 @@
 import { revalidatePath } from "next/cache";
 import { getAdminSession, logActivity } from "@/lib/admin/session";
 import type { FilterCategory } from "@/components/info-center/types";
-import { FILTERS, formToBlogData, slugify, type BlogFormValues, type BlogStatus } from "@/lib/admin/blogs";
+import { FILTERS, formToBlogColumns, formToBlogData, slugify, type BlogFormValues, type BlogStatus } from "@/lib/admin/blogs";
 
 type Result<T = object> = ({ ok: true } & T) | { ok: false; error: string };
 
@@ -56,25 +56,15 @@ export async function saveBlog(
     .maybeSingle();
   const siblingFilter = (sibling as { filter?: string } | null)?.filter;
 
-  const fields = {
-    slug,
-    title,
-    category,
-    excerpt: form.excerpt.trim() || null,
-    cover_url: form.coverUrl,
-    content: form.content,
-    status,
-    published_at: `${form.publishDate}T00:00:00Z`,
-  };
-
+  // the form's listing group wins; new posts without one get the sibling/category guess
   const pickFilter = (existing?: string): FilterCategory =>
-    ([siblingFilter, category, existing].find((f) => FILTERS.includes(f as FilterCategory)) as FilterCategory) ??
+    ([form.filter, siblingFilter, category, existing].find((f) => FILTERS.includes(f as FilterCategory)) as FilterCategory) ??
     "Industry News";
 
   if (id) {
     const { data: existing, error: readError } = await supabase
       .from("blogs")
-      .select("slug, status, data")
+      .select("slug, status, excerpt, published_at, data")
       .eq("id", id)
       .maybeSingle();
     if (readError) return { ok: false, error: `Couldn't load the blog: ${readError.message}` };
@@ -83,7 +73,12 @@ export async function saveBlog(
     const data = existing.data ?? {};
     const { error } = await supabase
       .from("blogs")
-      .update({ ...fields, data: formToBlogData(form, slug, pickFilter(data.filter), data) })
+      .update({
+        ...formToBlogColumns(form, existing),
+        slug,
+        status,
+        data: formToBlogData(form, slug, pickFilter(data.filter), data, existing.published_at?.slice(0, 10)),
+      })
       .eq("id", id);
     if (error) return { ok: false, error: `Couldn't save: ${error.message}` };
 
@@ -95,7 +90,7 @@ export async function saveBlog(
 
   const { data: created, error } = await supabase
     .from("blogs")
-    .insert({ ...fields, data: formToBlogData(form, slug, pickFilter()) })
+    .insert({ ...formToBlogColumns(form), slug, status, data: formToBlogData(form, slug, pickFilter()) })
     .select("id")
     .single();
   if (error) return { ok: false, error: `Couldn't save: ${error.message}` };

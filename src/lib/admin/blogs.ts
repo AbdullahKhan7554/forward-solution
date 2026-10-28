@@ -1,8 +1,12 @@
 /**
- * Admin blog form ↔ blogs row mapping. The editor's HTML goes in blogs.content;
- * blogs.data keeps the remaining Article fields (intro, sections, date, …),
- * derived from the editor document, so the public blog page can render the
- * row unchanged. Fields the form doesn't edit (author, takeaways) are preserved.
+ * Admin blog form ↔ blogs row mapping, one form field per thing the public post
+ * page renders (see lib/blog.ts toArticle + ArticleView):
+ *   title, category, excerpt, cover_url  → own columns
+ *   body      → blogs.content (editor HTML). The page shows data.sections instead when
+ *               they exist, so once the body is edited here sections are cleared and
+ *               the page renders exactly the editor HTML (links, lists, images).
+ *   author, takeaways, filter (listing group), date, readingTime → blogs.data
+ * Saving an untouched form must reproduce the row exactly (scripts/check-blog-roundtrip.mts).
  */
 import type { JSONContent } from "@tiptap/react";
 import type { Article, FilterCategory } from "@/components/info-center/types";
@@ -38,6 +42,14 @@ export type BlogFormValues = {
   excerpt: string;
   /** YYYY-MM-DD */
   publishDate: string;
+  /** byline — data.author */
+  author: string;
+  /** "Key takeaways" panel — data.takeaways */
+  takeaways: string[];
+  /** listing page filter pill — data.filter; "" = pick automatically (new posts) */
+  filter: FilterCategory | "";
+  /** byline reading time — data.readingTime; recalculated whenever the body changes */
+  readingTime: string;
 };
 
 export const FILTERS: FilterCategory[] = ["Poultry", "Ruminants", "Veterinary", "Nutrition", "Industry News"];
@@ -48,10 +60,24 @@ const WORDS_PER_MINUTE = 200;
 export const today = () => new Date().toLocaleDateString("en-CA", { timeZone: "Asia/Karachi" });
 
 export function emptyBlogForm(category = ""): BlogFormValues {
-  return { title: "", slug: "", content: "", doc: null, coverUrl: null, category, excerpt: "", publishDate: today() };
+  return {
+    title: "",
+    slug: "",
+    content: "",
+    doc: null,
+    coverUrl: null,
+    category,
+    excerpt: "",
+    publishDate: today(),
+    author: DEFAULT_AUTHOR,
+    takeaways: [],
+    filter: "",
+    readingTime: "1 min read",
+  };
 }
 
 export function rowToBlogForm(row: BlogRow): BlogFormValues {
+  const d = row.data ?? {};
   return {
     title: row.title,
     slug: row.slug,
@@ -61,6 +87,10 @@ export function rowToBlogForm(row: BlogRow): BlogFormValues {
     category: row.category,
     excerpt: row.excerpt ?? "",
     publishDate: row.published_at ? row.published_at.slice(0, 10) : today(),
+    author: d.author ?? DEFAULT_AUTHOR,
+    takeaways: [...(d.takeaways ?? [])],
+    filter: d.filter ?? "",
+    readingTime: d.readingTime ?? "1 min read",
   };
 }
 
@@ -113,24 +143,45 @@ export function docToSections(doc: JSONContent) {
   };
 }
 
+/** The row a save writes, minus slug/status/data. `existing` keeps untouched values byte-identical. */
+export function formToBlogColumns(form: BlogFormValues, existing?: Pick<BlogRow, "excerpt" | "published_at"> | null) {
+  const excerpt = form.excerpt.trim();
+  return {
+    title: form.title.trim(),
+    category: form.category.trim(),
+    excerpt: existing?.excerpt != null && existing.excerpt.trim() === excerpt ? existing.excerpt : excerpt || null,
+    cover_url: form.coverUrl,
+    content: form.content,
+    // keep the stored timestamp when the day didn't change
+    published_at:
+      existing?.published_at && existing.published_at.slice(0, 10) === form.publishDate
+        ? existing.published_at
+        : `${form.publishDate}T00:00:00Z`,
+  };
+}
+
 /** Merges the form into an existing blogs.data (or a fresh one for new posts). */
 export function formToBlogData(
   form: BlogFormValues,
   slug: string,
   filter: FilterCategory,
   existing: Partial<BlogData> = {},
+  prevPublishDay?: string | null,
 ): BlogData {
-  const derived = form.doc ? docToSections(form.doc) : null;
+  const keep = (value: string, prev: string | undefined) => (prev !== undefined && prev.trim() === value.trim() ? prev : value.trim());
+  // body edited → the page must show the editor HTML, so drop the old structured copy
+  const body = form.doc ? { ...docToSections(form.doc), sections: [] } : null;
+  const takeaways = form.takeaways.filter((t) => t.trim()).map((t, i) => keep(t, existing.takeaways?.[i]));
   return {
-    author: DEFAULT_AUTHOR,
-    takeaways: [],
     intro: "",
     sections: [],
-    readingTime: "1 min read",
     ...existing,
-    ...derived,
+    ...body,
+    author: keep(form.author, existing.author) || DEFAULT_AUTHOR,
+    takeaways,
+    readingTime: body?.readingTime ?? (keep(form.readingTime, existing.readingTime) || "1 min read"),
     filter,
-    date: articleDate(form.publishDate),
+    date: existing.date && prevPublishDay === form.publishDate ? existing.date : articleDate(form.publishDate),
     href: `/blog/${slug}`,
   };
 }

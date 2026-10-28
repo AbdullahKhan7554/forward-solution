@@ -10,7 +10,8 @@ import { saveBlog } from "@/app/admin/blogs/actions";
 import { useToast } from "@/components/admin/Toast";
 import { toWebp, uploadWebp } from "@/lib/admin/image";
 import { Pending, ProgressBar, Spinner } from "@/components/admin/Spinner";
-import { slugify, type BlogFormValues, type BlogStatus } from "@/lib/admin/blogs";
+import { FILTERS, docToSections, slugify, type BlogFormValues, type BlogStatus } from "@/lib/admin/blogs";
+import type { FilterCategory } from "@/components/info-center/types";
 
 type Props = {
   id: string | null;
@@ -24,6 +25,10 @@ const card = "rounded-xl border border-[#E3E7EF] bg-white p-4 md:p-5";
 const label = "flex flex-col gap-[6px] text-[13px] font-semibold";
 const field =
   "rounded-lg border border-[#D5DAE6] bg-white p-[10px] text-[14px] font-normal text-[#1B1F3B] [font-family:inherit]";
+const hint = "text-[12px] font-normal text-[#5B6178]";
+const addBtn =
+  "rounded-md border border-[#D5DAE6] bg-white px-3 py-[6px] text-[13px] font-semibold text-[#0D4FA0] [font-family:inherit] hover:border-[#B8C0D4] hover:bg-[#F8F9FC]";
+const removeBtn = "h-11 w-11 shrink-0 border-none bg-transparent text-[18px] text-[#8A90A6] hover:text-[#B42318] md:h-8 md:w-8";
 const btn = "rounded-lg px-[18px] py-[11px] text-[14px] font-semibold [font-family:inherit] disabled:opacity-60";
 const tool =
   "h-9 min-w-[44px] rounded-md border-none px-[10px] lg:min-w-0 text-[13px] font-semibold text-[#1B1F3B] [font-family:inherit] hover:bg-[#EEF1F6] disabled:opacity-50";
@@ -305,6 +310,35 @@ export function BlogForm({ id, initial, categories }: Props) {
               onChange={(e) => insertImage(e.target.files?.[0])}
             />
           </div>
+
+          <div className="flex flex-col gap-[6px]">
+            <div className="flex items-center justify-between">
+              <div className="text-[13px] font-semibold">Key takeaways</div>
+              <button type="button" onClick={() => set("takeaways", [...form.takeaways, ""])} className={addBtn}>
+                + Add takeaway
+              </button>
+            </div>
+            <span className={hint}>The highlighted panel at the end of the post. Leave empty to hide it.</span>
+            {form.takeaways.map((t, i) => (
+              <div key={i} className="flex items-center gap-[10px]">
+                <input
+                  type="text"
+                  aria-label={`Takeaway ${i + 1}`}
+                  value={t}
+                  onChange={(e) => set("takeaways", form.takeaways.map((x, j) => (j === i ? e.target.value : x)))}
+                  className={`${field} min-w-0 grow`}
+                />
+                <button
+                  type="button"
+                  aria-label="Remove takeaway"
+                  onClick={() => set("takeaways", form.takeaways.filter((_, j) => j !== i))}
+                  className={removeBtn}
+                >
+                  ×
+                </button>
+              </div>
+            ))}
+          </div>
         </div>
 
         <div className="flex w-full shrink-0 flex-col gap-[18px] lg:w-[340px]">
@@ -409,6 +443,30 @@ export function BlogForm({ id, initial, categories }: Props) {
                 onChange={(e) => set("publishDate", e.target.value)}
                 className={field}
               />
+            </label>
+            <label className={label}>
+              Author
+              <input type="text" value={form.author} onChange={(e) => set("author", e.target.value)} className={field} />
+              <span className={hint}>
+                Shown under the title with the date and{" "}
+                {form.doc ? docToSections(form.doc).readingTime : form.readingTime}.
+              </span>
+            </label>
+            <label className={label}>
+              Blog page filter
+              <select
+                value={form.filter}
+                onChange={(e) => set("filter", e.target.value as FilterCategory | "")}
+                className={field}
+              >
+                {!form.filter && <option value="">Automatic (from category)</option>}
+                {FILTERS.map((f) => (
+                  <option key={f} value={f}>
+                    {f}
+                  </option>
+                ))}
+              </select>
+              <span className={hint}>The filter button on the blog page that lists this post.</span>
             </label>
           </div>
         </div>
