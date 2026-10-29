@@ -5,6 +5,7 @@
 import { cache } from "react";
 import sanitizeHtml from "sanitize-html";
 import { createPublicClient } from "@/lib/supabase/public";
+import { SITE } from "@/lib/catalog";
 import { articleDate, type BlogRow } from "@/lib/admin/blogs";
 import type { Article } from "@/components/info-center/types";
 
@@ -52,7 +53,7 @@ function toArticle(row: Row): Article {
   };
 }
 
-export type PublishedArticle = Article & { updatedAt: string };
+export type PublishedArticle = Article & { publishedAt: string | null; updatedAt: string };
 
 /** Every published post, newest first. Deduped per render. */
 export const getArticles = cache(async (): Promise<PublishedArticle[]> => {
@@ -64,9 +65,27 @@ export const getArticles = cache(async (): Promise<PublishedArticle[]> => {
     .order("updated_at", { ascending: false })
     .order("slug");
   if (error) throw new Error(`Couldn't load blogs: ${error.message}`);
-  return (data as Row[]).map((r) => ({ ...toArticle(r), updatedAt: r.updated_at }));
+  return (data as Row[]).map((r) => ({ ...toArticle(r), publishedAt: r.published_at, updatedAt: r.updated_at }));
 });
 
 export async function getArticle(slug: string) {
   return (await getArticles()).find((a) => a.slug === slug);
+}
+
+/** BlogPosting structured data (JSON-LD). */
+export function blogPostingJsonLd(a: PublishedArticle) {
+  const url = `${SITE}/blog/${a.slug}`;
+  return {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    headline: a.title,
+    description: a.excerpt,
+    ...(a.image ? { image: new URL(a.image, SITE).href } : {}),
+    ...(a.publishedAt ? { datePublished: a.publishedAt } : {}),
+    dateModified: a.updatedAt,
+    author: { "@type": "Organization", name: a.author },
+    publisher: { "@type": "Organization", name: "Agriprom Pakistan", logo: { "@type": "ImageObject", url: `${SITE}/logo.svg` } },
+    mainEntityOfPage: url,
+    url,
+  };
 }

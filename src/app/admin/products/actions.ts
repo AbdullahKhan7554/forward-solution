@@ -5,6 +5,7 @@ import { getAdminSession, logActivity } from "@/lib/admin/session";
 import { CONFLICT, LIMITS, tooLong } from "@/lib/admin/limits";
 import { removeOrphanedMedia } from "@/lib/admin/storage";
 import { productUrlError } from "@/lib/admin/validate";
+import { clearRedirect, recordRedirect } from "@/lib/admin/redirects";
 import { categoryPath, productPath } from "@/lib/catalog";
 import {
   SECTIONS,
@@ -96,6 +97,11 @@ export async function saveProduct(
     if (error) return { ok: false, error: `Couldn't save: ${error.message}` };
     if (!written?.length) return { ok: false, error: CONFLICT };
 
+    // a live product's old URL keeps working when its section or category moves it
+    const oldPath = productPath(existing.section, existing.category, existing.slug);
+    const newPath = productPath(fields.section, fields.category, existing.slug);
+    if (existing.is_live && oldPath !== newPath) await recordRedirect(supabase, oldPath, newPath);
+    else if (fields.is_live) await clearRedirect(supabase, newPath);
     revalidateProduct(existing, { ...fields, slug: existing.slug });
     const action = existing.is_live === fields.is_live ? "updated" : fields.is_live ? "published" : "hidden";
     await logActivity(me.id, action, { type: "product", id, name });
@@ -132,6 +138,7 @@ export async function saveProduct(
     .single();
   if (error) return { ok: false, error: `Couldn't save: ${error.message}` };
 
+  if (fields.is_live) await clearRedirect(supabase, productPath(fields.section, fields.category, slug));
   revalidateProduct({ ...fields, slug });
   await logActivity(me.id, "created", { type: "product", id: created.id, name });
   return { ok: true, id: created.id };

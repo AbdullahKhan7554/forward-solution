@@ -6,7 +6,7 @@ import { Navbar } from "@/components/navbar/Navbar";
 import { NewsletterCTA } from "@/components/blog/NewsletterCTA";
 import { Footer } from "@/components/layout/Footer";
 import { ArticleView } from "@/components/blog/ArticleView";
-import { getArticle, getArticles } from "@/lib/blog";
+import { blogPostingJsonLd, getArticle, getArticles } from "@/lib/blog";
 import type { Article } from "@/components/info-center/types";
 
 type Params = { slug: string };
@@ -51,6 +51,10 @@ export default async function ArticlePage({ params }: { params: Params }) {
 
   return (
     <IntroProvider>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(blogPostingJsonLd(article)).replace(/</g, "\\u003c") }}
+      />
       <Preloader caption="N°01 — The Knowledge" ariaLabel={`Reading — ${article.title}`} />
       <Navbar />
       <main>

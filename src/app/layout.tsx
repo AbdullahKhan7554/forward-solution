@@ -41,7 +41,17 @@ const SITE_URL = "https://agriprompakistan.com";
 const SITE_NAME = "Agriprom Pakistan";
 const SITE_TITLE = "Agriprom Pakistan — Advancing Animal Health Through Science";
 const SITE_DESCRIPTION =
-  "A science-driven animal health company delivering globally-qualified vaccines, biosecurity, nutraceuticals and nutrition across poultry, ruminant, aquaculture, equine and pet health.";
+  "A science-driven animal health company delivering globally-qualified nutrition, nutraceuticals and health solutions for poultry and ruminants.";
+
+/** Organization structured data (JSON-LD), escaped like the product JSON-LD. */
+const ORGANIZATION_JSON_LD = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: SITE_NAME,
+  url: SITE_URL,
+  logo: `${SITE_URL}/logo.svg`,
+  description: SITE_DESCRIPTION,
+};
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -85,6 +95,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       className={`${manrope.variable} ${inter.variable} ${newsreader.variable}`}
     >
       <body>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(ORGANIZATION_JSON_LD).replace(/</g, "\\u003c") }}
+        />
         <SmoothScrollProvider>{children}</SmoothScrollProvider>
         <FloatingWhatsApp />
       </body>

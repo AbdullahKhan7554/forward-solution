@@ -28,7 +28,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     ...STATIC_ROUTES,
     ...poultry.map((c) => `/products/poultry/${c.id}`),
     ...ruminants.map((c) => `/products/ruminants/${c.id}`),
-    ...products.map((p) => p.href),
   ];
 
   const staticEntries: MetadataRoute.Sitemap = routes.map((route) => ({
@@ -38,12 +37,19 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: route === "/" ? 1 : 0.7,
   }));
 
+  const productEntries: MetadataRoute.Sitemap = products.map((p) => ({
+    url: `${SITE}${p.href}`,
+    lastModified: new Date(p.updatedAt),
+    changeFrequency: "monthly",
+    priority: 0.7,
+  }));
+
   const blogEntries: MetadataRoute.Sitemap = articles.map((a) => ({
     url: `${SITE}/blog/${a.slug}`,
-    lastModified: now,
+    lastModified: new Date(a.updatedAt),
     changeFrequency: "monthly",
     priority: 0.6,
   }));
 
-  return [...staticEntries, ...blogEntries];
+  return [...staticEntries, ...productEntries, ...blogEntries];
 }

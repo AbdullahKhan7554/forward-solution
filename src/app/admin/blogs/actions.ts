@@ -4,6 +4,7 @@ import { revalidatePath } from "next/cache";
 import { getAdminSession, logActivity } from "@/lib/admin/session";
 import { CONFLICT, LIMITS, tooLong } from "@/lib/admin/limits";
 import { removeOrphanedMedia } from "@/lib/admin/storage";
+import { clearRedirect, recordRedirect } from "@/lib/admin/redirects";
 import type { FilterCategory } from "@/components/info-center/types";
 import { FILTERS, formToBlogColumns, formToBlogData, slugify, type BlogFormValues, type BlogStatus } from "@/lib/admin/blogs";
 
@@ -93,6 +94,9 @@ export async function saveBlog(
     if (error) return { ok: false, error: `Couldn't save: ${error.message}` };
     if (!written?.length) return { ok: false, error: CONFLICT };
 
+    // a published post's old URL keeps working
+    if (existing.status === "published" && existing.slug !== slug) await recordRedirect(supabase, `/blog/${existing.slug}`, `/blog/${slug}`);
+    else if (status === "published") await clearRedirect(supabase, `/blog/${slug}`);
     revalidateBlog(existing.slug, slug);
     const action = existing.status === status ? "updated" : status === "published" ? "published" : "hidden";
     await logActivity(me.id, action, { type: "blog", id, name: title });
@@ -109,6 +113,7 @@ export async function saveBlog(
     .single();
   if (error) return { ok: false, error: `Couldn't save: ${error.message}` };
 
+  if (status === "published") await clearRedirect(supabase, `/blog/${slug}`);
   revalidateBlog(slug);
   await logActivity(me.id, status === "published" ? "published" : "created", { type: "blog", id: created.id, name: title });
   return { ok: true, id: created.id, slug };
