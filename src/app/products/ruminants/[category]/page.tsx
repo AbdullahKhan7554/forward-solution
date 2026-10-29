@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { CategoryPage } from "@/components/product-detail/CategoryPage";
-import { getCategoryPage, getCategoryPages } from "@/lib/catalog";
+import { SITE, getCategoryPage, getCategoryPages } from "@/lib/catalog";
 
 type Params = { params: { category: string } };
 
@@ -11,7 +11,9 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const c = await getCategoryPage("ruminants", params.category);
-  return c ? { title: c.title, description: c.description } : {};
+  return c
+    ? { title: c.title, description: c.description, alternates: { canonical: `${SITE}/products/ruminants/${c.id}` } }
+    : {};
 }
 
 /** Ruminant category page — same template as the poultry category pages. */

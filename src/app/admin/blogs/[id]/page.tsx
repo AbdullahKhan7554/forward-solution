@@ -18,5 +18,5 @@ export default async function EditBlogPage({ params }: { params: { id: string } 
   if (error) throw new Error(`Couldn't load the blog: ${error.message}`);
   if (!data) notFound();
 
-  return <BlogForm key={data.updated_at} id={data.id} initial={rowToBlogForm(data as BlogRow)} categories={categories} />;
+  return <BlogForm key={data.updated_at} id={data.id} updatedAt={data.updated_at} initial={rowToBlogForm(data as BlogRow)} categories={categories} />;
 }

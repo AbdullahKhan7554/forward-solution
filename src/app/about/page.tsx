@@ -16,6 +16,7 @@ export const metadata: Metadata = {
   title: "About — Agriprom Pakistan | Advancing Animal Health Through Science",
   description:
     "Agriprom Pakistan delivers globally trusted animal health and nutrition solutions that empower veterinarians, livestock producers and distributors across Pakistan through scientific excellence and long-term partnerships.",
+  alternates: { canonical: "https://agriprompakistan.com/about" },
 };
 
 /**

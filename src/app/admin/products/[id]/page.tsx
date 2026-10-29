@@ -18,5 +18,5 @@ export default async function EditProductPage({ params }: { params: { id: string
   if (error) throw new Error(`Couldn't load the product: ${error.message}`);
   if (!data) notFound();
 
-  return <ProductForm key={data.updated_at} id={data.id} initial={rowToForm(data as ProductRow)} categories={categories} />;
+  return <ProductForm key={data.updated_at} id={data.id} updatedAt={data.updated_at} initial={rowToForm(data as ProductRow)} categories={categories} />;
 }

@@ -1,7 +1,6 @@
 "use server";
 
 import { revalidatePath } from "next/cache";
-import { headers } from "next/headers";
 import { createAdminClient } from "@/lib/supabase/admin";
 import { getAdminSession, logActivity } from "@/lib/admin/session";
 import { isRole, type AdminUser, type Role } from "@/lib/admin/team";
@@ -19,13 +18,12 @@ async function adminSession(): Promise<{ error: string } | { me: AdminUser }> {
   return { me: session.me };
 }
 
+/** Where invite links land: NEXT_PUBLIC_SITE_URL, else the Vercel deployment's URL, else local dev. */
 function siteOrigin() {
-  const h = headers();
-  const origin = h.get("origin");
-  if (origin) return origin;
-  const host = h.get("x-forwarded-host") ?? h.get("host");
-  const proto = h.get("x-forwarded-proto") ?? "https";
-  return `${proto}://${host}`;
+  const site = process.env.NEXT_PUBLIC_SITE_URL?.trim().replace(/\/+$/, "");
+  if (site) return site;
+  const vercel = process.env.VERCEL_PROJECT_PRODUCTION_URL ?? process.env.VERCEL_URL;
+  return vercel ? `https://${vercel}` : "http://localhost:3000";
 }
 
 export async function inviteUser(form: { name: string; email: string; role: Role }): Promise<Result> {

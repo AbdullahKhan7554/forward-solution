@@ -6,7 +6,7 @@ export function ProductPage({ product }: { product: CatalogProduct }) {
   return (
     <>
       {productJsonLd(product).map((ld) => (
-        <script key={ld["@type"]} type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(ld) }} />
+        <script key={ld["@type"]} type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(ld).replace(/</g, "\\u003c") }} />
       ))}
       <ProductDetail data={product.data} />
     </>

@@ -2,6 +2,9 @@
 
 import { revalidatePath } from "next/cache";
 import { getAdminSession, logActivity } from "@/lib/admin/session";
+import { CONFLICT, LIMITS, tooLong } from "@/lib/admin/limits";
+import { removeOrphanedMedia } from "@/lib/admin/storage";
+import { productUrlError } from "@/lib/admin/validate";
 import { categoryPath, productPath } from "@/lib/catalog";
 import {
   SECTIONS,
@@ -36,9 +39,11 @@ function revalidateProduct(...rows: Pick<ProductRow, "section" | "category" | "s
   revalidatePath("/admin/products", "layout");
 }
 
+/** `updatedAt` is the row's updated_at when the form was loaded; a newer row means someone else saved meanwhile. */
 export async function saveProduct(
   id: string | null,
   form: ProductFormValues,
+  updatedAt: string | null,
 ): Promise<Result<{ id: string }>> {
   const session = await getAdminSession();
   if (!session) return { ok: false, error: SIGNED_OUT };
@@ -49,6 +54,15 @@ export async function saveProduct(
   if (!name) return { ok: false, error: "Product name is required." };
   if (!SECTIONS.some((s) => s.value === form.section)) return { ok: false, error: "Choose a section." };
   if (!category) return { ok: false, error: "Choose a category." };
+
+  const { data: all, error: listError } = await supabase.from("products").select("id, slug, name, section, category, subtitle, data");
+  if (listError) return { ok: false, error: `Couldn't save: ${listError.message}` };
+  const stored = id ? all.find((r) => r.id === id) : undefined;
+  const lengthError =
+    tooLong("Product name", name, LIMITS.productName, stored?.name) ??
+    tooLong("Subtitle", form.subtitle, LIMITS.subtitle, stored?.subtitle) ??
+    tooLong("Meta description", form.metaDescription, LIMITS.metaDescription, stored?.data?.metaDescription);
+  if (lengthError) return { ok: false, error: lengthError };
 
   const fields = {
     section: form.section,
@@ -62,17 +76,25 @@ export async function saveProduct(
   if (id) {
     const { data: existing, error: readError } = await supabase
       .from("products")
-      .select("slug, section, category, is_live, image_url, data")
+      .select("slug, section, category, is_live, image_url, data, updated_at")
       .eq("id", id)
       .maybeSingle();
     if (readError) return { ok: false, error: `Couldn't load the product: ${readError.message}` };
     if (!existing) return { ok: false, error: "This product no longer exists." };
+    if (!updatedAt || existing.updated_at !== updatedAt) return { ok: false, error: CONFLICT };
 
-    const { error } = await supabase
+    const urlError = productUrlError({ id, slug: existing.slug, name, section: fields.section, category }, all);
+    if (urlError) return { ok: false, error: urlError };
+
+    // the updated_at match makes the write fail if someone saved between the read and here
+    const { data: written, error } = await supabase
       .from("products")
       .update({ ...fields, data: formToData(form, existing.data ?? {}, existing.image_url ?? existing.data?.assets?.hero ?? null) })
-      .eq("id", id);
+      .eq("id", id)
+      .eq("updated_at", updatedAt)
+      .select("id");
     if (error) return { ok: false, error: `Couldn't save: ${error.message}` };
+    if (!written?.length) return { ok: false, error: CONFLICT };
 
     revalidateProduct(existing, { ...fields, slug: existing.slug });
     const action = existing.is_live === fields.is_live ? "updated" : fields.is_live ? "published" : "hidden";
@@ -91,6 +113,9 @@ export async function saveProduct(
   const used = new Set((taken ?? []).map((r) => r.slug));
   let slug = base;
   for (let n = 2; used.has(slug); n++) slug = `${base}-${n}`;
+
+  const urlError = productUrlError({ id: null, slug, name, section: fields.section, category }, all);
+  if (urlError) return { ok: false, error: urlError };
 
   const { data: last } = await supabase
     .from("products")
@@ -122,11 +147,12 @@ export async function deleteProduct(id: string): Promise<Result> {
     .from("products")
     .delete()
     .eq("id", id)
-    .select("name, slug, section, category");
+    .select("name, slug, section, category, image_url, data");
   if (error) return { ok: false, error: `Couldn't delete: ${error.message}` };
   if (!deleted?.length) return { ok: false, error: "This product was already deleted." };
 
   revalidateProduct(...deleted);
+  await removeOrphanedMedia(supabase, deleted);
   await logActivity(me.id, "deleted", { type: "product", id, name: deleted[0].name });
   return { ok: true };
 }

@@ -8,10 +8,13 @@ import { useAdmin } from "@/components/admin/AdminShell";
 import { useToast } from "@/components/admin/Toast";
 import { toWebp, uploadWebp } from "@/lib/admin/image";
 import { Pending, ProgressBar } from "@/components/admin/Spinner";
+import { LIMITS } from "@/lib/admin/limits";
 import { SECTIONS, type CtaForm, type ProductFormValues, type Section } from "@/lib/admin/products";
 
 type Props = {
   id: string | null;
+  /** the row's updated_at when loaded — sent with saves to catch someone else's edit */
+  updatedAt: string | null;
   initial: ProductFormValues;
   categories: Record<Section, string[]>;
 };
@@ -46,7 +49,7 @@ const CTA_FIELDS: { key: keyof CtaForm; label: string; placeholder: string; wide
 ];
 const btn = "rounded-lg px-[18px] py-[11px] text-[14px] font-semibold [font-family:inherit] disabled:opacity-60";
 
-export function ProductForm({ id, initial, categories }: Props) {
+export function ProductForm({ id, updatedAt, initial, categories }: Props) {
   const router = useRouter();
   const toast = useToast();
   const canDelete = useAdmin().me?.role === "admin";
@@ -122,7 +125,7 @@ export function ProductForm({ id, initial, categories }: Props) {
         imageUrl = await uploadWebp(image.blob, "products", setProgress);
         setProgress(null);
       }
-      const res = await saveProduct(id, { ...form, imageUrl });
+      const res = await saveProduct(id, { ...form, imageUrl }, updatedAt);
       if (!res.ok) return toast.error(res.error);
       setForm((f) => ({ ...f, imageUrl }));
       setImage(null);
@@ -206,11 +209,11 @@ export function ProductForm({ id, initial, categories }: Props) {
           <div className={`${card} grid grid-cols-1 gap-[14px] md:grid-cols-2`}>
             <label className={label}>
               Product name
-              <input type="text" value={form.name} onChange={(e) => set("name", e.target.value)} className={field} />
+              <input type="text" maxLength={LIMITS.productName} value={form.name} onChange={(e) => set("name", e.target.value)} className={field} />
             </label>
             <label className={label}>
               Subtitle
-              <input type="text" value={form.subtitle} onChange={(e) => set("subtitle", e.target.value)} className={field} />
+              <input type="text" maxLength={LIMITS.subtitle} value={form.subtitle} onChange={(e) => set("subtitle", e.target.value)} className={field} />
               <span className={hint}>Small line under the name. Leave empty to hide.</span>
             </label>
             <label className={`${label} col-span-full`}>
@@ -339,6 +342,7 @@ export function ProductForm({ id, initial, categories }: Props) {
                 Meta description
                 <textarea
                   rows={3}
+                  maxLength={LIMITS.metaDescription}
                   value={form.metaDescription}
                   onChange={(e) => set("metaDescription", e.target.value)}
                   className={`${field} resize-none text-[14px] leading-[1.5]`}

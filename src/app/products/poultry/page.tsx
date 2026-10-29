@@ -14,6 +14,7 @@ export const metadata: Metadata = {
   title: "Poultry Solutions — Agriprom Pakistan | Scientific Feed Technologies",
   description:
     "Agriprom Pakistan delivers scientifically proven nutritional technologies — enzymes, organic acids, toxin binders and more — that improve bird health, feed efficiency and farm profitability.",
+  alternates: { canonical: "https://agriprompakistan.com/products/poultry" },
 };
 
 /**

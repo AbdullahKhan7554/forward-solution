@@ -18,6 +18,7 @@ export const metadata: Metadata = {
   title: "Products — Agriprom Pakistan | Scientific Solutions for Animal Health",
   description:
     "Explore Agriprom Pakistan's complete portfolio of globally trusted animal nutrition, veterinary and livestock solutions — organised around every species and every stage of animal health.",
+  alternates: { canonical: "https://agriprompakistan.com/products" },
 };
 
 /**

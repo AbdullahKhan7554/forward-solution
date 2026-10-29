@@ -10,11 +10,14 @@ import { saveBlog } from "@/app/admin/blogs/actions";
 import { useToast } from "@/components/admin/Toast";
 import { toWebp, uploadWebp } from "@/lib/admin/image";
 import { Pending, ProgressBar, Spinner } from "@/components/admin/Spinner";
+import { LIMITS } from "@/lib/admin/limits";
 import { FILTERS, docToSections, slugify, type BlogFormValues, type BlogStatus } from "@/lib/admin/blogs";
 import type { FilterCategory } from "@/components/info-center/types";
 
 type Props = {
   id: string | null;
+  /** the row's updated_at when loaded — sent with saves to catch someone else's edit */
+  updatedAt: string | null;
   initial: BlogFormValues;
   categories: string[];
 };
@@ -118,7 +121,7 @@ function Toolbar({ editor, onImage, uploading }: { editor: Editor | null; onImag
   );
 }
 
-export function BlogForm({ id, initial, categories }: Props) {
+export function BlogForm({ id, updatedAt, initial, categories }: Props) {
   const router = useRouter();
   const toast = useToast();
   const [form, setForm] = useState(initial);
@@ -209,7 +212,7 @@ export function BlogForm({ id, initial, categories }: Props) {
         coverUrl = await uploadWebp(cover.blob, "blogs", setCoverProgress);
         setCoverProgress(null);
       }
-      const res = await saveBlog(id, { ...form, coverUrl }, status);
+      const res = await saveBlog(id, { ...form, coverUrl }, status, updatedAt);
       if (!res.ok) return toast.error(res.error);
       setForm((f) => ({ ...f, coverUrl, slug: res.slug }));
       setCover(null);
@@ -268,6 +271,7 @@ export function BlogForm({ id, initial, categories }: Props) {
               Title
               <input
                 type="text"
+                maxLength={LIMITS.blogTitle}
                 value={form.title}
                 onChange={(e) => changeTitle(e.target.value)}
                 className="rounded-lg border border-[#D5DAE6] p-3 text-[20px] font-semibold text-[#1B1F3B] [font-family:inherit]"

@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import dynamic from "next/dynamic";
 import { Navbar } from "@/components/navbar/Navbar";
 import { SceneThreshold } from "@/components/scenes/SceneThreshold";
@@ -12,6 +13,10 @@ const SceneJourney = dynamic(() => import("@/components/scenes/SceneJourney").th
 const ScenePartners = dynamic(() => import("@/components/scenes/ScenePartners").then((m) => m.ScenePartners));
 const SceneInsights = dynamic(() => import("@/components/scenes/SceneInsights").then((m) => m.SceneInsights));
 const SceneCTA = dynamic(() => import("@/components/scenes/SceneCTA").then((m) => m.SceneCTA));
+
+export const metadata: Metadata = {
+  alternates: { canonical: "https://agriprompakistan.com/" },
+};
 
 /**
  * Scene 01 - The Threshold. Perfected in isolation.

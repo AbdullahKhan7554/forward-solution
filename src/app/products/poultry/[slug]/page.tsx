@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { CategoryPage } from "@/components/product-detail/CategoryPage";
 import { ProductPage } from "@/components/product-detail/ProductPage";
-import { findProduct, getCategoryPage, getCategoryPages, getSectionProducts, productMetadata } from "@/lib/catalog";
+import { SITE, findProduct, getCategoryPage, getCategoryPages, getSectionProducts, productMetadata } from "@/lib/catalog";
 
 type Params = { params: { slug: string } };
 
@@ -24,7 +24,11 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const page = await resolve(params.slug);
   if (!page) return {};
   if (page.product) return productMetadata(page.product);
-  return { title: page.category.title, description: page.category.description };
+  return {
+    title: page.category.title,
+    description: page.category.description,
+    alternates: { canonical: `${SITE}/products/poultry/${page.category.id}` },
+  };
 }
 
 export default async function PoultrySlugPage({ params }: Params) {

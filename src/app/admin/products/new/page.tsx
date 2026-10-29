@@ -6,5 +6,5 @@ export const dynamic = "force-dynamic";
 
 export default async function NewProductPage() {
   const categories = await loadCategories();
-  return <ProductForm id={null} initial={emptyForm("poultry", categories.poultry[0] ?? "")} categories={categories} />;
+  return <ProductForm id={null} updatedAt={null} initial={emptyForm("poultry", categories.poultry[0] ?? "")} categories={categories} />;
 }

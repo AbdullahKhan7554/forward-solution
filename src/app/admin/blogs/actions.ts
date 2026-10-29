@@ -2,6 +2,8 @@
 
 import { revalidatePath } from "next/cache";
 import { getAdminSession, logActivity } from "@/lib/admin/session";
+import { CONFLICT, LIMITS, tooLong } from "@/lib/admin/limits";
+import { removeOrphanedMedia } from "@/lib/admin/storage";
 import type { FilterCategory } from "@/components/info-center/types";
 import { FILTERS, formToBlogColumns, formToBlogData, slugify, type BlogFormValues, type BlogStatus } from "@/lib/admin/blogs";
 
@@ -21,10 +23,12 @@ function revalidateBlog(...slugs: string[]) {
   revalidatePath("/admin/blogs", "layout");
 }
 
+/** `updatedAt` is the row's updated_at when the form was loaded; a newer row means someone else saved meanwhile. */
 export async function saveBlog(
   id: string | null,
   form: BlogFormValues,
   status: BlogStatus,
+  updatedAt: string | null,
 ): Promise<Result<{ id: string; slug: string }>> {
   const session = await getAdminSession();
   if (!session) return { ok: false, error: SIGNED_OUT };
@@ -64,14 +68,18 @@ export async function saveBlog(
   if (id) {
     const { data: existing, error: readError } = await supabase
       .from("blogs")
-      .select("slug, status, excerpt, published_at, data")
+      .select("slug, title, status, excerpt, published_at, data, updated_at")
       .eq("id", id)
       .maybeSingle();
     if (readError) return { ok: false, error: `Couldn't load the blog: ${readError.message}` };
     if (!existing) return { ok: false, error: "This blog no longer exists." };
+    if (!updatedAt || existing.updated_at !== updatedAt) return { ok: false, error: CONFLICT };
+    const lengthError = tooLong("Title", title, LIMITS.blogTitle, existing.title);
+    if (lengthError) return { ok: false, error: lengthError };
 
     const data = existing.data ?? {};
-    const { error } = await supabase
+    // the updated_at match makes the write fail if someone saved between the read and here
+    const { data: written, error } = await supabase
       .from("blogs")
       .update({
         ...formToBlogColumns(form, existing),
@@ -79,14 +87,20 @@ export async function saveBlog(
         status,
         data: formToBlogData(form, slug, pickFilter(data.filter), data, existing.published_at?.slice(0, 10)),
       })
-      .eq("id", id);
+      .eq("id", id)
+      .eq("updated_at", updatedAt)
+      .select("id");
     if (error) return { ok: false, error: `Couldn't save: ${error.message}` };
+    if (!written?.length) return { ok: false, error: CONFLICT };
 
     revalidateBlog(existing.slug, slug);
     const action = existing.status === status ? "updated" : status === "published" ? "published" : "hidden";
     await logActivity(me.id, action, { type: "blog", id, name: title });
     return { ok: true, id, slug };
   }
+
+  const lengthError = tooLong("Title", title, LIMITS.blogTitle);
+  if (lengthError) return { ok: false, error: lengthError };
 
   const { data: created, error } = await supabase
     .from("blogs")
@@ -106,11 +120,12 @@ export async function deleteBlog(id: string): Promise<Result> {
   if (session.me.role !== "admin") return { ok: false, error: ADMINS_ONLY };
   const { supabase, me } = session;
 
-  const { data: deleted, error } = await supabase.from("blogs").delete().eq("id", id).select("slug, title");
+  const { data: deleted, error } = await supabase.from("blogs").delete().eq("id", id).select("slug, title, cover_url, content, data");
   if (error) return { ok: false, error: `Couldn't delete: ${error.message}` };
   if (!deleted?.length) return { ok: false, error: "This blog was already deleted." };
 
   revalidateBlog(...deleted.map((d) => d.slug));
+  await removeOrphanedMedia(supabase, deleted);
   await logActivity(me.id, "deleted", { type: "blog", id, name: deleted[0].title });
   return { ok: true };
 }
