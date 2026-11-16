@@ -49,7 +49,7 @@ const ORGANIZATION_JSON_LD = {
   "@type": "Organization",
   name: SITE_NAME,
   url: SITE_URL,
-  logo: `${SITE_URL}/logo.svg`,
+  logo: `${SITE_URL}/brand/logo-white-bg.png`,
   description: SITE_DESCRIPTION,
 };
 
@@ -58,11 +58,6 @@ export const metadata: Metadata = {
   title: SITE_TITLE,
   description: SITE_DESCRIPTION,
   applicationName: SITE_NAME,
-  icons: {
-    icon: [{ url: "/favicon.svg", type: "image/svg+xml" }],
-    shortcut: "/favicon.svg",
-    apple: "/favicon.svg",
-  },
   openGraph: {
     type: "website",
     siteName: SITE_NAME,
@@ -70,13 +65,13 @@ export const metadata: Metadata = {
     description: SITE_DESCRIPTION,
     url: SITE_URL,
     locale: "en_US",
-    images: [{ url: "/images/heroabout/h1.webp", width: 1200, height: 630, alt: SITE_NAME }],
+    images: [{ url: "/brand/logo-white-bg.png", width: 1200, height: 675, alt: SITE_NAME }],
   },
   twitter: {
     card: "summary_large_image",
     title: SITE_TITLE,
     description: SITE_DESCRIPTION,
-    images: ["/images/heroabout/h1.webp"],
+    images: ["/brand/logo-white-bg.png"],
   },
   robots: { index: true, follow: true },
 };

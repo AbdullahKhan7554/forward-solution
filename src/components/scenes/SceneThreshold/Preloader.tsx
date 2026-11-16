@@ -80,10 +80,10 @@ export function Preloader({
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
         ref={logoRef}
-        src="/logo.svg"
+        src="/brand/logo-colored.png"
         alt="Agriprom Pakistan"
-        width={576}
-        height={324}
+        width={1200}
+        height={675}
         className="relative z-raised h-20 w-auto object-contain md:h-28"
       />
     </div>

@@ -84,7 +84,7 @@ export function blogPostingJsonLd(a: PublishedArticle) {
     ...(a.publishedAt ? { datePublished: a.publishedAt } : {}),
     dateModified: a.updatedAt,
     author: { "@type": "Organization", name: a.author },
-    publisher: { "@type": "Organization", name: "Agriprom Pakistan", logo: { "@type": "ImageObject", url: `${SITE}/logo.svg` } },
+    publisher: { "@type": "Organization", name: "Agriprom Pakistan", logo: { "@type": "ImageObject", url: `${SITE}/brand/logo-white-bg.png` } },
     mainEntityOfPage: url,
     url,
   };
