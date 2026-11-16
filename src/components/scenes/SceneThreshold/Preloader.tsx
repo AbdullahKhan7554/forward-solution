@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import { useIsomorphicLayoutEffect } from "@/hooks/useIsomorphicLayoutEffect";
 import { useIntro } from "@/components/providers/IntroProvider";
 import { gsap } from "@/lib/gsap";
+import { Wordmark } from "@/components/navbar/Wordmark";
 
 /**
  * Preloader - "First Light".
@@ -26,7 +27,7 @@ export function Preloader({
 } = {}) {
   const { complete, preloader } = useIntro();
   const rootRef = useRef<HTMLDivElement>(null);
-  const logoRef = useRef<HTMLImageElement>(null);
+  const logoRef = useRef<HTMLDivElement>(null);
   const [gone, setGone] = useState(false);
   const isAdmin = usePathname()?.startsWith("/admin") ?? false;
 
@@ -76,16 +77,10 @@ export function Preloader({
       role="status"
       aria-label={ariaLabel}
     >
-      {/* brand logo */}
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img
-        ref={logoRef}
-        src="/brand/logo-colored.png"
-        alt="Agriprom Pakistan"
-        width={1200}
-        height={675}
-        className="relative z-raised h-20 w-auto object-contain md:h-28"
-      />
+      {/* brand logo - the same Wordmark the navbar renders, scaled up */}
+      <div ref={logoRef} className="relative z-raised flex justify-center px-6">
+        <Wordmark className="[&_img]:h-20 [&_img]:max-w-full md:[&_img]:h-28" />
+      </div>
     </div>
   );
 }
