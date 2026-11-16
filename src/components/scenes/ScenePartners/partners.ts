@@ -23,4 +23,5 @@ export const partners: Partner[] = [
   { name: "Wellgreen", logo: "/partners/new/wellgreen.webp", description: "Feed Additives", weight: "feature" },
   { name: "Solinkon", logo: "/partners/new/solinkon.webp", description: "Animal Nutrition", weight: "standard" },
   { name: "Vegamax", logo: "/partners/new/vegamax.webp", description: "Feed Additives", weight: "offset" },
+  { name: "Kemin", logo: "/partners/new/kemin.webp", description: "Animal Nutrition & Health", weight: "feature" },
 ];
